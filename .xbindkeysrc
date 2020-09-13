@@ -1,0 +1,8 @@
+"flameshot gui"
+Print
+
+"xdotool set_desktop $(( (`xdotool get_desktop` + 1) % `xdotool get_num_desktops` ))"
+b:8
+
+"xdotool set_desktop $(( (`xdotool get_desktop` + `xdotool get_num_desktops` - 1) % `xdotool get_num_desktops` ))"
+b:9
