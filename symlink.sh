@@ -3,8 +3,15 @@
 src=$(realpath $(dirname ${BASH_SOURCE[0]}))/src
 
 symlink() {
-    $3 rm $2/$1
-    $3 ln -s $src/$1 $2
+    if [ -f $2/$1 ]; then
+        $3 rm $2/$1
+    fi
+
+    if [ ! -d $2 ]; then
+        $3 mkdir -p $2
+    fi
+
+    $3 ln -s $src/$1 -t $2
 }
 
 symlink .bashrc ~
