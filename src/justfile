@@ -5,6 +5,7 @@ clean:
     sudo vkpurge rm all
     sudo xbps-remove -Ooy
     flatpak uninstall --unused -y
+    nix-collect-garbage -d
 
 sv service:
     sudo ln -s /etc/sv/{{service}} /var/service/
