@@ -13,5 +13,7 @@ alias u := update
 update:
     sudo xbps-install -Suy
     flatpak update -y
+    nix-channel --update
+    nix-env -u
     rustup update
     cargo install-update -a
