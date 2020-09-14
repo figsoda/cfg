@@ -16,6 +16,7 @@ symlink() {
 
 symlink .bashrc ~
 symlink .xbindkeysrc ~
+symlink config.nix ~/.config/nixpkgs
 symlink flameshot.ini ~/.config/Dharkael
 symlink justfile ~
 symlink resolv.conf /etc sudo
