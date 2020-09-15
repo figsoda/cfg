@@ -1,4 +1,5 @@
-startup_mode: Maximized
+window:
+  startup_mode: Maximized
 
 font:
   normal:
