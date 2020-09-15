@@ -1,0 +1,23 @@
+startup_mode: Maximized
+
+font:
+  normal:
+    family: JetBrains Mono
+
+  bold:
+    family: JetBrains Mono
+
+  italic:
+    family: JetBrains Mono
+
+  bold_italic:
+    family: JetBrains MOno
+
+  size: 9
+
+cursor:
+  style: Beam
+
+mouse:
+  url:
+    modifiers: Control
