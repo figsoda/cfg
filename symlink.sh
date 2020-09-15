@@ -16,6 +16,7 @@ symlink() {
 
 symlink .bashrc ~
 symlink .xbindkeysrc ~
+symlink alacritty.yml ~/.config/alacritty
 symlink config.nix ~/.config/nixpkgs
 symlink flameshot.ini ~/.config/Dharkael
 symlink justfile ~
