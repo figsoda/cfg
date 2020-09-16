@@ -6,3 +6,4 @@ config.nix ~/.config/nixpkgs
 flameshot.ini ~/.config/Dharkael
 justfile ~
 resolv.conf /etc sudo
+sxhkdrc ~/.config/sxhkd
