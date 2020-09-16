@@ -1,5 +1,4 @@
-export VERSION_ID=unavailable
-export XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/flatpak/exports/share:~/.local/share/flatpak/exports/share
+set VERSION_ID unavailable
 
 alias code=code-oss
 
