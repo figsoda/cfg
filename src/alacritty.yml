@@ -19,6 +19,9 @@ font:
 cursor:
   style: Beam
 
+shell:
+  program: fish
+
 mouse:
   url:
     modifiers: Control
