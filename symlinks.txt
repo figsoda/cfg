@@ -1,0 +1,8 @@
+.bashrc ~
+.xbindkeysrc ~
+alacritty.yml ~/.config/alacritty
+config.fish ~/.config/fish
+config.nix ~/.config/nixpkgs
+flameshot.ini ~/.config/Dharkael
+justfile ~
+resolv.conf /etc sudo
