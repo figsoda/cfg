@@ -3,7 +3,7 @@
 xbps-install -Syu
 xbps-install -y void-repo-multilib void-repo-multilib-nonfree void-repo-nonfree
 
-while IFS= read -r pkgs do
+while IFS= read -r pkgs; do
     [ -n "$pkgs" ] && xbps-install -y "$pkgs"
 done < xbps-pkgs.txt
 
