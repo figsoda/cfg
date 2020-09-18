@@ -1,0 +1,15 @@
+chrony elogind pulseaudio udisks2 upower xorg
+
+plasma-desktop plasma-nm plasma-pa
+breeze-gtk kde-gtk-config5 kscreen kwayland-integration kwrited
+blue-devil dolphin user-manager powerdevil sddm-kcm xdg-dekstop-portal
+
+alacritty bat fish-shell nano thefuck
+fd httpie just psmisc ripgrep sd unzip wget xdotool xtools zip
+flameshot gcc just protonvpn-cli rustup sxhkd
+stack hlint ncurses-libtinfo-libs
+
+docker firefox flatpak gimp noto-fonts-emoji qalculate-gtk vlc vscode
+
+libgcc-32bit libstdc++-32bit
+libdrm-32bit libglvnd-32bit mesa-vulkan-intel mesa-vulkan-intel-32bit steam
