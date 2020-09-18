@@ -8,6 +8,7 @@ while IFS= read -r pkgs; do
 done < xbps-pkgs.txt
 
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak override --filesystem=~/.icons/:ro --user
 flatpak install com.discordapp.Discord
 
 eval "$(curl -L https://nixos.org/nix/install)" --no-daemon
