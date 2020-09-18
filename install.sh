@@ -7,6 +7,6 @@ while IFS=" " read -r file dir sudo; do
     if [ -n "$file" ] && [ -n "$dir" ]; then
         [ -f "$dir/$file" ] && $sudo rm "$dir/$file"
         [ ! -d "$dir" ] && $sudo mkdir -p "$dir"
-        $sudo ln -s "$src/$file" "$dir"
+        $sudo ln -s "$src/$file" -t "$dir"
     fi
 done < symlinks.txt
