@@ -8,7 +8,7 @@ clean:
     nix-collect-garbage -d
 
 sv service:
-    sudo ln -s /etc/sv/{{service}} /var/service/
+    sudo ln -st /var/service/ /etc/sv/{{service}} 
 
 alias u := update
 update:
