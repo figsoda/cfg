@@ -17,5 +17,5 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 flatpak override --user --filesystem=~/.icons/:ro
 flatpak install -y flathub com.discordapp.Discord
 
-eval "$(curl -L https://nixos.org/nix/install)" --no-daemon
-eval "$(curl -L https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
+bash <(curl -L https://nixos.org/nix/install) --no-daemon
+bash <(curl -L https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)
