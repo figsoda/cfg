@@ -15,7 +15,7 @@ cargo install cargo-audit cargo-bloat cargo-cache cargo-udeps cargo-update cross
 
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak override --user --filesystem=~/.icons/:ro
-flatpak install com.discordapp.Discord
+flatpak install -y flathub com.discordapp.Discord
 
 eval "$(curl -L https://nixos.org/nix/install)" --no-daemon
 eval "$(curl -L https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
