@@ -1,4 +1,5 @@
 .bashrc ~
+.gitconfig ~
 alacritty.yml ~/.config/alacritty
 config.fish ~/.config/fish
 config.nix ~/.config/nixpkgs
