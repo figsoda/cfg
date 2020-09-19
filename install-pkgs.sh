@@ -7,7 +7,7 @@ while IFS= read -r pkgs; do
     [ -n "$pkgs" ] && xbps-install -y "$pkgs"
 done < xbps-pkgs.txt
 
-ln -st /var/service /etc/sv/{NetworkManager, bluetoothd, chronyd, dbus, docker, sddm}
+ln -st /var/service /etc/sv/{NetworkManager,bluetoothd,chronyd,dbus,docker,sddm}
 touch /etc/sv/docker/down
 
 rustup toolchain install nightly --components clippy rustfmt
