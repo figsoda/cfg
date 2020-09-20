@@ -1,6 +1,6 @@
 set VERSION_ID unavailable
 
-alias ls="exa -l"
+alias ls="exa -bl --git --time-style long-iso"
 alias code=code-oss
 
 bash ~/.nix-profile/etc/profile.d/nix.sh
