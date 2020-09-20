@@ -1,5 +1,5 @@
-set EDITOR code-oss
-set VERSION_ID unavailable
+set -gx EDITOR code-oss
+set -gx VERSION_ID unavailable
 
 alias ls="exa -bl --git --time-style long-iso --group-directories-first"
 alias code=code-oss
