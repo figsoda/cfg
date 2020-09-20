@@ -1,5 +1,6 @@
 [[ $- != *i* ]] && return
 
+export EDITOR=code-oss
 export VERSION_ID=unavailable
 
 alias ls="exa -bl --git --time-style long-iso --group-directories-first"
