@@ -4,7 +4,7 @@ plasma-desktop plasma-nm plasma-pa
 breeze-gtk kde-gtk-config5 kscreen kwayland-integration kwrited
 bluedevil dolphin user-manager powerdevil sddm-kcm xdg-desktop-portal-kde
 
-alacritty bat fish-shell nano starship thefuck
+alacritty bat exa fish-shell nano starship thefuck
 fd httpie just psmisc ripgrep sd unzip wget xdotool xtools zip
 flameshot gcc protonvpn-cli rustup sxhkd
 stack hlint ncurses-libtinfo-libs
