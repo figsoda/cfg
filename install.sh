@@ -14,8 +14,6 @@ rustup-init -yt nightly -c clippy rustfmt
 cargo install cargo-audit cargo-bloat cargo-cache cargo-udeps cargo-update cross pactorio
 
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak override --user --filesystem=~/.icons/:ro
-flatpak install -y flathub com.discordapp.Discord
 flatpak install -y flathub org.onlyoffice.desktopeditors
 
 bash <(curl -L https://nixos.org/nix/install) --no-daemon
