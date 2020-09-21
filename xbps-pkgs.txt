@@ -2,7 +2,7 @@ chrony elogind pulseaudio udisks2 upower xorg
 
 plasma-desktop plasma-nm plasma-pa
 breeze-gtk kde-gtk-config5 kscreen kwayland-integration kwrited
-bluedevil dolphin user-manager powerdevil sddm-kcm xdg-desktop-portal-kde
+Thunar bluedevil user-manager powerdevil sddm-kcm xdg-desktop-portal-kde
 
 alacritty broot bat exa fish-shell hyperfine nano starship thefuck
 fd httpie just psmisc ripgrep sd unzip wget xdotool xtools zip
