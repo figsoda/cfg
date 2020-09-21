@@ -4,7 +4,7 @@ set -U fish_color_quote 5fd700
 set -U fish_color_redirection ff8700
 set -U fish_color_end d75fff
 set -U fish_color_error ff0000
-set -U fish_color_param bcbcbc
+set -U fish_color_param 87d7d7
 set -U fish_color_selection c0c0c0
 set -U fish_color_search_match ffff00
 set -U fish_color_history_current normal
