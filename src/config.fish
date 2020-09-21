@@ -1,3 +1,5 @@
+set -g fish_greeting
+
 set -g fish_color_normal normal
 set -g fish_color_command 00afff
 set -g fish_color_quote 5fd700
