@@ -13,8 +13,8 @@ sv service:
 alias u := update
 update:
     sudo xbps-install -Suy
+    sudo nix-channel --update
+    sudo nix-env -u
     flatpak update -y
-    nix-channel --update
-    nix-env -u
     rustup update
     cargo install-update -a
