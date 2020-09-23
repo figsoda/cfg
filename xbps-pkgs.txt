@@ -2,14 +2,14 @@ chrony elogind pulseaudio udisks2 upower xorg
 
 plasma-desktop plasma-nm plasma-pa
 breeze-gtk kde-gtk-config5 kscreen kwayland-integration
-Thunar bluedevil user-manager sddm-kcm xdg-desktop-portal-kde
+Thunar bluedevil user-manager sddm-kcm
 
 alacritty broot bat exa fish-shell hyperfine nano starship thefuck
 fd httpie just psmisc ripgrep sd unzip wget xdotool xtools zip
 flameshot gcc protonvpn-cli rustup sxhkd
 stack hlint ncurses-libtinfo-libs
 
-docker firefox flatpak gimp noto-fonts-emoji qalculate-gtk vlc vscode
+docker firefox gimp noto-fonts-emoji qalculate-gtk vlc vscode
 
 libgcc-32bit libstdc++-32bit
 libdrm-32bit libglvnd-32bit mesa-vulkan-intel mesa-vulkan-intel-32bit steam

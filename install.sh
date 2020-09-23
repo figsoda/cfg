@@ -14,9 +14,6 @@ rustup-init -y --default-toolchain nightly -c clippy rustfmt
 bash ~/.cargo/env
 cargo install cargo-audit cargo-bloat cargo-cache cargo-udeps cargo-update cross pactorio
 
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install -y flathub org.onlyoffice.desktopeditors
-
 bash <(curl -L https://nixos.org/nix/install) --no-daemon
 bash <(curl -L https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)
 
