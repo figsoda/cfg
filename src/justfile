@@ -4,7 +4,6 @@ alias c := clean
 clean:
     sudo vkpurge rm all
     sudo xbps-remove -Ooy
-    flatpak uninstall --unused -y
     nix-collect-garbage -d
 
 sv service:
@@ -15,6 +14,5 @@ update:
     sudo xbps-install -Suy
     sudo nix-channel --update
     sudo nix-env -u
-    flatpak update -y
     rustup update
     cargo install-update -a
