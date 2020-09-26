@@ -5,7 +5,7 @@ breeze-gtk kde-gtk-config5 kscreen kwayland-integration
 Thunar bluedevil user-manager sddm-kcm
 
 alacritty broot bat exa fish-shell hyperfine nano starship thefuck
-fd httpie just psmisc ripgrep sd unzip wget xdotool xtools zip
+brightnessctl fd httpie just psmisc ripgrep sd unzip wget xdotool xtools zip
 flameshot gcc protonvpn-cli rustup sxhkd
 stack hlint ncurses-libtinfo-libs
 
