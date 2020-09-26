@@ -7,4 +7,4 @@ flameshot.ini ~/.config/Dharkael
 justfile ~
 resolv.conf /etc sudo
 starship.toml ~/.config
-sxhkdrc ~/.config/sxhkd
+sxhkdrc ~/.config/sxhkd false
