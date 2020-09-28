@@ -106,6 +106,10 @@ local kbss = {
         {m, "Right", awful.tag.viewnext, "view next tag"},
         {m, "BackSpace", awful.tag.history.restore, "go back"},
     },
+    volume = {
+        {{}, "XF86AudioLowerVolume", exec("pamixer -d 5"), "lower volume"},
+        {{}, "XF86AudioRaiseVolume", exec("pamixer -i 5"), "raise volume"},
+    },
     app = {
         {{}, "Print", exec("flameshot gui"), "launch flameshot"},
         {m, "Return", exec("alacritty"), "launch alacritty"},
