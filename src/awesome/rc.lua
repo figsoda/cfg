@@ -14,9 +14,7 @@ local ms = {"Mod4", "Shift"}
 local function setwallpaper(s)
     if beautiful.wallpaper then
         local wallpaper = beautiful.wallpaper
-        if type(wallpaper) == "function" then
-            wallpaper = wallpaper(s)
-        end
+        if type(wallpaper) == "function" then wallpaper = wallpaper(s) end
         gears.wallpaper.maximized(wallpaper, s)
     end
 end
@@ -30,6 +28,10 @@ local function viewonly(t) t:view_only() end
 local function prevlayout() awful.layout.inc(-1) end
 
 local function nextlayout() awful.layout.inc(1) end
+
+local function prevclient() awful.client.focus.byidx(-1) end
+
+local function nextclient() awful.client.focus.byidx(1) end
 
 local function exec(cmd) return function() awful.spawn(cmd) end end
 
@@ -162,8 +164,26 @@ awful.screen.connect_for_each_screen(
                     ),
                 },
             },
-            wibox.widget.systray(),
-            wibox.widget.textclock("%F %T", 1),
+            awful.widget.tasklist {
+                screen = s,
+                filter = awful.widget.tasklist.filter.currenttags,
+                buttons = gears.table.join(
+                    awful.button(
+                        {}, 1, function(c)
+                            c.minimized = not c.minimized
+                            c:emit_signal(
+                                "reqwest::activate", "tasklist", {raise = true}
+                            )
+                        end
+                    ), awful.button({}, 4, prevclient),
+                        awful.button({}, 5, nextclient)
+                ),
+            },
+            {
+                layout = wibox.layout.align.horizontal,
+                wibox.widget.systray(),
+                wibox.widget.textclock("%F %T", 1),
+            },
         }
     end
 )
