@@ -87,6 +87,7 @@ local kbss = {
         {m, "BackSpace", awful.tag.history.restore, "go back"},
     },
     app = {
+        {{}, "Print", exec("flameshot gui"), "launch flameshot"},
         {m, "Return", exec("alacritty"), "launch alacritty"},
         {m, "b", exec("firefox"), "launch firefox"},
         {m, "c", exec("code-oss"), "launch vscode"},
