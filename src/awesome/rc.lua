@@ -33,18 +33,19 @@ local function maptag(f, i)
     end
 end
 
+local l = awful.layout.suit
 local p = awful.placement
 
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 awful.layout.layouts = {
-    awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
-    awful.layout.suit.tile.floating,
-    awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
+    l.tile,
+    l.tile.left,
+    l.tile.bottom,
+    l.tile.top,
+    l.tile.floating,
+    l.max,
+    l.max.fullscreen,
 }
 
 awful.rules.rules = {
