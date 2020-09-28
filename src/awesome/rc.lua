@@ -11,6 +11,16 @@ local ma = {"Mod4", "Mod1"}
 local mc = {"Mod4", "Control"}
 local ms = {"Mod4", "Shift"}
 
+local function setwallpaper(s)
+    if beautiful.wallpaper then
+        local wallpaper = beautiful.wallpaper
+        if type(wallpaper) == "function" then
+            wallpaper = wallpaper(s)
+        end
+        gears.wallpaper.maximized(wallpaper, s)
+    end
+end
+
 local function focusclient(c)
     c:emit_signal("request::activate", "mouse_click", {raise = true})
 end
@@ -37,6 +47,8 @@ local l = awful.layout.suit
 local p = awful.placement
 
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+
+screen.connect_signal("property::geometry", setwallpaper)
 
 awful.layout.layouts = {
     l.tile,
@@ -104,6 +116,8 @@ client.connect_signal(
 
 awful.screen.connect_for_each_screen(
     function(s)
+        setwallpaper(s)
+
         awful.tag(
             {"1", "2", "3", "4", "5", "6", "7", "8", "9"}, s,
                 awful.layout.layouts[1]
@@ -216,7 +230,6 @@ root.keys(keys)
 awful.spawn("xbacklight = 10")
 awful.spawn("xset -b")
 awful.spawn("flameshot")
-awful.spawn("~/.fehbg")
 awful.spawn("Thunar --daemon")
 awful.spawn("nm-applet")
 awful.spawn("volctl")
