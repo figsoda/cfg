@@ -12,6 +12,7 @@ return {
     layout_tilebottom = themedir .. "zenburn/layouts/tilebottom.png",
     layout_tileleft = themedir .. "zenburn/layouts/tileleft.png",
 
+    wibar_height = 24,
     wibar_bg = "#202020",
     wibar_fg = "#d0d0d0",
 
@@ -31,5 +32,5 @@ return {
     border_normal = "#606060",
     border_focus = "#0074b8",
 
-    wallpaper = "/home/figsoda/wallpaper.png"
+    wallpaper = "/home/figsoda/wallpaper.png",
 }

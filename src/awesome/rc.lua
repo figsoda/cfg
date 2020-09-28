@@ -132,13 +132,7 @@ awful.screen.connect_for_each_screen(
             )
         )
 
-        s.panel = awful.wibar {
-            position = "bottom",
-            stretch = true,
-            border_width = 0,
-            height = 24,
-            screen = s,
-        }
+        s.panel = awful.wibar {position = "bottom", screen = s}
         s.panel:setup{
             layout = wibox.layout.align.horizontal,
             {
