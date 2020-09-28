@@ -70,7 +70,7 @@ awful.screen.connect_for_each_screen(
                         )
                 ),
             },
-            wibox.widget.textclock(),
+            wibox.widget.textclock("%F %T", 1),
         }
     end
 )
