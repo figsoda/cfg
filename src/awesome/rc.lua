@@ -46,7 +46,7 @@ end
 local l = awful.layout.suit
 local p = awful.placement
 
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 
 screen.connect_signal("property::geometry", setwallpaper)
 
