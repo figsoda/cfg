@@ -21,7 +21,7 @@ return {
     bg_normal = "#202020",
     bg_focus = "#404040",
     bg_urgent = "ffa000",
-    bg_minimize = "#101010",
+    bg_minimize = "#202020",
 
     fg_normal = "#d0d0d0",
     fg_focus = "#f0f0f0",
