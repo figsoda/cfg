@@ -4,6 +4,8 @@ local gears = require("gears")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local wibox = require("wibox")
 
+require("awful.autofocus")
+
 local m = {"Mod4"}
 local ma = {"Mod4", "Mod1"}
 local mc = {"Mod4", "Control"}
