@@ -6,7 +6,7 @@ Thunar bluedevil user-manager sddm-kcm
 
 alacritty broot bat exa fish-shell hyperfine nano starship thefuck
 fd httpie just psmisc ripgrep sd unzip wget xdotool xtools zip
-flameshot gcc protonvpn-cli rustup sxhkd
+flameshot gcc rustup sxhkd
 stack hlint ncurses-libtinfo-libs
 
 docker firefox gimp noto-fonts-emoji qalculate-gtk vlc vscode
