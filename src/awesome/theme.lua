@@ -13,8 +13,6 @@ return {
     layout_tileleft = themedir .. "zenburn/layouts/tileleft.png",
 
     wibar_height = 24,
-    wibar_bg = "#202020",
-    wibar_fg = "#d0d0d0",
 
     font = "Noto Sans 12",
 
