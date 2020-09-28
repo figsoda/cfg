@@ -44,14 +44,14 @@ awful.screen.connect_for_each_screen(
                 awful.layout.suit.tile.left
         )
 
-        s.bar = awful.wibar {
+        s.panel = awful.wibar {
             position = "bottom",
             stretch = true,
             border_width = 0,
             height = 32,
             screen = s,
         }
-        s.bar:setup{
+        s.panel:setup{
             layout = wibox.layout.align.horizontal,
             awful.widget.taglist {
                 screen = s,
