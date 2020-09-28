@@ -48,7 +48,7 @@ awful.screen.connect_for_each_screen(
             position = "bottom",
             stretch = true,
             border_width = 0,
-            height = 32,
+            height = 24,
             screen = s,
         }
         s.panel:setup{
