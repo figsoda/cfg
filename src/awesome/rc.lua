@@ -134,7 +134,7 @@ for group, kbs in pairs(kbss) do
 end
 root.keys(keys)
 
-awful.spawn("brightnessctl s 10%")
+awful.spawn("xbacklight -set 10%")
 awful.spawn("xset -b")
 awful.spawn("flameshot")
 awful.spawn("~/.fehbg")
