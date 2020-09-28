@@ -13,6 +13,10 @@ local ms = {"Mod4", "Shift"}
 
 local function viewonly(t) t:view_only() end
 
+local function prevlayout() awful.layout.inc(-1) end
+
+local function nextlayout() awful.layout.inc(1) end
+
 local function exec(cmd) return function() awful.spawn(cmd) end end
 
 local function maptag(f, i)
@@ -44,6 +48,13 @@ awful.screen.connect_for_each_screen(
                 awful.layout.suit.tile.left
         )
 
+        s.layoutbox = awful.widget.layoutbox(s);
+        s.layoutbox:buttons(
+            gears.table.join(
+                awful.button({}, 4, prevlayout), awful.button({}, 5, nextlayout)
+            )
+        )
+
         s.panel = awful.wibar {
             position = "bottom",
             stretch = true,
@@ -53,22 +64,28 @@ awful.screen.connect_for_each_screen(
         }
         s.panel:setup{
             layout = wibox.layout.align.horizontal,
-            awful.widget.taglist {
-                screen = s,
-                filter = awful.widget.taglist.filter.all,
-                buttons = gears.table.join(
-                    awful.button({}, 1, viewonly),
-                        awful.button({}, 3, awful.tag.viewtoggle),
-                        awful.button(
-                            {}, 4, function(t)
-                                awful.tag.viewprev(t.screen)
-                            end
-                        ), awful.button(
-                            {}, 5, function(t)
-                                awful.tag.viewnext(t.screen)
-                            end
-                        )
-                ),
+            {
+                layout = wibox.layout.align.horizontal,
+                s.layoutbox,
+                awful.widget.taglist {
+                    screen = s,
+                    filter = awful.widget.taglist.filter.all,
+                    buttons = gears.table.join(
+                        awful.button({}, 1, viewonly),
+                            awful.button({}, 3, awful.tag.viewtoggle),
+                            awful.button(
+                                {}, 4,
+                                    function(t)
+                                        awful.tag.viewprev(t.screen)
+                                    end
+                            ), awful.button(
+                                {}, 5,
+                                    function(t)
+                                        awful.tag.viewnext(t.screen)
+                                    end
+                            )
+                    ),
+                },
             },
             wibox.widget.systray(),
             wibox.widget.textclock("%F %T", 1),
