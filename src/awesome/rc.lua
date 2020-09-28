@@ -110,6 +110,10 @@ local kbss = {
         {{}, "XF86AudioLowerVolume", exec("pamixer -d 5"), "lower volume"},
         {{}, "XF86AudioRaiseVolume", exec("pamixer -i 5"), "raise volume"},
     },
+    brightness = {
+        {{}, "XF86MonBrightnessDown", exec("xbacklight - 5"), "reduce brightness"},
+        {{}, "XF86MonBrightnessUp", exec("xbacklight + 5"), "increase brightness"},
+    },
     app = {
         {{}, "Print", exec("flameshot gui"), "launch flameshot"},
         {m, "Return", exec("alacritty"), "launch alacritty"},
