@@ -62,62 +62,6 @@ awful.layout.layouts = {
     l.max.fullscreen,
 }
 
-awful.rules.rules = {
-    {
-        rule = {},
-        properties = {
-            border_width = beautiful.border_width,
-            border_color = beautiful.border_normal,
-            focus = awful.client.focus.filter,
-            raise = true,
-            keys = {},
-            buttons = gears.table.join(
-                awful.button({}, 1, focusclient), --
-                awful.button(
-                    m, 1, function(c)
-                        focusclient(c)
-                        awful.mouse.client.move(c)
-                    end
-                ), --
-                awful.button(
-                    m, 3, function(c)
-                        focusclient(c)
-                        awful.mouse.client.resize(c)
-                    end
-                )
-            ),
-            screen = awful.screen.preferred,
-            placement = p.no_overlap + p.no_offscreen,
-        },
-    },
-}
-
-client.connect_signal(
-    "manage", function(c)
-        if awesome.startup then
-            awful.client.setslave(c)
-            if not c.size_hints.user_position
-                and not c.size_hints.program_position then
-                p.no_offscreen(c)
-            end
-        end
-    end
-)
-
-client.connect_signal(
-    "mouse::enter", function(c)
-        c:emit_signal("request::activate", "mouse_enter", {raise = false})
-    end
-)
-
-client.connect_signal(
-    "focus", function(c) c.border_color = beautiful.border_focus end
-)
-
-client.connect_signal(
-    "unfocus", function(c) c.border_color = beautiful.border_normal end
-)
-
 awful.screen.connect_for_each_screen(
     function(s)
         setwallpaper(s)
@@ -230,6 +174,62 @@ for i = 1, 9 do
         kbss.tag, {ma, i, maptag(awful.tag.viewtoggle, i), "toggle tag " .. i}
     )
 end
+
+awful.rules.rules = {
+    {
+        rule = {},
+        properties = {
+            border_width = beautiful.border_width,
+            border_color = beautiful.border_normal,
+            focus = awful.client.focus.filter,
+            raise = true,
+            keys = {},
+            buttons = gears.table.join(
+                awful.button({}, 1, focusclient), --
+                awful.button(
+                    m, 1, function(c)
+                        focusclient(c)
+                        awful.mouse.client.move(c)
+                    end
+                ), --
+                awful.button(
+                    m, 3, function(c)
+                        focusclient(c)
+                        awful.mouse.client.resize(c)
+                    end
+                )
+            ),
+            screen = awful.screen.preferred,
+            placement = p.no_overlap + p.no_offscreen,
+        },
+    },
+}
+
+client.connect_signal(
+    "manage", function(c)
+        if awesome.startup then
+            awful.client.setslave(c)
+            if not c.size_hints.user_position
+                and not c.size_hints.program_position then
+                p.no_offscreen(c)
+            end
+        end
+    end
+)
+
+client.connect_signal(
+    "mouse::enter", function(c)
+        c:emit_signal("request::activate", "mouse_enter", {raise = false})
+    end
+)
+
+client.connect_signal(
+    "focus", function(c) c.border_color = beautiful.border_focus end
+)
+
+client.connect_signal(
+    "unfocus", function(c) c.border_color = beautiful.border_normal end
+)
 
 local keys = {}
 for group, kbs in pairs(kbss) do
