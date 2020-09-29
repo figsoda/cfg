@@ -58,10 +58,7 @@ awful.screen.connect_for_each_screen(
     function(s)
         setwallpaper(s)
 
-        awful.tag(
-            {"1", "2", "3", "4", "5", "6", "7", "8", "9"}, s,
-                awful.layout.layouts[1]
-        )
+        awful.tag({"1", "2", "3", "4", "5", "6", "7", "8", "9"}, s, l.tile)
 
         s.layoutbox = awful.widget.layoutbox(s);
         s.layoutbox:buttons(
@@ -122,22 +119,12 @@ awful.screen.connect_for_each_screen(
     end
 )
 
-local ckeys = gears.table.join(
-    awful.key(
-        m, "q", function(c) c:kill() end, --
-        {description = "kill the client", group = "client"}
-    ), --
-    awful.key(
-        m, "n", function(c) c.minimized = not c.minimized end, --
-        {description = "minimize the client", group = "client"}
-    ), --
-    awful.key(
-        m, "j", prevclient, {description = "previous client", group = "client"}
-    ), --
-    awful.key(
-        m, "k", nextclient, {description = "next client", group = "client"}
-    )
-)
+local ckbs = {
+    {m, "q", function(c) c:kill() end, "kill the client"},
+    {m, "n", function(c) c.minimized = true end, "minimize the client"},
+    {m, "j", prevclient, "previous client"},
+    {m, "k", nextclient, "next client"},
+}
 
 local kbss = {
     help = {{m, "h", hotkeys_popup.show_help, "show help"}},
@@ -198,21 +185,29 @@ for i = 1, 9 do
     table.insert(
         kbss.tag, {ma, i, maptag(awful.tag.viewtoggle, i), "toggle tag " .. i}
     )
+    table.insert(
+        ckbs, {
+            ms,
+            i,
+            function(c) maptag(function(t) c:move_to_tag(t) end, i)() end,
+            "move client to tag " .. i,
+        }
+    )
+    table.insert(
+        ckbs, {
+            mc,
+            i,
+            function(c) maptag(function(t) c:toggle_tag(t) end, i)() end,
+            "toggle tag " .. i .. " for client",
+        }
+    )
+end
+
+local ckeys = {}
+for _, kb in pairs(ckbs) do
     ckeys = gears.table.join(
         ckeys, --
-        awful.key(
-            ms, i, --
-            function(c) maptag(function(t) c:move_to_tag(t) end, i)() end, --
-            {description = "move client to tag " .. i, group = "client"}
-        ), --
-        awful.key(
-            mc, i, --
-            function(c) maptag(function(t) c:toggle_tag(t) end, i)() end, --
-            {
-                description = "toggle tag " .. i .. " for client",
-                group = "client",
-            }
-        )
+        awful.key(kb[1], kb[2], kb[3], {description = kb[4], group = "client"})
     )
 end
 
