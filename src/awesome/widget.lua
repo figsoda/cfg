@@ -16,6 +16,7 @@ return {
         bat.min_value = 0
         bat.max_value = 100
         bat.thickness = 2
+        bat.opacity = 0.75
         bat.start_angle = math.pi * 3 / 2
 
         t:connect_signal(
