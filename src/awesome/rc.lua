@@ -4,6 +4,8 @@ local gears = require("gears")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local wibox = require("wibox")
 
+local widget = require("widget")
+
 require("awful.autofocus")
 
 local m = {"Mod4"}
@@ -113,6 +115,7 @@ awful.screen.connect_for_each_screen(
             {
                 layout = wibox.layout.align.horizontal,
                 wibox.widget.systray(),
+                widget.battery(),
                 wibox.widget.textclock("%F %T", 1),
             },
         }
