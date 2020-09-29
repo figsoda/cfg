@@ -101,10 +101,12 @@ awful.screen.connect_for_each_screen(
                 buttons = gears.table.join(
                     awful.button(
                         {}, 1, function(c)
-                            c.minimized = not c.minimized
-                            c:emit_signal(
-                                "reqwest::activate", "tasklist", {raise = true}
-                            )
+                            if c.minimized then
+                                c.minimized = false
+                                c:raise()
+                            else
+                                c.minimized = true
+                            end
                         end
                     ), --
                     awful.button({}, 4, prevclient), --
