@@ -4,13 +4,9 @@ return {
     fullscreen_hide_border = true,
     maximized_hide_border = true,
 
-    layout_floating = themedir .. "zenburn/layouts/floating.png",
     layout_max = themedir .. "zenburn/layouts/max.png",
-    layout_fullscreen = themedir .. "zenburn/layouts/fullscreen.png",
     layout_tile = themedir .. "zenburn/layouts/tile.png",
     layout_tiletop = themedir .. "zenburn/layouts/tile.png",
-    layout_tilebottom = themedir .. "zenburn/layouts/tilebottom.png",
-    layout_tileleft = themedir .. "zenburn/layouts/tileleft.png",
 
     wibar_height = 24,
 
