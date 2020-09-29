@@ -26,5 +26,5 @@ return {
     border_normal = "#606060",
     border_focus = "#0074b8",
 
-    wallpaper = "/home/figsoda/wallpaper.png",
+    wallpaper = os.getenv("HOME") .. "/wallpaper.png",
 }
