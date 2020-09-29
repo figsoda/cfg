@@ -24,12 +24,18 @@ return {
 
                 local percent = cap:read("*n")
                 bat.value = percent
-                txt:set_text(percent)
-                bat.colors = {
-                    (st:read(8) == "Charging") and "#00ff00"
-                        or ((percent <= 30) and "#ff0000"
-                            or beautiful.arcchart_color),
-                }
+
+                if percent == 100 then
+                    txt:set_text("full")
+                    bat.colors = {"#00ff00"}
+                else
+                    txt:set_text(percent)
+                    bat.colors = {
+                        (st:read(8) == "Charging") and "#00ff00"
+                            or ((percent <= 30) and "#ff0000"
+                                or beautiful.arcchart_color),
+                    }
+                end
 
                 cap:seek("set")
                 st:seek("set")
