@@ -128,6 +128,13 @@ awful.screen.connect_for_each_screen(
     end
 )
 
+local ckeys = gears.table.join(
+    awful.key(m, "q", function(c) c:kill() end), --
+    awful.key(m, "n", function(c) c.minimized = not c.minimized end), --
+    awful.key(m, "j", prevclient), --
+    awful.key(m, "k", nextclient)
+)
+
 local kbss = {
     help = {{m, "h", hotkeys_popup.show_help, "show help"}},
     session = {
@@ -136,6 +143,20 @@ local kbss = {
         {mc, "r", awesome.restart, "restart awesome"},
     },
     layout = {},
+    client = {
+        {
+            ms,
+            "j",
+            function() awful.client.swap.byidx(-1) end,
+            "swap with previous client",
+        },
+        {
+            ms,
+            "k",
+            function() awful.client.swap.byidx(1) end,
+            "swap with next client",
+        },
+    },
     tag = {
         {m, "Left", awful.tag.viewprev, "view previous tag"},
         {m, "Right", awful.tag.viewnext, "view next tag"},
@@ -173,6 +194,19 @@ for i = 1, 9 do
     table.insert(
         kbss.tag, {ma, i, maptag(awful.tag.viewtoggle, i), "toggle tag " .. i}
     )
+    ckeys = gears.table.join(
+        ckeys, --
+        awful.key(
+            ms, i, function(c)
+                maptag(function(t) c:move_to_tag(t) end, i)()
+            end
+        ), --
+        awful.key(
+            mc, i, function(c)
+                maptag(function(t) c:toggle_tag(t) end, i)()
+            end
+        )
+    )
 end
 
 awful.rules.rules = {
@@ -183,7 +217,7 @@ awful.rules.rules = {
             border_color = beautiful.border_normal,
             focus = awful.client.focus.filter,
             raise = true,
-            keys = {},
+            keys = ckeys,
             buttons = gears.table.join(
                 awful.button({}, 1, focusclient), --
                 awful.button(
