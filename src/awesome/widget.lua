@@ -16,7 +16,6 @@ return {
         bat.min_value = 0
         bat.max_value = 100
         bat.thickness = 2
-        bat.opacity = 0.75
         bat.start_angle = math.pi * 3 / 2
 
         t:connect_signal(
@@ -28,12 +27,12 @@ return {
 
                 if percent == 100 then
                     txt:set_text("full")
-                    bat.colors = {"#00ff00"}
+                    bat.colors = {"#20a020"}
                 else
                     txt:set_text(percent)
                     bat.colors = {
-                        (st:read(8) == "Charging") and "#00ff00"
-                            or ((percent <= 30) and "#ff0000"
+                        (st:read(8) == "Charging") and "#20a020"
+                            or ((percent <= 30) and "#d01000"
                                 or beautiful.arcchart_color),
                     }
                 end
