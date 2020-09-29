@@ -72,12 +72,14 @@ awful.rules.rules = {
             raise = true,
             keys = {},
             buttons = gears.table.join(
-                awful.button({}, 1, focusclient), awful.button(
+                awful.button({}, 1, focusclient), --
+                awful.button(
                     m, 1, function(c)
                         focusclient(c)
                         awful.mouse.client.move(c)
                     end
-                ), awful.button(
+                ), --
+                awful.button(
                     m, 3, function(c)
                         focusclient(c)
                         awful.mouse.client.resize(c)
@@ -142,19 +144,18 @@ awful.screen.connect_for_each_screen(
                     screen = s,
                     filter = awful.widget.taglist.filter.all,
                     buttons = gears.table.join(
-                        awful.button({}, 1, viewonly),
-                            awful.button({}, 3, awful.tag.viewtoggle),
-                            awful.button(
-                                {}, 4,
-                                    function(t)
-                                        awful.tag.viewprev(t.screen)
-                                    end
-                            ), awful.button(
-                                {}, 5,
-                                    function(t)
-                                        awful.tag.viewnext(t.screen)
-                                    end
-                            )
+                        awful.button({}, 1, viewonly), --
+                        awful.button({}, 3, awful.tag.viewtoggle), --
+                        awful.button(
+                            {}, 4, function(t)
+                                awful.tag.viewprev(t.screen)
+                            end
+                        ), --
+                        awful.button(
+                            {}, 5, function(t)
+                                awful.tag.viewnext(t.screen)
+                            end
+                        )
                     ),
                 },
             },
@@ -169,8 +170,9 @@ awful.screen.connect_for_each_screen(
                                 "reqwest::activate", "tasklist", {raise = true}
                             )
                         end
-                    ), awful.button({}, 4, prevclient),
-                        awful.button({}, 5, nextclient)
+                    ), --
+                    awful.button({}, 4, prevclient), --
+                    awful.button({}, 5, nextclient)
                 ),
             },
             {
