@@ -133,7 +133,24 @@ local kbss = {
         {mc, "q", awesome.quit, "quit awesome"},
         {mc, "r", awesome.restart, "restart awesome"},
     },
-    layout = {},
+    layout = {
+        {ms, "Left", prevlayout, "previous layout"},
+        {ms, "Right", nextlayout, "next layout"},
+        {
+            m,
+            "u",
+            function() awful.tag.incmwfact(-0.05) end,
+            "reduce master width",
+        },
+        {
+            m,
+            "i",
+            function() awful.tag.incmwfact(0.05) end,
+            "increase master width",
+        },
+        {ms, "u", function() awful.tag.incncol(-1) end, "remove a column"},
+        {ms, "i", function() awful.tag.incncol(1) end, "add a column"},
+    },
     client = {
         {
             ms,
