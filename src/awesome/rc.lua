@@ -52,15 +52,7 @@ beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 
 screen.connect_signal("property::geometry", setwallpaper)
 
-awful.layout.layouts = {
-    l.tile,
-    l.tile.left,
-    l.tile.bottom,
-    l.tile.top,
-    l.tile.floating,
-    l.max,
-    l.max.fullscreen,
-}
+awful.layout.layouts = {l.tile, l.tile.top, l.max}
 
 awful.screen.connect_for_each_screen(
     function(s)
