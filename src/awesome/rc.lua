@@ -123,10 +123,20 @@ awful.screen.connect_for_each_screen(
 )
 
 local ckeys = gears.table.join(
-    awful.key(m, "q", function(c) c:kill() end), --
-    awful.key(m, "n", function(c) c.minimized = not c.minimized end), --
-    awful.key(m, "j", prevclient), --
-    awful.key(m, "k", nextclient)
+    awful.key(
+        m, "q", function(c) c:kill() end, --
+        {description = "kill the client", group = "client"}
+    ), --
+    awful.key(
+        m, "n", function(c) c.minimized = not c.minimized end, --
+        {description = "minimize the client", group = "client"}
+    ), --
+    awful.key(
+        m, "j", prevclient, {description = "previous client", group = "client"}
+    ), --
+    awful.key(
+        m, "k", nextclient, {description = "next client", group = "client"}
+    )
 )
 
 local kbss = {
@@ -191,14 +201,17 @@ for i = 1, 9 do
     ckeys = gears.table.join(
         ckeys, --
         awful.key(
-            ms, i, function(c)
-                maptag(function(t) c:move_to_tag(t) end, i)()
-            end
+            ms, i, --
+            function(c) maptag(function(t) c:move_to_tag(t) end, i)() end, --
+            {description = "move client to tag " .. i, group = "client"}
         ), --
         awful.key(
-            mc, i, function(c)
-                maptag(function(t) c:toggle_tag(t) end, i)()
-            end
+            mc, i, --
+            function(c) maptag(function(t) c:toggle_tag(t) end, i)() end, --
+            {
+                description = "toggle tag " .. i .. " for client",
+                group = "client",
+            }
         )
     )
 end
