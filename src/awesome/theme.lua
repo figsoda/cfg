@@ -10,7 +10,7 @@ return {
 
     wibar_height = 20,
 
-    font = "Noto Sans 9",
+    font = "DejaVu 10",
 
     bg_normal = "#181818",
     bg_focus = "#282828",
