@@ -36,5 +36,4 @@ alias code code-oss
 alias bat "bat --style=numbers"
 
 bash ~/.nix-profile/etc/profile.d/nix.sh
-thefuck --alias | source
 starship init fish | source

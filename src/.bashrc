@@ -9,5 +9,4 @@ alias code=code-oss
 alias bat="bat --style=numbers"
 
 source ~/.nix-profile/etc/profile.d/nix.sh
-eval "$(thefuck --alias)"
 eval "$(starship init bash)"
