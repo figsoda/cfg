@@ -33,6 +33,7 @@ set -gx FZF_DEFAULT_OPTS "--preview \"bat --color=always --style=numbers {}\""
 alias ls "exa -bl --git --time-style long-iso --group-directories-first"
 alias redo "eval sudo \$history[1]"
 alias code code-oss
+alias bat "bat --style=numbers"
 
 bash ~/.nix-profile/etc/profile.d/nix.sh
 thefuck --alias | source
