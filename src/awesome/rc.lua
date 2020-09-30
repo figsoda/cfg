@@ -176,6 +176,7 @@ local kbss = {
     volume = {
         {{}, "XF86AudioLowerVolume", exec("pamixer -d 5"), "lower volume"},
         {{}, "XF86AudioRaiseVolume", exec("pamixer -i 5"), "raise volume"},
+        {{}, "XF86AudioMute", exec("pamixer -t"), "toggle mute"},
     },
     brightness = {
         {
