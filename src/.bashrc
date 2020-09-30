@@ -2,6 +2,7 @@
 
 export EDITOR=code-oss
 export VERSION_ID=unavailable
+export FZF_DEFAULT_OPTS="--preview \"bat --color=always --style=numbers {}\""
 
 alias ls="exa -bl --git --time-style long-iso --group-directories-first"
 alias code=code-oss

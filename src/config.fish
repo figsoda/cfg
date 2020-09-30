@@ -28,6 +28,7 @@ set -g fish_color_match normal
 
 set -gx EDITOR code-oss
 set -gx VERSION_ID unavailable
+set -gx FZF_DEFAULT_OPTS "--preview \"bat --color=always --style=numbers {}\""
 
 alias ls "exa -bl --git --time-style long-iso --group-directories-first"
 alias redo "eval sudo \$history[1]"
