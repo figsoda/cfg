@@ -95,6 +95,16 @@ awful.screen.connect_for_each_screen(
                             end
                         )
                     ),
+                    widget_template = {
+                        id = "background_role",
+                        widget = wibox.container.background,
+                        {
+                            id = 'text_role',
+                            align = "center",
+                            forced_width = beautiful.wibar_height,
+                            widget = wibox.widget.textbox,
+                        },
+                    },
                 },
                 padding,
             },
