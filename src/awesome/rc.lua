@@ -64,19 +64,19 @@ awful.screen.connect_for_each_screen(
 
         local padding = wibox.container.constraint(nil, "exact", 4)
 
-        s.layoutbox = awful.widget.layoutbox(s);
-        s.layoutbox:buttons(
+        local layoutbox = awful.widget.layoutbox(s);
+        layoutbox:buttons(
             gears.table.join(
                 awful.button({}, 4, prevlayout), awful.button({}, 5, nextlayout)
             )
         )
 
-        s.panel = awful.wibar {position = "bottom", screen = s}
-        s.panel:setup{
+        local panel = awful.wibar {position = "bottom", screen = s}
+        panel:setup{
             layout = wibox.layout.align.horizontal,
             {
                 layout = wibox.layout.fixed.horizontal,
-                s.layoutbox,
+                layoutbox,
                 padding,
                 awful.widget.taglist {
                     screen = s,
