@@ -6,7 +6,7 @@ return {
 
     layout_max = themedir .. "zenburn/layouts/max.png",
     layout_tile = themedir .. "zenburn/layouts/tile.png",
-    layout_tiletop = themedir .. "zenburn/layouts/tile.png",
+    layout_tiletop = themedir .. "zenburn/layouts/tiletop.png",
 
     wibar_height = 20,
 
