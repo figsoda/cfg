@@ -123,10 +123,10 @@ awful.screen.connect_for_each_screen(
 )
 
 local ckbs = {
-    {m, "q", function(c) c:kill() end, "kill the client"},
-    {m, "n", function(c) c.minimized = true end, "minimize the client"},
     {m, "j", prevclient, "previous client"},
     {m, "k", nextclient, "next client"},
+    {m, "n", function(c) c.minimized = true end, "minimize the client"},
+    {m, "q", function(c) c:kill() end, "kill the client"},
 }
 
 local kbss = {
