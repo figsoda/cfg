@@ -28,5 +28,3 @@ while IFS=" " read -r file dir sudo; do
         $sudo ln -s "$src/$file" -t "$dir"
     fi
 done < symlinks.txt
-
-broot --install
