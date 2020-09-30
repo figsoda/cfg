@@ -193,11 +193,11 @@ local kbss = {
         },
     },
     app = {
-        {{}, "Print", exec("flameshot gui"), "launch flameshot"},
         {m, "Return", exec("alacritty"), "launch alacritty"},
         {m, "b", exec("firefox"), "launch firefox"},
-        {m, "c", exec("code-oss"), "launch vscode"},
-        {m, "e", exec("Thunar"), "launch thunar"},
+        {m, "c", exec("flameshot gui"), "launch flameshot"},
+        {m, "e", exec("code-oss"), "launch vscode"},
+        {m, "f", exec("Thunar"), "launch thunar"},
     },
 }
 
