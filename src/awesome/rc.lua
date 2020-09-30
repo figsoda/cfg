@@ -271,11 +271,12 @@ awful.rules.rules = {
 client.connect_signal(
     "manage", function(c)
         if awesome.startup then
-            awful.client.setslave(c)
             if not c.size_hints.user_position
                 and not c.size_hints.program_position then
                 p.no_offscreen(c)
             end
+        else
+            awful.client.setslave(c)
         end
     end
 )
