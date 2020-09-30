@@ -62,6 +62,8 @@ awful.screen.connect_for_each_screen(
 
         awful.tag({"1", "2", "3", "4", "5", "6", "7", "8", "9"}, s, l.tile)
 
+        local padding = wibox.container.constraint(nil, "exact", 4)
+
         s.layoutbox = awful.widget.layoutbox(s);
         s.layoutbox:buttons(
             gears.table.join(
@@ -73,8 +75,9 @@ awful.screen.connect_for_each_screen(
         s.panel:setup{
             layout = wibox.layout.align.horizontal,
             {
-                layout = wibox.layout.align.horizontal,
+                layout = wibox.layout.fixed.horizontal,
                 s.layoutbox,
+                padding,
                 awful.widget.taglist {
                     screen = s,
                     filter = awful.widget.taglist.filter.all,
@@ -93,6 +96,7 @@ awful.screen.connect_for_each_screen(
                         )
                     ),
                 },
+                padding,
             },
             awful.widget.tasklist {
                 screen = s,
@@ -113,7 +117,8 @@ awful.screen.connect_for_each_screen(
                 ),
             },
             {
-                layout = wibox.layout.align.horizontal,
+                layout = wibox.layout.fixed.horizontal,
+                padding,
                 wibox.widget.systray(),
                 widget.battery(),
                 wibox.widget.textclock(" %F %T ", 1),
