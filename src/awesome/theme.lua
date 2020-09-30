@@ -8,14 +8,14 @@ return {
     layout_tile = themedir .. "zenburn/layouts/tile.png",
     layout_tiletop = themedir .. "zenburn/layouts/tile.png",
 
-    wibar_height = 24,
+    wibar_height = 20,
 
-    font = "Noto Sans 12",
+    font = "Noto Sans 10",
 
-    bg_normal = "#202020",
-    bg_focus = "#404040",
+    bg_normal = "#181818",
+    bg_focus = "#282828",
     bg_urgent = "ffa000",
-    bg_minimize = "#202020",
+    bg_minimize = "#181818",
 
     fg_normal = "#d0d0d0",
     fg_focus = "#f0f0f0",
