@@ -12,6 +12,7 @@ return {
     taglist_fg_empty = "#808080",
 
     font = "DejaVu 10",
+    battery_font = "DejaVu 7",
 
     bg_normal = "#181818",
     bg_focus = "#282828",

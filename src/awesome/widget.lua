@@ -11,6 +11,7 @@ return {
 
         local txt = textbox()
         txt.align = "center"
+        txt.font = beautiful.battery_font
 
         local bat = arcchart(txt)
         bat.min_value = 0
