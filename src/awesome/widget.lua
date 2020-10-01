@@ -32,8 +32,7 @@ return {
                     txt:set_text(percent)
                     bat.colors = {
                         (st:read(8) == "Charging") and "#20a020"
-                            or ((percent <= 30) and "#d01000"
-                                or beautiful.arcchart_color),
+                            or ((percent <= 30) and "#d01000" or "#a0a0a0"),
                     }
                 end
 
