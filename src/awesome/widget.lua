@@ -1,4 +1,4 @@
-local arcchart = require("wibox.container").arcchart
+local container = require("wibox.container")
 local beautiful = require("beautiful")
 local textbox = require("wibox.widget").textbox
 local timer = require("gears.timer")
@@ -11,7 +11,7 @@ return {
         txt.align = "center"
         txt.font = beautiful.battery_font
 
-        local bat = arcchart(txt)
+        local bat = container.arcchart(txt)
         bat.min_value = 0
         bat.max_value = 100
         bat.thickness = 2
@@ -49,6 +49,6 @@ return {
         t:start()
         t:emit_signal("timeout")
 
-        return bat
+        return container.margin(bat, 1, 1, 1, 1)
     end,
 }
