@@ -117,7 +117,9 @@ awful.screen.connect_for_each_screen(
                 buttons = gears.table.join(
                     awful.button(
                         {}, 1, function(c)
-                            if c.minimized then
+                            if c ~= client.focus and c.first_tag.layout == l.max
+                                or c.minimized then
+                                client.focus = c
                                 c.minimized = false
                                 c:raise()
                             else
