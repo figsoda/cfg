@@ -57,6 +57,15 @@ naughty.config.defaults.position = "bottom_right"
 
 screen.connect_signal("property::geometry", setwallpaper)
 
+screen.connect_signal(
+    "arrange", function(s)
+        local max = #s.clients == 1 or s.selected_tag.layout == l.max
+        for _, c in pairs(s.clients) do
+            c.border_width = (max and not c.floating) and 0 or 1
+        end
+    end
+)
+
 awful.layout.layouts = {l.tile, l.tile.top, l.max}
 
 awful.screen.connect_for_each_screen(
