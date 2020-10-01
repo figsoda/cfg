@@ -281,6 +281,7 @@ awful.rules.rules = {
             border_color = beautiful.border_normal,
             focus = awful.client.focus.filter,
             raise = true,
+            maximized = false,
             keys = ckeys,
             buttons = gears.table.join(
                 awful.button({}, 1, focusclient), --
@@ -311,7 +312,6 @@ client.connect_signal(
                 p.no_offscreen(c)
             end
         else
-            c.maximized = false
             awful.client.setslave(c)
         end
     end
