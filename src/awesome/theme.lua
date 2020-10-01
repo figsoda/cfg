@@ -9,6 +9,7 @@ return {
     layout_tiletop = themedir .. "zenburn/layouts/tiletop.png",
 
     wibar_height = 20,
+    hotkeys_modifiers_fg = "#80b0ff",
     taglist_fg_empty = "#808080",
 
     font = "DejaVu 10",
