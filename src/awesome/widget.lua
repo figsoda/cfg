@@ -5,8 +5,6 @@ local timer = require("gears.timer")
 
 return {
     battery = function(timeout)
-        local cap = io.open("/sys/class/power_supply/BAT0/capacity")
-        local st = io.open("/sys/class/power_supply/BAT0/status")
         local t = timer {timeout = timeout or 5}
 
         local txt = textbox()
@@ -23,22 +21,27 @@ return {
             "timeout", function()
                 t:stop()
 
-                local percent = cap:read("*n")
-                bat.value = percent
+                local cap = io.open("/sys/class/power_supply/BAT0/capacity")
+                local st = io.open("/sys/class/power_supply/BAT0/status")
 
-                if percent == 100 then
-                    txt:set_text("full")
-                    bat.colors = {"#20a020"}
-                else
-                    txt:set_text(percent)
-                    bat.colors = {
-                        (st:read(8) == "Charging") and "#20a020"
-                            or ((percent <= 30) and "#d01000" or "#a0a0a0"),
-                    }
+                if cap and st then
+                    local percent = cap:read("*n")
+                    bat.value = percent
+
+                    if percent == 100 then
+                        txt:set_text("full")
+                        bat.colors = {"#20a020"}
+                    else
+                        txt:set_text(percent)
+                        bat.colors = {
+                            (st:read(8) == "Charging") and "#20a020"
+                                or ((percent <= 30) and "#d01000" or "#a0a0a0"),
+                        }
+                    end
+
+                    cap:close()
+                    st:close()
                 end
-
-                cap:seek("set")
-                st:seek("set")
 
                 t:again()
             end
