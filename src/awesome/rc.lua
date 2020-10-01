@@ -2,12 +2,12 @@ local awful = require("awful")
 local beautiful = require("beautiful")
 local gears = require("gears")
 local hotkeys_popup = require("awful.hotkeys_popup")
+local naughty = require("naughty")
 local wibox = require("wibox")
 
 local widget = require("widget")
 
 require("awful.autofocus")
-require("naughty")
 
 local m = {"Mod4"}
 local ma = {"Mod4", "Mod1"}
@@ -52,6 +52,8 @@ local l = awful.layout.suit
 local p = awful.placement
 
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
+
+naughty.config.defaults.position = "bottom_right"
 
 screen.connect_signal("property::geometry", setwallpaper)
 
