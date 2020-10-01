@@ -311,6 +311,7 @@ client.connect_signal(
                 p.no_offscreen(c)
             end
         else
+            c.maximized = false
             awful.client.setslave(c)
         end
     end
