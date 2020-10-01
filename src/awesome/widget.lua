@@ -29,9 +29,9 @@ return {
                     bat.value = percent
 
                     if percent == 100 then
-                        txt:set_text("full")
-                        bat.colors = {"#20a020"}
+                        bat.visible = false
                     else
+                        bat.visible = true
                         txt:set_text(percent)
                         bat.colors = {
                             (st:read(8) == "Charging") and "#20a020"
@@ -49,6 +49,6 @@ return {
         t:start()
         t:emit_signal("timeout")
 
-        return container.margin(bat, 1, 1, 1, 1)
+        return container.margin(bat, 1, 1, 1, 1, nil, false)
     end,
 }
