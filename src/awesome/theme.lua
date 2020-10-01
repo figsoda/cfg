@@ -10,20 +10,20 @@ return {
 
     wibar_height = 20,
     hotkeys_modifiers_fg = "#80b0ff",
-    taglist_fg_empty = "#808080",
+    taglist_fg_empty = "#606060",
 
     font = "DejaVu 10",
     battery_font = "DejaVu 7",
 
-    bg_normal = "#181818",
-    bg_focus = "#282828",
+    bg_normal = "#101010",
+    bg_focus = "#202020",
     bg_urgent = "ffa000",
-    bg_minimize = "#181818",
+    bg_minimize = "#101010",
 
-    fg_normal = "#d0d0d0",
-    fg_focus = "#f0f0f0",
+    fg_normal = "#c8c8c8",
+    fg_focus = "#e0e0e0",
     fg_urgent = "#ffffff",
-    fg_minimize = "#808080",
+    fg_minimize = "#606060",
 
     border_width = 1,
     border_normal = "#606060",
