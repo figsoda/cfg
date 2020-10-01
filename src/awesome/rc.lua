@@ -7,6 +7,7 @@ local wibox = require("wibox")
 local widget = require("widget")
 
 require("awful.autofocus")
+require("naughty")
 
 local m = {"Mod4"}
 local ma = {"Mod4", "Mod1"}
