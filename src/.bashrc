@@ -8,5 +8,4 @@ alias ls="exa -bl --git --time-style long-iso --group-directories-first"
 alias code=code-oss
 alias bat="bat --style=numbers"
 
-source ~/.nix-profile/etc/profile.d/nix.sh
 eval "$(starship init bash)"

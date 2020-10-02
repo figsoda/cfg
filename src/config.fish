@@ -35,5 +35,4 @@ alias redo "eval sudo \$history[1]"
 alias code code-oss
 alias bat "bat --style=numbers"
 
-bash ~/.nix-profile/etc/profile.d/nix.sh
 starship init fish | source

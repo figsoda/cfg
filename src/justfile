@@ -4,7 +4,6 @@ alias c := clean
 clean:
     sudo vkpurge rm all
     sudo xbps-remove -Ooy
-    nix-collect-garbage -d
 
 sv service:
     sudo ln -st /var/service/ /etc/sv/{{service}} 
@@ -12,7 +11,5 @@ sv service:
 alias u := update
 update:
     sudo xbps-install -Suy
-    sudo nix-channel --update
-    sudo nix-env -u
     rustup update
     cargo install-update -a
