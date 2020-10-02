@@ -139,6 +139,25 @@ awful.screen.connect_for_each_screen(
                     awful.button({}, 4, prevclient), --
                     awful.button({}, 5, nextclient)
                 ),
+                widget_template = {
+                    {
+                        {
+                            {id = "icon", widget = awful.widget.clienticon},
+                            left = 4,
+                            right = 4,
+                            top = 2,
+                            bottom = 2,
+                            widget = wibox.container.margin,
+                        },
+                        {id = "text_role", widget = wibox.widget.textbox},
+                        layout = wibox.layout.fixed.horizontal,
+                    },
+                    id = "background_role",
+                    widget = wibox.container.background,
+                    create_callback = function(self, c, _, _)
+                        self:get_children_by_id("icon")[1].client = c
+                    end,
+                },
             },
             {
                 layout = wibox.layout.fixed.horizontal,
