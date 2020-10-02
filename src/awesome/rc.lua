@@ -112,9 +112,9 @@ awful.screen.connect_for_each_screen(
                         widget = wibox.container.background,
                         {
                             id = 'text_role',
+                            widget = wibox.widget.textbox,
                             align = "center",
                             forced_width = beautiful.wibar_height,
-                            widget = wibox.widget.textbox,
                         },
                     },
                 },
@@ -140,20 +140,20 @@ awful.screen.connect_for_each_screen(
                     awful.button({}, 5, nextclient)
                 ),
                 widget_template = {
+                    id = "background_role",
+                    widget = wibox.container.background,
                     {
                         {
                             {id = "icon", widget = awful.widget.clienticon},
+                            widget = wibox.container.margin,
                             left = 4,
                             right = 4,
                             top = 2,
                             bottom = 2,
-                            widget = wibox.container.margin,
                         },
                         {id = "text_role", widget = wibox.widget.textbox},
                         layout = wibox.layout.fixed.horizontal,
                     },
-                    id = "background_role",
-                    widget = wibox.container.background,
                     create_callback = function(self, c, _, _)
                         self:get_children_by_id("icon")[1].client = c
                     end,
