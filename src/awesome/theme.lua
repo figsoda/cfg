@@ -8,12 +8,13 @@ return {
     layout_tile = themedir .. "zenburn/layouts/tile.png",
     layout_tiletop = themedir .. "zenburn/layouts/tiletop.png",
 
-    wibar_height = 20,
+    wibar_height = 24,
     hotkeys_modifiers_fg = "#80b0ff",
     taglist_fg_empty = "#606060",
 
-    font = "DejaVu 10",
-    battery_font = "DejaVu 7",
+    font = "DejaVu 12",
+    battery_font = "DejaVu 8",
+    tasklist_font = "DejaVu 10",
 
     bg_normal = "#101010",
     bg_focus = "#202020",
