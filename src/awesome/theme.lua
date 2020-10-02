@@ -26,7 +26,7 @@ return {
     fg_urgent = "#ffffff",
     fg_minimize = "#606060",
 
-    border_width = 1,
+    border_width = 2,
     border_normal = "#606060",
     border_focus = "#0074b8",
 
