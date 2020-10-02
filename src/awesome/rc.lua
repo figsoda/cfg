@@ -74,7 +74,7 @@ awful.screen.connect_for_each_screen(
 
         awful.tag({"1", "2", "3", "4", "5", "6", "7", "8", "9"}, s, l.tile)
 
-        local padding = wibox.container.constraint(nil, "exact", 4)
+        local padding = wibox.container.constraint(nil, "exact", 8)
 
         local layoutbox = awful.widget.layoutbox(s);
         layoutbox:buttons(
