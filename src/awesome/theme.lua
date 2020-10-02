@@ -12,9 +12,9 @@ return {
     hotkeys_modifiers_fg = "#80b0ff",
     taglist_fg_empty = "#606060",
 
-    font = "DejaVu 12",
+    font = "DejaVu 10",
     battery_font = "DejaVu 8",
-    tasklist_font = "DejaVu 10",
+    taglist_font = "DejaVu 12",
 
     bg_normal = "#101010",
     bg_focus = "#202020",

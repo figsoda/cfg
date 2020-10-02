@@ -164,7 +164,10 @@ awful.screen.connect_for_each_screen(
                 padding,
                 wibox.widget.systray(),
                 widget.battery(),
-                wibox.widget.textclock(" %F %T ", 1),
+                {
+                    widget = wibox.widget.textclock(" %F %T ", 1),
+                    font = "DejaVu 12",
+                },
             },
         }
     end
