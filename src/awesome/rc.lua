@@ -61,7 +61,7 @@ screen.connect_signal(
     "arrange", function(s)
         local max = #s.clients == 1 or s.selected_tag.layout == l.max
         for _, c in pairs(s.clients) do
-            c.border_width = (max and not c.floating) and 0 or 1
+            c.border_width = (max and not c.floating) and 0 or beautiful.border_width
         end
     end
 )
