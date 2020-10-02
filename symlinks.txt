@@ -1,3 +1,4 @@
+.bash_profile ~
 .bashrc ~
 .gitconfig ~
 alacritty.yml ~/.config/alacritty

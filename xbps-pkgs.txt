@@ -1,4 +1,4 @@
-awesome blueman chrony elogind sddm xorg xsecurelock
+awesome blueman chrony elogind xorg xsecurelock
 Thunar alacritty gnome-ring nm-applet pamixer pavucontrol volctl
 
 bat exa fish-shell micro starship
