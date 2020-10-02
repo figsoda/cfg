@@ -1,5 +1,5 @@
 local awful = require("awful")
-local beautiful = require("beautiful")
+local b = require("beautiful")
 local gears = require("gears")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local naughty = require("naughty")
@@ -15,8 +15,8 @@ local mc = {"Mod4", "Control"}
 local ms = {"Mod4", "Shift"}
 
 local function setwallpaper(s)
-    if beautiful.wallpaper then
-        local wallpaper = beautiful.wallpaper
+    if b.wallpaper then
+        local wallpaper = b.wallpaper
         if type(wallpaper) == "function" then wallpaper = wallpaper(s) end
         gears.wallpaper.maximized(wallpaper, s)
     end
@@ -51,7 +51,7 @@ end
 local l = awful.layout.suit
 local p = awful.placement
 
-beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
+b.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 
 naughty.config.defaults.position = "bottom_right"
 
@@ -61,7 +61,7 @@ screen.connect_signal(
     "arrange", function(s)
         local max = #s.clients == 1 or s.selected_tag.layout == l.max
         for _, c in pairs(s.clients) do
-            c.border_width = (max and not c.floating) and 0 or beautiful.border_width
+            c.border_width = (max and not c.floating) and 0 or b.border_width
         end
     end
 )
@@ -114,7 +114,7 @@ awful.screen.connect_for_each_screen(
                             id = 'text_role',
                             widget = wibox.widget.textbox,
                             align = "center",
-                            forced_width = beautiful.wibar_height,
+                            forced_width = b.wibar_height,
                         },
                     },
                 },
@@ -201,7 +201,7 @@ local kbss = {
             "y",
             maptag(
                 function(t)
-                    t.master_width_factor = beautiful.master_width_factor or 0.5
+                    t.master_width_factor = b.master_width_factor or 0.5
                 end
             ),
             "reset master width",
@@ -221,11 +221,7 @@ local kbss = {
         {
             ms,
             "y",
-            maptag(
-                function(t)
-                    t.column_count = beautiful.column_count or 1
-                end
-            ),
+            maptag(function(t) t.column_count = b.column_count or 1 end),
             "reset column count",
         },
         {ms, "u", function() awful.tag.incncol(-1) end, "remove a column"},
@@ -313,8 +309,8 @@ awful.rules.rules = {
     {
         rule = {},
         properties = {
-            border_width = beautiful.border_width,
-            border_color = beautiful.border_normal,
+            border_width = b.border_width,
+            border_color = b.border_normal,
             focus = awful.client.focus.filter,
             raise = true,
             maximized = false,
@@ -359,12 +355,10 @@ client.connect_signal(
     end
 )
 
-client.connect_signal(
-    "focus", function(c) c.border_color = beautiful.border_focus end
-)
+client.connect_signal("focus", function(c) c.border_color = b.border_focus end)
 
 client.connect_signal(
-    "unfocus", function(c) c.border_color = beautiful.border_normal end
+    "unfocus", function(c) c.border_color = b.border_normal end
 )
 
 local keys = {}
