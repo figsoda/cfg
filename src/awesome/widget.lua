@@ -49,6 +49,6 @@ return {
         t:start()
         t:emit_signal("timeout")
 
-        return container.margin(bat, 1, 1, 1, 1, nil, false)
+        return container.margin(bat, 2, 2, 2, 2, nil, false)
     end,
 }
