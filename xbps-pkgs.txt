@@ -1,15 +1,11 @@
-chrony elogind pulseaudio udisks2 upower xorg
+awesome blueman chrony elogind sddm xorg xsecurelock
+Thunar alacritty gnome-ring nm-applet pamixer pavucontrol volctl
 
-plasma-desktop plasma-nm plasma-pa
-breeze-gtk kde-gtk-config5 kscreen kwayland-integration
-Thunar bluedevil user-manager sddm-kcm
+bat exa fish-shell micro starship
+fd fzf just psmisc ripgrep sd unzip wget xtools zip
+gcc hlint ncurses-libtinfo-libs rustup stack
 
-alacritty bat exa fish-shell micro starship
-fd fzf just psmisc ripgrep sd unzip wget xdotool xtools zip
-flameshot gcc rustup sxhkd
-stack hlint ncurses-libtinfo-libs
-
-docker firefox gimp noto-fonts-emoji qalculate-gtk vlc vscode
+docker firefox flameshot gimp lxappearance noto-fonts-emoji qalculate-gtk vscode
 
 libgcc-32bit libstdc++-32bit
 libdrm-32bit libglvnd-32bit mesa-vulkan-intel mesa-vulkan-intel-32bit steam

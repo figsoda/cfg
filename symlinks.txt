@@ -1,10 +1,10 @@
 .bashrc ~
 .gitconfig ~
 alacritty.yml ~/.config/alacritty
+awesome ~/.config
 config.fish ~/.config/fish
 config.nix ~/.config/nixpkgs
 flameshot.ini ~/.config/Dharkael
 justfile ~
 resolv.conf /etc sudo
 starship.toml ~/.config
-sxhkdrc ~/.config/sxhkd
