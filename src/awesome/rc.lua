@@ -277,6 +277,12 @@ local kbss = {
             exec("rofi -show combi -modi combi -combi-modi drun,run"),
             "launch rofi",
         },
+        {
+            m,
+            "w",
+            exec("rofi -show window -modi window"),
+            "launch rofi with window modi",
+        },
     },
 }
 
