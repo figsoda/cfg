@@ -274,7 +274,7 @@ local kbss = {
         {
             m,
             "r",
-            exec("rofi -show combi -modi combi -combi-modi drun,run"),
+            exec("rofi -show combi -modi combi -combi-modi run,drun"),
             "launch rofi",
         },
         {
