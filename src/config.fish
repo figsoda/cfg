@@ -1,5 +1,7 @@
 . ~/.exports
 
+set -gx SHELL /bin/fish
+
 set -g fish_greeting
 
 set -g fish_color_normal normal
