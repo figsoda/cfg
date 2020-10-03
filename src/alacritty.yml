@@ -28,5 +28,3 @@ mouse:
   url:
     modifiers: Control
 
-key_bindings:
-  - { key: W, mods: Control, action: Quit }
