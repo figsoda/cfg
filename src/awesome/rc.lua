@@ -190,6 +190,31 @@ local kbss = {
     help = {{m, "h", hotkeys_popup.show_help, "show help"}},
     session = {
         {mc, "l", exec("xsecurelock"), "lock screen"},
+        {
+            mc,
+            "m",
+            function()
+                awful.spawn.easy_async_with_shell(
+                    "echo \z
+                    1 shutdown,\z
+                    2 reboot,\z
+                    3 lock screen,\z
+                    4 quit awesome,\z
+                    5 restart awesome,\z
+                    | rofi -dmenu -sep ,", --
+                    function(stdout)
+                        ({
+                            exec({"shutdown", "now"}),
+                            exec("reboot"),
+                            exec("xsecurelock"),
+                            awesome.quit,
+                            awesome.restart,
+                        })[stdout:byte() - 48]()
+                    end
+                )
+            end,
+            "session menu",
+        },
         {mc, "q", awesome.quit, "quit awesome"},
         {mc, "r", awesome.restart, "restart awesome"},
     },
@@ -247,8 +272,18 @@ local kbss = {
         {m, "BackSpace", awful.tag.history.restore, "go back"},
     },
     volume = {
-        {{}, "XF86AudioLowerVolume", exec({"pamixer", "-d", "5"}), "lower volume"},
-        {{}, "XF86AudioRaiseVolume", exec({"pamixer", "-i", "5"}), "raise volume"},
+        {
+            {},
+            "XF86AudioLowerVolume",
+            exec({"pamixer", "-d", "5"}),
+            "lower volume",
+        },
+        {
+            {},
+            "XF86AudioRaiseVolume",
+            exec({"pamixer", "-i", "5"}),
+            "raise volume",
+        },
         {{}, "XF86AudioMute", exec({"pamixer", "-t"}), "toggle mute"},
     },
     brightness = {
@@ -274,7 +309,17 @@ local kbss = {
         {
             m,
             "r",
-            exec({"rofi", "-show", "combi", "-modi", "combi", "-combi-modi", "run,drun"}),
+            exec(
+                {
+                    "rofi",
+                    "-show",
+                    "combi",
+                    "-modi",
+                    "combi",
+                    "-combi-modi",
+                    "run,drun",
+                }
+            ),
             "launch rofi",
         },
         {
