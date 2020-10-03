@@ -1,5 +1,6 @@
 .bash_profile ~
 .bashrc ~
+.exports ~
 .gitconfig ~
 alacritty.yml ~/.config/alacritty
 awesome ~/.config

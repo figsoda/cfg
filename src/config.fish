@@ -1,3 +1,5 @@
+. ~/.exports
+
 set -g fish_greeting
 
 set -g fish_color_normal normal
@@ -25,10 +27,6 @@ set -g fish_pager_color_prefix white --bold --underline
 set -g fish_pager_color_progress brwhite --background=cyan
 set -g fish_color_comment 626262
 set -g fish_color_match normal
-
-set -gx EDITOR code-oss
-set -gx VERSION_ID unavailable
-set -gx FZF_DEFAULT_OPTS "--preview \"bat --color=always --style=numbers {}\""
 
 alias ls "exa -bl --git --time-style long-iso --group-directories-first"
 alias redo "eval sudo \$history[1]"
