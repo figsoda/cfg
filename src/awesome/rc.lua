@@ -204,8 +204,8 @@ local kbss = {
                     | rofi -dmenu -sep ,", --
                     function(stdout)
                         ({
-                            exec({"shutdown", "now"}),
-                            exec("reboot"),
+                            exec({"sudo", "init", "0"}),
+                            exec({"sudo", "init", "6"}),
                             exec("xsecurelock"),
                             awesome.quit,
                             awesome.restart,
