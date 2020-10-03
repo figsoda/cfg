@@ -189,7 +189,7 @@ local ckbs = {
 local kbss = {
     help = {{m, "h", hotkeys_popup.show_help, "show help"}},
     session = {
-        {mc, "l", exec("xsecurelock"), "lock screen"},
+        {mc, "l", exec({"xset", "s", "activate"}), "lock screen"},
         {
             mc,
             "m",
@@ -206,7 +206,7 @@ local kbss = {
                         ({
                             exec({"sudo", "init", "0"}),
                             exec({"sudo", "init", "6"}),
-                            exec("xsecurelock"),
+                            exec({"xset", "s", "activate"}),
                             awesome.quit,
                             awesome.restart,
                         })[stdout:byte() - 48]()
@@ -432,6 +432,7 @@ root.keys(keys)
 
 awful.spawn({"xbacklight", "=10"})
 awful.spawn({"xset ", "-b"})
+awful.spawn({"xss-lock", "xsecurelock"})
 awful.spawn("flameshot")
 awful.spawn({"Thunar", "--daemon"})
 awful.spawn("blueman-applet")
