@@ -247,26 +247,26 @@ local kbss = {
         {m, "BackSpace", awful.tag.history.restore, "go back"},
     },
     volume = {
-        {{}, "XF86AudioLowerVolume", exec("pamixer -d 5"), "lower volume"},
-        {{}, "XF86AudioRaiseVolume", exec("pamixer -i 5"), "raise volume"},
-        {{}, "XF86AudioMute", exec("pamixer -t"), "toggle mute"},
+        {{}, "XF86AudioLowerVolume", exec({"pamixer", "-d", "5"}), "lower volume"},
+        {{}, "XF86AudioRaiseVolume", exec({"pamixer", "-i", "5"}), "raise volume"},
+        {{}, "XF86AudioMute", exec({"pamixer", "-t"}), "toggle mute"},
     },
     brightness = {
         {
             {},
             "XF86MonBrightnessDown",
-            exec("xbacklight -5 -time 0"),
+            exec({"xbacklight", "-5", "-time", "0"}),
             "reduce brightness",
         },
         {
             {},
             "XF86MonBrightnessUp",
-            exec("xbacklight +5 -time 0"),
+            exec({"xbacklight", "+5", "-time", "0"}),
             "increase brightness",
         },
     },
     app = {
-        {{}, "Print", exec("flameshot gui"), "launch flameshot"},
+        {{}, "Print", exec({"flameshot", "gui"}), "launch flameshot"},
         {m, "Return", exec("alacritty"), "launch alacritty"},
         {m, "b", exec("firefox"), "launch firefox"},
         {m, "e", exec("code-oss"), "launch vscode"},
@@ -274,13 +274,13 @@ local kbss = {
         {
             m,
             "r",
-            exec("rofi -show combi -modi combi -combi-modi run,drun"),
+            exec({"rofi", "-show", "combi", "-modi", "combi", "-combi-modi", "run,drun"}),
             "launch rofi",
         },
         {
             m,
             "w",
-            exec("rofi -show window -modi window"),
+            exec({"rofi", "-show", "window", "-modi", "window"}),
             "launch rofi with window modi",
         },
     },
@@ -385,10 +385,10 @@ for group, kbs in pairs(kbss) do
 end
 root.keys(keys)
 
-awful.spawn("xbacklight = 10")
-awful.spawn("xset -b")
+awful.spawn({"xbacklight", "=10"})
+awful.spawn({"xset ", "-b"})
 awful.spawn("flameshot")
-awful.spawn("Thunar --daemon")
+awful.spawn({"Thunar", "--daemon"})
 awful.spawn("blueman-applet")
 awful.spawn("nm-applet")
 awful.spawn("volctl")
