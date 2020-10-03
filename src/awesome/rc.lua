@@ -271,6 +271,12 @@ local kbss = {
         {m, "c", exec("flameshot gui"), "launch flameshot"},
         {m, "e", exec("code-oss"), "launch vscode"},
         {m, "f", exec("Thunar"), "launch thunar"},
+        {
+            m,
+            "r",
+            exec("rofi -combi-modi drun,run -modi combi,window -show combi"),
+            "launch rofi",
+        },
     },
 }
 
