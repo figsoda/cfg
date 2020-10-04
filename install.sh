@@ -2,10 +2,7 @@
 
 xbps-install -Suy
 xbps-install -y void-repo-multilib void-repo-multilib-nonfree void-repo-nonfree
-
-while IFS= read -r pkgs; do
-    [ -n "$pkgs" ] && xbps-install -y $pkgs
-done < xbps-pkgs.txt
+xbps-install -y $(cat xbps-pkgs.txt)
 
 ln -st /var/service /etc/sv/{NetworkManager,bluetoothd,chronyd,dbus,docker,elogind}
 touch /etc/sv/docker/down
