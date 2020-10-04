@@ -1,4 +1,3 @@
 export EDITOR=code-oss
-export FZF_DEFAULT_OPTS="--preview \"bat --color=always --style=numbers {}\""
 export PATH="$HOME/.cargo/bin:$PATH"
 export VERSION_ID=unavailable

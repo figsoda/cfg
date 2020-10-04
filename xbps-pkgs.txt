@@ -2,7 +2,7 @@ awesome blueman chrony elogind xorg xsecurelock xss-lock
 Thunar alacritty gnome-ring nm-applet pamixer pavucontrol rofi rofi-calc rofi-emoji volctl
 
 bat exa fish-shell micro starship
-fd fzf just psmisc ripgrep sd unzip wget xtools zip
+fd just psmisc ripgrep sd unzip wget xtools zip
 gcc hlint ncurses-libtinfo-libs rustup stack
 
 docker firefox flameshot gimp lxappearance noto-fonts-emoji qalculate-gtk vscode
