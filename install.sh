@@ -13,7 +13,6 @@ tmp=$(mktemp)
 curl -LSs https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip -o "$tmp"
 unzip -oqq "$tmp" -d ~/.local/share/fonts/JetBrainsMonoNerdFont
 unlink "$tmp"
-fc-cache
 
 src="$(realpath "$(dirname "${BASH_SOURCE[0]}")")/src"
 
@@ -25,3 +24,5 @@ while IFS=" " read -r file dir; do
         ln -s "$src/$file" -t "$dir"
     fi
 done < symlinks.txt
+
+fc-cache
