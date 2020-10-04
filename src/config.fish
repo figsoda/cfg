@@ -35,4 +35,4 @@ alias redo "eval sudo \$history[1]"
 alias code code-oss
 alias bat "bat --style=numbers"
 
-starship init fish | source
+starship init fish | .
