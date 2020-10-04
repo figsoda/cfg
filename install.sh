@@ -9,7 +9,11 @@ touch /etc/sv/docker/down
 rustup-init -y --default-toolchain nightly -c clippy rustfmt
 ~/.cargo/bin/cargo install cargo-audit cargo-bloat cargo-cache cargo-udeps cargo-update cross pactorio
 
-. <(curl -L https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)
+tmp=$(mktemp)
+curl -LSs https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip -o "$tmp"
+unzip -oqq "$tmp" -d ~/.local/share/fonts/JetBrainsMonoNerdFont
+unlink "$tmp"
+fc-cache
 
 src="$(realpath "$(dirname "${BASH_SOURCE[0]}")")/src"
 
