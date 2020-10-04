@@ -304,6 +304,12 @@ local kbss = {
         {{}, "Print", exec({"flameshot", "gui"}), "launch flameshot"},
         {m, "Return", exec("alacritty"), "launch alacritty"},
         {m, "b", exec("firefox"), "launch firefox"},
+        {
+            m,
+            "c",
+            exec({"rofi", "-show", "calc", "-modi", "calc"}),
+            "launch rofi calculator",
+        },
         {m, "e", exec("code-oss"), "launch vscode"},
         {m, "f", exec("Thunar"), "launch thunar"},
         {m, "r", exec({"rofi", "-show", "run", "-modi", "run"}), "launch rofi"},
