@@ -13,11 +13,11 @@ rustup-init -y --default-toolchain nightly -c clippy rustfmt
 
 src="$(realpath "$(dirname "${BASH_SOURCE[0]}")")/src"
 
-while IFS=" " read -r file dir sudo; do
+while IFS=" " read -r file dir; do
     dir="$(eval echo "$dir")"
     if [ -n "$file" ] && [ -n "$dir" ]; then
-        [ -f "$dir/$file" ] && $sudo rm "$dir/$file"
-        [ ! -d "$dir" ] && $sudo mkdir -p "$dir"
-        $sudo ln -s "$src/$file" -t "$dir"
+        [ -f "$dir/$file" ] && rm "$dir/$file"
+        [ ! -d "$dir" ] && mkdir -p "$dir"
+        ln -s "$src/$file" -t "$dir"
     fi
 done < symlinks.txt

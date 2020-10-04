@@ -7,5 +7,5 @@ awesome ~/.config
 config.fish ~/.config/fish
 flameshot.ini ~/.config/Dharkael
 justfile ~
-resolv.conf /etc sudo
+resolv.conf /etc
 starship.toml ~/.config
