@@ -182,6 +182,7 @@ local ckbs = {
         function(c) c.fullscreen = not c.fullscreen end,
         "toggle fullscreen",
     },
+    {ms, "m", function(c) c.maximized = not c.maximized end, "toggle maximized"},
     {ms, "n", function(c) c.minimized = true end, "minimize the client"},
     {ms, "q", function(c) c:kill() end, "kill the client"},
 }
