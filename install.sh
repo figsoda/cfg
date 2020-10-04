@@ -1,8 +1,7 @@
 #!/bin/bash
 
-xbps-install -Suy
-xbps-install -y void-repo-multilib void-repo-multilib-nonfree void-repo-nonfree
-xbps-install -y $(cat xbps-pkgs.txt)
+xbps-install -Suy void-repo-multilib void-repo-multilib-nonfree void-repo-nonfree
+xbps-install -Suy $(cat xbps-pkgs.txt)
 
 ln -st /var/service /etc/sv/{NetworkManager,bluetoothd,chronyd,dbus,docker,elogind}
 touch /etc/sv/docker/down
