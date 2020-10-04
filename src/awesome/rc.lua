@@ -307,7 +307,7 @@ local kbss = {
             m,
             "/",
             function()
-                awful.spawn.easy_async_with_shell(
+                awful.spawn.with_shell(
                     "fd \".*\" ~ \z
                     | xdg-open $(rofi -dmenu -fullscreen \z
                         -i -matching fuzzy \z
