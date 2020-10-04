@@ -196,12 +196,12 @@ local kbss = {
             function()
                 awful.spawn.easy_async_with_shell(
                     "echo \z
-                    1 shutdown,\z
-                    2 reboot,\z
-                    3 lock screen,\z
-                    4 quit awesome,\z
-                    5 restart awesome,\z
-                    | rofi -dmenu -sep ,", --
+                    1 - shutdown,\z
+                    2 - reboot,\z
+                    3 - lock screen,\z
+                    4 - quit awesome,\z
+                    5 - restart awesome\z
+                    | rofi -dmenu -sep , -p session -lines 5", --
                     function(stdout)
                         ({
                             exec({"sudo", "init", "0"}),
