@@ -303,6 +303,17 @@ local kbss = {
     app = {
         {{}, "Print", exec({"flameshot", "gui"}), "launch flameshot"},
         {m, "Return", exec("alacritty"), "launch alacritty"},
+        {
+            m,
+            "/",
+            function()
+                awful.spawn.easy_async_with_shell(
+                    "fd \".*\" ~ \z
+                    | xdg-open $(rofi -dmenu -fullscreen -i -sorting-method fzf)"
+                )
+            end,
+            "launch rofi as a fuzzy finder",
+        },
         {m, "b", exec("firefox"), "launch firefox"},
         {
             m,
