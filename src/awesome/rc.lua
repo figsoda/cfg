@@ -177,13 +177,13 @@ local ckbs = {
     {m, "j", prevclient, "previous client"},
     {m, "k", nextclient, "next client"},
     {
-        m,
-        "m",
+        ms,
+        "f",
         function(c) c.fullscreen = not c.fullscreen end,
         "toggle fullscreen",
     },
-    {m, "n", function(c) c.minimized = true end, "minimize the client"},
-    {m, "q", function(c) c:kill() end, "kill the client"},
+    {ms, "n", function(c) c.minimized = true end, "minimize the client"},
+    {ms, "q", function(c) c:kill() end, "kill the client"},
 }
 
 local kbss = {
