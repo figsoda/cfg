@@ -432,6 +432,7 @@ root.keys(keys)
 
 awful.spawn({"xbacklight", "=10"})
 awful.spawn({"xset", "-b"})
+awful.spawn({"xset", "s", "300", "600"})
 awful.spawn({"xss-lock", "xsecurelock"})
 awful.spawn("flameshot")
 awful.spawn({"Thunar", "--daemon"})
