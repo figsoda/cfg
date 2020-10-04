@@ -7,10 +7,9 @@ ln -st /var/service /etc/sv/{NetworkManager,bluetoothd,chronyd,dbus,docker,elogi
 touch /etc/sv/docker/down
 
 rustup-init -y --default-toolchain nightly -c clippy rustfmt
-bash ~/.cargo/env
-cargo install cargo-audit cargo-bloat cargo-cache cargo-udeps cargo-update cross pactorio
+~/.cargo/bin/cargo install cargo-audit cargo-bloat cargo-cache cargo-udeps cargo-update cross pactorio
 
-bash <(curl -L https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)
+. <(curl -L https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)
 
 src="$(realpath "$(dirname "${BASH_SOURCE[0]}")")/src"
 
