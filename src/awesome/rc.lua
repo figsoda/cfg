@@ -192,7 +192,7 @@ local kbss = {
         {mc, "l", exec({"xset", "s", "activate"}), "lock screen"},
         {
             mc,
-            "m",
+            "Return",
             function()
                 awful.spawn.easy_async_with_shell(
                     "echo \z
