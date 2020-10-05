@@ -14,6 +14,11 @@ for f in Bold-Italic Bold ExtraBold-Italic ExtraBold Italic Medium-Italic Medium
         "https://github.com/ryanoasis/nerd-fonts/raw/2.1.0/patched-fonts/JetBrainsMono/$f/complete/JetBrains%20Mono%20${f/-/%20}%20Nerd%20Font%20Complete.ttf"
 done
 
+for f in Bold-Italic Bold Italic Regular; do
+    curl -LSso "$HOME/.local/share/fonts/Arimo ${f/-/ } Nerd Font Complete.ttf"\
+        "https://github.com/ryanoasis/nerd-fonts/raw/2.1.0/patched-fonts/Arimo/$f/complete/Arimo%20${f/-/%20}%20Nerd%20Font%20Complete.ttf"
+done
+
 src="$(realpath "$(dirname "${BASH_SOURCE[0]}")")/src"
 
 while IFS=" " read -r file dir; do
