@@ -3,6 +3,9 @@
         "awesome",
         "client",
         "root",
-        "screen"
-    ]
+        "screen",
+    ],
+    "files.associations": {
+        "fonts.conf": "xml"
+    },
 }
