@@ -310,9 +310,9 @@ local kbss = {
             function()
                 awful.spawn.with_shell(
                     "fd . ~ \z
-                    | xdg-open $(rofi -dmenu -p \"fuzzy finder\" -fullscreen \z
+                    | xdg-open \"$(rofi -dmenu -p \"fuzzy finder\" -fullscreen \z
                         -i -matching fuzzy \z
-                        -sorting-method fzf)"
+                        -sorting-method fzf)\""
                 )
             end,
             "launch rofi as a fuzzy finder",
