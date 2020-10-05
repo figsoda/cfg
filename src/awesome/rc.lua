@@ -318,6 +318,14 @@ local kbss = {
             "launch rofi as a fuzzy finder",
         },
         {m, "b", exec("firefox"), "launch firefox"},
+        {
+            m,
+            "c",
+            function()
+                awful.spawn.with_shell("CM_LAUNCHER=rofi clipmenu -p clipmenu")
+            end,
+            "launch clipmenu",
+        },
         {m, "e", exec("code-oss"), "launch vscode"},
         {m, "f", exec("Thunar"), "launch thunar"},
         {m, "r", exec({"rofi", "-show", "run", "-modi", "run"}), "launch rofi"},
@@ -440,6 +448,7 @@ awful.spawn({"xset", "-b"})
 awful.spawn({"xset", "s", "900", "900"})
 awful.spawn({"xset", "dpms", "900", "900", "900"})
 awful.spawn({"xss-lock", "-l", "xsecurelock"})
+awful.spawn.with_shell("CM_MAX_CLIPS=10 CM_SELECTIONS=clipboard clipmenud")
 awful.spawn("flameshot")
 awful.spawn({"Thunar", "--daemon"})
 awful.spawn("blueman-applet")
