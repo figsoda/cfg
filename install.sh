@@ -9,10 +9,10 @@ touch /etc/sv/docker/down
 rustup-init -y --default-toolchain nightly -c clippy rustfmt
 ~/.cargo/bin/cargo install cargo-audit cargo-bloat cargo-cache cargo-udeps cargo-update cross pactorio
 
-tmp=$(mktemp)
-curl -LSs https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip -o "$tmp"
-unzip -oqq "$tmp" -d ~/.local/share/fonts/JetBrainsMonoNerdFont
-unlink "$tmp"
+for f in Bold-Italic Bold ExtraBold-Italic ExtraBold Italic Medium-Italic Medium Regular; do
+    curl -LSso "$HOME/.local/share/fonts/JetBrains Mono ${f/-/ } Nerd Font Complete.ttf"\
+        "https://github.com/ryanoasis/nerd-fonts/raw/2.1.0/patched-fonts/JetBrainsMono/$f/complete/JetBrains%20Mono%20${f/-/%20}%20Nerd%20Font%20Complete.ttf"
+done
 
 src="$(realpath "$(dirname "${BASH_SOURCE[0]}")")/src"
 
