@@ -164,10 +164,15 @@ awful.screen.connect_for_each_screen(
                 padding,
                 wibox.widget.systray(),
                 widget.battery(),
+                padding,
                 {
-                    widget = wibox.widget.textclock(" %F %T ", 1),
-                    font = "DejaVu 12",
+                    widget = wibox.widget.textclock(
+                        "<span fgcolor=\"#40f080\">%F</span> \z
+                        <span fgcolor=\"#40d0f0\">%T</span>", 1
+                    ),
+                    font = b.textclock_font,
                 },
+                padding,
             },
         }
     end
