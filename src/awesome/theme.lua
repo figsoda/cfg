@@ -12,7 +12,7 @@ return {
     hotkeys_modifiers_fg = "#80b0ff",
     taglist_fg_empty = "#606060",
 
-    font = "sans-serif 10",
+    font = "sans-serif 11",
     battery_font = "monospace 8",
     taglist_font = "monospace 12",
     textclock_font = "monospace 12",
