@@ -7,6 +7,7 @@ awesome ~/.config
 config.fish ~/.config/fish
 flameshot.ini ~/.config/Dharkael
 fonts.conf ~/.config/fontconfig
+gtk-3.0 ~/.config
 justfile ~
 resolv.conf /etc
 starship.toml ~/.config
