@@ -221,8 +221,6 @@ local kbss = {
             end,
             "session menu",
         },
-        {mc, "q", awesome.quit, "quit awesome"},
-        {mc, "r", awesome.restart, "restart awesome"},
     },
     layout = {
         {ms, "Left", prevlayout, "previous layout"},
