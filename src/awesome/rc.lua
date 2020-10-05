@@ -167,8 +167,8 @@ awful.screen.connect_for_each_screen(
                 padding,
                 {
                     widget = wibox.widget.textclock(
-                        "<span fgcolor=\"#40f080\">%F</span> \z
-                        <span fgcolor=\"#40d0f0\">%T</span>", 1
+                        "<span fgcolor=\"#f0c060\">%F</span> \z
+                        <span fgcolor=\"#40d8ff\">%T</span>", 1
                     ),
                     font = b.textclock_font,
                 },
