@@ -174,8 +174,8 @@ awful.screen.connect_for_each_screen(
 )
 
 local ckbs = {
-    {m, "j", prevclient, "previous client"},
-    {m, "k", nextclient, "next client"},
+    {m, "k", prevclient, "previous client"},
+    {m, "l", nextclient, "next client"},
     {
         ms,
         "f",
@@ -224,7 +224,19 @@ local kbss = {
         {ms, "Right", nextlayout, "next layout"},
         {
             m,
-            "y",
+            "i",
+            function() awful.tag.incmwfact(-0.05) end,
+            "reduce master width",
+        },
+        {
+            m,
+            "o",
+            function() awful.tag.incmwfact(0.05) end,
+            "increase master width",
+        },
+        {
+            m,
+            "p",
             maptag(
                 function(t)
                     t.master_width_factor = b.master_width_factor or 0.5
@@ -232,37 +244,25 @@ local kbss = {
             ),
             "reset master width",
         },
-        {
-            m,
-            "u",
-            function() awful.tag.incmwfact(-0.05) end,
-            "reduce master width",
-        },
-        {
-            m,
-            "i",
-            function() awful.tag.incmwfact(0.05) end,
-            "increase master width",
-        },
+        {ms, "i", function() awful.tag.incncol(-1) end, "remove a column"},
+        {ms, "o", function() awful.tag.incncol(1) end, "add a column"},
         {
             ms,
-            "y",
+            "p",
             maptag(function(t) t.column_count = b.column_count or 1 end),
             "reset column count",
         },
-        {ms, "u", function() awful.tag.incncol(-1) end, "remove a column"},
-        {ms, "i", function() awful.tag.incncol(1) end, "add a column"},
     },
     client = {
         {
             ms,
-            "j",
+            "k",
             function() awful.client.swap.byidx(-1) end,
             "swap with previous client",
         },
         {
             ms,
-            "k",
+            "l",
             function() awful.client.swap.byidx(1) end,
             "swap with next client",
         },
