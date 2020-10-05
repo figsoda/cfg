@@ -318,15 +318,15 @@ local kbss = {
             "launch rofi as a fuzzy finder",
         },
         {m, "b", exec("firefox"), "launch firefox"},
+        {m, "e", exec("code-oss"), "launch vscode"},
+        {m, "f", exec("Thunar"), "launch thunar"},
+        {m, "r", exec({"rofi", "-show", "run", "-modi", "run"}), "launch rofi"},
         {
             m,
             "u",
             exec({"rofi", "-show", "calc", "-modi", "calc,emoji"}),
             "launch rofi utilities",
         },
-        {m, "e", exec("code-oss"), "launch vscode"},
-        {m, "f", exec("Thunar"), "launch thunar"},
-        {m, "r", exec({"rofi", "-show", "run", "-modi", "run"}), "launch rofi"},
         {
             m,
             "w",
