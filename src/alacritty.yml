@@ -4,18 +4,6 @@ window:
     y: 4
 
 font:
-  normal:
-    family: JetBrainsMono NF
-
-  bold:
-    family: JetBrainsMono NF
-
-  italic:
-    family: JetBrainsMono NF
-
-  bold_italic:
-    family: JetBrainsMono NF
-
   size: 9
 
 cursor:
