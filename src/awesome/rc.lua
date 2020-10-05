@@ -320,9 +320,9 @@ local kbss = {
         {m, "b", exec("firefox"), "launch firefox"},
         {
             m,
-            "c",
-            exec({"rofi", "-show", "calc", "-modi", "calc"}),
-            "launch rofi calculator",
+            "u",
+            exec({"rofi", "-show", "calc", "-modi", "calc,emoji"}),
+            "launch rofi utilities",
         },
         {m, "e", exec("code-oss"), "launch vscode"},
         {m, "f", exec("Thunar"), "launch thunar"},
