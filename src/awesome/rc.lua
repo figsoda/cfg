@@ -187,7 +187,6 @@ local ckbs = {
         function(c) c.fullscreen = not c.fullscreen end,
         "toggle fullscreen",
     },
-    {ms, "m", function(c) c.maximized = not c.maximized end, "toggle maximized"},
     {ms, "n", function(c) c.minimized = true end, "minimize the client"},
     {ms, "q", function(c) c:kill() end, "kill the client"},
 }
@@ -387,7 +386,6 @@ awful.rules.rules = {
             border_color = b.border_normal,
             focus = awful.client.focus.filter,
             raise = true,
-            maximized = false,
             keys = ckeys,
             buttons = gears.table.join(
                 awful.button({}, 1, focusclient), --
@@ -427,6 +425,8 @@ client.connect_signal(
         end
     end
 )
+
+client.connect_signal("property::maximized", function(c) c.maximized = false end)
 
 client.connect_signal(
     "mouse::enter", function(c)
