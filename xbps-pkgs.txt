@@ -1,5 +1,5 @@
 awesome blueman chrony elogind xorg xsecurelock xss-lock
-Thunar alacritty gnome-ring nm-applet pamixer pavucontrol volctl
+Thunar alacritty gnome-keyring nm-applet pamixer pavucontrol volctl
 clipmenu rofi rofi-calc rofi-emoji
 
 bat exa fd fish-shell just micro psmisc ripgrep sd starship unzip xtools zip
