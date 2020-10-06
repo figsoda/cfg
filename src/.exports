@@ -1,3 +1,2 @@
 export EDITOR=code-oss
 export PATH="$HOME/.cargo/bin:$PATH"
-export VERSION_ID=unavailable
