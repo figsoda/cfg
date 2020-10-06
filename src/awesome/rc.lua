@@ -164,6 +164,7 @@ awful.screen.connect_for_each_screen(
                 padding,
                 wibox.widget.systray(),
                 widget.battery(),
+                widget.xbps_updates(),
                 padding,
                 {
                     widget = wibox.widget.textclock(
