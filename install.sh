@@ -43,6 +43,8 @@ curl -LSso "$tmp"\
 unzip -qq "$tmp" -d ~/.themes
 unlink "$tmp"
 
+curl -LSs https://github.com/dracula/wallpaper/raw/master/void.png -o ~/wallpaper.png
+
 src="$(realpath "$(dirname "${BASH_SOURCE[0]}")")/src"
 
 while IFS=" " read -r file dir; do
