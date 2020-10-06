@@ -402,6 +402,11 @@ awful.rules.rules = {
                         focusclient(c)
                         awful.mouse.client.resize(c)
                     end
+                ), --
+                awful.button(
+                    ms, 1, function(c)
+                        c.floating = not c.floating
+                    end
                 )
             ),
             screen = awful.screen.preferred,
