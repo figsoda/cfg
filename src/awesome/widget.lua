@@ -5,7 +5,7 @@ local wibox = require("wibox")
 
 return {
     battery = function()
-        local t = gears.timer {timeout = 5}
+        local t = gears.timer {timeout = 1}
 
         local txt = wibox.widget.textbox()
         txt.align = "center"
