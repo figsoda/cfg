@@ -6,5 +6,7 @@ bat exa fd fish-shell just micro psmisc ripgrep sd starship unzip xtools zip
 docker gcc hlint ncurses-libtinfo-libs noto-fonts-emoji rustup stack
 firefox flameshot gimp lxappearance mpv qalculate-gtk sxiv vscode
 
+pkg-config libressl-devel
+
 libgcc-32bit libstdc++-32bit
 libdrm-32bit libglvnd-32bit mesa-vulkan-intel mesa-vulkan-intel-32bit steam
