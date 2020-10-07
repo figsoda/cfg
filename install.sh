@@ -67,5 +67,9 @@ while IFS=" " read -r file dir; do
     fi
 done < symlinks.txt
 
+echo Creating xsync
+echo -e "#!/bin/sh\nxbps-install -S" > /usr/local/bin/xsync
+chmod +x /usr/local/bin/xsync
+
 echo Caching font information
 fc-cache

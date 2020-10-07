@@ -86,9 +86,7 @@ return {
                             "fish_prompt; echo sudo xbps-install -Su; sudo xbps-install -Su",
                         }, --
                         function()
-                            awful.spawn.easy_async(
-                                {"xbps-install", "-S"}, update
-                            )
+                            awful.spawn.easy_async({"sudo", "xsync"}, update)
                         end
                     )
                 end
@@ -96,7 +94,7 @@ return {
         )
 
         return awful.widget.watch(
-            {"xbps-install", "-S"}, 60, update, --
+            {"sudo", "xsync"}, 60, update, --
             wibox.container.margin(txt, 8, 0, 0, 0, nil, false)
         )
     end,
