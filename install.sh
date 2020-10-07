@@ -34,7 +34,7 @@ mkdir -p ~/.icons
 tar xfz "$tmp" -C ~/.icons
 unlink "$tmp"
 
-echo Download Tela-dark from https://www.pling.com/p/1279924
+echo Downloading Tela-dark from https://www.pling.com/p/1279924
 tmp=$(pling 1279924 '01-Tela\.tar\.xz')
 mkdir -p ~/.local/share/icons
 tar xfJ "$tmp" -C ~/.local/share/icons
