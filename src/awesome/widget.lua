@@ -1,5 +1,5 @@
 local awful = require("awful")
-local beautiful = require("beautiful")
+local b = require("beautiful")
 local gears = require("gears")
 local wibox = require("wibox")
 
@@ -9,7 +9,7 @@ return {
 
         local txt = wibox.widget.textbox()
         txt.align = "center"
-        txt.font = beautiful.battery_font
+        txt.font = b.battery_font
 
         local bat = wibox.container.arcchart(txt)
         bat.min_value = 0

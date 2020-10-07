@@ -1,17 +1,15 @@
 local awful = require("awful")
 local b = require("beautiful")
 local gears = require("gears")
-local hotkeys_popup = require("awful.hotkeys_popup")
 local naughty = require("naughty")
 local wibox = require("wibox")
 
+local keys = require("keys")
 local widget = require("widget")
 
 require("awful.autofocus")
 
 local m = {"Mod4"}
-local ma = {"Mod4", "Mod1"}
-local mc = {"Mod4", "Control"}
 local ms = {"Mod4", "Shift"}
 
 local function setwallpaper(s)
@@ -24,28 +22,6 @@ end
 
 local function focusclient(c)
     c:emit_signal("request::activate", "mouse_click", {raise = true})
-end
-
-local function viewonly(t) t:view_only() end
-
-local function prevlayout() awful.layout.inc(-1) end
-
-local function nextlayout() awful.layout.inc(1) end
-
-local function prevclient() awful.client.focus.byidx(-1) end
-
-local function nextclient() awful.client.focus.byidx(1) end
-
-local function exec(cmd) return function() awful.spawn(cmd) end end
-
-local function maptag(f, i)
-    return function()
-        local s = awful.screen.focused()
-        if s ~= nil then
-            local tag = i and s.tags[i] or s.selected_tag
-            if tag ~= nil then f(tag) end
-        end
-    end
 end
 
 local l = awful.layout.suit
@@ -79,7 +55,12 @@ awful.screen.connect_for_each_screen(
         local layoutbox = awful.widget.layoutbox(s);
         layoutbox:buttons(
             gears.table.join(
-                awful.button({}, 4, prevlayout), awful.button({}, 5, nextlayout)
+                awful.button(
+                    {}, 4, function() awful.layout.inc(-1) end
+                ), --
+                awful.button(
+                    {}, 5, function() awful.layout.inc(1) end
+                )
             )
         )
 
@@ -94,7 +75,11 @@ awful.screen.connect_for_each_screen(
                     screen = s,
                     filter = awful.widget.taglist.filter.all,
                     buttons = gears.table.join(
-                        awful.button({}, 1, viewonly), --
+                        awful.button(
+                            {}, 1, function(t)
+                                t:view_only()
+                            end
+                        ), --
                         awful.button({}, 3, awful.tag.viewtoggle), --
                         awful.button(
                             {}, 4, function(t)
@@ -136,8 +121,16 @@ awful.screen.connect_for_each_screen(
                             end
                         end
                     ), --
-                    awful.button({}, 4, prevclient), --
-                    awful.button({}, 5, nextclient)
+                    awful.button(
+                        {}, 4, function()
+                            awful.client.focus.byidx(-1)
+                        end
+                    ), --
+                    awful.button(
+                        {}, 5, function()
+                            awful.client.focus.byidx(1)
+                        end
+                    )
                 ),
                 widget_template = {
                     id = "background_role",
@@ -179,206 +172,6 @@ awful.screen.connect_for_each_screen(
     end
 )
 
-local ckbs = {
-    {m, "k", prevclient, "previous client"},
-    {m, "l", nextclient, "next client"},
-    {
-        ms,
-        "f",
-        function(c) c.fullscreen = not c.fullscreen end,
-        "toggle fullscreen",
-    },
-    {ms, "n", function(c) c.minimized = true end, "minimize the client"},
-    {ms, "q", function(c) c:kill() end, "kill the client"},
-}
-
-local kbss = {
-    help = {{m, "h", hotkeys_popup.show_help, "show help"}},
-    session = {
-        {mc, "l", exec({"xset", "s", "activate"}), "lock screen"},
-        {
-            mc,
-            "Return",
-            function()
-                awful.spawn.easy_async_with_shell(
-                    "echo \z
-                    1 - shutdown,\z
-                    2 - reboot,\z
-                    3 - lock screen,\z
-                    4 - quit awesome,\z
-                    5 - restart awesome\z
-                    | rofi -dmenu -sep , -p session -lines 5", --
-                    function(stdout)
-                        ({
-                            exec({"sudo", "init", "0"}),
-                            exec({"sudo", "init", "6"}),
-                            exec({"xset", "s", "activate"}),
-                            awesome.quit,
-                            awesome.restart,
-                        })[stdout:byte() - 48]()
-                    end
-                )
-            end,
-            "session menu",
-        },
-    },
-    layout = {
-        {ms, "Left", prevlayout, "previous layout"},
-        {ms, "Right", nextlayout, "next layout"},
-        {
-            m,
-            "i",
-            function() awful.tag.incmwfact(-0.05) end,
-            "reduce master width",
-        },
-        {
-            m,
-            "o",
-            function() awful.tag.incmwfact(0.05) end,
-            "increase master width",
-        },
-        {
-            m,
-            "p",
-            maptag(
-                function(t)
-                    t.master_width_factor = b.master_width_factor or 0.5
-                end
-            ),
-            "reset master width",
-        },
-        {ms, "i", function() awful.tag.incncol(-1) end, "remove a column"},
-        {ms, "o", function() awful.tag.incncol(1) end, "add a column"},
-        {
-            ms,
-            "p",
-            maptag(function(t) t.column_count = b.column_count or 1 end),
-            "reset column count",
-        },
-    },
-    client = {
-        {
-            ms,
-            "k",
-            function() awful.client.swap.byidx(-1) end,
-            "swap with previous client",
-        },
-        {
-            ms,
-            "l",
-            function() awful.client.swap.byidx(1) end,
-            "swap with next client",
-        },
-    },
-    tag = {
-        {m, "Left", awful.tag.viewprev, "view previous tag"},
-        {m, "Right", awful.tag.viewnext, "view next tag"},
-        {m, "BackSpace", awful.tag.history.restore, "go back"},
-    },
-    volume = {
-        {
-            {},
-            "XF86AudioLowerVolume",
-            exec({"pamixer", "-d", "5"}),
-            "lower volume",
-        },
-        {
-            {},
-            "XF86AudioRaiseVolume",
-            exec({"pamixer", "-i", "5"}),
-            "raise volume",
-        },
-        {{}, "XF86AudioMute", exec({"pamixer", "-t"}), "toggle mute"},
-    },
-    brightness = {
-        {
-            {},
-            "XF86MonBrightnessDown",
-            exec({"xbacklight", "-5", "-time", "0"}),
-            "reduce brightness",
-        },
-        {
-            {},
-            "XF86MonBrightnessUp",
-            exec({"xbacklight", "+5", "-time", "0"}),
-            "increase brightness",
-        },
-    },
-    app = {
-        {{}, "Print", exec({"flameshot", "gui"}), "launch flameshot"},
-        {m, "Return", exec("alacritty"), "launch alacritty"},
-        {
-            m,
-            "/",
-            function()
-                awful.spawn.with_shell(
-                    "fd . ~ \z
-                    | xdg-open \"$(rofi -dmenu -p \"fuzzy finder\" -fullscreen \z
-                        -i -matching fuzzy \z
-                        -sorting-method fzf)\""
-                )
-            end,
-            "launch rofi as a fuzzy finder",
-        },
-        {m, "b", exec("firefox"), "launch firefox"},
-        {
-            m,
-            "c",
-            function()
-                awful.spawn.with_shell("CM_LAUNCHER=rofi clipmenu -p clipmenu")
-            end,
-            "launch clipmenu",
-        },
-        {ms, "c", exec({"clipdel", "-d", "."}), "clear clipmenu"},
-        {m, "e", exec("code-oss"), "launch vscode"},
-        {m, "f", exec("Thunar"), "launch thunar"},
-        {m, "r", exec({"rofi", "-show", "run", "-modi", "run"}), "launch rofi"},
-        {
-            m,
-            "u",
-            exec({"rofi", "-show", "calc", "-modi", "calc,emoji"}),
-            "launch rofi utilities",
-        },
-        {
-            m,
-            "w",
-            exec({"rofi", "-show", "window", "-modi", "window"}),
-            "launch rofi with window modi",
-        },
-    },
-}
-
-for i = 1, 9 do
-    table.insert(kbss.tag, {m, i, maptag(viewonly, i), "view tag " .. i})
-    table.insert(
-        kbss.tag, {ma, i, maptag(awful.tag.viewtoggle, i), "toggle tag " .. i}
-    )
-    table.insert(
-        ckbs, {
-            ms,
-            i,
-            function(c) maptag(function(t) c:move_to_tag(t) end, i)() end,
-            "move client to tag " .. i,
-        }
-    )
-    table.insert(
-        ckbs, {
-            mc,
-            i,
-            function(c) maptag(function(t) c:toggle_tag(t) end, i)() end,
-            "toggle tag " .. i .. " for client",
-        }
-    )
-end
-
-local ckeys = {}
-for _, kb in pairs(ckbs) do
-    ckeys = gears.table.join(
-        ckeys, --
-        awful.key(kb[1], kb[2], kb[3], {description = kb[4], group = "client"})
-    )
-end
-
 awful.rules.rules = {
     {
         rule = {},
@@ -387,7 +180,7 @@ awful.rules.rules = {
             border_color = b.border_normal,
             focus = awful.client.focus.filter,
             raise = true,
-            keys = ckeys,
+            keys = keys.client,
             buttons = gears.table.join(
                 awful.button({}, 1, focusclient), --
                 awful.button(
@@ -441,17 +234,7 @@ client.connect_signal(
     "unfocus", function(c) c.border_color = b.border_normal end
 )
 
-local keys = {}
-for group, kbs in pairs(kbss) do
-    for _, kb in pairs(kbs) do
-        keys = gears.table.join(
-            keys, awful.key(
-                kb[1], kb[2], kb[3], {description = kb[4], group = group}
-            )
-        )
-    end
-end
-root.keys(keys)
+root.keys(keys.global)
 
 awful.spawn({"xbacklight", "=10"})
 awful.spawn({"xset", "-b"})
