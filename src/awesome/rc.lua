@@ -154,7 +154,7 @@ awful.screen.connect_for_each_screen(
                         {id = "text_role", widget = wibox.widget.textbox},
                         layout = wibox.layout.fixed.horizontal,
                     },
-                    create_callback = function(self, c, _, _)
+                    create_callback = function(self, c)
                         self:get_children_by_id("icon")[1].client = c
                     end,
                 },
