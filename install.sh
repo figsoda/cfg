@@ -14,6 +14,8 @@ rustup-init -y --default-toolchain nightly -c clippy rustfmt
 echo Installing cargo packages
 ~/.cargo/bin/cargo install cargo-audit cargo-bloat cargo-cache cargo-udeps cargo-update cross pactorio
 
+mkdir -p ~/.local/share/fonts
+
 echo Downloading JetBrains Mono Nerd Font
 for f in Bold-Italic Bold ExtraBold-Italic ExtraBold Italic Medium-Italic Medium Regular; do
     curl -LSso "$HOME/.local/share/fonts/JetBrains Mono ${f/-/ } Nerd Font Complete.ttf"\
