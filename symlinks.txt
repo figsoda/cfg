@@ -10,4 +10,5 @@ fonts.conf ~/.config/fontconfig
 gtk-3.0 ~/.config
 justfile ~
 resolv.conf /etc
+rofi ~/.config
 starship.toml ~/.config

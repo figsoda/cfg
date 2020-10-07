@@ -1,0 +1,5 @@
+configuration {
+    disable-history: true;
+    show-icons: true;
+    theme: "flat-dark";
+}
