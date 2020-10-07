@@ -57,14 +57,21 @@ return {
         txt.font = "monospace 12"
         txt.visible = false
 
-        local function update(_, stdout)
-            local x = gears.string.linecount(stdout) - 1
-            if x > 0 then
-                txt.visible = true
-                txt.markup = "<span fgcolor=\"#20ff40\">[↑" .. x .. "]</span>"
-            else
-                txt.visible = false
-            end
+        local function update()
+            awful.spawn.easy_async(
+                {"xbps-install", "-un"}, --
+                function(stdout)
+                    local x = gears.string.linecount(stdout) - 1
+                    if x > 0 then
+                        txt.visible = true
+                        txt.markup = string.format(
+                            [[<span fgcolor="#20ff40">[↑%d]</span>]], x
+                        )
+                    else
+                        txt.visible = false
+                    end
+                end
+            )
         end
 
         txt:buttons(
@@ -80,10 +87,7 @@ return {
                         }, --
                         function()
                             awful.spawn.easy_async(
-                                {"xbps-install", "-Sun"}, --
-                                function(stdout)
-                                    update(nil, stdout)
-                                end
+                                {"xbps-install", "-S"}, update
                             )
                         end
                     )
@@ -92,7 +96,7 @@ return {
         )
 
         return awful.widget.watch(
-            {"xbps-install", "-Sun"}, 60, update, --
+            {"xbps-install", "-S"}, 60, update, --
             wibox.container.margin(txt, 8, 0, 0, 0, nil, false)
         )
     end,
