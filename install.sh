@@ -35,19 +35,19 @@ pling() {
     echo "$tmp"
 }
 
-echo Downloading volantes_cursors from https://www.pling.com/p/1356095
+echo Downloading volantes_cursors cursor theme
 tmp=$(pling 1356095 'volantes_cursors\.tar\.gz')
 mkdir -p ~/.icons
 tar xfz "$tmp" -C ~/.icons
 unlink "$tmp"
 
-echo Downloading Tela-dark from https://www.pling.com/p/1279924
+echo Downloading Tela-dark icon theme
 tmp=$(pling 1279924 '01-Tela\.tar\.xz')
 mkdir -p ~/.local/share/icons
 tar xfJ "$tmp" -C ~/.local/share/icons
 unlink "$tmp"
 
-echo Downloading Material-Black-Blueberry from https://www.pling.com/p/1316887
+echo Downloading Material-Black-Blueberry gtk theme
 tmp=$(pling 1316887 'Material-Black-Blueberry_\d+\.\d+\.\d+.zip')
 mkdir -p ~/.themes
 unzip -qq "$tmp" -d ~/.themes
