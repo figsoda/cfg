@@ -2,6 +2,7 @@
 .bashrc ~
 .exports ~
 .gitconfig ~
+.xinitrc ~
 alacritty.yml ~/.config/alacritty
 awesome ~/.config
 config.fish ~/.config/fish
