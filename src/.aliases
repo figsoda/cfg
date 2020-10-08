@@ -1,4 +1,4 @@
 alias bat="bat --style=numbers"
 alias code=code-oss
-alias ls="exa -bl --git --time-style long-iso --group-directories-first"
+alias ls="exa -bl --git --icons --time-style long-iso --group-directories-first"
 alias xr="sudo xbps-remove -R"
