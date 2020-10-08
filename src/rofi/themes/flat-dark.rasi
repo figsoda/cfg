@@ -36,3 +36,7 @@ element selected {
     background-color: #303030;
     text-color: #e0e0e0;
 }
+
+element-icon {
+    size: 20px;
+}
