@@ -64,6 +64,15 @@ awful.screen.connect_for_each_screen(
             )
         )
 
+        local textclock = wibox.widget.textclock(
+            "<span fgcolor=\"#40d8ff\">%F</span> \z
+            <span fgcolor=\"#ffd840\">%T</span>", 1
+        )
+        textclock.font = b.textclock_font
+        awful.widget.calendar_popup.month {font = "monospace 12"}:attach(
+            textclock, "br"
+        )
+
         local panel = awful.wibar {position = "bottom", screen = s}
         panel:setup{
             layout = wibox.layout.align.horizontal,
@@ -159,13 +168,7 @@ awful.screen.connect_for_each_screen(
                 widget.battery(),
                 widget.xbps_updates(),
                 padding,
-                {
-                    widget = wibox.widget.textclock(
-                        "<span fgcolor=\"#40d8ff\">%F</span> \z
-                        <span fgcolor=\"#ffd840\">%T</span>", 1
-                    ),
-                    font = b.textclock_font,
-                },
+                textclock,
                 padding,
             },
         }

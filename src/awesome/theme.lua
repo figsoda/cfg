@@ -31,5 +31,20 @@ return {
     border_normal = "#606060",
     border_focus = "#0074b8",
 
+    calendar_start_sunday = true,
+    calendar_long_weekdays = true,
+    calendar_month_padding = 8,
+    calendar_month_border_width = 0,
+    calendar_header_fg_color = "#60f0a0",
+    calendar_header_padding = 4,
+    calendar_header_border_width = 0,
+    calendar_weekday_fg_color = "#ffc0ff",
+    calendar_weekday_border_width = 0,
+    calendar_normal_fg_color = "#a0e8ff",
+    calendar_normal_border_width = 0,
+    calendar_focus_fg_color = "#ffe840",
+    calendar_focus_bg_color = "#101010",
+    calendar_focus_border_width = 0,
+
     wallpaper = os.getenv("HOME") .. "/wallpaper.png",
 }
