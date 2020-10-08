@@ -243,6 +243,11 @@ awful.spawn({"xset", "s", "900", "900"})
 awful.spawn({"xset", "dpms", "900", "900", "900"})
 awful.spawn({"xset", "r", "rate", "400", "32"})
 awful.spawn({"xss-lock", "-l", "xsecurelock"})
+awful.spawn.with_shell(
+    "xargs -I {} \z
+        xinput set-prop {} 'Coordinate Transformation Matrix' 1.6 0 0 0 1.6 0 0 0 1 \z
+        < ~/.mice"
+)
 awful.spawn.with_shell("CM_MAX_CLIPS=10 CM_SELECTIONS=clipboard clipmenud")
 awful.spawn("flameshot")
 awful.spawn({"Thunar", "--daemon"})
