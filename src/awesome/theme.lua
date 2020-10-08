@@ -9,10 +9,14 @@ return {
     layout_tiletop = themedir .. "zenburn/layouts/tiletop.png",
 
     wibar_height = 24,
+    hotkeys_border_width = 0,
     hotkeys_modifiers_fg = "#80b0ff",
+    hotkeys_font = "monospace 10",
+    hotkeys_description_font = "monospace 10",
+    hotkeys_group_margin = 24,
     taglist_fg_empty = "#606060",
 
-    font = "sans-serif 11",
+    font = "sans 11",
     battery_font = "monospace 8",
     taglist_font = "monospace 12",
     textclock_font = "monospace 12",
