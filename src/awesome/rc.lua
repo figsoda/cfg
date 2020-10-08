@@ -238,6 +238,7 @@ root.keys(keys.global)
 
 awful.spawn({"xbacklight", "=10"})
 awful.spawn({"xset", "-b"})
+awful.spawn({"xset", "m", "0", "0"})
 awful.spawn({"xset", "s", "900", "900"})
 awful.spawn({"xset", "dpms", "900", "900", "900"})
 awful.spawn({"xss-lock", "-l", "xsecurelock"})
