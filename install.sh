@@ -12,7 +12,7 @@ echo Installing rust toolchain
 rustup-init -y --default-toolchain nightly -c clippy rustfmt
 
 echo Installing cargo packages
-~/.cargo/bin/cargo install cargo-audit cargo-bloat cargo-cache cargo-udeps cargo-update cross pactorio
+~/.cargo/bin/cargo install cargo-audit cargo-cache cargo-edit cargo-update pactorio
 
 mkdir -p ~/.local/share/fonts
 
