@@ -1,3 +1,4 @@
+.aliases ~
 .bash_profile ~
 .bashrc ~
 .exports ~

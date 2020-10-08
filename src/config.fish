@@ -1,3 +1,4 @@
+. ~/.aliases
 . ~/.exports
 
 set -gx SHELL /bin/fish
@@ -30,10 +31,6 @@ set -g fish_pager_color_progress brwhite --background=cyan
 set -g fish_color_comment 626262
 set -g fish_color_match normal
 
-alias ls "exa -bl --git --time-style long-iso --group-directories-first"
-alias redo "eval sudo \$history[1]"
-alias code code-oss
-alias bat "bat --style=numbers"
-alias xr "sudo xbps-remove -R"
+alias redo 'eval sudo $history[1]'
 
 starship init fish | .
