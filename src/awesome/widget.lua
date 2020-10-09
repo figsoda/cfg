@@ -83,7 +83,7 @@ return {
                             "-e",
                             "fish",
                             "-c",
-                            "fish_prompt; echo sudo xbps-install -Su; sudo xbps-install -Su",
+                            "fish_prompt; echo sudo xbps-install -Suy; sudo xbps-install -Suy",
                         }, --
                         function()
                             awful.spawn.easy_async({"sudo", "xsync"}, update)
