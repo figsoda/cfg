@@ -7,7 +7,7 @@ My personal dotfiles
 Create a file `~/.mice` with your mice found in `xinput --list`
 
 ```shell
-sudo bash install.sh $USER 2>&1 | tee install.log
+sudo --preserve-env=HOME,USER bash install.sh 2>&1 | tee install.log
 ```
 
 ## Screenshots

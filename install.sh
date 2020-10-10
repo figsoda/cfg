@@ -1,6 +1,6 @@
 #!/bin/bash
 
-id="$(id -u "$1")" || exit
+id="$(id -u "$USER")" || exit
 [ "$id" -eq 0 ] && exit
 
 echo Installing void packages
@@ -11,7 +11,7 @@ echo Creating runit service symlinks
 ln -st /var/service /etc/sv/{NetworkManager,bluetoothd,chronyd,dbus,docker,elogind}
 touch /etc/sv/docker/down
 
-sudo -u "$1" bash install_user.sh
+sudo -u "$USER" bash install_user.sh
 
 echo Creating symlinks
 src="$(realpath "$(dirname "${BASH_SOURCE[0]}")")/src"
@@ -20,8 +20,8 @@ while IFS=" " read -r file d; do
     if [ -n "$file" ] && [ -n "$dir" ]; then
         [ -f "$dir/$file" ] && rm "$dir/$file"
         if [[ "$d" == ~* ]]; then
-            [ ! -d "$dir" ] && sudo -u "$1" mkdir -p "$dir"
-            sudo -u "$1" ln -s "$src/$file" -t "$dir"
+            [ ! -d "$dir" ] && sudo -u "$USER" mkdir -p "$dir"
+            sudo -u "$USER" ln -s "$src/$file" -t "$dir"
         else
             [ ! -d "$dir" ] && mkdir -p "$dir"
             ln -s "$src/$file" -t "$dir"
@@ -37,4 +37,4 @@ echo Editing sudoers file
 echo "%wheel ALL=(ALL) NOPASSWD: /bin/init, /usr/local/bin/xsync" >> /etc/sudoers
 
 echo Caching font information
-sudo -u "$1" fc-cache
+sudo -u "$USER" fc-cache
