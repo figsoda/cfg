@@ -94,7 +94,7 @@ return {
         )
 
         return awful.widget.watch(
-            {"sudo", "xsync"}, 60, update, --
+            {"sudo", "xsync"}, 600, update, --
             wibox.container.margin(txt, 8, 0, 0, 0, nil, false)
         )
     end,
