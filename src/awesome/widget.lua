@@ -98,4 +98,47 @@ return {
             wibox.container.margin(txt, 8, 0, 0, 0, nil, false)
         )
     end,
+
+    rustup_updates = function()
+        local txt = wibox.widget.textbox(
+            [[<span fgcolor="#20ff40">[↑🦀]</span>]]
+        )
+        txt.font = "monospace 12"
+        txt.visible = false
+
+        local function update(_, stdout)
+            txt.visible = stdout:find("Update available", 1, true) ~= nil
+        end
+
+        local cmd = {os.getenv("HOME") .. "/.cargo/bin/rustup", "check"}
+
+        txt:buttons(
+            awful.button(
+                {}, 1, nil, function()
+                    awful.spawn.easy_async(
+                        {
+                            "alacritty",
+                            "-e",
+                            "fish",
+                            "-c",
+                            "fish_prompt; echo rustup update; rustup update",
+                        }, --
+                        function()
+                            awful.spawn.easy_async(
+                                cmd, --
+                                function(stdout)
+                                    update(nil, stdout)
+                                end
+                            )
+                        end
+                    )
+                end
+            )
+        )
+
+        return awful.widget.watch(
+            cmd, 600, update, --
+            wibox.container.margin(txt, 8, 0, 0, 0, nil, false)
+        )
+    end,
 }

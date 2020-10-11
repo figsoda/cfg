@@ -167,6 +167,7 @@ awful.screen.connect_for_each_screen(
                 wibox.widget.systray(),
                 widget.battery(),
                 widget.xbps_updates(),
+                widget.rustup_updates(),
                 padding,
                 textclock,
                 padding,
