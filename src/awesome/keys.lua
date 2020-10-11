@@ -172,7 +172,7 @@ local kbss = {
         },
         {ms, "c", exec({"clipdel", "-d", "."}), "clear clipmenu"},
         {m, "e", exec("code-oss"), "launch vscode"},
-        {m, "f", exec("Thunar"), "launch thunar"},
+        {m, "f", exec("thunar"), "launch thunar"},
         {m, "r", exec({"rofi", "-show", "run", "-modi", "run"}), "launch rofi"},
         {
             m,

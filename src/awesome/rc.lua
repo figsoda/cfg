@@ -254,7 +254,7 @@ awful.spawn.with_shell(
 )
 awful.spawn.with_shell("CM_MAX_CLIPS=10 CM_SELECTIONS=clipboard clipmenud")
 awful.spawn("flameshot")
-awful.spawn({"Thunar", "--daemon"})
+awful.spawn({"thunar", "--daemon"})
 awful.spawn("blueman-applet")
 awful.spawn("nm-applet")
 awful.spawn({"udiskie", "-s"})
