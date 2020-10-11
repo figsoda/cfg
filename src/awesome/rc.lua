@@ -249,7 +249,7 @@ awful.spawn({"xss-lock", "-l", "xsecurelock"})
 awful.spawn.with_shell(
     "xargs -I {} \z
         xinput set-prop {} 'Coordinate Transformation Matrix' 3 0 0 0 3 0 0 0 1 \z
-        < ~/.mice"
+        < ~/.config/mice"
 )
 awful.spawn.with_shell("CM_MAX_CLIPS=10 CM_SELECTIONS=clipboard clipmenud")
 awful.spawn("flameshot")
