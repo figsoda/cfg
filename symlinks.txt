@@ -11,6 +11,7 @@ flameshot.ini ~/.config/flameshot
 fonts.conf ~/.config/fontconfig
 gtk-3.0 ~/.config
 justfile ~
+mimeapps.list ~/.config
 resolv.conf /etc
 rofi ~/.config
 starship.toml ~/.config
