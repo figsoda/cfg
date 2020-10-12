@@ -31,6 +31,7 @@ local ckbs = {
     },
     {ms, "n", function(c) c.minimized = true end, "minimize the client"},
     {ms, "q", function(c) c:kill() end, "kill the client"},
+    {ms, "t", function(c) c.ontop = not c.ontop end, "toggle stay on top"},
 }
 
 local kbss = {
