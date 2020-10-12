@@ -5,10 +5,6 @@ clean:
     sudo vkpurge rm all
     sudo xbps-remove -Ooy
 
-alias m := music
-music:
-    alacritty -e mpv --shuffle --loop-playlist ~/music
-
 sv service:
     sudo ln -st /var/service/ /etc/sv/{{service}} 
 

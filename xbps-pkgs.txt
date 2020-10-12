@@ -3,7 +3,7 @@ gnome-keyring network-manager-applet pamixer pavucontrol udiskie volctl
 clipmenu rofi rofi-calc rofi-emoji
 bat bottom exa fd just micro psmisc ripgrep sd starship unzip xtools xz zip
 docker fish-shell gcc hlint ncurses-libtinfo-libs noto-fonts-emoji rustup stack
-Thunar alacritty firefox flameshot gimp mpv qalculate-gtk sxiv vscode xreader
+Thunar alacritty deadbeef firefox flameshot gimp mpv qalculate-gtk sxiv vscode xreader
 pkg-config libressl-devel
 libgcc-32bit libstdc++-32bit
 libdrm-32bit libglvnd-32bit mesa-vulkan-intel mesa-vulkan-intel-32bit steam
