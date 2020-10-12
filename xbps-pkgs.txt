@@ -1,8 +1,8 @@
 awesome blueman chrony elogind xorg xsecurelock xss-lock
 gnome-keyring network-manager-applet pamixer pavucontrol udiskie volctl
 clipmenu rofi rofi-calc rofi-emoji
-bat exa fd fish-shell just micro psmisc ripgrep sd starship unzip xtools xz zip
-docker gcc hlint ncurses-libtinfo-libs noto-fonts-emoji rustup stack
+bat bottom exa fd just micro psmisc ripgrep sd starship unzip xtools xz zip
+docker fish-shell gcc hlint ncurses-libtinfo-libs noto-fonts-emoji rustup stack
 Thunar alacritty firefox flameshot gimp mpv qalculate-gtk sxiv vscode xreader
 pkg-config libressl-devel
 libgcc-32bit libstdc++-32bit
