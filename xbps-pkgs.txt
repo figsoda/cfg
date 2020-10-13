@@ -1,5 +1,5 @@
 awesome blueman chrony elogind xorg xsecurelock xss-lock gnome-keyring
-bat bottom exa fd just micro psmisc ripgrep sd starship unzip xtools xz zip
+bat bottom exa fd just micro psmisc ripgrep sd slit starship unzip xtools xz zip
 Thunar alacritty firefox flameshot gimp qalculate-gtk sxiv vscode xreader
 clipmenu network-manager-applet rofi rofi-calc rofi-emoji udiskie
 pamixer pavucontrol volctl mpc mpd mpv ncmpcpp
