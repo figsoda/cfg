@@ -175,6 +175,14 @@ local kbss = {
         {m, "e", exec("code-oss"), "launch vscode"},
         {m, "f", exec("thunar"), "launch thunar"},
         {m, "m", exec({"alacritty", "-e", "ncmpcpp"}), "launch ncmpcpp"},
+        {
+            ms,
+            "m",
+            function()
+                awful.spawn.with_shell("mpc update && mpc clear && mpc add /")
+            end,
+            "reload mpd",
+        },
         {m, "r", exec({"rofi", "-show", "run", "-modi", "run"}), "launch rofi"},
         {
             m,
