@@ -251,6 +251,7 @@ awful.spawn.with_shell(
         < ~/.config/mice"
 )
 awful.spawn.with_shell("CM_MAX_CLIPS=10 CM_SELECTIONS=clipboard clipmenud")
+awful.spawn("mpd")
 awful.spawn("flameshot")
 awful.spawn({"thunar", "--daemon"})
 awful.spawn("blueman-applet")

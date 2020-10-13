@@ -174,7 +174,7 @@ local kbss = {
         {ms, "c", exec({"clipdel", "-d", "."}), "clear clipmenu"},
         {m, "e", exec("code-oss"), "launch vscode"},
         {m, "f", exec("thunar"), "launch thunar"},
-        {m, "m", exec("deadbeef"), "launch deadbeef"},
+        {m, "m", exec({"alacritty", "-e", "ncmpcpp"}), "launch ncmpcpp"},
         {m, "r", exec({"rofi", "-show", "run", "-modi", "run"}), "launch rofi"},
         {
             m,
@@ -188,8 +188,8 @@ local kbss = {
             exec({"rofi", "-show", "window", "-modi", "window"}),
             "launch rofi with window modi",
         },
-        {m, ",", exec({"deadbeef", "--play-pause"}), "play or pause music"},
-        {m, ".", exec({"deadbeef", "--next"}), "next song in the playlist"},
+        {m, ",", exec({"mpc", "toggle"}), "play or pause music"},
+        {m, ".", exec({"mpc", "next"}), "next song in the playlist"},
     },
 }
 
