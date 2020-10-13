@@ -54,5 +54,3 @@ echo Configuring mpd
 mkdir -p ~/music
 mkdir -p ~/.local/share/mpd/playlists
 touch ~/.local/share/mpd/mpd.db
-touch ~/.local/share/mpd/mpd.pid
-touch ~/.local/share/mpd/mpdstate
