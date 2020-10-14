@@ -153,6 +153,12 @@ function widget.mpd()
 
     local scr = wibox.container.scroll.horizontal(txt, 30, 25, 12, true, 160)
     scr.forced_width = 160
+    scr:pause()
+    scr:connect_signal("mouse::enter", function() scr:continue() end)
+    scr:connect_signal("mouse::leave", function()
+        scr:pause()
+        scr:reset_scrolling()
+    end)
 
     local template = wibox.widget {
         layout = wibox.layout.fixed.horizontal,
