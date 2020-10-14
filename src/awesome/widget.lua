@@ -165,36 +165,38 @@ function widget.mpd()
         time,
     }
     template:connect_signal("mouse::enter", function() scr:continue() end)
-    template:connect_signal("mouse::leave", function()
-        scr:pause()
-        scr:reset_scrolling()
-    end)
+    template:connect_signal(
+        "mouse::leave", function()
+            scr:pause()
+            scr:reset_scrolling()
+        end
+    )
+
+    local function update(stdout, exitcode)
+        if exitcode == 0 then
+            local name, st, t = stdout:match(
+                "^([^\n]+)\n%[(%a+)%].-(%d:%d%d/%d:%d%d)"
+            )
+            if name and st and t then
+                if st == "playing" then
+                    status.text = "▶️"
+                elseif st == "paused" then
+                    status.text = "⏸️"
+                else
+                    status.text = "⏹️"
+                end
+                txt.text = name
+                time.text = t
+                template.visible = true
+                return
+            end
+        end
+        template.visible = false
+    end
 
     return awful.widget.watch(
         {"mpc", "-f", "%title% - %artist%"}, 1, --
-        function(_, stdout, _, _, exitcode)
-            if exitcode == 0 then
-                local name, st, t = stdout:match(
-                    "^([^\n]+)\n%[(%a+)%].-(%d:%d%d/%d:%d%d)"
-                )
-                if name and st and t then
-                    template.visible = true
-                    if st == "playing" then
-                        status.text = "▶️"
-                    elseif st == "paused" then
-                        status.text = "⏸️"
-                    else
-                        status.text = "⏹️"
-                    end
-                    txt.text = name
-                    time.text = t
-                else
-                    template.visible = false
-                end
-            else
-                template.visible = false
-            end
-        end, --
+        function(_, stdout, _, _, exitcode) update(stdout, exitcode) end, --
         template
     )
 end
