@@ -194,10 +194,29 @@ function widget.mpd()
         template.visible = false
     end
 
-    return awful.widget.watch(
-        {"mpc", "-f", "%title% - %artist%"}, 1, --
-        function(_, stdout, _, _, exitcode) update(stdout, exitcode) end, --
-        template
+    local function toggle()
+        awful.spawn.easy_async(
+            {"mpc", "toggle", "-f", "%title% - %artist%"}, --
+            function(stdout, _, _, exitcode) update(stdout, exitcode) end
+        )
+    end
+
+    local function next()
+        awful.spawn.easy_async(
+            {"mpc", "next", "-f", "%title% - %artist%"}, --
+            function(stdout, _, _, exitcode) update(stdout, exitcode) end
+        )
+    end
+
+    return setmetatable(
+        awful.widget.watch(
+            {"mpc", "-f", "%title% - %artist%"}, 1, --
+            function(_, stdout, _, _, exitcode)
+                update(stdout, exitcode)
+            end, --
+            template
+        ), --
+        {__index = {toggle = toggle, next = next}}
     )
 end
 

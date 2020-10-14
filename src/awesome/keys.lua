@@ -196,8 +196,18 @@ local kbss = {
             exec({"rofi", "-show", "window", "-modi", "window"}),
             "launch rofi with window modi",
         },
-        {m, ",", exec({"mpc", "toggle"}), "play or pause music"},
-        {m, ".", exec({"mpc", "next"}), "next song in the playlist"},
+        {
+            m,
+            ",",
+            function() awful.screen.focused().mpd.toggle() end,
+            "play or pause music",
+        },
+        {
+            m,
+            ".",
+            function() awful.screen.focused().mpd.next() end,
+            "next song in the playlist",
+        },
     },
 }
 

@@ -62,6 +62,8 @@ awful.screen.connect_for_each_screen(
             )
         )
 
+        s.mpd = widget.mpd()
+
         local textclock = wibox.widget.textclock(
             " <span fgcolor=\"#40d8ff\">%F</span> \z
             <span fgcolor=\"#ffd840\">%T</span> ", 1
@@ -161,7 +163,7 @@ awful.screen.connect_for_each_screen(
             },
             {
                 layout = wibox.layout.fixed.horizontal,
-                widget.mpd(),
+                s.mpd,
                 widget.padding(8),
                 wibox.widget.systray(),
                 widget.battery(),
