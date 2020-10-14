@@ -145,4 +145,51 @@ function widget.rustup_updates()
     )
 end
 
+function widget.mpd()
+    local status = wibox.widget.textbox()
+    local txt = wibox.widget.textbox()
+    local time = wibox.widget.textbox()
+    time.font = "monospace 10"
+
+    local scr = wibox.container.scroll.horizontal(txt, 30, 25, 12, true, 160)
+    scr.forced_width = 160
+
+    local template = wibox.widget {
+        layout = wibox.layout.fixed.horizontal,
+        status,
+        widget.padding(4),
+        scr,
+        widget.padding(4),
+        time,
+    }
+
+    return awful.widget.watch(
+        {"mpc", "-f", "%title% - %artist%"}, 1, --
+        function(_, stdout, _, _, exitcode)
+            if exitcode == 0 then
+                local name, st, t = stdout:match(
+                    "^([^\n]+)\n%[(%a+)%].-(%d:%d%d/%d:%d%d)"
+                )
+                if name and st and t then
+                    template.visible = true
+                    if st == "playing" then
+                        status.text = "▶️"
+                    elseif st == "paused" then
+                        status.text = "⏸️"
+                    else
+                        status.text = "⏹️"
+                    end
+                    txt.text = name
+                    time.text = t
+                else
+                    template.visible = false
+                end
+            else
+                template.visible = false
+            end
+        end, --
+        template
+    )
+end
+
 return widget

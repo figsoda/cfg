@@ -166,6 +166,7 @@ awful.screen.connect_for_each_screen(
                 widget.battery(),
                 widget.xbps_updates(),
                 widget.rustup_updates(),
+                widget.mpd(),
                 textclock,
             },
         }
