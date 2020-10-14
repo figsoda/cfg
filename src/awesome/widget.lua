@@ -4,6 +4,12 @@ local gears = require("gears")
 local wibox = require("wibox")
 
 return {
+    padding = function(width)
+        return wibox.widget {
+            forced_width = width,
+        }
+    end,
+
     battery = function()
         local t = gears.timer {timeout = 1}
 
