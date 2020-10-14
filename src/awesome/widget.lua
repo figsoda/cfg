@@ -151,7 +151,9 @@ function widget.mpd()
     local time = wibox.widget.textbox()
     time.font = "monospace 10"
 
-    local scr = wibox.container.scroll.horizontal(txt, 60, 40, 16, true, 160)
+    local scr = wibox.container.scroll.horizontal(
+        txt, 60, 60, 16, true, 160, nil, 160
+    )
     scr.forced_width = 160
     scr:pause()
 
@@ -164,10 +166,16 @@ function widget.mpd()
         widget.padding(4),
         time,
     }
-    template:connect_signal("mouse::enter", function() scr:continue() end)
+    template:connect_signal(
+        "mouse::enter", function()
+            scr:set_space_for_scrolling(4096)
+            scr:continue()
+        end
+    )
     template:connect_signal(
         "mouse::leave", function()
             scr:pause()
+            scr:set_space_for_scrolling(160)
             scr:reset_scrolling()
         end
     )
