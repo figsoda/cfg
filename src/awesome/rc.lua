@@ -161,12 +161,12 @@ awful.screen.connect_for_each_screen(
             },
             {
                 layout = wibox.layout.fixed.horizontal,
+                widget.mpd(),
                 widget.padding(8),
                 wibox.widget.systray(),
                 widget.battery(),
                 widget.xbps_updates(),
                 widget.rustup_updates(),
-                widget.mpd(),
                 textclock,
             },
         }
