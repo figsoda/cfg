@@ -162,6 +162,7 @@ function widget.mpd()
 
     local template = wibox.widget {
         layout = wibox.layout.fixed.horizontal,
+        widget.padding(8),
         status,
         widget.padding(4),
         scr,
