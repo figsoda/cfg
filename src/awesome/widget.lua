@@ -151,7 +151,7 @@ function widget.mpd()
     local time = wibox.widget.textbox()
     time.font = "monospace 10"
 
-    local scr = wibox.container.scroll.horizontal(txt, 30, 25, 12, true, 160)
+    local scr = wibox.container.scroll.horizontal(txt, 60, 40, 16, true, 160)
     scr.forced_width = 160
     scr:pause()
     scr:connect_signal("mouse::enter", function() scr:continue() end)
