@@ -196,12 +196,10 @@ function widget.mpd()
                 txt.text = name
                 time.text = t
                 template.visible = true
-            else
-                template.visible = false
+                return
             end
-        else
-            template.visible = false
         end
+        template.visible = false
     end
 
     local function toggle()
