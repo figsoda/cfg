@@ -178,9 +178,7 @@ local kbss = {
         {
             ms,
             "m",
-            function()
-                awful.spawn.with_shell("mpc update && mpc clear && mpc add /")
-            end,
+            function() awful.screen.focused().mpd.reload() end,
             "reload mpd",
         },
         {m, "r", exec({"rofi", "-show", "run", "-modi", "run"}), "launch rofi"},

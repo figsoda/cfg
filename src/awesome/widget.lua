@@ -202,6 +202,13 @@ function widget.mpd()
         template.visible = false
     end
 
+    local function reload()
+        awful.spawn.easy_async_with_shell(
+            "mpc update && mpc clear && mpc add /", --
+            function() template.visible = false end
+        )
+    end
+
     local function toggle()
         awful.spawn.easy_async(
             {"mpc", "toggle", "-f", "%title% - %artist%"}, --
@@ -225,7 +232,9 @@ function widget.mpd()
     return setmetatable(
         {}, {
             __index = function(_, k)
-                if k == "toggle" then
+                if k == "reload" then
+                    return reload
+                elseif k == "toggle" then
                     return toggle
                 elseif k == "next" then
                     return next
