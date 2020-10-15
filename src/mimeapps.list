@@ -1,6 +1,5 @@
 [Default Applications]
-application/pdf=xreader.desktop
-application/postscript=xreader.desktop
+application/pdf=firefox.desktop
 image/bmp=sxiv.desktop
 image/gif=sxiv.desktop
 image/jpeg=sxiv.desktop
