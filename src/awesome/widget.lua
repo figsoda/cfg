@@ -193,8 +193,12 @@ function widget.mpd()
                 else
                     status.text = "⏹️"
                 end
-                txt.text = name
-                time.text = t
+                txt.markup = string.format(
+                    [[<span fgcolor="#d0b0ff">%s</span>]], name
+                )
+                time.markup = string.format(
+                    [[<span fgcolor="#ffb0ab">%s</span>]], t
+                )
                 template.visible = true
                 return
             end
