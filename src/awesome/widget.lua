@@ -197,7 +197,7 @@ function widget.mpd()
                     [[<span fgcolor="#d0b0ff">%s</span>]], name
                 )
                 time.markup = string.format(
-                    [[<span fgcolor="#ffb0ab">%s</span>]], t
+                    [[<span fgcolor="#ffc8b8">%s</span>]], t
                 )
                 template.visible = true
                 return
