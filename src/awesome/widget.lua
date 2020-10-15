@@ -196,10 +196,12 @@ function widget.mpd()
                 txt.text = name
                 time.text = t
                 template.visible = true
-                return
+            else
+                template.visible = false
             end
+        else
+            template.visible = false
         end
-        template.visible = false
     end
 
     local function toggle()
@@ -216,15 +218,25 @@ function widget.mpd()
         )
     end
 
+    local watch = awful.widget.watch(
+        {"mpc", "-f", "%title% - %artist%"}, 1, --
+        function(_, stdout, _, _, exitcode) update(stdout, exitcode) end, --
+        template
+    )
+
     return setmetatable(
-        awful.widget.watch(
-            {"mpc", "-f", "%title% - %artist%"}, 1, --
-            function(_, stdout, _, _, exitcode)
-                update(stdout, exitcode)
-            end, --
-            template
-        ), --
-        {__index = {toggle = toggle, next = next}}
+        {}, {
+            __index = function(_, k)
+                if k == "toggle" then
+                    return toggle
+                elseif k == "next" then
+                    return next
+                else
+                    return watch[k]
+                end
+            end,
+            __newindex = watch,
+        }
     )
 end
 
