@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo Installing rust toolchain
-rustup-init -y --default-toolchain nightly -c clippy rustfmt
+rustup-init -y --default-toolchain nightly
 
 echo Installing cargo packages
 ~/.cargo/bin/cargo install cargo-audit cargo-cache cargo-edit cargo-update pactorio
