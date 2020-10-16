@@ -41,10 +41,10 @@ mkdir -p ~/.local/share/icons
 tar xfJ "$tmp" -C ~/.local/share/icons
 unlink "$tmp"
 
-echo Downloading Material-Black-Blueberry gtk theme
-tmp=$(pling 1316887 'Material-Black-Blueberry_\d+\.\d+\.\d+.zip')
+echo Downloading Qogir-dark gtk theme
+tmp=$(pling 1230631 'Qogir-dark\.tar\.xz')
 mkdir -p ~/.themes
-unzip -qq "$tmp" -d ~/.themes
+tar xfJ "$tmp" -C ~/.themes
 unlink "$tmp"
 
 echo Downloading wallpaper
