@@ -159,6 +159,22 @@ function widget.mpd()
 
     local template = wibox.widget {
         layout = wibox.layout.fixed.horizontal,
+        buttons = gears.table.join(
+            awful.button(
+                {}, 1, function()
+                    awful.screen.focused().mpd.toggle()
+                end
+            ), awful.button(
+                {}, 2,
+                    function()
+                        awful.spawn({"alacritty", "-e", "ncmpcpp"})
+                    end
+            ), awful.button(
+                {}, 3, function()
+                    awful.screen.focused().mpd.next()
+                end
+            )
+        ),
         widget.padding(8),
         status,
         widget.padding(4),
