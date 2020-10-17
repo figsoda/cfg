@@ -1,5 +1,5 @@
 * {
-    background-color: #202020;
+    background-color: #202028;
     border-color: #606060;
     text-color: #c8c8c8;
     width: 768px;
@@ -33,7 +33,7 @@ element {
 }
 
 element selected {
-    background-color: #303030;
+    background-color: #203060;
     text-color: #e0e0e0;
 }
 
