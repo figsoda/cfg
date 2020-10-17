@@ -8,8 +8,7 @@ xbps-install -Suy void-repo-multilib void-repo-multilib-nonfree void-repo-nonfre
 xbps-install -Suy $(< xbps-pkgs.txt)
 
 echo Creating runit service symlinks
-ln -st /var/service /etc/sv/{NetworkManager,bluetoothd,chronyd,dbus,docker,elogind}
-touch /etc/sv/docker/down
+ln -st /var/service /etc/sv/{NetworkManager,bluetoothd,chronyd,dbus,elogind}
 
 sudo -u "$USER" bash install_user.sh
 
