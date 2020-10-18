@@ -15,7 +15,7 @@ return {
     hotkeys_description_font = "monospace 10",
     hotkeys_group_margin = 24,
     taglist_fg_empty = "#606060",
-    notification_icon_size = 64,
+    notification_icon_size = 32,
 
     font = "sans 11",
     battery_font = "monospace 8",

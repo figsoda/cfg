@@ -30,6 +30,7 @@ local p = awful.placement
 b.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 
 naughty.config.defaults.position = "bottom_right"
+naughty.config.icon_formats = {"png", "svg"}
 
 screen.connect_signal("property::geometry", setwallpaper)
 
