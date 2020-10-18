@@ -145,6 +145,59 @@ function widget.rustup_updates()
     )
 end
 
+function widget.cargo_updates()
+    local txt = wibox.widget.textbox()
+    txt.font = "monospace 12"
+    txt.visible = false
+
+    local function update(_, stdout)
+        local x = select(2, stdout:gsub("Yes", ""))
+        if x > 0 then
+            txt.visible = true
+            txt.markup = string.format(
+                [[<span fgcolor="#20ff40">[📦%d]</span>]], x
+            )
+        else
+            txt.visible = false
+        end
+    end
+
+    local cmd = {
+        os.getenv("HOME") .. "/.cargo/bin/cargo",
+        "install-update",
+        "-l",
+    }
+
+    txt:buttons(
+        awful.button(
+            {}, 1, nil, function()
+                awful.spawn.easy_async(
+                    {
+                        "alacritty",
+                        "-e",
+                        "fish",
+                        "-c",
+                        "fish_prompt; echo cargo install-update -a; cargo install-update -a",
+                    }, --
+                    function()
+                        awful.spawn.easy_async(
+                            cmd, --
+                            function(stdout)
+                                update(nil, stdout)
+                            end
+                        )
+                    end
+                )
+            end
+        )
+    )
+
+    return awful.widget.watch(
+        cmd, 600, update, --
+        wibox.container.margin(txt, 8, 0, 0, 0, nil, false)
+    )
+end
+
 function widget.mpd()
     local status = wibox.widget.textbox()
     local txt = wibox.widget.textbox()
