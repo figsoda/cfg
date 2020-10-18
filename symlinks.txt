@@ -1,13 +1,14 @@
+awesome ~/.config
+gtk-3.0 ~/.config
+rofi ~/.config
 .aliases ~
 .bash_profile ~
 .bashrc ~
 .exports ~
 .gitconfig ~
 .xinitrc ~
-awesome ~/.config
-gtk-3.0 ~/.config
-rofi ~/.config
 alacritty.yml ~/.config/alacritty
+bottom.toml ~/.config/bottom
 config.fish ~/.config/fish
 flameshot.ini ~/.config/flameshot
 fonts.conf ~/.config/fontconfig
