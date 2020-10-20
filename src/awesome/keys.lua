@@ -116,6 +116,8 @@ local kbss = {
         {m, "Left", awful.tag.viewprev, "view previous tag"},
         {m, "Right", awful.tag.viewnext, "view next tag"},
         {m, "BackSpace", awful.tag.history.restore, "go back"},
+        {m, "Tab", awful.tag.viewnext, "view next tag"},
+        {ms, "Tab", awful.tag.viewprev, "view previous tag"},
     },
     volume = {
         {
