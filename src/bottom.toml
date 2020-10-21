@@ -1,27 +1,32 @@
 [[row]]
-ratio = 3
+ratio = 7
 [[row.child]]
-ratio = 1
+ratio = 3
+[[row.child.child]]
+ratio = 5
 type = "battery"
+[[row.child.child]]
+ratio = 4
+type = "disk"
 [[row.child]]
 ratio = 4
-type = "cpu"
-
-[[row]]
-ratio = 3
-[[row.child]]
-ratio = 1
 type = "mem"
 [[row.child]]
-ratio = 1
+ratio = 4
 type = "net"
 
 [[row]]
-ratio = 4
-[[row.child]]
-ratio = 7
-type = "proc"
-default = true
+ratio = 5
 [[row.child]]
 ratio = 1
 type = "temp"
+[[row.child]]
+ratio = 5
+type = "cpu"
+
+[[row]]
+ratio = 6
+[[row.child]]
+ratio = 1
+type = "proc"
+default = true
