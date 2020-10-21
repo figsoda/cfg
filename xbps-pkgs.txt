@@ -2,7 +2,7 @@ awesome blueman chrony elogind xorg xsecurelock xss-lock gnome-keyring
 bat bottom exa fd just micro psmisc ripgrep sd slit starship unzip xtools xz zip
 Thunar alacritty firefox flameshot gimp qalculate-gtk sxiv vscode
 clipmenu network-manager-applet rofi rofi-calc rofi-emoji udiskie
-pamixer pavucontrol volctl mpc mpd mpv ncmpcpp
+celluloid pamixer pavucontrol volctl mpc mpd ncmpcpp
 fish-shell gcc hlint ncurses-libtinfo-libs noto-fonts-emoji rustup stack
 pkg-config libressl-devel
 libgcc-32bit libstdc++-32bit
