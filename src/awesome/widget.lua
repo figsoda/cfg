@@ -97,7 +97,7 @@ function widget.xbps_updates()
     )
 
     return awful.widget.watch(
-        {"sudo", "xsync"}, 600, update, --
+        {"sudo", "xsync"}, 1800, update, --
         wibox.container.margin(txt, 8, 0, 0, 0, nil, false)
     )
 end
@@ -140,7 +140,7 @@ function widget.rustup_updates()
     )
 
     return awful.widget.watch(
-        cmd, 600, update, --
+        cmd, 1800, update, --
         wibox.container.margin(txt, 8, 0, 0, 0, nil, false)
     )
 end
@@ -193,7 +193,7 @@ function widget.cargo_updates()
     )
 
     return awful.widget.watch(
-        cmd, 600, update, --
+        cmd, 1800, update, --
         wibox.container.margin(txt, 8, 0, 0, 0, nil, false)
     )
 end
