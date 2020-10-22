@@ -33,7 +33,7 @@ element {
 }
 
 element selected {
-    background-color: #243468;
+    background-color: #343848;
     text-color: #e8e8e8;
 }
 
