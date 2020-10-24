@@ -36,7 +36,7 @@ screen.connect_signal("property::geometry", setwallpaper)
 
 screen.connect_signal(
     "arrange", function(s)
-        local max = #s.tiled_clients == 1 or s.selected_tag.layout == l.max
+        local max = #s.tiled_clients == 1 or s.selected_tag.layout.name == "max"
         for _, c in pairs(s.clients) do
             c.border_width = (max and not c.floating) and 0 or b.border_width
         end
