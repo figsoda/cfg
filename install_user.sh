@@ -50,6 +50,9 @@ unlink "$tmp"
 echo Downloading wallpaper
 curl -LSs https://github.com/dracula/wallpaper/raw/master/void.png -o ~/wallpaper.png
 
+echo Setting lock screen image
+betterlockscreen -u ~/wallpaper.png
+
 echo Configuring mpd
 mkdir -p ~/music
 mkdir -p ~/.local/share/mpd/playlists

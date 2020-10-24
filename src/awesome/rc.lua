@@ -247,7 +247,7 @@ awful.spawn({"xset", "m", "0", "0"})
 awful.spawn({"xset", "s", "900", "900"})
 awful.spawn({"xset", "dpms", "900", "900", "900"})
 awful.spawn({"xset", "r", "rate", "400", "32"})
-awful.spawn({"xss-lock", "-l", "xsecurelock"})
+awful.spawn({"xss-lock", "-l", "--", "betterlockscreen", "-l"})
 awful.spawn.with_shell(
     "xargs -I {} \z
         xinput set-prop {} 'Coordinate Transformation Matrix' 3 0 0 0 3 0 0 0 1 \z
