@@ -49,7 +49,7 @@ local kbss = {
                     3  - lock screen,\z
                     4  - quit awesome,\z
                     5  - restart awesome\z
-                    ' | rofi -dmenu -sep , -p session -lines 5", --
+                    ' | rofi -dmenu -sep , -p session -no-custom -select 5", --
                     function(stdout)
                         ({
                             exec({"sudo", "init", "0"}),
