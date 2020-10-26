@@ -103,14 +103,20 @@ function widget.xbps_updates()
 end
 
 function widget.rustup_updates()
-    local txt = wibox.widget.textbox(
-        [[<span fgcolor="#20ff40">[↑🦀]</span>]]
-    )
+    local txt = wibox.widget.textbox()
     txt.font = "monospace 12"
     txt.visible = false
 
     local function update(_, stdout)
-        txt.visible = stdout:find("Update available", 1, true) ~= nil
+        local x = select(2, stdout:gsub("Update available", ""))
+        if x > 0 then
+            txt.visible = true
+            txt.markup = string.format(
+                [[<span fgcolor="#20ff40">[🦀%d]</span>]], x
+            )
+        else
+            txt.visible = false
+        end
     end
 
     local cmd = {os.getenv("HOME") .. "/.cargo/bin/rustup", "check"}
