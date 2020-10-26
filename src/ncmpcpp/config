@@ -1,0 +1,5 @@
+mpd_music_dir = "~/music"
+
+song_columns_list_format ="(38)[117]{t} (30)[111]{a} (30)[105]{b} (2)[177]{lr}"
+
+song_status_format = "$3{$7%t$9{ - $5%a$9}{ - $6%b$9}}|{%f}"
