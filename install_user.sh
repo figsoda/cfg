@@ -49,7 +49,8 @@ unlink "$tmp"
 
 echo Downloading wallpaper
 mkdir -p ~/.config/wallpaper
-curl -LSs https://github.com/dracula/wallpaper/raw/master/void.png -o ~/wallpaper.png
+curl -LSso ~/.config/wallpaper/original.png\
+    https://github.com/dracula/wallpaper/raw/master/void.png
 
 echo Resizing wallpaper
 res="$(xrandr | rg --color=never "\*" | sd ".*?(\d+x\d+).*" '$1')"
