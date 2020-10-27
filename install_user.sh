@@ -48,7 +48,16 @@ tar xfJ "$tmp" -C ~/.themes
 unlink "$tmp"
 
 echo Downloading wallpaper
+mkdir -p ~/.config/wallpaper
 curl -LSs https://github.com/dracula/wallpaper/raw/master/void.png -o ~/wallpaper.png
+
+echo Resizing wallpaper
+res="$(xrandr | rg --color=never "\*" | sd ".*?(\d+x\d+).*" '$1')"
+convert ~/.config/wallpaper/original.png\
+    -resize "$res^"\
+    -gravity center\
+    -extent "$res"\
+    ~/.config/wallpaper/resized.png
 
 echo Setting lock screen image
 betterlockscreen -u ~/wallpaper.png
