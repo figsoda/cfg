@@ -1,4 +1,3 @@
-alias bat="bat --style=numbers --pager=less"
 alias code=code-oss
 alias ls="exa -bl --git --icons --time-style long-iso --group-directories-first"
 alias rm="rm -I"
