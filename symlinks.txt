@@ -1,7 +1,6 @@
 awesome ~/.config
 bat ~/.config
 gtk-3.0 ~/.config
-ncmpcpp ~/.config
 rofi ~/.config
 .aliases ~
 .bash_profile ~

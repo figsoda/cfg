@@ -4,7 +4,7 @@ echo Installing rust toolchain
 rustup-init -y --default-toolchain nightly
 
 echo Installing cargo packages
-~/.cargo/bin/cargo install cargo-audit cargo-cache cargo-edit cargo-update pactorio
+~/.cargo/bin/cargo install cargo-audit cargo-cache cargo-edit cargo-update mmtc pactorio
 
 mkdir -p ~/.local/share/fonts
 
