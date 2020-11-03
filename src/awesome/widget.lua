@@ -5,6 +5,8 @@ local b = require("beautiful")
 local gears = require("gears")
 local wibox = require("wibox")
 
+local HOME = os.getenv("HOME")
+
 function widget.padding(w) return wibox.widget {forced_width = w} end
 
 function widget.battery()
@@ -119,7 +121,7 @@ function widget.rustup_updates()
         end
     end
 
-    local cmd = {os.getenv("HOME") .. "/.cargo/bin/rustup", "check"}
+    local cmd = {HOME .. "/.cargo/bin/rustup", "check"}
 
     txt:buttons(
         awful.button(
@@ -168,11 +170,7 @@ function widget.cargo_updates()
         end
     end
 
-    local cmd = {
-        os.getenv("HOME") .. "/.cargo/bin/cargo",
-        "install-update",
-        "-l",
-    }
+    local cmd = {HOME .. "/.cargo/bin/cargo", "install-update", "-l"}
 
     txt:buttons(
         awful.button(
@@ -224,10 +222,9 @@ function widget.mpd()
                     awful.screen.focused().mpd.toggle()
                 end
             ), awful.button(
-                {}, 2,
-                    function()
-                        awful.spawn({"alacritty", "-e", "ncmpcpp"})
-                    end
+                {}, 2, function()
+                    awful.spawn({"alacritty", "-e", HOME .. "/.cargo/bin/mmtc"})
+                end
             ), awful.button(
                 {}, 3, function()
                     awful.screen.focused().mpd.next()
