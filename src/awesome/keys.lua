@@ -210,6 +210,12 @@ local kbss = {
             function() awful.screen.focused().mpd.next() end,
             "next song in the playlist",
         },
+        {
+            m,
+            ";",
+            function() awful.screen.focused().mpd.stop() end,
+            "stop playing music",
+        },
     },
 }
 

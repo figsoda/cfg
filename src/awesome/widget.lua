@@ -300,6 +300,13 @@ function widget.mpd()
         )
     end
 
+    local function stop()
+        awful.spawn.easy_async(
+            {"mpc", "stop"}, --
+            function() template.visible = false end
+        )
+    end
+
     local watch = awful.widget.watch(
         {"mpc", "-f", "%title% - %artist%"}, 1, --
         function(_, stdout, _, _, exitcode) update(stdout, exitcode) end, --
@@ -315,6 +322,8 @@ function widget.mpd()
                     return toggle
                 elseif k == "next" then
                     return next
+                elseif k == "stop" then
+                    return stop
                 else
                     return watch[k]
                 end
