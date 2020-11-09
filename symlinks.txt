@@ -15,6 +15,7 @@ flameshot.ini ~/.config/flameshot
 fonts.conf ~/.config/fontconfig
 justfile ~
 mimeapps.list ~/.config
+mmtc.ron ~/.config/mmtc
 mpd.conf ~/.config/mpd
 resolv.conf /etc
 starship.toml ~/.config
