@@ -20,7 +20,7 @@ return {
     font = "sans 11",
     battery_font = "monospace 8",
     taglist_font = "monospace 12",
-    textclock_font = "monospace 12",
+    textclock_font = "monospace 10",
 
     bg_normal = "#101014",
     bg_focus = "#202428",

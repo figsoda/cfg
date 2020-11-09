@@ -59,7 +59,7 @@ end
 
 function widget.xbps_updates()
     local txt = wibox.widget.textbox()
-    txt.font = "monospace 12"
+    txt.font = "monospace 10"
     txt.visible = false
 
     local function update()
@@ -106,7 +106,7 @@ end
 
 function widget.rustup_updates()
     local txt = wibox.widget.textbox()
-    txt.font = "monospace 12"
+    txt.font = "monospace 10"
     txt.visible = false
 
     local function update(_, stdout)
@@ -155,7 +155,7 @@ end
 
 function widget.cargo_updates()
     local txt = wibox.widget.textbox()
-    txt.font = "monospace 12"
+    txt.font = "monospace 10"
     txt.visible = false
 
     local function update(_, stdout)
