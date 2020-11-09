@@ -33,7 +33,7 @@ function widget.battery()
                 local percent = cap:read("*n")
                 bat.value = percent
 
-                if percent == 100 then
+                if percent >= 100 then
                     bat.visible = false
                 else
                     bat.visible = true
