@@ -5,8 +5,11 @@ clean:
     sudo vkpurge rm all
     sudo xbps-remove -Ooy
 
+gen template name:
+    sh ~/rust-templates/gen.sh ~/rust-templates/{{template}} {{name}} {{name}} '["figsoda <figsoda@pm.me>"]' figsoda/{{name}}
+
 sv service:
-    sudo ln -st /var/service/ /etc/sv/{{service}} 
+    sudo ln -st /var/service/ /etc/sv/{{service}}
 
 alias u := update
 update:
