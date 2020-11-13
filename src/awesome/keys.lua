@@ -140,13 +140,13 @@ local kbss = {
         {
             {},
             "XF86MonBrightnessDown",
-            exec({"xbacklight", "-5", "-time", "0"}),
+            exec({"xbacklight", "-4", "-time", "0"}),
             "reduce brightness",
         },
         {
             {},
             "XF86MonBrightnessUp",
-            exec({"xbacklight", "+5", "-time", "0"}),
+            exec({"xbacklight", "+4", "-time", "0"}),
             "increase brightness",
         },
     },
