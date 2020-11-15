@@ -9,6 +9,7 @@ local mc = {"Mod4", "Control"}
 local ms = {"Mod4", "Shift"}
 
 local HOME = os.getenv("HOME")
+local mmtc = {"alacritty", "-e", HOME .. "/.cargo/bin/mmtc"}
 
 local function exec(cmd) return function() awful.spawn(cmd) end end
 
@@ -178,7 +179,7 @@ local kbss = {
         {ms, "c", exec({"clipdel", "-d", "."}), "clear clipmenu"},
         {m, "e", exec("code-oss"), "launch vscode"},
         {m, "f", exec("thunar"), "launch thunar"},
-        {m, "m", exec({"alacritty", "-e", HOME .. "/.cargo/bin/mmtc"}), "launch mmtc"},
+        {m, "m", exec(mmtc), "launch mmtc"},
         {
             ms,
             "m",

@@ -214,6 +214,7 @@ function widget.mpd()
     scr.forced_width = 160
     scr:pause()
 
+    local mmtc = {"alacritty", "-e", HOME .. "/.cargo/bin/mmtc"}
     local template = wibox.widget {
         layout = wibox.layout.fixed.horizontal,
         buttons = gears.table.join(
@@ -221,11 +222,9 @@ function widget.mpd()
                 {}, 1, function()
                     awful.screen.focused().mpd.toggle()
                 end
-            ), awful.button(
-                {}, 2, function()
-                    awful.spawn({"alacritty", "-e", HOME .. "/.cargo/bin/mmtc"})
-                end
-            ), awful.button(
+            ), --
+            awful.button({}, 2, function() awful.spawn(mmtc) end), --
+            awful.button(
                 {}, 3, function()
                     awful.screen.focused().mpd.next()
                 end
