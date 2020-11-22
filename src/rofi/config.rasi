@@ -1,5 +1,6 @@
 configuration {
     disable-history: true;
     show-icons: true;
+    sort: true;
     theme: "flat-dark";
 }
