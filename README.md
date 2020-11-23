@@ -1,6 +1,7 @@
 # dotfiles
 
-My personal dotfiles
+My dotfiles (void linux + awesome)
+
 
 ## Installation
 
