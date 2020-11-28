@@ -159,10 +159,9 @@ local kbss = {
             "/",
             function()
                 awful.spawn.with_shell(
-                    "fd . ~ \z
-                    | xdg-open \"$(rofi -dmenu -p 'fuzzy finder' -fullscreen \z
-                        -i -matching fuzzy \z
-                        -sorting-method fzf)\""
+                    "xdg-open (fd . ~ | rofi -dmenu \z
+                        -p 'fuzzy finder' -fullscreen \z
+                        -i -matching fuzzy -sorting-method fzf)"
                 )
             end,
             "launch rofi as a fuzzy finder",
@@ -177,7 +176,7 @@ local kbss = {
             "launch clipmenu",
         },
         {ms, "c", exec({"clipdel", "-d", "."}), "clear clipmenu"},
-        {m, "e", exec("code-oss"), "launch vscode"},
+        {m, "e", exec("codium"), "launch vscodium"},
         {m, "f", exec("thunar"), "launch thunar"},
         {m, "m", exec(mmtc), "launch mmtc"},
         {

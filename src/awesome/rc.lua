@@ -168,7 +168,6 @@ awful.screen.connect_for_each_screen(
                 widget.padding(8),
                 wibox.widget.systray(),
                 widget.battery(),
-                widget.xbps_updates(),
                 widget.rustup_updates(),
                 widget.cargo_updates(),
                 textclock,
@@ -253,9 +252,7 @@ awful.spawn.with_shell(
         xinput set-prop {} 'Coordinate Transformation Matrix' 3 0 0 0 3 0 0 0 1 \z
         < ~/.config/mice"
 )
-awful.spawn.with_shell("CM_MAX_CLIPS=10 CM_SELECTIONS=clipboard clipmenud")
-awful.spawn("mpd")
-awful.spawn("unclutter")
+awful.spawn.with_shell("CM_MAX_CLIPS=20 CM_SELECTIONS=clipboard clipmenud")
 awful.spawn("flameshot")
 awful.spawn({"thunar", "--daemon"})
 awful.spawn("nm-applet")

@@ -3,4 +3,5 @@ configuration {
     show-icons: true;
     sort: true;
     theme: "flat-dark";
+    terminal: "alacritty";
 }

@@ -1,7 +1,8 @@
-. ~/.aliases
-. ~/.exports
+[ -z $DISPLAY ] && [ (tty) = /dev/tty1 ] && startx
 
-set -gx SHELL /bin/fish
+alias ls "exa -bl --git --icons --time-style long-iso --group-directories-first"
+alias redo 'eval sudo $history[1]'
+alias rm "rm -I"
 
 set -g fish_greeting
 
@@ -30,7 +31,5 @@ set -g fish_pager_color_prefix white --bold --underline
 set -g fish_pager_color_progress brwhite --background=cyan
 set -g fish_color_comment 626262
 set -g fish_color_match normal
-
-alias redo 'eval sudo $history[1]'
 
 starship init fish | .

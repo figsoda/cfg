@@ -1,3 +1,0 @@
-export EDITOR=micro
-export PAGER="slit --always-term"
-export PATH="$HOME/.cargo/bin:$PATH"

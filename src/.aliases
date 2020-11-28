@@ -1,4 +1,0 @@
-alias code=code-oss
-alias ls="exa -bl --git --icons --time-style long-iso --group-directories-first"
-alias rm="rm -I"
-alias xr="sudo xbps-remove -R"

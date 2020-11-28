@@ -1,16 +1,23 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-id="$(id -u "$USER")" || exit
-[ "$id" -eq 0 ] && exit
+echo Installing rust toolchain
+rustup toolchain install nightly
 
-echo Installing void packages
-xbps-install -Suy void-repo-multilib void-repo-multilib-nonfree void-repo-nonfree
-xbps-install -Suy $(< xbps-pkgs.txt)
+echo Installing cargo packages
+cargo install cargo-audit cargo-cache cargo-edit cargo-update mmtc pactorio
 
-echo Creating runit service symlinks
-ln -st /var/service /etc/sv/{NetworkManager,bluetoothd,chronyd,dbus,elogind}
+echo Downloading wallpaper
+mkdir -p ~/.config/wallpaper
+curl -LSso ~/.config/wallpaper/original.png\
+    https://github.com/dracula/wallpaper/raw/master/void.png
 
-sudo -u "$USER" bash install_user.sh
+echo Resizing wallpaper
+res="$(xrandr | rg "\*" | sd ".*?(\d+x\d+).*" '$1')"
+convert ~/.config/wallpaper/original.png\
+    -resize "$res^"\
+    -gravity center\
+    -extent "$res"\
+    ~/.config/wallpaper/resized.png
 
 echo Creating symlinks
 src="$(realpath "$(dirname "${BASH_SOURCE[0]}")")/src"
@@ -18,22 +25,7 @@ while IFS=" " read -r file d; do
     dir="$(eval echo "$d")"
     if [ -n "$file" ] && [ -n "$dir" ]; then
         [ -f "$dir/$file" ] && rm "$dir/$file"
-        if [[ "$d" == ~* ]]; then
-            [ ! -d "$dir" ] && sudo -u "$USER" mkdir -p "$dir"
-            sudo -u "$USER" ln -s "$src/$file" -t "$dir"
-        else
-            [ ! -d "$dir" ] && mkdir -p "$dir"
-            ln -s "$src/$file" -t "$dir"
-        fi
+        [ -d "$dir" ] || mkdir -p "$dir"
+        ln -s "$src/$file" -t "$dir"
     fi
 done < symlinks.txt
-
-echo Creating xsync
-echo -e "#!/bin/sh\nxbps-install -S" > /usr/local/bin/xsync
-chmod +x /usr/local/bin/xsync
-
-echo Editing sudoers file
-echo "%wheel ALL=(ALL) NOPASSWD: /bin/init, /usr/local/bin/xsync" >> /etc/sudoers
-
-echo Caching font information
-sudo -u "$USER" fc-cache

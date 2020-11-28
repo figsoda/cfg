@@ -1,9 +1,0 @@
-awesome i3lock-color blueman chrony elogind unclutter-xfixes xorg xss-lock gnome-keyring
-ImageMagick bat bottom exa fd just micro psmisc ripgrep sd slit starship unzip xtools xz zip
-Thunar alacritty firefox flameshot gimp qalculate-gtk sxiv vscode
-clipmenu network-manager-applet rofi rofi-calc rofi-emoji udiskie
-celluloid pamixer pavucontrol volctl mpc mpd
-fish-shell gcc hlint ncurses-libtinfo-libs noto-fonts-emoji rustup stack
-pkg-config libressl-devel
-libgcc-32bit libstdc++-32bit
-libdrm-32bit libglvnd-32bit mesa-vulkan-intel mesa-vulkan-intel-32bit steam

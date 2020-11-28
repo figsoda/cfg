@@ -1,6 +1,6 @@
 # dotfiles
 
-My dotfiles (void linux + awesome)
+My dotfiles (nixos + awesome)
 
 
 ## Installation
@@ -8,5 +8,6 @@ My dotfiles (void linux + awesome)
 Create a file `~/config/mice` with your mice found in `xinput list`
 
 ```shell
-sudo --preserve-env=HOME,USER bash install.sh 2>&1 | tee install.log
+sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+bash install.sh
 ```
