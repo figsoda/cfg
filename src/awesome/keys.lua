@@ -55,8 +55,8 @@ local kbss = {
                     ' | rofi -dmenu -sep , -p session -no-custom -select 5", --
                     function(stdout)
                         ({
-                            exec({"sudo", "init", "0"}),
-                            exec({"sudo", "init", "6"}),
+                            exec("poweroff"),
+                            exec("shutdown"),
                             exec({"xset", "s", "activate"}),
                             awesome.quit,
                             awesome.restart,

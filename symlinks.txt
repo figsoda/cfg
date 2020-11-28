@@ -12,5 +12,4 @@ flameshot.ini ~/.config/flameshot
 justfile ~
 mimeapps.list ~/.config
 mmtc.ron ~/.config/mmtc
-mpd.conf ~/.config/mpd
 starship.toml ~/.config
