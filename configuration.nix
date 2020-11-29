@@ -50,9 +50,7 @@ in {
       qogir-icon-theme
       qogir-theme
       ripgrep
-      rofi
-      rofi-calc
-      rofi-emoji
+      (rofi.override { plugins = [ rofi-calc rofi-emoji ]; })
       rustup
       sd
       starship
