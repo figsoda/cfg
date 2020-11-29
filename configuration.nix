@@ -110,7 +110,10 @@ in {
     useDHCP = false;
   };
 
-  nix.gc.automatic = true;
+  nix = {
+    autoOptimiseStore = true;
+    gc.automatic = true;
+  };
 
   # nixpkgs.config.allowUnfree = true;
 
