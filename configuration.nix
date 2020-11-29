@@ -112,7 +112,10 @@ in {
 
   nix = {
     autoOptimiseStore = true;
-    gc.automatic = true;
+    gc = {
+      automatic = true;
+      dates = "Fri, 03:00";
+    };
   };
 
   # nixpkgs.config.allowUnfree = true;
@@ -155,7 +158,10 @@ in {
   };
 
   system = {
-    autoUpgrade.enable = true;
+    autoUpgrade = {
+      enable = true;
+      dates = "03:30";
+    };
     stateVersion = "21.03";
   };
 
