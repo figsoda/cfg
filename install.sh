@@ -4,7 +4,7 @@ echo Installing rust toolchain
 rustup toolchain install nightly
 
 echo Installing cargo packages
-cargo install cargo-audit cargo-cache cargo-edit cargo-update mmtc pactorio
+cargo install mmtc pactorio
 
 echo Downloading wallpaper
 mkdir -p ~/.config/wallpaper
