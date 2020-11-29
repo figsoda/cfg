@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 
-let
-  user = "figsoda";
+let user = "figsoda";
 in {
   imports = [ ./hardware-configuration.nix ];
 
