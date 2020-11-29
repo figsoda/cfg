@@ -31,7 +31,6 @@
       exa
       fd
       firefox
-      fish
       flameshot
       gcc
       gimp
@@ -114,6 +113,8 @@
 
   # nixpkgs.config.allowUnfree = true;
 
+  programs.fish.enable = true;
+
   services = {
     blueman.enable = true;
     gnome3 = {
@@ -161,6 +162,6 @@
   users.users.figsoda = {
     extraGroups = [ "audio" "video" "networkmanager" "wheel" ];
     isNormalUser = true;
-    shell = "/run/current-system/sw/bin/fish";
+    shell = "${pkgs.fish}/bin/fish";
   };
 }
