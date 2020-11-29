@@ -103,7 +103,6 @@
   networking = {
     firewall.enable = false;
     hostName = "nixos";
-    interfaces.enp1s0.useDHCP = true;
     nameservers = [ "1.1.1.1" "1.0.0.1" ];
     networkmanager = {
       enable = true;
