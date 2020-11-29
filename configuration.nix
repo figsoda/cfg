@@ -110,6 +110,8 @@ in {
     useDHCP = false;
   };
 
+  nix.gc.automatic = true;
+
   # nixpkgs.config.allowUnfree = true;
 
   programs.fish.enable = true;
