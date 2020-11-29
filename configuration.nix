@@ -14,16 +14,6 @@ in {
 
   environment = {
     systemPackages = with pkgs; [
-      (vscodium.overrideAttrs (oldAttrs: {
-        buildInputs = vscodium.buildInputs ++ [ jq moreutils ];
-        installPhase = ''
-          jq -e 'setpath(["extensionsGallery"]; {
-            "serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
-            "cacheUrl": "https://vscode.blob.core.windows.net/gallery/index",
-            "itemUrl": "https://marketplace.visualstudio.com/items"
-          })' resources/app/product.json | sponge resources/app/product.json
-        '' + vscodium.installPhase;
-      }))
       alacritty
       bat
       bottom
@@ -58,6 +48,16 @@ in {
       udiskie
       unzip
       volctl
+      (vscodium.overrideAttrs (oldAttrs: {
+        buildInputs = vscodium.buildInputs ++ [ jq moreutils ];
+        installPhase = ''
+          jq -e 'setpath(["extensionsGallery"]; {
+            "serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
+            "cacheUrl": "https://vscode.blob.core.windows.net/gallery/index",
+            "itemUrl": "https://marketplace.visualstudio.com/items"
+          })' resources/app/product.json | sponge resources/app/product.json
+        '' + vscodium.installPhase;
+      }))
       xfce.thunar
       xsel
       xss-lock
