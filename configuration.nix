@@ -92,11 +92,7 @@
   hardware = {
     acpilight.enable = true;
     bluetooth.enable = true;
-    pulseaudio = {
-      enable = true;
-      package = pkgs.pulseaudioFull;
-      support32Bit = true;
-    };
+    pulseaudio.enable = true;
   };
 
   networking = {
