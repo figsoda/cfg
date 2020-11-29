@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
-{
+let
+  user = "figsoda";
+in {
   imports = [ ./hardware-configuration.nix ];
 
   boot = {
@@ -118,9 +120,9 @@
       gnome-keyring.enable = true;
     };
     mpd = {
+      inherit user;
       enable = true;
-      musicDirectory = "/home/figsoda/music";
-      user = "figsoda";
+      musicDirectory = "/home/${user}/music";
       extraConfig = ''
         restore_paused "yes"
         audio_output {
@@ -155,7 +157,7 @@
 
   time.timeZone = "America/New_York";
 
-  users.users.figsoda = {
+  users.users."${user}" = {
     extraGroups = [ "audio" "video" "networkmanager" "wheel" ];
     isNormalUser = true;
     shell = "${pkgs.fish}/bin/fish";
