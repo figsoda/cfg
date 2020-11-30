@@ -5,9 +5,27 @@ My dotfiles (nixos + awesome)
 
 ## Installation
 
-Create a file `~/config/mice` with your mice found in `xinput list`
+```sh
+# as root, after partitioning
+mount /dev/disk/by-label/nixos /mnt
+mkdir /mnt/boot
+mount /dev/disk/by-label/boot /mnt/boot
+swapon /dev/disk/by-label/swap
+nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+nix-channel --update
+nixos-generate-config --root /mnt
+curl -LSso /mnt/etc/nixos/configuration.nix https://github.com/figsoda/dotfiles/blob/nixos/configuration.nix
+nixos-install
+reboot
 
-```shell
-sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+# as root
+passwd <username>
+
+# as user
+mkdir -p ~/.config
+echo "<name of the mouse>" > ~/.config/mouse
+git clone https://github.com/figsoda/dotfiles
+cd dotfiles
+git checkout nixos
 bash install.sh
 ```
