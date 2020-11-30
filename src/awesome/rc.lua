@@ -249,7 +249,7 @@ awful.spawn({"sh", gears.filesystem.get_configuration_dir() .. "lock.sh"})
 awful.spawn.with_shell(
     "xargs -I {} \z
         xinput set-prop {} 'Coordinate Transformation Matrix' 3 0 0 0 3 0 0 0 1 \z
-        < ~/.config/mice"
+        < ~/.config/mouse"
 )
 awful.spawn.with_shell("CM_MAX_CLIPS=20 CM_SELECTIONS=clipboard clipmenud")
 awful.spawn("flameshot")
