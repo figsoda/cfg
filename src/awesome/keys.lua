@@ -56,7 +56,7 @@ local kbss = {
                     function(stdout)
                         ({
                             exec("poweroff"),
-                            exec("shutdown"),
+                            exec("reboot"),
                             exec({"xset", "s", "activate"}),
                             awesome.quit,
                             awesome.restart,
