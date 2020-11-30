@@ -18,10 +18,8 @@ in {
       alacritty
       bat
       bottom
-      cargo-audit
       cargo-cache
       cargo-edit
-      cargo-update
       celluloid
       clipmenu
       exa
