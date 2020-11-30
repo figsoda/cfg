@@ -8,8 +8,11 @@ in {
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       efi.canTouchEfiVariables = true;
-      grub.useOSProber = true;
-      systemd-boot.enable = true;
+      grub = {
+        device = "nodev";
+        efiSupport = true;
+        useOSProber = true;
+      };
     };
   };
 
