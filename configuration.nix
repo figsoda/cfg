@@ -38,6 +38,7 @@ in {
       micro
       mpc_cli
       networkmanagerapplet
+      nixfmt
       pamixer
       pavucontrol
       psmisc
