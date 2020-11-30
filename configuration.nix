@@ -32,7 +32,6 @@ in {
       gcc
       gimp
       git
-      hyperfine
       i3lock-color
       imagemagick
       just
