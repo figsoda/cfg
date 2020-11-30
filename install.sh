@@ -9,7 +9,7 @@ cargo install mmtc pactorio
 echo Downloading wallpaper
 mkdir -p ~/.config/wallpaper
 curl -LSso ~/.config/wallpaper/original.png\
-    https://github.com/dracula/wallpaper/raw/master/void.png
+    https://github.com/dracula/wallpaper/raw/master/linux.png
 
 echo Resizing wallpaper
 res="$(xrandr | rg "\*" | sd ".*?(\d+x\d+).*" '$1')"
