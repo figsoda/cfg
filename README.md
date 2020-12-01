@@ -14,7 +14,7 @@ swapon /dev/disk/by-label/swap
 nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 nix-channel --update
 nixos-generate-config --root /mnt
-curl -LSso /mnt/etc/nixos/configuration.nix https://github.com/figsoda/dotfiles/blob/nixos/configuration.nix
+curl -LSso /mnt/etc/nixos/configuration.nix https://github.com/figsoda/dotfiles/blob/main/configuration.nix
 nixos-install
 reboot
 
@@ -26,6 +26,5 @@ mkdir -p ~/.config
 echo "<name of the mouse>" > ~/.config/mouse
 git clone https://github.com/figsoda/dotfiles
 cd dotfiles
-git checkout nixos
 bash install.sh
 ```
