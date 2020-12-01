@@ -1,7 +1,7 @@
 #!/bin/sh
 
 xss-lock -l --\
-    i3lock -i ~/.config/wallpaper/resized.png\
+    i3lock-color -i ~/.config/wallpaper/resized.png\
     --indicator -k\
     --insidevercolor=202024 --insidewrongcolor=202024 --insidecolor=202024\
     --ringvercolor=98c040 --ringwrongcolor=d02828 --ringcolor=2060a0\
