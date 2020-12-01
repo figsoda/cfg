@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 
 let user = "figsoda";
 in {
@@ -98,7 +98,10 @@ in {
 
   hardware = {
     acpilight.enable = true;
-    bluetooth.enable = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = false;
+    };
     pulseaudio.enable = true;
   };
 
