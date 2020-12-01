@@ -74,8 +74,6 @@ function widget.rustup_updates()
         end
     end
 
-    local cmd = {HOME .. "/.cargo/bin/rustup", "check"}
-
     txt:buttons(
         awful.button(
             {}, 1, nil, function()
@@ -89,7 +87,7 @@ function widget.rustup_updates()
                     }, --
                     function()
                         awful.spawn.easy_async(
-                            cmd, --
+                            {"rustup", "check"}, --
                             function(stdout)
                                 update(nil, stdout)
                             end
@@ -101,7 +99,7 @@ function widget.rustup_updates()
     )
 
     return awful.widget.watch(
-        cmd, 1800, update, --
+        {"rustup", "check"}, 1800, update, --
         wibox.container.margin(txt, 8, 0, 0, 0, nil, false)
     )
 end
