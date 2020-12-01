@@ -53,6 +53,7 @@ in {
       starship
       sxiv
       udiskie
+      unclutter-xfixes
       unzip
       volctl
       (vscodium.overrideAttrs (old: {
@@ -132,7 +133,6 @@ in {
       gnome-keyring.enable = true;
     };
     printing.enable = true;
-    unclutter-xfixes.enable = true;
     xserver = {
       enable = true;
       displayManager.startx.enable = true;

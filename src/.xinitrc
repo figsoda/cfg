@@ -3,6 +3,7 @@ mpd &
 nm-applet &
 thunar --daemon &
 udiskie -s &
+unclutter --timeout 3 &
 volctl &
 xinput set-prop "$(< ~/.config/mouse)" 'Coordinate Transformation Matrix' 3 0 0 0 3 0 0 0 1 &
 xset -b &
