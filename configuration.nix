@@ -18,6 +18,14 @@ in {
 
   environment = {
     systemPackages = with pkgs; [
+      (writeTextFile {
+        name = "default-icon-theme";
+        destination = "/share/icons/default/index.theme";
+        text = ''
+          [icon theme]
+          Inherits=Qogir
+        '';
+      })
       alacritty
       bat
       bottom
