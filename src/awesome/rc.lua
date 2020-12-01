@@ -239,21 +239,3 @@ client.connect_signal(
 )
 
 root.keys(keys.global)
-
-awful.spawn({"xset", "-b"})
-awful.spawn({"xset", "m", "0", "0"})
-awful.spawn({"xset", "s", "900", "900"})
-awful.spawn({"xset", "dpms", "900", "900", "900"})
-awful.spawn({"xset", "r", "rate", "400", "32"})
-awful.spawn({"sh", gears.filesystem.get_configuration_dir() .. "lock.sh"})
-awful.spawn.with_shell(
-    "xargs -I {} \z
-        xinput set-prop {} 'Coordinate Transformation Matrix' 3 0 0 0 3 0 0 0 1 \z
-        < ~/.config/mouse"
-)
-awful.spawn.with_shell("CM_MAX_CLIPS=20 CM_SELECTIONS=clipboard clipmenud")
-awful.spawn("flameshot")
-awful.spawn({"thunar", "--daemon"})
-awful.spawn("nm-applet")
-awful.spawn({"udiskie", "-s"})
-awful.spawn("volctl")
