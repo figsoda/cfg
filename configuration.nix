@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let user = "figsoda";
 in {
@@ -97,10 +97,7 @@ in {
   hardware = {
     acpilight.enable = true;
     bluetooth.enable = true;
-    pulseaudio = {
-      enable = true;
-      package = pkgs.pulseaudioFull;
-    };
+    pulseaudio.enable = true;
   };
 
   networking = {
@@ -136,6 +133,7 @@ in {
     mpd = {
       inherit user;
       enable = true;
+      group = "users";
       musicDirectory = "/home/${user}/music";
       extraConfig = ''
         restore_paused "yes"
@@ -170,11 +168,15 @@ in {
     stateVersion = "21.03";
   };
 
-  systemd.services.NetworkManager-wait-online.enable = false;
+  systemd.services = {
+    mpd.serviceConfig.ExecStart = lib.mkForce
+      "sudo -u ${user} ${pkgs.mpd}/bin/mpd --no-daemon /etc/mpd.conf";
+    NetworkManager-wait-online.enable = false;
+  };
 
   time.timeZone = "America/New_York";
 
-  users.users."${user}" = {
+  users.users.${user} = {
     extraGroups = [ "audio" "networkmanager" "video" "wheel" ];
     isNormalUser = true;
     shell = "${pkgs.fish}/bin/fish";
