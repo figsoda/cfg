@@ -138,9 +138,12 @@ in {
     };
   };
 
-  # nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
-  programs.fish.enable = true;
+  programs = {
+    fish.enable = true;
+    steam.enable = true;
+  };
 
   services = {
     blueman.enable = true;
