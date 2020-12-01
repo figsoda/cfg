@@ -17,6 +17,10 @@ in {
   };
 
   environment = {
+    etc."resolv.conf".text = ''
+      nameserver 1.1.1.1
+      nameserver 1.0.0.1
+    '';
     systemPackages = with pkgs; [
       (writeTextFile {
         name = "default-icon-theme";
@@ -119,6 +123,7 @@ in {
     nameservers = [ "1.1.1.1" "1.0.0.1" ];
     networkmanager = {
       enable = true;
+      dns = "none";
       ethernet.macAddress = "random";
       wifi.macAddress = "random";
     };
