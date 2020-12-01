@@ -1,4 +1,5 @@
 CM_MAX_CLIPS=20 CM_SELECTIONS=clipboard clipmenud &
+mpd &
 nm-applet &
 thunar --daemon &
 udiskie -s &

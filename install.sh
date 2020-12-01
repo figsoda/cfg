@@ -19,6 +19,10 @@ convert ~/.config/wallpaper/original.png\
     -extent "$res"\
     ~/.config/wallpaper/resized.png
 
+echo Configuring mpd
+mkdir -p ~/music ~/.local/share/mpd/playlists
+touch ~/.local/share/mpd/mpd.db
+
 echo Creating symlinks
 src="$(realpath "$(dirname "${BASH_SOURCE[0]}")")/src"
 while IFS=" " read -r file d; do

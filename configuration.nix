@@ -37,6 +37,7 @@ in {
       just
       micro
       mpc_cli
+      mpd
       networkmanagerapplet
       nixfmt
       pamixer
@@ -130,19 +131,6 @@ in {
       at-spi2-core.enable = true;
       gnome-keyring.enable = true;
     };
-    mpd = {
-      inherit user;
-      enable = true;
-      group = "users";
-      musicDirectory = "/home/${user}/music";
-      extraConfig = ''
-        restore_paused "yes"
-        audio_output {
-          type "pulse"
-          name "Music player daemon"
-        }
-      '';
-    };
     printing.enable = true;
     unclutter-xfixes.enable = true;
     xserver = {
@@ -168,11 +156,7 @@ in {
     stateVersion = "21.03";
   };
 
-  systemd.services = {
-    mpd.serviceConfig.ExecStart = lib.mkForce
-      "sudo -u ${user} ${pkgs.mpd}/bin/mpd --no-daemon /etc/mpd.conf";
-    NetworkManager-wait-online.enable = false;
-  };
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   time.timeZone = "America/New_York";
 
