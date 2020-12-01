@@ -97,7 +97,10 @@ in {
   hardware = {
     acpilight.enable = true;
     bluetooth.enable = true;
-    pulseaudio.enable = true;
+    pulseaudio = {
+      enable = true;
+      package = pkgs.pulseaudioFull;
+    };
   };
 
   networking = {
@@ -172,7 +175,7 @@ in {
   time.timeZone = "America/New_York";
 
   users.users."${user}" = {
-    extraGroups = [ "audio" "video" "networkmanager" "wheel" ];
+    extraGroups = [ "audio" "networkmanager" "video" "wheel" ];
     isNormalUser = true;
     shell = "${pkgs.fish}/bin/fish";
   };
