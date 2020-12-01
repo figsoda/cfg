@@ -5,8 +5,6 @@ local b = require("beautiful")
 local gears = require("gears")
 local wibox = require("wibox")
 
-local HOME = os.getenv("HOME")
-
 function widget.padding(w) return wibox.widget {forced_width = w} end
 
 function widget.battery()
@@ -116,7 +114,6 @@ function widget.mpd()
     scr.forced_width = 160
     scr:pause()
 
-    local mmtc = {"alacritty", "-e", HOME .. "/.cargo/bin/mmtc"}
     local template = wibox.widget {
         layout = wibox.layout.fixed.horizontal,
         buttons = gears.table.join(
@@ -125,7 +122,11 @@ function widget.mpd()
                     awful.screen.focused().mpd.toggle()
                 end
             ), --
-            awful.button({}, 2, function() awful.spawn(mmtc) end), --
+            awful.button(
+                {}, 2, function()
+                    awful.spawn({"alacritty", "-e", "mmtc"})
+                end
+            ), --
             awful.button(
                 {}, 3, function()
                     awful.screen.focused().mpd.next()

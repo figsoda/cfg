@@ -8,9 +8,6 @@ local ma = {"Mod4", "Mod1"}
 local mc = {"Mod4", "Control"}
 local ms = {"Mod4", "Shift"}
 
-local HOME = os.getenv("HOME")
-local mmtc = {"alacritty", "-e", HOME .. "/.cargo/bin/mmtc"}
-
 local function exec(cmd) return function() awful.spawn(cmd) end end
 
 local function maptag(f, i)
@@ -178,7 +175,7 @@ local kbss = {
         {ms, "c", exec({"clipdel", "-d", "."}), "clear clipmenu"},
         {m, "e", exec("codium"), "launch vscodium"},
         {m, "f", exec("thunar"), "launch thunar"},
-        {m, "m", exec(mmtc), "launch mmtc"},
+        {m, "m", exec({"alacritty", "-e", "mmtc"}), "launch mmtc"},
         {
             ms,
             "m",
