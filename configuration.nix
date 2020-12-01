@@ -53,6 +53,7 @@ in {
       networkmanagerapplet
       nixfmt
       pamixer
+      papirus-icon-theme
       pavucontrol
       psmisc
       qalculate-gtk
