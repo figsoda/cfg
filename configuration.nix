@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
-let user = "figsoda";
-in {
+{
   imports = [ ./hardware-configuration.nix ];
 
   boot = {
@@ -181,7 +180,7 @@ in {
 
   time.timeZone = "America/New_York";
 
-  users.users.${user} = {
+  users.users.figsoda = {
     extraGroups = [ "audio" "networkmanager" "video" "wheel" ];
     isNormalUser = true;
     shell = "${pkgs.fish}/bin/fish";
