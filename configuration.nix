@@ -39,13 +39,13 @@
       exa
       fd
       firefox
-      flameshot
       gcc
       gimp
       git
       i3lock-color
       imagemagick
       just
+      maim
       micro
       mpc_cli
       mpd

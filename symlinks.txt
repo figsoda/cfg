@@ -8,7 +8,6 @@ alacritty.yml ~/.config/alacritty
 bottom.toml ~/.config/bottom
 config.fish ~/.config/fish
 config.toml ~/.cargo
-flameshot.ini ~/.config/flameshot
 justfile ~
 mimeapps.list ~/.config
 mmtc.ron ~/.config/mmtc

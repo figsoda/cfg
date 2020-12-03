@@ -149,7 +149,14 @@ local kbss = {
         },
     },
     app = {
-        {{}, "Print", exec({"flameshot", "gui"}), "launch flameshot"},
+        {
+            {},
+            "Print",
+            function()
+                awful.spawn.with_shell("maim -s ~/(date +%Y%m%d%H%M%S).png")
+            end,
+            "take a screenshot",
+        },
         {m, "Return", exec("alacritty"), "launch alacritty"},
         {
             m,
