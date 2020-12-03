@@ -3,9 +3,6 @@
 echo Installing rust toolchain
 rustup toolchain install nightly
 
-echo Installing cargo packages
-cargo install mmtc pactorio
-
 echo Downloading wallpaper
 mkdir -p ~/.config/wallpaper
 curl -LSso ~/.config/wallpaper/original.png\
