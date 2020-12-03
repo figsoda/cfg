@@ -56,6 +56,7 @@
       papirus-icon-theme
       pavucontrol
       psmisc
+      python3
       qalculate-gtk
       qogir-icon-theme
       qogir-theme
