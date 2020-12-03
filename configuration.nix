@@ -47,6 +47,7 @@
       just
       maim
       micro
+      mmtc
       mpc_cli
       mpd
       networkmanagerapplet
@@ -139,7 +140,13 @@
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+      (import (fetchTarball
+        "https://github.com/figsoda/nix-packages/archive/main.tar.gz"))
+    ];
+  };
 
   programs = {
     fish.enable = true;
