@@ -9,6 +9,7 @@ local mc = {"Mod4", "Control"}
 local ms = {"Mod4", "Shift"}
 
 local function exec(cmd) return function() awful.spawn(cmd) end end
+local function exec_sh(cmd) return function() awful.spawn.with_shell(cmd) end end
 
 local function maptag(f, i)
     return function()
@@ -152,31 +153,25 @@ local kbss = {
         {
             {},
             "Print",
-            function()
-                awful.spawn.with_shell("maim -s ~/(date +%Y%m%d%H%M%S).png")
-            end,
+            exec_sh("maim -s ~/(date +%Y%m%d%H%M%S).png"),
             "take a screenshot",
         },
         {m, "Return", exec("alacritty"), "launch alacritty"},
         {
             m,
             "/",
-            function()
-                awful.spawn.with_shell(
-                    "xdg-open (fd . ~ | rofi -dmenu \z
-                        -p 'fuzzy finder' -fullscreen \z
-                        -i -matching fuzzy -sorting-method fzf)"
-                )
-            end,
+            exec_sh(
+                "xdg-open (fd . ~ | rofi -dmenu \z
+                    -p 'fuzzy finder' -fullscreen \z
+                    -i -matching fuzzy -sorting-method fzf)"
+            ),
             "launch rofi as a fuzzy finder",
         },
         {m, "b", exec("firefox"), "launch firefox"},
         {
             m,
             "c",
-            function()
-                awful.spawn.with_shell("CM_LAUNCHER=rofi clipmenu -p clipmenu")
-            end,
+            exec_sh("CM_LAUNCHER=rofi clipmenu -p clipmenu"),
             "launch clipmenu",
         },
         {ms, "c", exec({"clipdel", "-d", "."}), "clear clipmenu"},
