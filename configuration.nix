@@ -143,6 +143,7 @@
 
   programs = {
     fish.enable = true;
+    seahorse.enable = true;
     steam.enable = true;
   };
 
