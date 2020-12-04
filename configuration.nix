@@ -83,6 +83,7 @@
       xfce.thunar
       xsel
       xss-lock
+      xtrt
       xz
       zip
     ];
