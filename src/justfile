@@ -1,10 +1,3 @@
-default: update
-
 gen template name:
     sh ~/rust-templates/gen.sh ~/rust-templates/"{{template}}" \
         "{{name}}" "{{name}}" '["figsoda <figsoda@pm.me>"]' "figsoda/{{name}}"
-
-alias u := update
-update:
-    rustup update
-    cargo install-update -a
