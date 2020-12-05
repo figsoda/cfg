@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [ ./hardware-configuration.nix ];
@@ -143,7 +143,7 @@
   };
 
   nixpkgs = {
-    config.allowUnfree = true;
+    config.allowUnfreePredicate = pkg: lib.hasPrefix "steam" (lib.getName pkg);
     overlays = [
       (import (fetchTarball
         "https://github.com/figsoda/nix-packages/archive/main.tar.gz"))
