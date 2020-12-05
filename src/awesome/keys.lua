@@ -153,7 +153,7 @@ local kbss = {
         {
             {},
             "Print",
-            exec_sh("maim -s ~/(date +%Y%m%d%H%M%S).png"),
+            exec_sh("maim -us ~/(date +%Y%m%d%H%M%S).png"),
             "take a screenshot",
         },
         {m, "Return", exec("alacritty"), "launch alacritty"},
