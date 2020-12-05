@@ -97,13 +97,14 @@
     fontconfig = {
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
-        monospace = [ "JetBrainsMono Nerd Font " ];
+        monospace = [ "JetBrainsMono Nerd Font" "Cascadia Mono" ];
         sansSerif = [ "Arimo Nerd Font" ];
         serif = [ "Arimo Nerd Font" ];
       };
       includeUserConf = false;
     };
     fonts = with pkgs; [
+      cascadia-code
       noto-fonts-emoji
       (nerdfonts.override { fonts = [ "Arimo" "JetBrainsMono" ]; })
     ];
