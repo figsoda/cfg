@@ -45,16 +45,20 @@ local kbss = {
             function()
                 awful.spawn.easy_async_with_shell(
                     "echo '\z
-                    1 ⏻ - shutdown,\z
-                    2  - reboot,\z
-                    3  - lock screen,\z
-                    4  - quit awesome,\z
-                    5  - restart awesome\z
-                    ' | rofi -dmenu -sep , -p session -no-custom -select 5", --
+                    1 ⏻  shutdown,\z
+                    2   reboot,\z
+                    3 ⏼  suspend,\z
+                    4 望  hibernate,\z
+                    5   lock screen,\z
+                    6   quit awesome,\z
+                    7   reload awesome\z
+                    ' | rofi -dmenu -sep , -p session -no-custom -select 7", --
                     function(stdout)
                         ({
                             exec("poweroff"),
                             exec("reboot"),
+                            exec({"systemctl", "suspend"}),
+                            exec({"systemctl", "hibernate"}),
                             exec({"xset", "s", "activate"}),
                             awesome.quit,
                             awesome.restart,
