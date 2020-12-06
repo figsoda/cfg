@@ -108,6 +108,7 @@
       cascadia-code
       noto-fonts-emoji
       (nerdfonts.override { fonts = [ "Arimo" "JetBrainsMono" ]; })
+      source-han-sans
     ];
   };
 
