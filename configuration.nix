@@ -195,8 +195,6 @@
     stateVersion = "21.03";
   };
 
-  systemd.services.NetworkManager-wait-online.enable = false;
-
   time.timeZone = "America/New_York";
 
   users.users.figsoda = {
