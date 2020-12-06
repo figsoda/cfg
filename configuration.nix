@@ -47,6 +47,7 @@
       imagemagick
       just
       libreoffice-fresh
+      luaformatter
       maim
       micro
       mmtc
