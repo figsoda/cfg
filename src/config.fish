@@ -1,4 +1,4 @@
-[ -z $DISPLAY ] && [ (tty) = /dev/tty1 ] && startx
+[ -z $DISPLAY ] && [ (tty) = /dev/tty1 ] && exec startx
 
 alias ls "exa -bl --git --icons --time-style long-iso --group-directories-first"
 alias redo 'eval sudo $history[1]'
