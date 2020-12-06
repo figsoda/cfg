@@ -46,6 +46,7 @@
       i3lock-color
       imagemagick
       just
+      libreoffice-fresh
       maim
       micro
       mmtc
