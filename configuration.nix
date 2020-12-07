@@ -38,8 +38,7 @@
       clipmenu
       exa
       fd
-      # temporary fix to manually install extensions
-      (firefox.override { extraPolicies = { ExtensionSettings = { }; }; })
+      firefox
       gcc
       gimp
       git
