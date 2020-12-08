@@ -1,4 +1,5 @@
 .gitconfig ~
+.gtkrc-2.0 ~
 .xinitrc ~
 alacritty.yml ~/.config/alacritty
 awesome ~/.config

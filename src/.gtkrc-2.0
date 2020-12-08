@@ -1,0 +1,8 @@
+gtk-cursor-theme-name = "Qogir"
+gtk-icon-theme-name = "Papirus-Dark"
+gtk-enable-animations = false
+gtk-theme-name = "Qogir-dark"
+gtk-xft-antialias = 1
+gtk-xft-hinting = 1
+gtk-xft-hintstyle = "hintfull"
+gtk-xft-rgba = "rgb"
