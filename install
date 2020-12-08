@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i bash -p bash imagemagick
+#!nix-shell -i bash -p bash curl imagemagick ripgrep sd xorg.xrandr
 
 echo Installing rust toolchain
 rustup toolchain install nightly
