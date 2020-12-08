@@ -43,7 +43,6 @@
       gimp
       git
       i3lock-color
-      imagemagick
       just
       libreoffice-fresh
       luaformatter
@@ -167,10 +166,7 @@
 
   services = {
     blueman.enable = true;
-    gnome3 = {
-      at-spi2-core.enable = true;
-      gnome-keyring.enable = true;
-    };
+    gnome3.at-spi2-core.enable = true;
     printing.enable = true;
     xserver = {
       enable = true;
