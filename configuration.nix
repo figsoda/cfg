@@ -71,16 +71,52 @@
       unclutter-xfixes
       unzip
       volctl
-      (vscodium.overrideAttrs (old: {
-        buildInputs = old.buildInputs ++ [ jq moreutils ];
-        installPhase = ''
-          jq -e 'setpath(["extensionsGallery"]; {
-            "serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
-            "cacheUrl": "https://vscode.blob.core.windows.net/gallery/index",
-            "itemUrl": "https://marketplace.visualstudio.com/items"
-          })' resources/app/product.json | sponge resources/app/product.json
-        '' + old.installPhase;
-      }))
+      (vscode-with-extensions.override {
+        vscode = vscodium;
+        vscodeExtensions = (with vscode-extensions; [
+          bbenoist.Nix
+          matklad.rust-analyzer
+          redhat.vscode-yaml
+          skyapps.fish-vscode
+        ]) ++ vscode-utils.extensionsFromVscodeMarketplace [
+          {
+            name = "color-vision";
+            publisher = "wilsonsio";
+            version = "0.1.0";
+            sha256 = "05irrmn4grx6s416fsgrsp2bjp2kdi1sjbh8s19ndrrhllyyifkx";
+          }
+          {
+            name = "crates";
+            publisher = "serayuzgur";
+            version = "0.5.3";
+            sha256 = "1xk7ayv590hsm3scqpyh6962kvgdlinnpkx0vapr7vs4y08dx72f";
+          }
+          {
+            name = "even-better-toml";
+            publisher = "tamasfe";
+            version = "0.9.3";
+            sha256 = "16x2y58hkankazpwm93j8lqdn3mala7iayck548kki9zx4qrhhck";
+          }
+          {
+            name = "material-icon-theme";
+            publisher = "pkief";
+            version = "4.4.0";
+            sha256 = "1m9mis59j9xnf1zvh67p5rhayaa9qxjiw9iw847nyl9vsy73w8ya";
+          }
+          {
+            name = "one-dark-theme";
+            publisher = "mskelton";
+            version = "1.7.2";
+            sha256 = "1ks6z8wsxmlfhiwa51f7d6digvw11dlxc7mja3hankgxcf5dyj31";
+          }
+          {
+            name = "vscode-ron";
+            publisher = "a5huynh";
+            version = "0.9.0";
+            sha256 = "0d3p50mhqp550fmj662d3xklj14gvzvhszm2hlqvx4h28v222z97";
+          }
+        ];
+      })
       xfce.thunar
       xsel
       xss-lock
