@@ -1,5 +1,13 @@
 [ -z $DISPLAY ] && [ (tty) = /dev/tty1 ] && exec startx
 
+abbr -ag nb nix-build
+abbr -ag ne nix-env
+abbr -ag nei nix-env -iA
+abbr -ag ner nix-env -e
+abbr -ag npu nix-prefetch-url
+abbr -ag ns nix-shell
+abbr -ag nsr nix-shell --run
+
 alias ls "exa -bl --git --icons --time-style long-iso --group-directories-first"
 alias redo 'eval sudo $history[1]'
 alias rm "rm -I"
