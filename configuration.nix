@@ -89,10 +89,10 @@
           skyapps.fish-vscode
         ]) ++ vscode-utils.extensionsFromVscodeMarketplace [
           {
-            name = "color-vision";
-            publisher = "wilsonsio";
-            version = "0.1.0";
-            sha256 = "05irrmn4grx6s416fsgrsp2bjp2kdi1sjbh8s19ndrrhllyyifkx";
+            name = "color-highlight";
+            publisher = "naumovs";
+            version = "2.3.0";
+            sha256 = "1syzf43ws343z911fnhrlbzbx70gdn930q67yqkf6g0mj8lf2za2";
           }
           {
             name = "crates";
