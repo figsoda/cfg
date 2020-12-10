@@ -82,48 +82,21 @@
             })' resources/app/product.json | sponge resources/app/product.json
           '' + old.installPhase;
         });
-        vscodeExtensions = (with vscode-extensions; [
-          bbenoist.Nix
-          matklad.rust-analyzer
-          redhat.vscode-yaml
-          skyapps.fish-vscode
-        ]) ++ vscode-utils.extensionsFromVscodeMarketplace [
-          {
+        vscodeExtensions = with vscode-extensions; [
+          (vscode-utils.extensionFromVscodeMarketplace {
             name = "color-highlight";
             publisher = "naumovs";
             version = "2.3.0";
             sha256 = "1syzf43ws343z911fnhrlbzbx70gdn930q67yqkf6g0mj8lf2za2";
-          }
-          {
-            name = "crates";
-            publisher = "serayuzgur";
-            version = "0.5.3";
-            sha256 = "1xk7ayv590hsm3scqpyh6962kvgdlinnpkx0vapr7vs4y08dx72f";
-          }
-          {
-            name = "even-better-toml";
-            publisher = "tamasfe";
-            version = "0.9.3";
-            sha256 = "16x2y58hkankazpwm93j8lqdn3mala7iayck548kki9zx4qrhhck";
-          }
-          {
-            name = "material-icon-theme";
-            publisher = "pkief";
-            version = "4.4.0";
-            sha256 = "1m9mis59j9xnf1zvh67p5rhayaa9qxjiw9iw847nyl9vsy73w8ya";
-          }
-          {
-            name = "one-dark-theme";
-            publisher = "mskelton";
-            version = "1.7.2";
-            sha256 = "1ks6z8wsxmlfhiwa51f7d6digvw11dlxc7mja3hankgxcf5dyj31";
-          }
-          {
-            name = "vscode-ron";
-            publisher = "a5huynh";
-            version = "0.9.0";
-            sha256 = "0d3p50mhqp550fmj662d3xklj14gvzvhszm2hlqvx4h28v222z97";
-          }
+          })
+          a5huynh.vscode-ron
+          bbenoist.Nix
+          matklad.rust-analyzer
+          mskelton.one-dark-theme
+          pkief.material-icon-theme
+          redhat.vscode-yaml
+          serayuzgur.crates
+          skyapps.fish-vscode
         ];
       })
       xfce.thunar
