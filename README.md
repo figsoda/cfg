@@ -14,7 +14,7 @@ swapon /dev/disk/by-label/swap
 nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 nix-channel --update
 nixos-generate-config --root /mnt
-curl -LSso /mnt/etc/nixos/configuration.nix https://github.com/figsoda/dotfiles/blob/main/configuration.nix
+curl -LSso /mnt/etc/nixos/configuration.nix https://raw.githubusercontent.com/figsoda/dotfiles/main/configuration.nix
 nixos-install
 reboot
 
