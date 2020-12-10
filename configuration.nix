@@ -97,6 +97,7 @@
           redhat.vscode-yaml
           serayuzgur.crates
           skyapps.fish-vscode
+          tamasfe.even-better-toml
         ];
       })
       xfce.thunar
