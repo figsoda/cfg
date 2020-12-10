@@ -25,6 +25,5 @@ passwd <username>
 mkdir -p ~/.config
 echo "<name of the mouse>" > ~/.config/mouse
 git clone https://github.com/figsoda/dotfiles
-cd dotfiles
-bash install.sh
+dotfiles/install
 ```
