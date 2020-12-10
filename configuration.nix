@@ -69,7 +69,6 @@
       sxiv
       udiskie
       unclutter-xfixes
-      unzip
       volctl
       (vscode-with-extensions.override {
         vscode = vscodium.overrideAttrs (old: {
@@ -104,8 +103,6 @@
       xsel
       xss-lock
       xtrt
-      xz
-      zip
     ];
     variables = {
       EDITOR = "micro";
