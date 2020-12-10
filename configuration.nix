@@ -164,6 +164,7 @@
       dates = "Fri, 03:00";
       options = "--delete-older-than 3d";
     };
+    package = pkgs.nixUnstable;
   };
 
   nixpkgs = {
