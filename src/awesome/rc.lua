@@ -74,7 +74,7 @@ awful.screen.connect_for_each_screen(
             textclock, "br", {on_hover = false}
         )
 
-        local panel = awful.wibar {position = "bottom", screen = s}
+        local panel = awful.wibar {screen = s}
         panel:setup{
             layout = wibox.layout.align.horizontal,
             {
