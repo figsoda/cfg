@@ -81,7 +81,13 @@ function widget.rustup_updates()
                         "-e",
                         "fish",
                         "-c",
-                        "fish_prompt; echo rustup update; rustup update",
+                        "fish_prompt;\z
+                        set_color $fish_color_command;\z
+                        echo -n rustup;\z
+                        set_color $fish_color_param;\z
+                        echo ' update';\z
+                        set_color $fish_color_normal;\z
+                        rustup update",
                     }, --
                     function()
                         awful.spawn.easy_async(
