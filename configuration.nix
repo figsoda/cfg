@@ -177,7 +177,7 @@
 
   programs = {
     fish.enable = true;
-    seahorse.enable = true;
+    ssh.askPassword = "";
     steam.enable = true;
   };
 
