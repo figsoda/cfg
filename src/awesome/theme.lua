@@ -8,14 +8,17 @@ return {
     layout_tile = themedir .. "zenburn/layouts/tile.png",
     layout_tilebottom = themedir .. "zenburn/layouts/tilebottom.png",
 
-    wibar_height = 24,
     hotkeys_border_width = 0,
     hotkeys_modifiers_fg = "#80b0ff",
     hotkeys_font = "monospace 10",
     hotkeys_description_font = "monospace 10",
     hotkeys_group_margin = 24,
-    taglist_fg_empty = "#606060",
+
     notification_icon_size = 32,
+    taglist_fg_empty = "#606060",
+    tasklist_bg_focus = "#101014",
+    tasklist_fg_focus = "#d8d8d8",
+    wibar_height = 24,
 
     font = "sans 11",
     battery_font = "monospace 8",
