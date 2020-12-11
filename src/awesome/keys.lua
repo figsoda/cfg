@@ -192,7 +192,17 @@ local kbss = {
         {
             m,
             "u",
-            exec({"rofi", "-show", "calc", "-modi", "calc,emoji"}),
+            exec {
+                "rofi",
+                "-show",
+                "calc",
+                "-modi",
+                "calc,emoji",
+                "-location",
+                "4",
+                "-theme-str",
+                "* { width: 40%; height: 100%; }",
+            },
             "launch rofi utilities",
         },
         {
