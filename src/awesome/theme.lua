@@ -15,9 +15,6 @@ return {
     hotkeys_group_margin = 24,
 
     notification_icon_size = 32,
-    taglist_fg_empty = "#606060",
-    tasklist_bg_focus = "#101014",
-    tasklist_fg_focus = "#c8c8c8",
     wibar_height = 24,
 
     font = "sans 11",
@@ -29,11 +26,16 @@ return {
     bg_focus = "#202428",
     bg_urgent = "#205080",
     bg_minimize = "#101014",
+    taglist_fg_normal = "#b8b8b8",
+    taglist_fg_empty = "#585858",
+    tasklist_bg_focus = "#101014",
 
-    fg_normal = "#b0b0b0",
+    fg_normal = "#c8c8c8",
     fg_focus = "#d8d8d8",
     fg_urgent = "#f0f0f0",
-    fg_minimize = "#585858",
+    fg_minimize = "#606060",
+    tasklist_fg_normal = "#b0b0b0",
+    tasklist_fg_focus = "#c8c8c8",
 
     border_width = 2,
     border_normal = "#586068",
