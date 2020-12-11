@@ -38,7 +38,7 @@ local ckbs = {
 local kbss = {
     help = {{m, "h", hotkeys_popup.show_help, "show help"}},
     session = {
-        {mc, "l", exec({"xset", "s", "activate"}), "lock screen"},
+        {mc, "l", exec {"xset", "s", "activate"}, "lock screen"},
         {
             mc,
             "Return",
@@ -52,17 +52,18 @@ local kbss = {
                     5   lock screen,\z
                     6   quit awesome,\z
                     7   reload awesome\z
-                    ' | rofi -dmenu -sep , -p session -no-custom -select 7", --
+                    ' | rofi -dmenu -sep , \z
+                        -p session -format i -no-custom -select 7", --
                     function(stdout)
                         ({
                             exec("poweroff"),
                             exec("reboot"),
-                            exec({"systemctl", "suspend"}),
-                            exec({"systemctl", "hibernate"}),
-                            exec({"xset", "s", "activate"}),
+                            exec {"systemctl", "suspend"},
+                            exec {"systemctl", "hibernate"},
+                            exec {"xset", "s", "activate"},
                             awesome.quit,
                             awesome.restart,
-                        })[stdout:byte() - 48]()
+                        })[stdout:byte() - 47]()
                     end
                 )
             end,
@@ -128,28 +129,28 @@ local kbss = {
         {
             {},
             "XF86AudioLowerVolume",
-            exec({"pamixer", "-d", "5"}),
+            exec {"pamixer", "-d", "5"},
             "lower volume",
         },
         {
             {},
             "XF86AudioRaiseVolume",
-            exec({"pamixer", "-i", "5"}),
+            exec {"pamixer", "-i", "5"},
             "raise volume",
         },
-        {{}, "XF86AudioMute", exec({"pamixer", "-t"}), "toggle mute"},
+        {{}, "XF86AudioMute", exec {"pamixer", "-t"}, "toggle mute"},
     },
     brightness = {
         {
             {},
             "XF86MonBrightnessDown",
-            exec({"xbacklight", "-4", "-time", "0"}),
+            exec {"xbacklight", "-4", "-time", "0"},
             "reduce brightness",
         },
         {
             {},
             "XF86MonBrightnessUp",
-            exec({"xbacklight", "+4", "-time", "0"}),
+            exec {"xbacklight", "+4", "-time", "0"},
             "increase brightness",
         },
     },
@@ -178,17 +179,17 @@ local kbss = {
             exec_sh("CM_LAUNCHER=rofi clipmenu -p clipmenu"),
             "launch clipmenu",
         },
-        {ms, "c", exec({"clipdel", "-d", "."}), "clear clipmenu"},
+        {ms, "c", exec {"clipdel", "-d", "."}, "clear clipmenu"},
         {m, "e", exec("codium"), "launch vscodium"},
         {m, "f", exec("thunar"), "launch thunar"},
-        {m, "m", exec({"alacritty", "-e", "mmtc"}), "launch mmtc"},
+        {m, "m", exec {"alacritty", "-e", "mmtc"}, "launch mmtc"},
         {
             ms,
             "m",
             function() awful.screen.focused().mpd.reload() end,
             "reload mpd",
         },
-        {m, "r", exec({"rofi", "-show", "run", "-modi", "run"}), "launch rofi"},
+        {m, "r", exec {"rofi", "-show", "run", "-modi", "run"}, "launch rofi"},
         {
             m,
             "u",
@@ -208,7 +209,7 @@ local kbss = {
         {
             m,
             "w",
-            exec({"rofi", "-show", "window", "-modi", "window"}),
+            exec {"rofi", "-show", "window", "-modi", "window"},
             "launch rofi with window modi",
         },
         {

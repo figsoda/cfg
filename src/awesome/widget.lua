@@ -130,7 +130,7 @@ function widget.mpd()
             ), --
             awful.button(
                 {}, 2, function()
-                    awful.spawn({"alacritty", "-e", "mmtc"})
+                    awful.spawn {"alacritty", "-e", "mmtc"}
                 end
             ), --
             awful.button(
