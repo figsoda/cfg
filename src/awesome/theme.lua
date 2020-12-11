@@ -34,7 +34,7 @@ return {
     fg_focus = "#d8d8d8",
     fg_urgent = "#f0f0f0",
     fg_minimize = "#606060",
-    tasklist_fg_normal = "#b0b0b0",
+    tasklist_fg_normal = "#a0a0a0",
     tasklist_fg_focus = "#c8c8c8",
 
     border_width = 2,
