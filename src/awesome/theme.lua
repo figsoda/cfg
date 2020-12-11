@@ -17,7 +17,7 @@ return {
     notification_icon_size = 32,
     taglist_fg_empty = "#606060",
     tasklist_bg_focus = "#101014",
-    tasklist_fg_focus = "#d8d8d8",
+    tasklist_fg_focus = "#c8c8c8",
     wibar_height = 24,
 
     font = "sans 11",
@@ -30,10 +30,10 @@ return {
     bg_urgent = "#205080",
     bg_minimize = "#101014",
 
-    fg_normal = "#c8c8c8",
-    fg_focus = "#e0e0e0",
-    fg_urgent = "#ffffff",
-    fg_minimize = "#606060",
+    fg_normal = "#b0b0b0",
+    fg_focus = "#d8d8d8",
+    fg_urgent = "#f0f0f0",
+    fg_minimize = "#585858",
 
     border_width = 2,
     border_normal = "#586068",
