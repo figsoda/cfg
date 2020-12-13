@@ -31,7 +31,6 @@
       alacritty
       bat
       bottom
-      cargo-cache
       cargo-edit
       celluloid
       clipmenu
