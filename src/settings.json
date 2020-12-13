@@ -33,6 +33,7 @@
     "rust-analyzer.updates.askBeforeDownload": false,
     "rust-analyzer.updates.channel": "nightly",
     "telemetry.enableTelemetry": false,
+    "update.mode": "none",
     "window.menuBarVisibility": "hidden",
     "workbench.colorTheme": "One Dark Vivid",
     "workbench.iconTheme": "material-icon-theme",
