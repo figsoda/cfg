@@ -104,6 +104,7 @@
     ];
     variables = {
       EDITOR = "micro";
+      LESSHISTFILE = "-";
       PATH = "$HOME/.cargo/bin";
     };
   };
