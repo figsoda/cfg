@@ -154,7 +154,7 @@ local kbss = {
             "increase brightness",
         },
     },
-    app = {
+    application = {
         {
             {},
             "Print",
