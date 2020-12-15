@@ -81,12 +81,12 @@ function widget.rustup_updates()
                         "-e",
                         "fish",
                         "-c",
-                        "fish_prompt;\z
-                        set_color $fish_color_command;\z
-                        echo -n rustup;\z
-                        set_color $fish_color_param;\z
-                        echo ' update';\z
-                        set_color $fish_color_normal;\z
+                        "fish_prompt; \z
+                        set_color $fish_color_command; \z
+                        echo -n rustup; \z
+                        set_color $fish_color_param; \z
+                        echo ' update'; \z
+                        set_color $fish_color_normal; \z
                         rustup update",
                     }, --
                     function()
