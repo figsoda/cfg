@@ -171,7 +171,7 @@ local kbss = {
                     | rofi -dmenu \z
                         -p 'fuzzy finder' -fullscreen \z
                         -i -matching fuzzy -sorting-method fzf \z
-                    | xargs -I {} xdg-open ~/{}"
+                    | xargs -i xdg-open ~/{}"
             ),
             "launch rofi as a fuzzy finder",
         },
