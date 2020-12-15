@@ -167,7 +167,7 @@ local kbss = {
             "/",
             exec_sh(
                 "fd . ~ \z
-                    | sd \"^$HOME/(.*)\" '$1' \z
+                    | sd '^'$HOME/ '' \z
                     | rofi -dmenu \z
                         -p 'fuzzy finder' -fullscreen \z
                         -i -matching fuzzy -sorting-method fzf \z
