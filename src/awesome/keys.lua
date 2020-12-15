@@ -166,9 +166,12 @@ local kbss = {
             m,
             "/",
             exec_sh(
-                "xdg-open (fd . ~ | rofi -dmenu \z
-                    -p 'fuzzy finder' -fullscreen \z
-                    -i -matching fuzzy -sorting-method fzf)"
+                "fd . ~ \z
+                    | sd \"^$HOME/(.*)\" '$1' \z
+                    | rofi -dmenu \z
+                        -p 'fuzzy finder' -fullscreen \z
+                        -i -matching fuzzy -sorting-method fzf \z
+                    | xargs -I {} xdg-open ~/{}"
             ),
             "launch rofi as a fuzzy finder",
         },
