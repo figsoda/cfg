@@ -22,8 +22,6 @@ reboot
 passwd <username>
 
 # as user
-mkdir -p ~/.config
-echo "<name of the mouse>" > ~/.config/mouse
 git clone https://github.com/figsoda/dotfiles
 dotfiles/install
 ```

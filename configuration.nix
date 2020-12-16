@@ -187,9 +187,15 @@
     xserver = {
       enable = true;
       displayManager.startx.enable = true;
+      inputClassSections = [''
+        Identifier "pointer configuration"
+        MatchIsPointer "true"
+        Option "TransformationMatrix" "1 0 0 0 1 0 0 0 0.3"
+      ''];
       libinput = {
         enable = true;
         accelProfile = "flat";
+        accelSpeed = "0";
         tapping = false;
       };
       windowManager.awesome = {

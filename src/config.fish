@@ -1,4 +1,6 @@
-[ -z $DISPLAY ] && [ (tty) = /dev/tty1 ] && exec startx
+if [ -z $DISPLAY ] && [ (tty) = /dev/tty1 ]
+    exec startx -- -ardelay 400 -arinterval 32
+end
 
 abbr -ag nb nix-build
 abbr -ag ne nix-env
