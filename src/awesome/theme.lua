@@ -60,5 +60,5 @@ return {
     calendar_focus_bg_color = "#101014",
     calendar_focus_border_width = 0,
 
-    wallpaper = os.getenv("HOME") .. "/.config/wallpaper/resized.png",
+    wallpaper = os.getenv("HOME") .. "/.config/wallpaper.png",
 }

@@ -5,17 +5,18 @@ echo Installing rust toolchain
 rustup toolchain install nightly
 
 echo Downloading wallpaper
-mkdir -p ~/.config/wallpaper
-curl -LSso ~/.config/wallpaper/original.png \
-    https://github.com/dracula/wallpaper/raw/master/linux.png
-
-echo Resizing wallpaper
-res="$(xrandr | rg "\*" | sd ".*?(\d+x\d+).*" '$1')"
-convert ~/.config/wallpaper/original.png \
-    -resize "$res^" \
-    -gravity center \
-    -extent "$res" \
-    ~/.config/wallpaper/resized.png
+mkdir -p ~/.config
+res="$(xrandr | rg -F "*" | sd "\s*(\d+x\d+).*" '$1')"
+curl -LSs https://raw.githubusercontent.com/NixOS/nixos-artwork/master/wallpapers/nix-wallpaper-nineish-dark-gray.svg \
+    | convert svg:- \
+        -channel G \
+        -evaluate multiply 1.05 \
+        -channel B \
+        -evaluate multiply 1.2 \
+        -resize "$res^" \
+        -gravity center \
+        -extent "$res" \
+        ~/.config/wallpaper.png
 
 echo Configuring mpd
 mkdir -p ~/music ~/.local/share/mpd/playlists

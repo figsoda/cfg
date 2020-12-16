@@ -7,7 +7,7 @@ unclutter --timeout 3 &
 volctl &
 xset -b &
 xss-lock -l -- \
-    i3lock-color -i ~/.config/wallpaper/resized.png \
+    i3lock-color -i ~/.config/wallpaper.png \
     --indicator -k \
     --insidevercolor=202024 --insidewrongcolor=202024 --insidecolor=202024 \
     --ringvercolor=98c040 --ringwrongcolor=d02828 --ringcolor=2060a0 \
