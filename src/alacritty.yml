@@ -6,6 +6,11 @@ window:
 font:
   size: 9
 
+colors:
+  primary:
+    background: "#1c1c20"
+    foreground: "#c8c8c8"
+
 cursor:
   style: Beam
 
