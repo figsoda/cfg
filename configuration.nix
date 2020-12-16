@@ -183,7 +183,6 @@
   services = {
     blueman.enable = true;
     gnome3.at-spi2-core.enable = true;
-    printing.enable = true;
     xserver = {
       enable = true;
       displayManager.startx.enable = true;
