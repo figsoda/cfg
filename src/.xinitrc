@@ -7,12 +7,11 @@ unclutter --timeout 3 &
 volctl &
 xset -b &
 xss-lock -l -- \
-    i3lock-color -i ~/.config/wallpaper.png \
-    -k \
-    --insidevercolor=00000000 --insidewrongcolor=00000000 --insidecolor=00000000 \
-    --ringvercolor=98c040 --ringwrongcolor=d02828 --ringcolor=00000000 \
-    --linecolor=00000000 --keyhlcolor=2060a0 --bshlcolor=d06020 \
-    --verifcolor=b8f080 --wrongcolor=ff8080 --separatorcolor=00000000 \
+    i3lock-color -i ~/.config/wallpaper.png -k \
+    --{inside{ver,wrong,},ring,line,separator}color=00000000 \
+    --ringvercolor=98c040 --ringwrongcolor=d02828 \
+    --keyhlcolor=2060a0 --bshlcolor=d06020 \
+    --verifcolor=b8f080 --wrongcolor=ff8080 \
     --indpos=x+w/7:y+h-w/8 \
     --{time,date}-font=monospace --{layout,verif,wrong,greeter}size=32 \
     --timecolor=60b8ff --timesize=36 \
