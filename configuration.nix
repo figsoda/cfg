@@ -227,7 +227,7 @@
       shellAliases = {
         ls =
           "${pkgs.exa}/bin/exa -bl --git --icons --time-style long-iso --group-directories-first";
-        redo = "eval sudo $history[1]";
+        redo = "eval /run/wrappers/bin/sudo $history[1]";
         rm = "${pkgs.coreutils}/bin/rm -I";
       };
     };
