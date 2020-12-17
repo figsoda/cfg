@@ -1,3 +1,0 @@
-gen template name:
-    sh ~/rust-templates/gen.sh ~/rust-templates/"{{template}}" \
-        "{{name}}" "{{name}}" '["figsoda <figsoda@pm.me>"]' "figsoda/{{name}}"

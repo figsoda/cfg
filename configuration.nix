@@ -41,7 +41,6 @@
       gimp
       git
       i3lock-color
-      just
       libreoffice-fresh
       luaformatter
       maim

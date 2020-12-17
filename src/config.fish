@@ -42,4 +42,10 @@ set -g fish_pager_color_progress brwhite --background=cyan
 set -g fish_color_comment 626262
 set -g fish_color_match normal
 
+function gen -a template name
+    string length -q -- $template $name
+    sh ~/rust-templates/gen.sh ~/rust-templates/$template \
+        $name $name '["figsoda <figsoda@pm.me>"]' figsoda/$name
+end
+
 starship init fish | .
