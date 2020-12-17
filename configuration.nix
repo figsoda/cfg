@@ -32,7 +32,6 @@
       bat
       bottom
       cargo-edit
-      celluloid
       clipmenu
       exa
       fd
@@ -48,6 +47,7 @@
       mmtc
       mpc_cli
       mpd
+      (mpv.override { scripts = with mpvScripts; [ autoload sponsorblock ]; })
       networkmanagerapplet
       nixfmt
       pamixer
