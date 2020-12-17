@@ -217,18 +217,18 @@
             $name $name '["figsoda <figsoda@pm.me>"]' figsoda/$name
         end
 
-        starship init fish | .
+        ${pkgs.starship}/bin/starship init fish | .
       '';
       loginShellInit = ''
-        if not set -q DISPLAY && [ (tty) = /dev/tty1 ]
+        if not set -q DISPLAY && [ (${pkgs.coreutils}/bin/tty) = /dev/tty1 ]
           exec ${pkgs.xorg.xinit}/bin/startx -- -ardelay 400 -arinterval 32
         end
       '';
       shellAliases = {
         ls =
-          "exa -bl --git --icons --time-style long-iso --group-directories-first";
+          "${pkgs.exa}/bin/exa -bl --git --icons --time-style long-iso --group-directories-first";
         redo = "eval sudo $history[1]";
-        rm = "rm -I";
+        rm = "${pkgs.coreutils}/bin/rm -I";
       };
     };
     ssh.askPassword = "";
