@@ -5,7 +5,6 @@ alacritty.yml ~/.config/alacritty
 awesome ~/.config
 bat ~/.config
 bottom.toml ~/.config/bottom
-config.fish ~/.config/fish
 config.toml ~/.cargo
 gtk-3.0 ~/.config
 justfile ~
