@@ -5,7 +5,6 @@ thunar --daemon &
 udiskie -s &
 unclutter --timeout 3 &
 volctl &
-xset -b &
 xss-lock -l -- \
     i3lock-color -i ~/.config/wallpaper.png -k \
     --{inside{ver,wrong,},ring,line,separator}color=00000000 \
