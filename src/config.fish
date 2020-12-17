@@ -8,7 +8,7 @@ abbr -ag nei nix-env -iA
 abbr -ag ner nix-env -e
 abbr -ag npu nix-prefetch-url
 abbr -ag ns nix-shell
-abbr -ag nsr nix-shell --run
+abbr -ag nsf nix-shell --run fish -p
 
 alias ls "exa -bl --git --icons --time-style long-iso --group-directories-first"
 alias redo 'eval sudo $history[1]'
