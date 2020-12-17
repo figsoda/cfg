@@ -213,7 +213,7 @@
 
         function gen -a template name
           string length -q -- $template $name
-          sh ~/rust-templates/gen.sh ~/rust-templates/$template \
+          ~/rust-templates/gen.sh ~/rust-templates/$template \
             $name $name '["figsoda <figsoda@pm.me>"]' figsoda/$name
         end
 
