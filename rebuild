@@ -1,0 +1,12 @@
+#!/bin/sh
+
+sudo echo "nixfmt configuration.nix"
+nixfmt configuration.nix
+echo
+
+echo "cp configuration.nix /etc/nixos/"
+sudo cp configuration.nix /etc/nixos/
+echo
+
+echo "nixos-rebuild switch $@"
+sudo nixos-rebuild switch "$@"
