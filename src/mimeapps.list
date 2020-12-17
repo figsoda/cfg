@@ -7,6 +7,7 @@ image/jpg=sxiv.desktop
 image/png=sxiv.desktop
 image/tiff=sxiv.desktop
 image/x-bmp=sxiv.desktop
+image/x-portable-anymap=sxiv.desktop
 image/x-portable-bitmap=sxiv.desktop
 image/x-portable-graymap=sxiv.desktop
 image/x-tga=sxiv.desktop
