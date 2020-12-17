@@ -10,6 +10,7 @@
     "editor.renderWhitespace": "boundary",
     "explorer.confirmDragAndDrop": false,
     "extensions.ignoreRecommendations": true,
+    "extensions.showRecommendationsOnlyOnDemand": true,
     "files.trimTrailingWhitespace": true,
     "files.watcherExclude": {
         "**/target/**": true
@@ -17,7 +18,7 @@
     "json.schemas": [
         {
             "fileMatch": [
-                "*"
+                "*",
             ],
             "schema": {
                 "allowTrailingCommas": true,
@@ -30,8 +31,6 @@
     "markdown.preview.fontFamily": "sans",
     "rust-analyzer.cargo.loadOutDirsFromCheck": true,
     "rust-analyzer.procMacro.enable": true,
-    "rust-analyzer.updates.askBeforeDownload": false,
-    "rust-analyzer.updates.channel": "nightly",
     "telemetry.enableTelemetry": false,
     "update.mode": "none",
     "window.menuBarVisibility": "hidden",
