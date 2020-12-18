@@ -15,10 +15,17 @@
   };
 
   environment = {
-    etc."resolv.conf".text = ''
-      nameserver 1.1.1.1
-      nameserver 1.0.0.1
-    '';
+    etc = {
+      gitconfig.text = ''
+        [user]
+        name = figsoda
+        email = figsoda@pm.me
+      '';
+      "resolv.conf".text = ''
+        nameserver 1.1.1.1
+        nameserver 1.0.0.1
+      '';
+    };
     systemPackages = with pkgs; [
       (writeTextFile {
         name = "default-icon-theme";
