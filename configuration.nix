@@ -25,6 +25,23 @@
         nameserver 1.1.1.1
         nameserver 1.0.0.1
       '';
+      "xdg/mimeapps.list".text = ''
+        [Default Applications]
+        application/pdf=firefox.desktop
+        image/bmp=sxiv.desktop
+        image/gif=sxiv.desktop
+        image/jpeg=sxiv.desktop
+        image/jpg=sxiv.desktop
+        image/png=sxiv.desktop
+        image/tiff=sxiv.desktop
+        image/x-bmp=sxiv.desktop
+        image/x-portable-anymap=sxiv.desktop
+        image/x-portable-bitmap=sxiv.desktop
+        image/x-portable-graymap=sxiv.desktop
+        image/x-tga=sxiv.desktop
+        image/x-xpixmap=sxiv.desktop
+        inode/directory=thunar.desktop
+      '';
     };
     systemPackages = with pkgs; [
       (writeTextFile {
