@@ -8,9 +8,9 @@ echo Creating symlinks
 src=$(dirname "$(realpath "$0")")/src
 find "$src" -type f | while read -r path; do
     file=${path#$src}
-    dir=${file%/*}
-    mkdir -p "$HOME$dir"
-    ln -sft "$HOME$dir" "$src$file"
+    dir=$HOME${file%/*}
+    echo mkdir -p "$dir"
+    echo ln -sft "$dir" "$path"
 done
 
 echo Downloading wallpaper
