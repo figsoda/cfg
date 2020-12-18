@@ -22,9 +22,8 @@ touch ~/.local/share/mpd/mpd.db
 echo Creating symlinks
 src=$(dirname "$(realpath "$0")")/src
 find "$src" -type f | while read -r path; do
-    path=${path#$src}
-    dir=${path%/*}
-    file=$dir/${path##*/}
+    file=${path#$src}
+    dir=${file%/*}
     mkdir -p "$HOME$dir"
     ln -sft "$HOME$dir" "$src$file"
 done
