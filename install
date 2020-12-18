@@ -4,9 +4,17 @@
 echo Installing rust toolchain
 rustup toolchain install nightly
 
+echo Creating symlinks
+src=$(dirname "$(realpath "$0")")/src
+find "$src" -type f | while read -r path; do
+    file=${path#$src}
+    dir=${file%/*}
+    mkdir -p "$HOME$dir"
+    ln -sft "$HOME$dir" "$src$file"
+done
+
 echo Downloading wallpaper
-mkdir -p ~/.config
-res="$(xrandr | rg -F "*" | sd "\s*(\d+x\d+).*" '$1')"
+res=$(xrandr | rg -F "*" | sd "\s*(\d+x\d+).*" '$1')
 curl -LSs https://raw.githubusercontent.com/NixOS/nixos-artwork/master/wallpapers/nix-wallpaper-nineish-dark-gray.svg \
     | convert svg:- \
         -gamma 1.14,1.16,1.25 \
@@ -18,12 +26,3 @@ curl -LSs https://raw.githubusercontent.com/NixOS/nixos-artwork/master/wallpaper
 echo Configuring mpd
 mkdir -p ~/music ~/.local/share/mpd/playlists
 touch ~/.local/share/mpd/mpd.db
-
-echo Creating symlinks
-src=$(dirname "$(realpath "$0")")/src
-find "$src" -type f | while read -r path; do
-    file=${path#$src}
-    dir=${file%/*}
-    mkdir -p "$HOME$dir"
-    ln -sft "$HOME$dir" "$src$file"
-done
