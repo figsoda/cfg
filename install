@@ -20,12 +20,11 @@ mkdir -p ~/music ~/.local/share/mpd/playlists
 touch ~/.local/share/mpd/mpd.db
 
 echo Creating symlinks
-src="$(dirname "$(realpath "$0")")/src"
-while IFS=" " read -r file d; do
-    dir="$(eval echo "$d")"
-    if [ -n "$file" ] && [ -n "$dir" ]; then
-        [ -e "$dir/$file" ] && rm -r "$dir/$file"
-        [ -d "$dir" ] || mkdir -p "$dir"
-        ln -s "$src/$file" -t "$dir"
-    fi
-done < symlinks.txt
+src=$(dirname "$(realpath "$0")")/src
+find "$src" -type f | while read -r path; do
+    path=${path#$src}
+    dir=${path%/*}
+    file=$dir/${path##*/}
+    mkdir -p "$HOME$dir"
+    ln -sft "$HOME$dir" "$src$file"
+done
