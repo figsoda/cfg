@@ -9,8 +9,8 @@ src=$(dirname "$(realpath "$0")")/src
 find "$src" -type f | while read -r path; do
     file=${path#$src}
     dir=$HOME${file%/*}
-    echo mkdir -p "$dir"
-    echo ln -sft "$dir" "$path"
+    mkdir -p "$dir"
+    ln -sft "$dir" "$path"
 done
 
 echo Downloading wallpaper
