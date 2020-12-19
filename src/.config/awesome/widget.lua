@@ -187,51 +187,48 @@ function widget.mpd()
         template.visible = false
     end
 
-    local function reload()
-        awful.spawn.easy_async_with_shell(
-            "mpc update && mpc clear && mpc add /", --
-            function() template.visible = false end
-        )
-    end
-
-    local function toggle()
-        awful.spawn.easy_async(
-            {"mpc", "toggle", "-f", "%title% - %artist%"}, --
-            function(stdout, _, _, exitcode) update(stdout, exitcode) end
-        )
-    end
-
-    local function next()
-        awful.spawn.easy_async(
-            {"mpc", "next", "-f", "%title% - %artist%"}, --
-            function(stdout, _, _, exitcode) update(stdout, exitcode) end
-        )
-    end
-
-    local function stop()
-        awful.spawn.easy_async(
-            {"mpc", "stop"}, --
-            function() template.visible = false end
-        )
-    end
-
     local watch = awful.widget.watch(
         {"mpc", "-f", "%title% - %artist%"}, 1, --
         function(_, stdout, _, _, exitcode) update(stdout, exitcode) end, --
         template
     )
 
+    local function cmd_then_update(cmd)
+        return function()
+            awful.spawn.easy_async(
+                {"mpc", cmd, "-f", "%title% - %artist%"}, --
+                function(stdout, _, _, exitcode)
+                    update(stdout, exitcode)
+                end
+            )
+        end
+    end
+
     return setmetatable(
         {}, {
             __index = function(_, k)
                 if k == "reload" then
-                    return reload
+                    return function()
+                        awful.spawn.easy_async_with_shell(
+                            "mpc clear && mpc update && mpc add /", --
+                            function()
+                                template.visible = false
+                            end
+                        )
+                    end
                 elseif k == "toggle" then
-                    return toggle
+                    return cmd_then_update("toggle")
                 elseif k == "next" then
-                    return next
+                    return cmd_then_update("next")
                 elseif k == "stop" then
-                    return stop
+                    return function()
+                        awful.spawn.easy_async(
+                            {"mpc", "stop"}, --
+                            function()
+                                template.visible = false
+                            end
+                        )
+                    end
                 else
                     return watch[k]
                 end
