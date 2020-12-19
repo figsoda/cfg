@@ -80,7 +80,7 @@ function widget.rustup_updates()
                         "alacritty",
                         "-e",
                         "fish",
-                        "-c",
+                        "-C",
                         "fish_prompt; \z
                         set_color $fish_color_command; \z
                         echo -n rustup; \z
