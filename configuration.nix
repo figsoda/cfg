@@ -235,6 +235,17 @@
         abbr -ag ns nix-shell
         abbr -ag nsf nix-shell --run fish -p
 
+        function format -a lang
+          switch $lang
+            case lua
+              fd -H '\.lua$' -x lua-format -i
+            case nix
+              fd -H '\.nix$' -x nixfmt
+            case "*"
+              echo "unexpected language: $lang"
+          end
+        end
+
         function gen -a template name
           string length -q -- $template $name
           ~/rust-templates/gen.sh ~/rust-templates/$template \
