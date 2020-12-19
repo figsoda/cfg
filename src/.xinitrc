@@ -1,8 +1,7 @@
 CM_MAX_CLIPS=20 CM_SELECTIONS=clipboard clipmenud &
 mpd &
 nm-applet &
-thunar --daemon &
-udiskie -s &
+spacefm -d &
 unclutter --timeout 3 &
 volctl &
 xss-lock -l -- \

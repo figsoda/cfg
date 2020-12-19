@@ -184,7 +184,7 @@ local kbss = {
         },
         {ms, "c", exec {"clipdel", "-d", "."}, "clear clipmenu"},
         {m, "e", exec("codium"), "launch vscodium"},
-        {m, "f", exec("thunar"), "launch thunar"},
+        {m, "f", exec("spacefm"), "launch spacefm"},
         {m, "m", exec {"alacritty", "-e", "mmtc"}, "launch mmtc"},
         {
             ms,

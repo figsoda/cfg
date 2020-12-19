@@ -40,7 +40,7 @@
         image/x-portable-graymap=sxiv.desktop
         image/x-tga=sxiv.desktop
         image/x-xpixmap=sxiv.desktop
-        inode/directory=thunar.desktop
+        inode/directory=spacefm.desktop
       '';
     };
     systemPackages = with pkgs; [
@@ -86,9 +86,9 @@
       (rofi.override { plugins = [ rofi-calc rofi-emoji ]; })
       rustup
       sd
+      spaceFM
       starship
       sxiv
-      udiskie
       unclutter-xfixes
       volctl
       (vscode-with-extensions.override {
@@ -120,7 +120,6 @@
           tamasfe.even-better-toml
         ];
       })
-      xfce.thunar
       xsel
       xss-lock
       xtrt
