@@ -252,7 +252,7 @@
             $name $name '["figsoda <figsoda@pm.me>"]' figsoda/$name
         end
 
-        ${pkgs.starship}/bin/starship init fish | .
+        ${pkgs.starship}/bin/starship init fish | source
       '';
       loginShellInit = ''
         if not set -q DISPLAY && [ (${pkgs.coreutils}/bin/tty) = /dev/tty1 ]
