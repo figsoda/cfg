@@ -228,9 +228,10 @@
         set fish_pager_color_progress brwhite --background=cyan
 
         abbr -ag nb nix-build
-        abbr -ag ni nix-env -iA
+        abbr -ag ne nix-env
+        abbr -ag nei nix-env -iA
+        abbr -ag ner nix-env -e
         abbr -ag npu nix-prefetch-url
-        abbr -ag nr nix-env -e
         abbr -ag ns nix-shell
         abbr -ag nsf nix-shell --run fish -p
 
