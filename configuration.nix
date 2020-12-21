@@ -229,7 +229,7 @@
 
         abbr -ag nb nix-build
         abbr -ag ne nix-env
-        abbr -ag nei nix-env -iA
+        abbr -ag nei nix-env -f '"<nixos>"' -iA
         abbr -ag ner nix-env -e
         abbr -ag npu nix-prefetch-url
         abbr -ag ns nix-shell
