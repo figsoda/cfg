@@ -23,15 +23,16 @@
 
         [credential "https://github.com"]
         username = figsoda
-        helper = "${
+        helper = ${
           pkgs.writeScript "credential-helper-github" ''
             #!${pkgs.bash}/bin/sh
 
             if [ "$1" = get ]; then
-              echo "password=$(${pkgs.libressl}/bin/openssl aes-256-cbc -d -in ~/.config/secrets/github)"
+              echo "password=$(${pkgs.libressl}/bin/openssl \
+                aes-256-cbc -d -in ~/.config/secrets/github)"
             fi
           ''
-        }"
+        }
       '';
       "resolv.conf".text = ''
         nameserver 1.1.1.1
