@@ -290,6 +290,7 @@
     xserver = {
       enable = true;
       displayManager.startx.enable = true;
+      enableCtrlAltBackspace = true;
       inputClassSections = [''
         Identifier "pointer configuration"
         MatchIsPointer "true"
