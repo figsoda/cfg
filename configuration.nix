@@ -117,16 +117,11 @@
           '' + old.installPhase;
         });
         vscodeExtensions = with vscode-extensions; [
-          (vscode-utils.extensionFromVscodeMarketplace {
-            name = "color-highlight";
-            publisher = "naumovs";
-            version = "2.3.0";
-            sha256 = "1syzf43ws343z911fnhrlbzbx70gdn930q67yqkf6g0mj8lf2za2";
-          })
           a5huynh.vscode-ron
           bbenoist.Nix
           matklad.rust-analyzer
           mskelton.one-dark-theme
+          naumovs.color-highlight
           pkief.material-icon-theme
           redhat.vscode-yaml
           serayuzgur.crates
