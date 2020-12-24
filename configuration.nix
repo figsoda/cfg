@@ -198,7 +198,7 @@
   };
 
   nixpkgs = {
-    config.allowUnfreePredicate = pkg: lib.hasPrefix "steam" (lib.getName pkg);
+    config.allowUnfree = true;
     overlays = [
       (import (fetchTarball
         "https://github.com/figsoda/nix-packages/archive/main.tar.gz"))
