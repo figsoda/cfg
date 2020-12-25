@@ -189,6 +189,7 @@
 
   nix = {
     autoOptimiseStore = true;
+    extraOptions = "experimental-features = flakes nix-command";
     gc = {
       automatic = true;
       dates = "Sat, 03:00";
