@@ -70,7 +70,6 @@
       bottom
       cargo-edit
       clipmenu
-      exa
       fd
       firefox
       gcc
@@ -101,7 +100,6 @@
       rustup
       sd
       spaceFM
-      starship
       sxiv
       unclutter-xfixes
       volctl
