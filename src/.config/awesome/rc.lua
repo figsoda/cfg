@@ -43,7 +43,7 @@ screen.connect_signal(
     end
 )
 
-awful.layout.layouts = {l.tile, l.tile.bottom, l.max}
+awful.layout.layouts = {l.tile, l.max}
 
 awful.screen.connect_for_each_screen(
     function(s)

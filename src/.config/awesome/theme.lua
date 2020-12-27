@@ -6,7 +6,6 @@ return {
 
     layout_max = themedir .. "zenburn/layouts/max.png",
     layout_tile = themedir .. "zenburn/layouts/tile.png",
-    layout_tilebottom = themedir .. "zenburn/layouts/tilebottom.png",
 
     hotkeys_border_width = 0,
     hotkeys_modifiers_fg = "#80b0ff",
