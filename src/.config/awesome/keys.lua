@@ -73,6 +73,7 @@ local kbss = {
     layout = {
         {ms, "Left", function() awful.layout.inc(-1) end, "previous layout"},
         {ms, "Right", function() awful.layout.inc(1) end, "next layout"},
+        {m, " ", function() awful.layout.inc(1) end, "next layout"},
         {
             m,
             "i",
