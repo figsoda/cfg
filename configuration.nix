@@ -75,7 +75,6 @@
       gcc
       gimp
       git
-      i3lock-color
       libreoffice-fresh
       libressl
       luaformatter
