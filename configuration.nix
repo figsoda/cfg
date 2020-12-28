@@ -208,7 +208,8 @@
     dconf.enable = true;
     fish = {
       enable = true;
-      interactiveShellInit = ''
+      interactiveShellInit = let fd = "${pkgs.fd}/bin/fd";
+      in ''
         set -g fish_color_autosuggestion 005f5f
         set -g fish_color_cancel normal
         set -g fish_color_command 00afff
@@ -246,12 +247,12 @@
         abbr -ag ns nix-shell
         abbr -ag nsf nix-shell --run fish -p
 
-        function format -a lang
+        function f -a lang
           switch $lang
             case lua
-              fd -H '\.lua$' -x lua-format -i
+              ${fd} -H '\.lua$' -x ${pkgs.luaformatter}/bin/lua-format -i
             case nix
-              fd -H '\.nix$' -x nixfmt
+              ${fd} -H '\.nix$' -x ${pkgs.nixfmt}/bin/nixfmt
             case "*"
               echo "unexpected language: $lang"
           end
