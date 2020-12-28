@@ -24,9 +24,7 @@
         [credential "https://github.com"]
         username = figsoda
         helper = ${
-          pkgs.writeScript "credential-helper-github" ''
-            #!${pkgs.bash}/bin/sh
-
+          pkgs.writeShellScript "credential-helper-github" ''
             if [ "$1" = get ]; then
               echo "password=$(${pkgs.libressl}/bin/openssl \
                 aes-256-cbc -d -in ~/.config/secrets/github)"
@@ -57,14 +55,10 @@
       '';
     };
     systemPackages = with pkgs; [
-      (writeTextFile {
-        name = "default-icon-theme";
-        destination = "/share/icons/default/index.theme";
-        text = ''
-          [icon theme]
-          Inherits=Qogir
-        '';
-      })
+      (writeTextDir "/share/icons/default/index.theme" ''
+        [icon theme]
+        Inherits=Qogir
+      '')
       alacritty
       bat
       bottom
