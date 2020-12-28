@@ -83,9 +83,7 @@
       micro
       mmtc
       mpc_cli
-      mpd
       (mpv.override { scripts = with mpvScripts; [ autoload sponsorblock ]; })
-      networkmanagerapplet
       nixfmt
       pamixer
       papirus-icon-theme
@@ -101,8 +99,6 @@
       sd
       spaceFM
       sxiv
-      unclutter-xfixes
-      volctl
       (vscode-with-extensions.override {
         vscode = vscodium.overrideAttrs (old: {
           buildInputs = old.buildInputs ++ [ jq moreutils ];
@@ -128,7 +124,6 @@
         ];
       })
       xsel
-      xss-lock
       xtrt
     ];
     variables = {
@@ -268,7 +263,30 @@
       '';
       loginShellInit = ''
         if not set -q DISPLAY && [ (${pkgs.coreutils}/bin/tty) = /dev/tty1 ]
-          exec ${pkgs.xorg.xinit}/bin/startx -- -ardelay 400 -arinterval 32
+          exec ${pkgs.xorg.xinit}/bin/startx ${
+            pkgs.writeText "xinitrc" ''
+              CM_MAX_CLIPS=20 CM_SELECTIONS=clipboard ${pkgs.clipmenu}/bin/clipmenud &
+              ${pkgs.mpd}/bin/mpd &
+              ${pkgs.networkmanagerapplet}/bin/nm-applet &
+              ${pkgs.spaceFM}/bin/spacefm -d &
+              ${pkgs.unclutter-xfixes}/bin/unclutter --timeout 3 &
+              ${pkgs.volctl}/bin/volctl &
+              ${pkgs.xss-lock}/bin/xss-lock -l -- \
+                  ${pkgs.i3lock-color}/bin/i3lock-color -i ~/.config/wallpaper.png -k \
+                  --{inside{ver,wrong,},ring,line,separator}color=00000000 \
+                  --ringvercolor=98c040 --ringwrongcolor=d02828 \
+                  --keyhlcolor=2060a0 --bshlcolor=d06020 \
+                  --verifcolor=b8f080 --wrongcolor=ff8080 \
+                  --indpos=x+w/7:y+h-w/8 \
+                  --{time,date}-font=monospace --{layout,verif,wrong,greeter}size=32 \
+                  --timecolor=60b8ff --timesize=36 \
+                  --datepos=ix:iy+36 --datecolor=e0a878 --datestr=%F --datesize=28 \
+                  --veriftext=Verifying... --wrongtext="Try again!" --noinputtext="No input" \
+                  --locktext=Locking... --lockfailedtext="Lock failed!" \
+                  --radius 108 --ring-width 8 &
+              exec ${pkgs.awesome}/bin/awesome
+            ''
+          } -- -ardelay 400 -arinterval 32
         end
       '';
       shellAliases = {
