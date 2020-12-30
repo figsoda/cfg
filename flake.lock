@@ -69,11 +69,11 @@
         "yaml-cpp": "yaml-cpp"
       },
       "locked": {
-        "lastModified": 1609360287,
-        "narHash": "sha256-Gsz7oj5q+mUxe3Wg0669+VsjHV0+XJTbsbsQBEktcrA=",
+        "lastModified": 1609366084,
+        "narHash": "sha256-XA4ZLGLaBtZ668nhKFDfK/sIXJRBnEM8y1yQfed0W/A=",
         "owner": "figsoda",
         "repo": "nix-packages",
-        "rev": "52732770a99eb94c564214f85951947eb81b17f1",
+        "rev": "426e78bedd4456fc4538efb6929efd1bbe57b842",
         "type": "github"
       },
       "original": {
