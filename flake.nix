@@ -13,7 +13,7 @@
       modules = [
         /etc/nixos/hardware-configuration.nix
 
-        ({ lib, pkgs, ... }: {
+        ({ config, lib, pkgs, ... }: {
           boot = {
             kernelPackages = pkgs.linuxPackages_latest;
             loader = {
@@ -332,10 +332,17 @@
             autoUpgrade = {
               enable = true;
               dates = "03:30";
-              flake = "/etc/nixos";
             };
             stateVersion = "21.03";
           };
+
+          systemd.services.nixos-upgrade.script = let
+            dir = "${config.users.users.figsoda.home}/dotfiles";
+            rebuild = "${config.system.build.nixos-rebuild}/bin/nixos-rebuild";
+          in nixpkgs.lib.mkForce ''
+            ${config.nix.package}/bin/nix flake update ${dir} --{recreate,commit}-lock-file
+            ${rebuild} switch --flake ${dir} --impure
+          '';
 
           time.timeZone = "America/New_York";
 
