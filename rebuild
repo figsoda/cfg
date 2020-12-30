@@ -2,12 +2,8 @@
 
 set -e
 
-sudo echo "$ nixfmt configuration.nix"
-nixfmt configuration.nix
-echo
-
-echo "$ sudo cp configuration.nix /etc/nixos/"
-sudo cp configuration.nix /etc/nixos/
+sudo echo "$ sudo nixfmt /etc/nixos/*.nix"
+sudo nixfmt /etc/nixos/*.nix
 echo
 
 echo "$ sudo nixos-rebuild switch $@"

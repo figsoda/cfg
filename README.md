@@ -14,8 +14,10 @@ swapon /dev/disk/by-label/swap
 nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 nix-channel --update
 nixos-generate-config --root /mnt
-curl -LSso /mnt/etc/nixos/configuration.nix https://raw.githubusercontent.com/figsoda/dotfiles/main/configuration.nix
-nixos-install
+cd /mnt/etc/nixos
+curl -LSso flake.nix https://raw.githubusercontent.com/figsoda/dotfiles/main/flake.nix
+curl -LSso flake.lock https://raw.githubusercontent.com/figsoda/dotfiles/main/flake.lock
+nixos-install --flake ".#nixos"
 reboot
 
 # as root
@@ -23,7 +25,9 @@ passwd <username>
 
 # as user
 git clone https://github.com/figsoda/dotfiles
-dotfiles/install
+cd dotfiles
+ln -f /etc/nixos/flake.{lock,nix} .
+./install
 mkdir -p ~/.config/secrets
 micro github_token
 openssl aes-256-cbc -in github_token -out ~/.config/secrets/github
