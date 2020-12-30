@@ -11,9 +11,9 @@
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ({ lib, pkgs, ... }: {
-          imports = [ ./hardware-configuration.nix ];
+        /etc/nixos/hardware-configuration.nix
 
+        ({ lib, pkgs, ... }: {
           boot = {
             kernelPackages = pkgs.linuxPackages_latest;
             loader = {

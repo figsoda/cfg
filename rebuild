@@ -2,9 +2,9 @@
 
 set -e
 
-sudo echo "$ sudo nixfmt /etc/nixos/*.nix"
-sudo nixfmt /etc/nixos/*.nix
+sudo echo "$ nixfmt flake.nix"
+nixfmt flake.nix
 echo
 
-echo "$ sudo nixos-rebuild switch $@"
-sudo nixos-rebuild switch "$@"
+echo "$ sudo nixos-rebuild switch --flake . --impure $@"
+sudo nixos-rebuild switch --flake . --impure "$@"

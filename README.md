@@ -23,9 +23,8 @@ passwd <username>
 
 # as user
 git clone https://github.com/figsoda/dotfiles
-cd dotfiles
-ln -f /etc/nixos/flake.{lock,nix} .
-./install
+sudo ln -sft /etc/nixos ~/dotfiles/flake.{lock,nix}
+dotfiles/install
 mkdir -p ~/.config/secrets
 micro github_token
 openssl aes-256-cbc -in github_token -out ~/.config/secrets/github
