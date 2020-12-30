@@ -331,6 +331,7 @@
             autoUpgrade = {
               enable = true;
               dates = "03:30";
+              flake = "/etc/nixos";
             };
             stateVersion = "21.03";
           };
