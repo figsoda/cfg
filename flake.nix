@@ -194,6 +194,7 @@
               dates = "Sat, 03:00";
               options = "--delete-older-than 3d";
             };
+            nixPath = [ "nixos=${nixpkgs}" "nixpkgs=${nixpkgs}" ];
             package = pkgs.nixUnstable;
           };
 
