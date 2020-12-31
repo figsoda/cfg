@@ -10,7 +10,6 @@
     "editor.renderWhitespace": "boundary",
     "explorer.confirmDragAndDrop": false,
     "extensions.ignoreRecommendations": true,
-    "extensions.showRecommendationsOnlyOnDemand": true,
     "files.trimTrailingWhitespace": true,
     "files.watcherExclude": {
         "**/target/**": true
