@@ -339,7 +339,7 @@
           systemd.services.nixos-upgrade.script = let
             dir = "${config.users.users.figsoda.home}/dotfiles";
             rebuild = "${config.system.build.nixos-rebuild}/bin/nixos-rebuild";
-          in nixpkgs.lib.mkForce ''
+          in lib.mkForce ''
             ${config.nix.package}/bin/nix flake update ${dir} --{recreate,commit}-lock-file
             ${rebuild} switch --flake ${dir} --impure
           '';
