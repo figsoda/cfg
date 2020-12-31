@@ -30,6 +30,7 @@
     "github.gitAuthentication": false,
     "markdown.preview.fontFamily": "sans",
     "rust-analyzer.cargo.loadOutDirsFromCheck": true,
+    "rust-analyzer.checkOnSave.command": "clippy",
     "rust-analyzer.procMacro.enable": true,
     "telemetry.enableTelemetry": false,
     "update.mode": "none",
