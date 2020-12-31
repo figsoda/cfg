@@ -294,6 +294,7 @@
                 end
               '';
               shellAliases = {
+                cp = "${pkgs.coreutils}/bin/cp -r";
                 ls =
                   "${pkgs.exa}/bin/exa -bl --git --icons --time-style long-iso --group-directories-first";
                 rm = "${pkgs.coreutils}/bin/rm -I";
