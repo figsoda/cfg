@@ -280,6 +280,7 @@
                       ${pkgs.xidlehook}/bin/xidlehook --socket /tmp/xidlehook.sock \
                         --timer 900 ${
                           pkgs.writeShellScript "lockscreen" ''
+                            ${pkgs.xorg.xset}/bin/xset dpms force standby &
                             ${pkgs.i3lock-color}/bin/i3lock-color \
                               -i ~/.config/wallpaper.png -k \
                               --{inside{ver,wrong,},ring,line,separator}color=00000000 \
@@ -295,8 +296,7 @@
                               --wrongtext="Try again!" \
                               --noinputtext="No input" \
                               --locktext=Locking... --lockfailedtext="Lock failed!" \
-                              --radius 108 --ring-width 8 &
-                            ${pkgs.xorg.xset}/bin/xset dpms force standby
+                              --radius 108 --ring-width 8
                           ''
                         } "" \
                         --timer 12000 "${config.systemd.package}/bin/systemctl suspend" "" &
