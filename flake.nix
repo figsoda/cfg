@@ -206,15 +206,14 @@
 
           programs = {
             dconf.enable = true;
-            fish = {
+            fish = with pkgs; {
               enable = true;
-              interactiveShellInit = let fd = "${pkgs.fd}/bin/fd";
-              in ''
+              interactiveShellInit = ''
                 source ${
-                  pkgs.runCommand "starship-init-fish" {
+                  runCommand "starship-init-fish" {
                     STARSHIP_CACHE = ".cache";
                   } ''
-                    ${pkgs.starship}/bin/starship init fish --print-full-init > $out
+                    ${starship}/bin/starship init fish --print-full-init > $out
                   ''
                 }
 
@@ -258,9 +257,9 @@
                 function f -a lang
                   switch $lang
                     case lua
-                      ${fd} -H '\.lua$' -x ${pkgs.luaformatter}/bin/lua-format -i
+                      ${fd}/bin/fd -H '\.lua$' -x ${luaformatter}/bin/lua-format -i
                     case nix
-                      ${fd} -H '\.nix$' -x ${pkgs.nixfmt}/bin/nixfmt
+                      ${fd}/bin/fd -H '\.nix$' -x ${nixfmt}/bin/nixfmt
                     case "*"
                       echo "unexpected language: $lang"
                   end
@@ -273,21 +272,21 @@
                 end
               '';
               loginShellInit = ''
-                if not set -q DISPLAY && [ (${pkgs.coreutils}/bin/tty) = /dev/tty1 ]
-                  exec ${pkgs.xorg.xinit}/bin/startx ${
-                    pkgs.writeText "xinitrc" ''
-                      CM_MAX_CLIPS=20 CM_SELECTIONS=clipboard ${pkgs.clipmenu}/bin/clipmenud &
-                      ${pkgs.mpd}/bin/mpd &
-                      ${pkgs.networkmanagerapplet}/bin/nm-applet &
-                      ${pkgs.spaceFM}/bin/spacefm -d &
-                      ${pkgs.unclutter-xfixes}/bin/unclutter --timeout 3 &
-                      ${pkgs.volctl}/bin/volctl &
-                      [ -f /tmp/xidlehook.sock ] && ${pkgs.coreutils}/bin/rm /tmp/xidlehook.sock
-                      ${pkgs.xidlehook}/bin/xidlehook --socket /tmp/xidlehook.sock \
+                if not set -q DISPLAY && [ (${coreutils}/bin/tty) = /dev/tty1 ]
+                  exec ${xorg.xinit}/bin/startx ${
+                    writeText "xinitrc" ''
+                      CM_MAX_CLIPS=20 CM_SELECTIONS=clipboard ${clipmenu}/bin/clipmenud &
+                      ${mpd}/bin/mpd &
+                      ${networkmanagerapplet}/bin/nm-applet &
+                      ${spaceFM}/bin/spacefm -d &
+                      ${unclutter-xfixes}/bin/unclutter --timeout 3 &
+                      ${volctl}/bin/volctl &
+                      [ -f /tmp/xidlehook.sock ] && ${coreutils}/bin/rm /tmp/xidlehook.sock
+                      ${xidlehook}/bin/xidlehook --socket /tmp/xidlehook.sock \
                         --timer 900 ${
-                          pkgs.writeShellScript "lockscreen" ''
-                            ${pkgs.xorg.xset}/bin/xset dpms force standby &
-                            ${pkgs.i3lock-color}/bin/i3lock-color \
+                          writeShellScript "lockscreen" ''
+                            ${xorg.xset}/bin/xset dpms force standby &
+                            ${i3lock-color}/bin/i3lock-color \
                               -i ~/.config/wallpaper.png -k \
                               --{inside{ver,wrong,},ring,line,separator}color=00000000 \
                               --ringvercolor=98c040 --ringwrongcolor=d02828 \
@@ -306,16 +305,16 @@
                           ''
                         } "" \
                         --timer 12000 "${config.systemd.package}/bin/systemctl suspend" "" &
-                      exec ${pkgs.awesome}/bin/awesome
+                      exec ${awesome}/bin/awesome
                     ''
                   } -- -ardelay 400 -arinterval 32
                 end
               '';
               shellAliases = {
-                cp = "${pkgs.coreutils}/bin/cp -r";
+                cp = "${coreutils}/bin/cp -r";
                 ls =
-                  "${pkgs.exa}/bin/exa -bl --git --icons --time-style long-iso --group-directories-first";
-                rm = "${pkgs.coreutils}/bin/rm -I";
+                  "${exa}/bin/exa -bl --git --icons --time-style long-iso --group-directories-first";
+                rm = "${coreutils}/bin/rm -I";
               };
             };
             ssh.askPassword = "";
