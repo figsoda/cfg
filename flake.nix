@@ -11,11 +11,11 @@
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
+        /etc/nixos/hardware-configuration.nix
+
         ./environment.nix
 
         ./fish.nix
-
-        ./hardware-configuration.nix
 
         ({ config, lib, pkgs, ... }: {
           boot = {

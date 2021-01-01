@@ -6,5 +6,5 @@ sudo echo "$ nixfmt" *.nix
 nixfmt *.nix
 echo
 
-echo "$ sudo nixos-rebuild switch --flake . $@"
-sudo nixos-rebuild switch --flake . "$@"
+echo "$ sudo nixos-rebuild switch --flake . --impure $@"
+sudo nixos-rebuild switch --flake . --impure "$@"
