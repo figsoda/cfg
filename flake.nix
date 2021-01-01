@@ -129,6 +129,7 @@
                   tamasfe.even-better-toml
                 ];
               })
+              xidlehook
               xsel
               xtrt
             ];
@@ -275,19 +276,30 @@
                       ${pkgs.spaceFM}/bin/spacefm -d &
                       ${pkgs.unclutter-xfixes}/bin/unclutter --timeout 3 &
                       ${pkgs.volctl}/bin/volctl &
-                      ${pkgs.xss-lock}/bin/xss-lock -l -- \
-                          ${pkgs.i3lock-color}/bin/i3lock-color -i ~/.config/wallpaper.png -k \
-                          --{inside{ver,wrong,},ring,line,separator}color=00000000 \
-                          --ringvercolor=98c040 --ringwrongcolor=d02828 \
-                          --keyhlcolor=2060a0 --bshlcolor=d06020 \
-                          --verifcolor=b8f080 --wrongcolor=ff8080 \
-                          --indpos=x+w/7:y+h-w/8 \
-                          --{time,date}-font=monospace --{layout,verif,wrong,greeter}size=32 \
-                          --timecolor=60b8ff --timesize=36 \
-                          --datepos=ix:iy+36 --datecolor=e0a878 --datestr=%F --datesize=28 \
-                          --veriftext=Verifying... --wrongtext="Try again!" --noinputtext="No input" \
-                          --locktext=Locking... --lockfailedtext="Lock failed!" \
-                          --radius 108 --ring-width 8 &
+                      ${pkgs.coreutils}/bin/rm /tmp/xidlehook.sock
+                      ${pkgs.xidlehook}/bin/xidlehook --socket /tmp/xidlehook.sock \
+                        --timer 900 ${
+                          pkgs.writeShellScript "lockscreen" ''
+                            ${pkgs.i3lock-color}/bin/i3lock-color \
+                              -i ~/.config/wallpaper.png -k \
+                              --{inside{ver,wrong,},ring,line,separator}color=00000000 \
+                              --ringvercolor=98c040 --ringwrongcolor=d02828 \
+                              --keyhlcolor=2060a0 --bshlcolor=d06020 \
+                              --verifcolor=b8f080 --wrongcolor=ff8080 \
+                              --indpos=x+w/7:y+h-w/8 \
+                              --{time,date}-font=monospace \
+                              --{layout,verif,wrong,greeter}size=32 \
+                              --timecolor=60b8ff --timesize=36 \
+                              --datepos=ix:iy+36 --datecolor=e0a878 --datestr=%F --datesize=28 \
+                              --veriftext=Verifying... \
+                              --wrongtext="Try again!" \
+                              --noinputtext="No input" \
+                              --locktext=Locking... --lockfailedtext="Lock failed!" \
+                              --radius 108 --ring-width 8 &
+                            ${pkgs.xorg.xset}/bin/xset dpms force standby
+                          ''
+                        } "" \
+                        --timer 12000 "${config.systemd.package}/bin/systemctl suspend" "" &
                       exec ${pkgs.awesome}/bin/awesome
                     ''
                   } -- -ardelay 400 -arinterval 32
@@ -307,6 +319,7 @@
           services = {
             blueman.enable = true;
             gnome3.at-spi2-core.enable = true;
+            logind.lidSwitch = "ignore";
             xserver = {
               enable = true;
               displayManager.startx.enable = true;
@@ -322,6 +335,12 @@
                 accelSpeed = "0";
                 tapping = false;
               };
+              serverFlagsSection = ''
+                Option "BlankTime" "0"
+                Option "StandbyTime" "0"
+                Option "SuspendTime" "0"
+                Option "OffTime" "0"
+              '';
               windowManager.awesome = {
                 enable = true;
                 noArgb = true;

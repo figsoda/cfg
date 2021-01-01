@@ -21,6 +21,17 @@ local function maptag(f, i)
     end
 end
 
+local lockscreen = exec {
+    "xidlehook-client",
+    "--socket",
+    "/tmp/xidlehook.sock",
+    "control",
+    "--action",
+    "trigger",
+    "--timer",
+    "0",
+}
+
 local ckbs = {
     {m, "k", function() awful.client.focus.byidx(-1) end, "previous client"},
     {m, "l", function() awful.client.focus.byidx(1) end, "next client"},
@@ -38,7 +49,7 @@ local ckbs = {
 local kbss = {
     help = {{m, "h", hotkeys_popup.show_help, "show help"}},
     session = {
-        {mc, "l", exec {"xset", "s", "activate"}, "lock screen"},
+        {mc, "l", lockscreen, "lock screen"},
         {
             mc,
             "Return",
@@ -60,7 +71,7 @@ local kbss = {
                             exec("reboot"),
                             exec {"systemctl", "suspend"},
                             exec {"systemctl", "hibernate"},
-                            exec {"xset", "s", "activate"},
+                            lockscreen,
                             awesome.quit,
                             awesome.restart,
                         })[stdout:byte() - 47]()
