@@ -192,7 +192,7 @@
             extraOptions = "experimental-features = flakes nix-command";
             gc = {
               automatic = true;
-              dates = "Sat, 03:00";
+              dates = "Sat, 00:30";
               options = "--delete-older-than 3d";
             };
             nixPath = [ "nixos=${nixpkgs}" "nixpkgs=${nixpkgs}" ];
@@ -351,7 +351,7 @@
           system = {
             autoUpgrade = {
               enable = true;
-              dates = "03:30";
+              dates = "01:00";
             };
             stateVersion = "21.03";
           };
