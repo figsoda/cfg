@@ -12,10 +12,8 @@ mkdir /mnt/boot
 mount /dev/disk/by-label/boot /mnt/boot
 swapon /dev/disk/by-label/swap
 nixos-generate-config --root /mnt
-cd /mnt/etc/nixos
-curl -LSso flake.nix https://raw.githubusercontent.com/figsoda/dotfiles/main/flake.nix
-curl -LSso flake.lock https://raw.githubusercontent.com/figsoda/dotfiles/main/flake.lock
-nixos-install --flake ".#nixos" --no-channel-copy
+git clone https://github.com/figsoda/dotfiles
+nixos-install --flake "dotfiles#nixos" --no-channel-copy
 reboot
 
 # as root
