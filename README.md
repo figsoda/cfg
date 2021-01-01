@@ -3,7 +3,7 @@
 My dotfiles (nixos + awesome)
 
 
-## Installation
+## Installation (broken)
 
 ```sh
 # as root, after partitioning
