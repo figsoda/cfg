@@ -282,7 +282,7 @@
                       ${pkgs.spaceFM}/bin/spacefm -d &
                       ${pkgs.unclutter-xfixes}/bin/unclutter --timeout 3 &
                       ${pkgs.volctl}/bin/volctl &
-                      ${pkgs.coreutils}/bin/rm /tmp/xidlehook.sock
+                      [ -f /tmp/xidlehook.sock ] && ${pkgs.coreutils}/bin/rm /tmp/xidlehook.sock
                       ${pkgs.xidlehook}/bin/xidlehook --socket /tmp/xidlehook.sock \
                         --timer 900 ${
                           pkgs.writeShellScript "lockscreen" ''
