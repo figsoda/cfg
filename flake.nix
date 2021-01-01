@@ -210,6 +210,14 @@
               enable = true;
               interactiveShellInit = let fd = "${pkgs.fd}/bin/fd";
               in ''
+                source ${
+                  pkgs.runCommand "starship-init-fish" {
+                    STARSHIP_CACHE = ".cache";
+                  } ''
+                    ${pkgs.starship}/bin/starship init fish --print-full-init > $out
+                  ''
+                }
+
                 set -g fish_color_autosuggestion 005f5f
                 set -g fish_color_cancel normal
                 set -g fish_color_command 00afff
@@ -263,8 +271,6 @@
                   ~/rust-templates/gen.sh ~/rust-templates/$template \
                     $name $name '["figsoda <figsoda@pm.me>"]' figsoda/$name
                 end
-
-                ${pkgs.starship}/bin/starship init fish | source
               '';
               loginShellInit = ''
                 if not set -q DISPLAY && [ (${pkgs.coreutils}/bin/tty) = /dev/tty1 ]
