@@ -69,11 +69,11 @@
         "yaml-cpp": "yaml-cpp"
       },
       "locked": {
-        "lastModified": 1609395552,
-        "narHash": "sha256-Ppb9SuHUroAcTpKGunY4wvXppVp0f2L1byQ7691Obvo=",
+        "lastModified": 1609472988,
+        "narHash": "sha256-D40dUGy0oVHDmbEFr8N64bRZOD70g9CpxhMus63Dmmc=",
         "owner": "figsoda",
         "repo": "nix-packages",
-        "rev": "8f5716f90920bf6110fef0daaa98f1bb6b83155d",
+        "rev": "03ca51cb3b7940c5076b172ef0d69bd89d8f2eff",
         "type": "github"
       },
       "original": {
@@ -171,16 +171,15 @@
       "locked": {
         "lastModified": 1609254719,
         "narHash": "sha256-XB3391z8r81Bt8NfQzB+tYdTWoraY0QVdXM21JhfW+Y=",
-        "owner": "nixos",
+        "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "733e537a8ad76fd355b6f501127f7d0eb8861775",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
+        "id": "nixpkgs",
         "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
+        "type": "indirect"
       }
     },
     "nixpkgs-mozilla": {
