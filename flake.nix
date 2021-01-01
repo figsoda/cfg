@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
     figsoda-pkgs = {
       url = "github:figsoda/nix-packages";
       inputs.nixpkgs.follows = "nixpkgs";
