@@ -1,13 +1,24 @@
 {
   inputs = {
+    fenix = {
+      url = "github:figsoda/fenix";
+      inputs = {
+        flake-utils.follows = "flake-utils";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+    flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "nixpkgs/nixos-unstable";
     figsoda-pkgs = {
       url = "github:figsoda/nix-packages";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        flake-utils.follows = "flake-utils";
+        nixpkgs.follows = "nixpkgs";
+      };
     };
   };
 
-  outputs = { self, figsoda-pkgs, nixpkgs }: {
+  outputs = { fenix, figsoda-pkgs, nixpkgs, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -78,6 +89,10 @@
 
           nix = {
             autoOptimiseStore = true;
+            binaryCaches = [ "https://fenix.cachix.org" ];
+            binaryCachePublicKeys = [
+              "fenix.cachix.org-1:SVfCRUmFZ8kdAjJKShEYoyWHb/M0pxVkCjGXsFDHLk4="
+            ];
             extraOptions = "experimental-features = flakes nix-command";
             gc = {
               automatic = true;
@@ -90,7 +105,7 @@
 
           nixpkgs = {
             config.allowUnfree = true;
-            overlays = [ figsoda-pkgs.overlay.x86_64-linux ];
+            overlays = [ figsoda-pkgs.overlay.x86_64-linux fenix.overlay ];
           };
 
           programs = {

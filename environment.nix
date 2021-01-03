@@ -39,72 +39,72 @@
         inode/directory=spacefm.desktop
       '';
     };
-    systemPackages = with pkgs; [
-      (writeTextDir "/share/icons/default/index.theme" ''
-        [icon theme]
-        Inherits=Qogir
-      '')
-      alacritty
-      bat
-      bottom
-      cargo-edit
-      clipmenu
-      fd
-      firefox
-      gcc
-      gimp
-      git
-      libreoffice-fresh
-      libressl
-      luaformatter
-      maim
-      micro
-      mmtc
-      mpc_cli
-      (mpv.override { scripts = with mpvScripts; [ autoload sponsorblock ]; })
-      nixfmt
-      pamixer
-      papirus-icon-theme
-      pavucontrol
-      psmisc
-      python3
-      qalculate-gtk
-      qogir-icon-theme
-      qogir-theme
-      ripgrep
-      (rofi.override { plugins = [ rofi-calc rofi-emoji ]; })
-      rustup
-      sd
-      spaceFM
-      sxiv
-      (vscode-with-extensions.override {
-        vscode = vscodium.overrideAttrs (old: {
-          buildInputs = old.buildInputs ++ [ jq moreutils ];
-          installPhase = ''
-            jq -e 'setpath(["extensionsGallery"]; {
-              "serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
-              "cacheUrl": "https://vscode.blob.core.windows.net/gallery/index",
-              "itemUrl": "https://marketplace.visualstudio.com/items"
-            })' resources/app/product.json | sponge resources/app/product.json
-          '' + old.installPhase;
-        });
-        vscodeExtensions = with vscode-extensions; [
-          a5huynh.vscode-ron
-          bbenoist.Nix
-          matklad.rust-analyzer
-          mskelton.one-dark-theme
-          naumovs.color-highlight
-          pkief.material-icon-theme
-          redhat.vscode-yaml
-          serayuzgur.crates
-          skyapps.fish-vscode
-          tamasfe.even-better-toml
-        ];
-      })
-      xidlehook
-      xsel
-      xtrt
-    ];
+    systemPackages = with pkgs;
+      builtins.attrValues rust-nightly.default ++ [
+        (writeTextDir "/share/icons/default/index.theme" ''
+          [icon theme]
+          Inherits=Qogir
+        '')
+        alacritty
+        bat
+        bottom
+        cargo-edit
+        clipmenu
+        fd
+        firefox
+        gcc
+        gimp
+        git
+        libreoffice-fresh
+        libressl
+        luaformatter
+        maim
+        micro
+        mmtc
+        mpc_cli
+        (mpv.override { scripts = with mpvScripts; [ autoload sponsorblock ]; })
+        nixfmt
+        pamixer
+        papirus-icon-theme
+        pavucontrol
+        psmisc
+        python3
+        qalculate-gtk
+        qogir-icon-theme
+        qogir-theme
+        ripgrep
+        (rofi.override { plugins = [ rofi-calc rofi-emoji ]; })
+        sd
+        spaceFM
+        sxiv
+        (vscode-with-extensions.override {
+          vscode = vscodium.overrideAttrs (old: {
+            buildInputs = old.buildInputs ++ [ jq moreutils ];
+            installPhase = ''
+              jq -e 'setpath(["extensionsGallery"]; {
+                "serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
+                "cacheUrl": "https://vscode.blob.core.windows.net/gallery/index",
+                "itemUrl": "https://marketplace.visualstudio.com/items"
+              })' resources/app/product.json | sponge resources/app/product.json
+            '' + old.installPhase;
+          });
+          vscodeExtensions = with vscode-extensions; [
+            a5huynh.vscode-ron
+            bbenoist.Nix
+            matklad.rust-analyzer
+            mskelton.one-dark-theme
+            naumovs.color-highlight
+            pkief.material-icon-theme
+            redhat.vscode-yaml
+            serayuzgur.crates
+            skyapps.fish-vscode
+            tamasfe.even-better-toml
+          ];
+        })
+        xidlehook
+        xsel
+        xtrt
+      ];
     variables = {
       EDITOR = "micro";
       LESSHISTFILE = "-";
