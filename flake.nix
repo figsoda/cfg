@@ -105,7 +105,7 @@
 
           nixpkgs = {
             config.allowUnfree = true;
-            overlays = [ figsoda-pkgs.overlay.x86_64-linux fenix.overlay ];
+            overlays = [ figsoda-pkgs.overlay fenix.overlay ];
           };
 
           programs = {
