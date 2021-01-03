@@ -109,6 +109,7 @@
           };
 
           programs = {
+            command-not-found.enable = false;
             dconf.enable = true;
             ssh.askPassword = "";
             steam.enable = true;
