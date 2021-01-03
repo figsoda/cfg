@@ -1,9 +1,6 @@
 #!/usr/bin/env nix-shell
 #!nix-shell -i sh -p curl imagemagick ripgrep sd xorg.xrandr
 
-echo Installing rust toolchain
-rustup toolchain install nightly
-
 echo Creating symlinks
 src=$(dirname "$(realpath "$0")")/src
 find "$src" -type f | while read -r path; do

@@ -163,7 +163,6 @@ awful.screen.connect_for_each_screen(
                 widget.padding(8),
                 wibox.widget.systray(),
                 widget.battery(),
-                widget.rustup_updates(),
                 textclock,
             },
         }

@@ -55,59 +55,6 @@ function widget.battery()
     return wibox.container.margin(bat, 2, 2, 2, 2, nil, false)
 end
 
-function widget.rustup_updates()
-    local txt = wibox.widget.textbox()
-    txt.font = "monospace 10"
-    txt.visible = false
-
-    local function update(_, stdout)
-        local x = select(2, stdout:gsub("Update available", ""))
-        if x > 0 then
-            txt.visible = true
-            txt.markup = string.format(
-                [[<span fgcolor="#20ff40">[🦀%d]</span>]], x
-            )
-        else
-            txt.visible = false
-        end
-    end
-
-    txt:buttons(
-        awful.button(
-            {}, 1, nil, function()
-                awful.spawn.easy_async(
-                    {
-                        "alacritty",
-                        "-e",
-                        "fish",
-                        "-C",
-                        "fish_prompt; \z
-                        set_color $fish_color_command; \z
-                        echo -n rustup; \z
-                        set_color $fish_color_param; \z
-                        echo ' update'; \z
-                        set_color $fish_color_normal; \z
-                        rustup update && exit",
-                    }, --
-                    function()
-                        awful.spawn.easy_async(
-                            {"rustup", "check"}, --
-                            function(stdout)
-                                update(nil, stdout)
-                            end
-                        )
-                    end
-                )
-            end
-        )
-    )
-
-    return awful.widget.watch(
-        {"rustup", "check"}, 1800, update, --
-        wibox.container.margin(txt, 8, 0, 0, 0, nil, false)
-    )
-end
-
 function widget.mpd()
     local status = wibox.widget.textbox()
     local txt = wibox.widget.textbox()
