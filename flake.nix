@@ -2,20 +2,16 @@
   inputs = {
     fenix = {
       url = "github:figsoda/fenix";
-      inputs = {
-        flake-utils.follows = "flake-utils";
-        nixpkgs.follows = "nixpkgs";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-    flake-utils.url = "github:numtide/flake-utils";
-    nixpkgs.url = "nixpkgs/nixos-unstable";
     figsoda-pkgs = {
       url = "github:figsoda/nix-packages";
       inputs = {
-        flake-utils.follows = "flake-utils";
+        fenix.follows = "fenix";
         nixpkgs.follows = "nixpkgs";
       };
     };
+    nixpkgs.url = "nixpkgs/nixos-unstable";
   };
 
   outputs = { fenix, figsoda-pkgs, nixpkgs, ... }: {
