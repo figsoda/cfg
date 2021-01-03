@@ -61,11 +61,34 @@
         ]
       },
       "locked": {
-        "lastModified": 1609638789,
-        "narHash": "sha256-aBhTP1gQAPm5BEk7xYHU+jN8yXw9XYH4cTakXkdn/is=",
+        "lastModified": 1609641886,
+        "narHash": "sha256-RRrMuKCKmeM4aQ0+WKid4yk1RJEMhfVWSm5/LmUWpGA=",
         "owner": "figsoda",
         "repo": "fenix",
-        "rev": "432617879a117f182c46cf6f5cea565d49d95900",
+        "rev": "a0a87d47281692f386526efeb63a539037509bf3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "figsoda",
+        "repo": "fenix",
+        "type": "github"
+      }
+    },
+    "fenix_2": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1609641886,
+        "narHash": "sha256-RRrMuKCKmeM4aQ0+WKid4yk1RJEMhfVWSm5/LmUWpGA=",
+        "owner": "figsoda",
+        "repo": "fenix",
+        "rev": "a0a87d47281692f386526efeb63a539037509bf3",
         "type": "github"
       },
       "original": {
@@ -79,6 +102,7 @@
         "antlr4": "antlr4",
         "args": "args",
         "catch2": "catch2",
+        "fenix": "fenix_2",
         "flake-utils": [
           "flake-utils"
         ],
@@ -88,16 +112,15 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "nixpkgs-mozilla": "nixpkgs-mozilla",
         "xtrt": "xtrt",
         "yaml-cpp": "yaml-cpp"
       },
       "locked": {
-        "lastModified": 1609641791,
-        "narHash": "sha256-k27kjtcnseTltSYIdmm3JBeeyBsPOhXI1ReMvLBj4a8=",
+        "lastModified": 1609645002,
+        "narHash": "sha256-dJBO4NzN+1oaVPOjRH6XngjsCHnvCXJJKd7tWOXZFbY=",
         "owner": "figsoda",
         "repo": "nix-packages",
-        "rev": "4d42ef00f9e0c1d231281462b0d5b698e1733016",
+        "rev": "017c01a45bb788c4e204595ff37a98b7fbf21851",
         "type": "github"
       },
       "original": {
@@ -188,22 +211,6 @@
         "id": "nixpkgs",
         "ref": "nixos-unstable",
         "type": "indirect"
-      }
-    },
-    "nixpkgs-mozilla": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1603906276,
-        "narHash": "sha256-RsNPnEKd7BcogwkqhaV5kI/HuNC4flH/OQCC/4W5y/8=",
-        "owner": "mozilla",
-        "repo": "nixpkgs-mozilla",
-        "rev": "8c007b60731c07dd7a052cce508de3bb1ae849b4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mozilla",
-        "repo": "nixpkgs-mozilla",
-        "type": "github"
       }
     },
     "root": {
