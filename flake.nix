@@ -85,9 +85,11 @@
 
           nix = {
             autoOptimiseStore = true;
-            binaryCaches = [ "https://fenix.cachix.org" ];
+            binaryCaches =
+              [ "https://fenix.cachix.org" "https://figsoda.cachix.org" ];
             binaryCachePublicKeys = [
               "fenix.cachix.org-1:SVfCRUmFZ8kdAjJKShEYoyWHb/M0pxVkCjGXsFDHLk4="
+              "figsoda.cachix.org-1:mJfTEL4qLCqymqynJlaTxxi5APlaM0DfWg+h+CRGa20="
             ];
             extraOptions = "experimental-features = flakes nix-command";
             gc = {
