@@ -85,12 +85,12 @@
 
           nix = {
             autoOptimiseStore = true;
-            binaryCaches =
-              [ "https://fenix.cachix.org" "https://figsoda.cachix.org" ];
             binaryCachePublicKeys = [
               "fenix.cachix.org-1:SVfCRUmFZ8kdAjJKShEYoyWHb/M0pxVkCjGXsFDHLk4="
               "figsoda.cachix.org-1:mJfTEL4qLCqymqynJlaTxxi5APlaM0DfWg+h+CRGa20="
             ];
+            binaryCaches =
+              [ "https://fenix.cachix.org" "https://figsoda.cachix.org" ];
             extraOptions = "experimental-features = flakes nix-command";
             gc = {
               automatic = true;
@@ -103,7 +103,7 @@
 
           nixpkgs = {
             config.allowUnfree = true;
-            overlays = [ figsoda-pkgs.overlay fenix.overlay ];
+            overlays = [ fenix.overlay figsoda-pkgs.overlay ];
           };
 
           programs = {
