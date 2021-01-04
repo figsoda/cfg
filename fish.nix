@@ -35,6 +35,10 @@
       set -g fish_pager_color_prefix white --bold --underline
       set -g fish_pager_color_progress brwhite --background=cyan
 
+      abbr -ag gc git commit
+      abbr -ag gco git checkout
+      abbr -ag gp git push
+      abbr -ag gff git pull --ff-only
       abbr -ag nb nix-build
       abbr -ag nd nix develop
       abbr -ag ne nix-env
