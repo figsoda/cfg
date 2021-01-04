@@ -1,53 +1,59 @@
-{ config, pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
   programs.fish = with pkgs; {
     enable = true;
-    interactiveShellInit = ''
+    interactiveShellInit = with lib; ''
       source ${
         runCommand "starship-init-fish" { STARSHIP_CACHE = ".cache"; } ''
           ${starship}/bin/starship init fish --print-full-init > $out
         ''
       }
 
-      set -g fish_color_autosuggestion 005f5f
-      set -g fish_color_cancel normal
-      set -g fish_color_command 00afff
-      set -g fish_color_comment 626262
-      set -g fish_color_cwd 008000
-      set -g fish_color_cwd_root 800000
-      set -g fish_color_end d75fff
-      set -g fish_color_error ff0000
-      set -g fish_color_escape 00a6b2
-      set -g fish_color_history_current normal
-      set -g fish_color_host normal
-      set -g fish_color_match normal
-      set -g fish_color_normal normal
-      set -g fish_color_operator 00a6b2
-      set -g fish_color_param 87d7d7
-      set -g fish_color_quote 5fd700
-      set -g fish_color_redirection ff8700
-      set -g fish_color_search_match ffff00
-      set -g fish_color_selection c0c0c0
-      set -g fish_color_user 00ff00
-      set -g fish_color_valid_path normal
-      set -g fish_greeting
-      set -g fish_pager_color_completion normal
-      set -g fish_pager_color_description B3A06D yellow
-      set -g fish_pager_color_prefix white --bold --underline
-      set -g fish_pager_color_progress brwhite --background=cyan
+      ${concatStringsSep "\n"
+      (mapAttrsFlatten (k: v: "set -g fish_${k} ${escapeShellArg v}") {
+        color_autosuggestion = "005f5f";
+        color_cancel = "normal";
+        color_command = "00afff";
+        color_comment = "626262";
+        color_cwd = "008000";
+        color_cwd_root = "800000";
+        color_end = "d75fff";
+        color_error = "ff0000";
+        color_escape = "00a6b2";
+        color_history_current = "normal";
+        color_host = "normal";
+        color_match = "normal";
+        color_normal = "normal";
+        color_operator = "00a6b2";
+        color_param = "87d7d7";
+        color_quote = "5fd700";
+        color_redirection = "ff8700";
+        color_search_match = "ffff00";
+        color_selection = "c0c0c0";
+        color_user = "00ff00";
+        color_valid_path = "normal";
+        greeting = "";
+        pager_color_completion = "normal";
+        pager_color_description = "B3A06D yellow";
+        pager_color_prefix = "white -ou";
+        pager_color_progress = "brwhite -b cyan";
+      })}
 
-      abbr -ag gc git commit
-      abbr -ag gco git checkout
-      abbr -ag gp git push
-      abbr -ag gff git pull --ff-only
-      abbr -ag nb nix-build
-      abbr -ag nd nix develop
-      abbr -ag ne nix-env
-      abbr -ag nei nix-env -f '"<nixos>"' -iA
-      abbr -ag ner nix-env -e
-      abbr -ag nf nix flake
-      abbr -ag npu nix-prefetch-url
-      abbr -ag ns nix-shell
-      abbr -ag nsf nix-shell --run fish -p
+      ${concatStringsSep "\n"
+      (mapAttrsFlatten (k: v: "abbr -ag ${k} ${escapeShellArg v}") {
+        gc = "git commit";
+        gco = "git checkout";
+        gff = "git pull --ff-only";
+        gp = "git push";
+        nb = "nix-build";
+        nd = "nix develop";
+        ne = "nix-env";
+        nei = "nix-env -f '<nixos>' -iA";
+        ner = "nix-env -e";
+        nf = "nix flake";
+        npu = "nix-prefetch-url";
+        ns = "nix-shell";
+        nsf = "nix-shell --run fish -p";
+      })}
 
       function f -a lang
         switch $lang
