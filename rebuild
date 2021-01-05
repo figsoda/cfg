@@ -2,8 +2,8 @@
 
 set -e
 
-sudo echo "$ nixfmt" *.nix
-nixfmt *.nix
+sudo echo "$ nixfmt flake.nix" lib/*.nix
+nixfmt flake.nix lib/*.nix
 echo
 
 echo "$ sudo nixos-rebuild switch --flake . --impure $@"

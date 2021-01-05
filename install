@@ -2,7 +2,7 @@
 #!nix-shell -i sh -p curl imagemagick ripgrep sd xorg.xrandr
 
 echo Creating symlinks
-src=$(dirname "$(realpath "$0")")/src
+src=$(dirname "$(realpath "$0")")/home
 find "$src" -type f | while read -r path; do
     file=${path#$src}
     dir=$HOME${file%/*}
