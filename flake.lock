@@ -58,11 +58,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1609814793,
-        "narHash": "sha256-hDZqu/iIYcoS8f65KMbvcDQvH/+D1PXVBXYGarObwGY=",
+        "lastModified": 1609888059,
+        "narHash": "sha256-C7PIa1KMHrHRRTiiby8yuMZyJSCc80GghJaS01zChFA=",
         "owner": "figsoda",
         "repo": "fenix",
-        "rev": "6a1ffdbbdde52e27c63e9fab8268e294f3c9eb8c",
+        "rev": "2f86817bd4bec752a0e5c8cd033ab88d130989f0",
         "type": "github"
       },
       "original": {
