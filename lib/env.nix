@@ -73,7 +73,14 @@
       qogir-theme
       ripgrep
       (rofi.override { plugins = [ rofi-calc rofi-emoji ]; })
-      rust-nightly.default.toolchain
+      (rust-nightly.latest.withComponents [
+        "cargo"
+        "clippy-preview"
+        "rust-src"
+        "rust-std"
+        "rustc"
+        "rustfmt-preview"
+      ])
       sd
       spaceFM
       sxiv
@@ -91,7 +98,7 @@
         vscodeExtensions = with vscode-extensions; [
           a5huynh.vscode-ron
           bbenoist.Nix
-          matklad.rust-analyzer
+          matklad.rust-analyzer-nightly
           mskelton.one-dark-theme
           naumovs.color-highlight
           pkief.material-icon-theme
