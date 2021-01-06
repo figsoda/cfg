@@ -2,19 +2,27 @@
   inputs = {
     fenix = {
       url = "github:figsoda/fenix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        naersk.follows = "naersk";
+        nixpkgs.follows = "nixpkgs";
+      };
     };
     figsoda-pkgs = {
       url = "github:figsoda/nix-packages";
       inputs = {
         fenix.follows = "fenix";
+        naersk.follows = "naersk";
         nixpkgs.follows = "nixpkgs";
       };
+    };
+    naersk = {
+      url = "github:nmattia/naersk";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "nixpkgs/nixos-unstable";
   };
 
-  outputs = { self, fenix, figsoda-pkgs, nixpkgs }: {
+  outputs = { fenix, figsoda-pkgs, nixpkgs, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
