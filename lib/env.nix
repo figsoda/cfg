@@ -88,11 +88,11 @@
         vscode = vscodium.overrideAttrs (old: {
           buildInputs = old.buildInputs ++ [ jq moreutils ];
           installPhase = ''
-            jq -e 'setpath(["extensionsGallery"]; {
+            jq -e '.extensionsGallery = {
               "serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
               "cacheUrl": "https://vscode.blob.core.windows.net/gallery/index",
-              "itemUrl": "https://marketplace.visualstudio.com/items"
-            })' resources/app/product.json | sponge resources/app/product.json
+              "itemUrl": "https://marketplace.visualstudio.com/items",
+            }' resources/app/product.json | sponge resources/app/product.json
           '' + old.installPhase;
         });
         vscodeExtensions = with vscode-extensions; [
