@@ -58,11 +58,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1609888059,
-        "narHash": "sha256-C7PIa1KMHrHRRTiiby8yuMZyJSCc80GghJaS01zChFA=",
+        "lastModified": 1609901306,
+        "narHash": "sha256-Xu1MkASKm/Bzk3uXJpamjWNlLesfXSqXFs7RhwSVi8Y=",
         "owner": "figsoda",
         "repo": "fenix",
-        "rev": "2f86817bd4bec752a0e5c8cd033ab88d130989f0",
+        "rev": "e8ab2af0bf5fee00cefc849dc468bb11683425e4",
         "type": "github"
       },
       "original": {
@@ -90,11 +90,11 @@
         "yaml-cpp": "yaml-cpp"
       },
       "locked": {
-        "lastModified": 1609817359,
-        "narHash": "sha256-IHdPeI1IhyJHQAF1MsaHWCZvAzcGdSv3Wo3olNYPqxY=",
+        "lastModified": 1609903861,
+        "narHash": "sha256-PWlkXOjkyDAhFr9ZVhZfpITotEL1dsgThWtJ1YSRpFU=",
         "owner": "figsoda",
         "repo": "nix-packages",
-        "rev": "17fb7365c4ccf5c9a9bd591a01c2ddb7d595b9d1",
+        "rev": "918102f80ae70de16eed2322c53fdf67e951691e",
         "type": "github"
       },
       "original": {
