@@ -3,6 +3,7 @@ local b = require("beautiful")
 local gears = require("gears")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
+local c = {"Control"}
 local m = {"Mod4"}
 local ma = {"Mod4", "Mod1"}
 local mc = {"Mod4", "Control"}
@@ -170,8 +171,14 @@ local kbss = {
         {
             {},
             "Print",
-            exec_sh("maim -us ~/(date +%Y%m%d%H%M%S).png"),
+            exec_sh("maim -u ~/(date +%Y%m%d%H%M%S).png"),
             "take a screenshot",
+        },
+        {
+            c,
+            "Print",
+            exec_sh("maim -us ~/(date +%Y%m%d%H%M%S).png"),
+            "take a screenshot with a selection",
         },
         {m, "Return", exec("alacritty"), "launch alacritty"},
         {
