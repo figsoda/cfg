@@ -28,6 +28,7 @@
     "git.terminalAuthentication": false,
     "github.gitAuthentication": false,
     "markdown.preview.fontFamily": "sans",
+    "nix.enableLanguageServer": true,
     "rust-analyzer.cargo.loadOutDirsFromCheck": true,
     "rust-analyzer.checkOnSave.command": "clippy",
     "rust-analyzer.procMacro.enable": true,

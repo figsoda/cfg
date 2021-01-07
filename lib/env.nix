@@ -84,6 +84,7 @@
       sd
       spaceFM
       sxiv
+      rnix-lsp
       (vscode-with-extensions.override {
         vscode = vscodium.overrideAttrs (old: {
           buildInputs = old.buildInputs ++ [ jq moreutils ];
@@ -96,8 +97,13 @@
           '' + old.installPhase;
         });
         vscodeExtensions = with vscode-extensions; [
+          (vscode-utils.extensionFromVscodeMarketplace {
+            publisher = "jnoortheen";
+            name = "nix-ide";
+            version = "0.1.7";
+            sha256 = "1bw4wyq9abimxbhl7q9g8grvj2ax9qqq6mmqbiqlbsi2arvk0wrm";
+          })
           a5huynh.vscode-ron
-          bbenoist.Nix
           matklad.rust-analyzer-nightly
           mskelton.one-dark-theme
           naumovs.color-highlight
