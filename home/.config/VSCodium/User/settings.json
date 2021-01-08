@@ -39,6 +39,9 @@
     "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "none",
     "workbench.statusBar.visible": false,
+    "[markdown]": {
+        "files.trimTrailingWhitespace": false,
+    },
     "[nix]": {
         "editor.tabSize": 2,
     },
