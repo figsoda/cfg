@@ -73,14 +73,15 @@
       qogir-theme
       ripgrep
       (rofi.override { plugins = [ rofi-calc rofi-emoji ]; })
-      (rust-nightly.latest.withComponents [
-        "cargo"
-        "clippy-preview"
-        "rust-src"
-        "rust-std"
-        "rustc"
-        "rustfmt-preview"
-      ])
+      (with rust-nightly;
+        combine (with default; [
+          cargo
+          clippy-preview
+          rust-std
+          rustc
+          rustfmt-preview
+          latest.rust-src
+        ]))
       sd
       spaceFM
       sxiv
