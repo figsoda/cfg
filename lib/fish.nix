@@ -3,9 +3,8 @@
     enable = true;
     interactiveShellInit = with lib; ''
       source ${
-        runCommand "starship-init-fish" { STARSHIP_CACHE = ".cache"; } ''
-          ${starship}/bin/starship init fish --print-full-init > $out
-        ''
+        runCommand "starship-init-fish" { STARSHIP_CACHE = ".cache"; }
+        "${starship}/bin/starship init fish --print-full-init > $out"
       }
 
       ${concatStringsSep "\n"
