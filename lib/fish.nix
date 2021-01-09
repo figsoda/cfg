@@ -61,6 +61,8 @@
             ${fd}/bin/fd -H '\.lua$' -x ${luaformatter}/bin/lua-format -i
           case nix
             ${fd}/bin/fd -H '\.nix$' -x ${nixfmt}/bin/nixfmt
+          case rust
+            cargo fmt
           case "*"
             echo "unexpected language: $lang"
         end
