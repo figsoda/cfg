@@ -43,12 +43,13 @@
         gco = "git checkout";
         gff = "git pull --ff-only";
         gp = "git push";
-        nb = "nix-build";
+        nb = "nix build";
         nd = "nix develop";
         ne = "nix-env";
         nei = "nix-env -f '<nixos>' -iA";
         ner = "nix-env -e";
         nf = "nix flake";
+        nfu = "nix flake update";
         npu = "nix-prefetch-url";
         ns = "nix-shell";
         nsf = "nix-shell --run fish -p";
