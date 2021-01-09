@@ -2,9 +2,13 @@
 
 set -e
 
-sudo echo "$ nixfmt flake.nix" lib/*.nix
+sudo echo "$ nixfmt flake.nix lib/*.nix"
 nixfmt flake.nix lib/*.nix
-echo
 
-echo "$ sudo nixos-rebuild switch --flake . --impure $@"
-sudo nixos-rebuild switch --flake . --impure "$@"
+echo
+echo "$ sudo cp -r lib flake.{lock,nix} /etc/nixos"
+sudo cp -r lib flake.{lock,nix} /etc/nixos
+
+echo
+echo "$ sudo nixos-rebuild switch $@"
+sudo nixos-rebuild switch "$@"

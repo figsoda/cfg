@@ -3,7 +3,7 @@
 My dotfiles (nixos + awesome)
 
 
-## Installation (broken)
+## Installation
 
 ```sh
 # as root, after partitioning
@@ -13,6 +13,8 @@ mount /dev/disk/by-label/boot /mnt/boot
 swapon /dev/disk/by-label/swap
 nixos-generate-config --root /mnt
 git clone https://github.com/figsoda/dotfiles
+rm /mnt/etc/nixos/configuration.nix
+cp /mnt/etc/nixos/hardware-configuration.nix dotfiles
 nixos-install --flake "dotfiles#nixos" --no-channel-copy
 reboot
 

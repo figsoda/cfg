@@ -51,10 +51,10 @@
           };
         })
 
-        /etc/nixos/hardware-configuration.nix
         ./lib/config.nix
         ./lib/env.nix
         ./lib/fish.nix
+        ./hardware-configuration.nix
       ];
     };
   };
