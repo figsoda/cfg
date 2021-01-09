@@ -27,6 +27,12 @@
       system = "x86_64-linux";
       modules = [
         ({ pkgs, ... }: {
+          environment.systemPackages = [ pkgs.virt-manager ];
+          users.users.figsoda.extraGroups = [ "libvirtd" ];
+          virtualisation.libvirtd.enable = true;
+        })
+
+        ({ pkgs, ... }: {
           nix = {
             autoOptimiseStore = true;
             binaryCachePublicKeys = [
