@@ -22,7 +22,7 @@ nixos-install --flake .#nixos --no-channel-copy
 reboot
 
 # as root
-rm /mnt/etc/nixos/configuration.nix
+rm /etc/nixos/configuration.nix
 passwd nixos
 
 # as user
