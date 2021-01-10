@@ -104,13 +104,15 @@
     stateVersion = "21.03";
   };
 
-  systemd.services.nixos-upgrade.script = let
-    dir = "${config.users.users.figsoda.home}/dotfiles";
-    rebuild = "${config.system.build.nixos-rebuild}/bin/nixos-rebuild";
-  in lib.mkForce ''
-    ${config.nix.package}/bin/nix flake update ${dir} --{recreate,commit}-lock-file
-    ${rebuild} switch --flake ${dir} --impure
-  '';
+  systemd.services.nixos-upgrade = {
+    script = lib.mkForce ''
+      /run/wrappers/bin/sudo -u figsoda \
+        ${config.nix.package}/bin/nix flake update --{recreate,commit}-lock-file
+      ${pkgs.coreutils}/bin/cp flake.lock /etc/nixos
+      ${config.system.build.nixos-rebuild}/bin/nixos-rebuild switch
+    '';
+    serviceConfig.WorkingDirectory = "/home/figsoda/dotfiles";
+  };
 
   time.timeZone = "America/New_York";
 
