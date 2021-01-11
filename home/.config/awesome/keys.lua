@@ -1,7 +1,6 @@
 local awful = require("awful")
 local b = require("beautiful")
 local gears = require("gears")
-local hotkeys_popup = require("awful.hotkeys_popup")
 
 local c = {"Control"}
 local m = {"Mod4"}
@@ -48,7 +47,6 @@ local ckbs = {
 }
 
 local kbss = {
-    help = {{m, "h", hotkeys_popup.show_help, "show help"}},
     session = {
         {mc, "l", lockscreen, "lock screen"},
         {

@@ -7,12 +7,6 @@ return {
     layout_max = themedir .. "zenburn/layouts/max.png",
     layout_tile = themedir .. "zenburn/layouts/tile.png",
 
-    hotkeys_border_width = 0,
-    hotkeys_modifiers_fg = "#80b0ff",
-    hotkeys_font = "monospace 10",
-    hotkeys_description_font = "monospace 10",
-    hotkeys_group_margin = 24,
-
     notification_icon_size = 32,
     wibar_height = 24,
 
