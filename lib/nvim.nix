@@ -85,6 +85,8 @@
         ino <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
         ino <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
+        tno <esc> <c-\><c-n>
+
         autocmd BufRead Cargo.toml call crates#toggle()
         autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
         autocmd BufEnter,BufWinEnter,TabEnter *.rs lua
