@@ -19,8 +19,8 @@
         helper = ${
           pkgs.writeShellScript "credential-helper-github" ''
             if [ "$1" = get ]; then
-              echo "password=$(${pkgs.libressl}/bin/openssl \
-                aes-256-cbc -d -in ~/.config/secrets/github)"
+              echo "password=$(${pkgs.libressl}/bin/openssl aes-256-cbc \
+                -d -in ~/.config/secrets/github -pass file:<($SSH_ASKPASS))"
             fi
           ''
         }
