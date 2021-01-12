@@ -73,6 +73,7 @@
         nn <space>c :!cargo<space>
         nn <space>g :!git<space>
         nn <space>n :!nix<space>
+        nn <space>t :12split term://${pkgs.fish}/bin/fish<cr>i
 
         vn < <gv
         vn > >gv
