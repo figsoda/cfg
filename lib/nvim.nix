@@ -8,6 +8,7 @@
         filetype plugin indent on
         syntax enable
 
+        set clipboard+=unnamedplus
         set completeopt=menuone,noinsert,noselect
         set cursorline
         set expandtab
