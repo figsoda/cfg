@@ -29,7 +29,7 @@ passwd nixos
 git clone https://github.com/figsoda/dotfiles
 dotfiles/install
 mkdir -p ~/.config/secrets
-micro github_token
+nvim github_token
 openssl aes-256-cbc -in github_token -out ~/.config/secrets/github
 shred -u github_token
 ```

@@ -51,14 +51,15 @@
       clipmenu
       fd
       firefox
+      fzf
       gcc
       gimp
       git
+      gitAndTools.delta
       libreoffice-fresh
       libressl
       luaformatter
       maim
-      micro
       mmtc
       mpc_cli
       (mpv.override { scripts = with mpvScripts; [ autoload sponsorblock ]; })
@@ -115,7 +116,6 @@
       xtrt
     ];
     variables = {
-      EDITOR = "micro";
       LESSHISTFILE = "-";
       PATH = "$HOME/.cargo/bin";
     };
