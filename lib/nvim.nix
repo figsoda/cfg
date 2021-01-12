@@ -43,26 +43,26 @@
         let g:vim_markdown_conceal = 0
         let g:vim_markdown_conceal_code_blocks = 0
 
-        no <c-s> <esc>:w<cr>
-        no <c-w> <esc>:BufferClose<cr>
+        no <c-s> <cmd>write<cr>
+        no <c-w> <cmd>BufferClose<cr>
 
         nn <c-h> <c-w>h
         nn <c-j> <c-w>j
         nn <c-k> <c-w>k
         nn <c-l> <c-w>l
-        nn <m-h> :vertical :resize -2<cr>
-        nn <m-j> :resize -2<cr>
-        nn <m-k> :resize +2<cr>
-        nn <m-l> :vertical :resize +2<cr>
+        nn <m-h> <cmd>vertical :resize -2<cr>
+        nn <m-j> <cmd>resize -2<cr>
+        nn <m-k> <cmd>resize +2<cr>
+        nn <m-l> <cmd>vertical :resize +2<cr>
 
-        nn <tab> :BufferNext<cr>
-        nn <m-tab> :BufferPick<cr>
-        nn <s-tab> :BufferPrevious<cr>
+        nn <tab> <cmd>BufferNext<cr>
+        nn <m-tab> <cmd>BufferPick<cr>
+        nn <s-tab> <cmd>BufferPrevious<cr>
 
-        nn fc :BCommits!<cr>
-        nn ff :GFiles!<cr>
-        nn fg :GFiles!?<cr>
-        nn fr :Rg!<cr>
+        nn fc <cmd>BCommits!<cr>
+        nn ff <cmd>GFiles!<cr>
+        nn fg <cmd>GFiles!?<cr>
+        nn fr <cmd>Rg!<cr>
 
         nn g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
         nn g] <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
@@ -73,21 +73,21 @@
         nn gr <cmd>lua vim.lsp.buf.rename()<cr>
         nn gt <cmd>lua vim.lsp.buf.type_definition()<cr>
 
-        nn tt :NvimTreeToggle<cr>
-        nn tr :NvimTreeRefresh<cr>
+        nn tt <cmd>NvimTreeToggle<cr>
+        nn tr <cmd>NvimTreeRefresh<cr>
 
         nn <space>c :!cargo<space>
         nn <space>g :!git<space>
         nn <space>n :!nix<space>
-        nn <space>t :12split term://${pkgs.fish}/bin/fish<cr>i
+        nn <space>t <cmd>12split term://${pkgs.fish}/bin/fish<cr>i
 
         vn < <gv
         vn > >gv
 
         ino <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
         ino <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-        ino <c-s> <esc>:w<cr>
-        ino <c-w> <esc>:BufferClose<cr>
+        ino <c-s> <cmd>write<cr>
+        ino <c-w> <cmd>BufferClose<cr>
 
         tno <esc> <c-\><c-n>
 
