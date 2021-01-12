@@ -87,8 +87,6 @@
 
         tno <esc> <c-\><c-n>
 
-        autocmd BufRead Cargo.toml call crates#toggle()
-        autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
         autocmd BufEnter,BufWinEnter,TabEnter *.rs lua
         \ require("lsp_extensions").inlay_hints {
         \   prefix = "",
