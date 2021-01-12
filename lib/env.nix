@@ -2,6 +2,14 @@
   environment = {
     etc = {
       gitconfig.text = ''
+        [core]
+        pager = delta
+
+        [delta]
+        hunk-header-decoration-style = blue
+        line-numbers = true
+        syntax-theme = OneHalfDark
+
         [user]
         name = figsoda
         email = figsoda@pm.me
