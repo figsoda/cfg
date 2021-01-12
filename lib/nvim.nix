@@ -50,8 +50,12 @@
         nn <m-j> :resize -2<cr>
         nn <m-k> :resize +2<cr>
         nn <m-l> :vertical :resize +2<cr>
-        nn <tab> :bnext<cr>
-        nn <s-tab> :bprevious<cr>
+
+        nn <c-s> :w<cr>
+        nn <c-w> :w<cr>:BufferClose<cr>
+        nn <tab> :BufferNext<cr>
+        nn <m-tab> :BufferPick<cr>
+        nn <s-tab> :BufferPrevious<cr>
 
         nn fc :BCommits!<cr>
         nn ff :GFiles!<cr>
