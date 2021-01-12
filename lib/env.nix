@@ -3,7 +3,7 @@
     etc = {
       gitconfig.text = ''
         [core]
-        pager = delta
+        pager = ${pkgs.gitAndTools.delta}/bin/delta
 
         [delta]
         hunk-header-decoration-style = blue
