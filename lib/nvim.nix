@@ -43,6 +43,9 @@
         let g:vim_markdown_conceal = 0
         let g:vim_markdown_conceal_code_blocks = 0
 
+        no <c-s> <esc>:w<cr>
+        no <c-w> <esc>:BufferClose<cr>
+
         nn <c-h> <c-w>h
         nn <c-j> <c-w>j
         nn <c-k> <c-w>k
@@ -52,8 +55,6 @@
         nn <m-k> :resize +2<cr>
         nn <m-l> :vertical :resize +2<cr>
 
-        nn <c-s> :w<cr>
-        nn <c-w> :w<cr>:BufferClose<cr>
         nn <tab> :BufferNext<cr>
         nn <m-tab> :BufferPick<cr>
         nn <s-tab> :BufferPrevious<cr>
@@ -85,6 +86,8 @@
 
         ino <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
         ino <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+        ino <c-s> <esc>:w<cr>
+        ino <c-w> <esc>:BufferClose<cr>
 
         tno <esc> <c-\><c-n>
 
