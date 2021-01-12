@@ -12,7 +12,6 @@
         set completeopt=menuone,noinsert,noselect
         set cursorline
         set expandtab
-        set laststatus=0
         set list
         set listchars=tab:-->,trail:+,extends:>,precedes:<,nbsp:·
         set mouse=a
