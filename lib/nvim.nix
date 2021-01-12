@@ -9,9 +9,7 @@
         syntax enable
 
         set completeopt=menuone,noinsert,noselect
-        set conceallevel=0
         set cursorline
-        set expandtab
         set expandtab
         set laststatus=0
         set list
@@ -41,6 +39,7 @@
         let g:nvim_tree_auto_open = 1
         let g:nvim_tree_ignore = [".git"]
         let g:onedark_terminal_italics = 1
+        let g:vim_markdown_conceal = 0
 
         nn <c-h> <c-w>h
         nn <c-j> <c-w>j
