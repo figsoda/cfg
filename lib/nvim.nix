@@ -49,7 +49,7 @@
         nn <m-h> :vertical :resize -2<cr>
         nn <m-j> :resize -2<cr>
         nn <m-k> :resize +2<cr>
-        nn <m-l> :vertiacl :resize +2<cr>
+        nn <m-l> :vertical :resize +2<cr>
         nn <tab> :bnext<cr>
         nn <s-tab> :bprevious<cr>
 
