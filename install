@@ -3,11 +3,10 @@
 
 echo Creating symlinks
 src=$(dirname "$(realpath "$0")")/home
-find "$src" -type f | while read -r path; do
-    file=${path#$src}
+find "$src" -type f -printf "/%P\n" | while read -r file; do
     dir=$HOME${file%/*}
     mkdir -p "$dir"
-    ln -sft "$dir" "$path"
+    ln -sft "$dir" "$src$file"
 done
 
 echo Downloading wallpaper
