@@ -93,7 +93,7 @@
         ino <c-s> <cmd>write<cr>
         ino <c-w> <cmd>BufferClose<cr>
 
-        tno <esc> <c-\><c-n>
+        tno <expr> <esc> stridx(b:term_title, "#FZF") == -1 ? '<c-\><c-n>' : '<esc>'
 
         autocmd BufEnter,BufWinEnter,TabEnter *.rs lua
         \ require("lsp_extensions").inlay_hints {
