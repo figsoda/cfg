@@ -4,10 +4,6 @@
     defaultEditor = true;
     configure = {
       customRC = ''
-        colorscheme onedark
-        filetype plugin indent on
-        syntax enable
-
         set clipboard+=unnamedplus
         set completeopt=menuone,noinsert,noselect
         set cursorline
@@ -35,9 +31,15 @@
         let g:bufferline = { "animation": v:false }
         let g:Hexokinase_highlighters = ["backgroundfull"]
         let g:indentLine_char = "⎸"
-        let g:lightline = { "colorscheme": "deus" }
+        let g:lightline = { "colorscheme": "onedark" }
         let g:nvim_tree_auto_open = 1
         let g:nvim_tree_ignore = [".git"]
+        let g:onedark_color_overrides = {
+        \ "black": {"gui": "#1f2227", "cterm": "234", "cterm16": "0"},
+        \ "cursor_grey": {"gui": "#282c34", "cterm": "235", "cterm16": "8"},
+        \ "visual_grey": {"gui": "#2c323c", "cterm": "236", "cterm16": "8"},
+        \ "menu_grey": {"gui": "#2c323c", "cterm": "236", "cterm16": "8"},
+        \ }
         let g:onedark_terminal_italics = 1
         let g:vim_markdown_conceal = 0
         let g:vim_markdown_conceal_code_blocks = 0
@@ -101,6 +103,15 @@
         \   highlight = "Comment",
         \   enabled = {"ChainingHint", "TypeHint"},
         \ }
+
+        autocmd ColorScheme * call onedark#extend_highlight(
+        \ "TabLineFill",
+        \ { "bg": { "gui": "#1f2227" } },
+        \ )
+
+        colorscheme onedark
+        filetype plugin indent on
+        syntax enable
 
         lua <<EOF
           local completion = require("completion")
