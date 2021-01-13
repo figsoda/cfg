@@ -33,7 +33,9 @@
         let g:indentLine_char = "⎸"
         let g:lightline = { "colorscheme": "onedark" }
         let g:nvim_tree_auto_open = 1
+        let g:nvim_tree_icons = { "default": "" }
         let g:nvim_tree_ignore = [".git"]
+        let g:nvim_tree_width = 24
         let g:onedark_color_overrides = {
         \ "black": {"gui": "#1f2227", "cterm": "234", "cterm16": "0"},
         \ "cursor_grey": {"gui": "#282c34", "cterm": "235", "cterm16": "8"},
