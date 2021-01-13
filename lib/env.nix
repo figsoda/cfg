@@ -11,7 +11,7 @@
         syntax-theme = OneHalfDark
 
         [interactive]
-        diffFilter = delta
+        diffFilter = delta --color-only
 
         [user]
         name = figsoda
