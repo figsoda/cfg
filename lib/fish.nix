@@ -12,9 +12,9 @@
         color_command = "61afef -o";
         color_quote = "98c379";
         color_redirection = "c678dd";
-        color_end = "normal";
+        color_end = "9ab5e4";
         color_error = "f83c40";
-        color_param = "96b5ce";
+        color_param = "9ab5e4";
         color_comment = "5c6370 -i";
         color_match = "56b6c2";
         color_selection = "2c323c";
