@@ -58,9 +58,9 @@
         nn <m-tab> <cmd>BufferPick<cr>
         nn <s-tab> <cmd>BufferPrevious<cr>
 
-        nn fc <cmd>BCommits!<cr>
         nn ff <cmd>GFiles!<cr>
         nn fg <cmd>GFiles!?<cr>
+        nn fl <cmd>Commits!<cr>
         nn fr <cmd>Rg!<cr>
 
         nn g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
@@ -76,7 +76,12 @@
         nn tr <cmd>NvimTreeRefresh<cr>
 
         nn <space>c :!cargo<space>
-        nn <space>g :!git<space>
+        nn <space>g :Git<space>
+        nn <space>ga <cmd>Git add -p<cr>
+        nn <space>gb <cmd>Git blame<cr>
+        nn <space>gc <cmd>Git commit<cr>
+        nn <space>gi <cmd>Git<cr>
+        nn <space>gp <cmd>Git push<cr>
         nn <space>n :!nix<space>
         nn <space>t <cmd>12split term://${pkgs.fish}/bin/fish<cr>i
 
@@ -134,6 +139,7 @@
         plenary-nvim
         popup-nvim
         vim-commentary
+        vim-fugitive
         vim-hexokinase
         vim-lastplace
         vim-markdown

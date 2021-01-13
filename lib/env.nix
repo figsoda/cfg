@@ -10,6 +10,9 @@
         line-numbers = true
         syntax-theme = OneHalfDark
 
+        [interactive]
+        diffFilter = delta
+
         [user]
         name = figsoda
         email = figsoda@pm.me
