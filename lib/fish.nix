@@ -7,34 +7,27 @@
         "${starship}/bin/starship init fish --print-full-init > $out"
       }
 
-      ${concatStringsSep "\n"
-      (mapAttrsFlatten (k: v: "set -g fish_${k} ${escapeShellArg v}") {
-        color_autosuggestion = "005f5f";
-        color_cancel = "normal";
-        color_command = "00afff";
-        color_comment = "626262";
-        color_cwd = "008000";
-        color_cwd_root = "800000";
-        color_end = "d75fff";
-        color_error = "ff0000";
-        color_escape = "00a6b2";
-        color_history_current = "normal";
-        color_host = "normal";
-        color_match = "normal";
-        color_normal = "normal";
-        color_operator = "00a6b2";
-        color_param = "87d7d7";
-        color_quote = "5fd700";
-        color_redirection = "ff8700";
-        color_search_match = "ffff00";
-        color_selection = "c0c0c0";
-        color_user = "00ff00";
-        color_valid_path = "normal";
+      ${concatStringsSep "\n" (mapAttrsFlatten (k: v: "set -g fish_${k} ${v}") {
+        color_normal = "abb2bf";
+        color_command = "61afef -o";
+        color_quote = "98c379";
+        color_redirection = "c678dd";
+        color_end = "normal";
+        color_error = "f83c40";
+        color_param = "96b5ce";
+        color_comment = "5c6370 -i";
+        color_match = "56b6c2";
+        color_selection = "2c323c";
+        color_search_match = "e5c07b";
+        color_operator = "56b6c2";
+        color_escape = "56b6c2";
+        color_cwd = "98c379";
+        color_autosuggestion = "606886";
+        color_user = "e5c07b";
+        color_host = "61afef";
+        color_host_remote = "61afef";
+        color_cancel = "e06c75";
         greeting = "";
-        pager_color_completion = "normal";
-        pager_color_description = "B3A06D yellow";
-        pager_color_prefix = "white -ou";
-        pager_color_progress = "brwhite -b cyan";
       })}
 
       ${concatStringsSep "\n"
