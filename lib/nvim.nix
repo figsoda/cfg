@@ -47,8 +47,19 @@
         let g:vim_markdown_conceal = 0
         let g:vim_markdown_conceal_code_blocks = 0
 
+        function Close()
+          let tab = tabpagenr()
+          let win = tabpagewinnr(tab, "$")
+          if win == 1 ||
+          \ win == 2 && expand("#" . tabpagebuflist()[1] . ":t") == "NvimTree"
+            :BufferClose
+          else
+            :quit
+          end
+        endf
+
         no <c-s> <cmd>write<cr>
-        no <c-w> <cmd>BufferClose<cr>
+        no <c-w> <cmd>call Close()<cr>
 
         nn <c-h> <c-w>h
         nn <c-j> <c-w>j
@@ -96,7 +107,7 @@
         ino <expr> <tab> pumvisible() ? "<c-n>" : "<tab>"
         ino <expr> <s-tab> pumvisible() ? "<c-p>" : "<s-tab>"
         ino <c-s> <cmd>write<cr>
-        ino <c-w> <cmd>BufferClose<cr>
+        ino <c-w> <cmd>call Close()<cr>
 
         tno <expr> <esc> stridx(b:term_title, "#FZF") == -1 ? "<c-\><c-n>" : "<esc>"
 
