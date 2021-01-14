@@ -121,11 +121,11 @@ function widget.mpd()
                     status.text = "⏹️"
                 end
                 txt.markup = string.format(
-                    [[<span fgcolor="#c8b8ff">%s</span>]], --
+                    [[<span fgcolor="#c678dd">%s</span>]], --
                     gears.string.xml_escape(name)
                 )
                 time.markup = string.format(
-                    [[<span fgcolor="#ffa8a8">%s</span>]], t
+                    [[<span fgcolor="#d19a66">%s</span>]], t
                 )
                 template.visible = true
                 return

@@ -66,8 +66,8 @@ awful.screen.connect_for_each_screen(
         s.mpd = widget.mpd()
 
         local textclock = wibox.widget.textclock(
-            " <span fgcolor=\"#40d8ff\">%F</span> \z
-            <span fgcolor=\"#ffd840\">%T</span> ", 1
+            " <span fgcolor=\"#98c379\">%F</span> \z
+            <span fgcolor=\"#61afef\">%T</span> ", 1
         )
         textclock.font = b.textclock_font
         awful.widget.calendar_popup.month {font = "monospace 12"}:attach(

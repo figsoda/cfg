@@ -17,7 +17,7 @@ return {
 
     bg_normal = "#101014",
     bg_focus = "#202428",
-    bg_urgent = "#205080",
+    bg_urgent = "#e5c076",
     bg_minimize = "#101014",
     taglist_fg_normal = "#b8b8b8",
     taglist_fg_empty = "#585858",
@@ -32,7 +32,7 @@ return {
 
     border_width = 2,
     border_normal = "#586068",
-    border_focus = "#0074b8",
+    border_focus = "#56b6c2",
 
     calendar_start_sunday = true,
     calendar_long_weekdays = true,
@@ -40,16 +40,16 @@ return {
     calendar_month_padding = 8,
     calendar_month_border_width = 0,
     calendar_header_bg_color = "#101014",
-    calendar_header_fg_color = "#80c0ff",
+    calendar_header_fg_color = "#e5c07b",
     calendar_header_padding = 4,
     calendar_header_border_width = 0,
     calendar_weekday_bg_color = "#101014",
-    calendar_weekday_fg_color = "#60f0a0",
+    calendar_weekday_fg_color = "#e06c75",
     calendar_weekday_border_width = 0,
     calendar_normal_bg_color = "#101014",
-    calendar_normal_fg_color = "#b0d8e8",
+    calendar_normal_fg_color = "#abb2bf",
     calendar_normal_border_width = 0,
-    calendar_focus_fg_color = "#ffe840",
+    calendar_focus_fg_color = "#56b6c2",
     calendar_focus_bg_color = "#101014",
     calendar_focus_border_width = 0,
 
