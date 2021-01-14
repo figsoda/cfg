@@ -13,6 +13,7 @@
         set mouse=a
         set nofoldenable
         set noshowmode
+        set noswapfile
         set number
         set relativenumber
         set scrolloff=2
