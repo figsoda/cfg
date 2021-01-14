@@ -93,12 +93,12 @@
         vn < <gv
         vn > >gv
 
-        ino <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
-        ino <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+        ino <expr> <tab> pumvisible() ? "<c-n>" : "<tab>"
+        ino <expr> <s-tab> pumvisible() ? "<c-p>" : "<s-tab>"
         ino <c-s> <cmd>write<cr>
         ino <c-w> <cmd>BufferClose<cr>
 
-        tno <expr> <esc> stridx(b:term_title, "#FZF") == -1 ? '<c-\><c-n>' : '<esc>'
+        tno <expr> <esc> stridx(b:term_title, "#FZF") == -1 ? "<c-\><c-n>" : "<esc>"
 
         autocmd BufEnter,BufWinEnter,TabEnter *.rs lua
         \ require("lsp_extensions").inlay_hints {
