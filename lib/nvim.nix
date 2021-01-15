@@ -90,7 +90,7 @@
         nn tr <cmd>NvimTreeRefresh<cr>
 
         nn <space>c :!cargo<space>
-        nn <space>g :Git<space>
+        nn <space>g<space> :Git<space>
         nn <space>ga <cmd>Git add -p<cr>
         nn <space>gb <cmd>Git blame<cr>
         nn <space>gc <cmd>Git commit<cr>
