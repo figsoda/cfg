@@ -72,11 +72,6 @@
         nn <m-tab> <cmd>BufferPick<cr>
         nn <s-tab> <cmd>BufferPrevious<cr>
 
-        nn ff <cmd>GFiles!<cr>
-        nn fg <cmd>GFiles!?<cr>
-        nn fl <cmd>Commits!<cr>
-        nn fr <cmd>Rg!<cr>
-
         nn g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
         nn g] <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
         nn ga <cmd>lua vim.lsp.buf.code_action()<cr>
@@ -94,8 +89,12 @@
         nn <space>ga <cmd>Git add -p<cr>
         nn <space>gb <cmd>Git blame<cr>
         nn <space>gc <cmd>Git commit<cr>
+        nn <space>gf <cmd>GFiles!<cr>
         nn <space>gi <cmd>Git<cr>
+        nn <space>gl <cmd>Commits!<cr>
         nn <space>gp <cmd>Git push<cr>
+        nn <space>gr <cmd>Rg!<cr>
+        nn <space>gs <cmd>GFiles!?<cr>
         nn <space>n :!nix<space>
         nn <space>t <cmd>12split term://${pkgs.fish}/bin/fish<cr>i
 
