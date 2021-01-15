@@ -149,6 +149,7 @@
         EOF
       '';
       packages.all.start = with pkgs.vimPlugins; [
+        auto-pairs
         barbar-nvim
         completion-nvim
         fzf-vim
