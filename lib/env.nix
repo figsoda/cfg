@@ -10,6 +10,9 @@
         line-numbers = true
         syntax-theme = OneHalfDark
 
+        [init]
+        defaultBranch = main
+
         [interactive]
         diffFilter = delta --color-only
 
