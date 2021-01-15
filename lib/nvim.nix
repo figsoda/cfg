@@ -105,7 +105,7 @@
         ino <expr> <tab> pumvisible() ? "<c-n>" : "<tab>"
         ino <expr> <s-tab> pumvisible() ? "<c-p>" : "<s-tab>"
         ino <c-s> <cmd>write<cr>
-        ino <c-w> <cmd>call Close()<cr>
+        ino <c-w> <cmd>call Close()<cr><esc>
 
         tno <expr> <esc> stridx(b:term_title, "#FZF") == -1 ? "<c-\><c-n>" : "<esc>"
 
