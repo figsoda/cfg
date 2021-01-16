@@ -1,9 +1,10 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
     configure = {
-      customRC = ''
+      customRC = let nix = "${config.nix.package}/bin/nix";
+      in ''
         set clipboard+=unnamedplus
         set completeopt=menuone,noinsert,noselect
         set cursorline
@@ -84,7 +85,14 @@
         nn tt <cmd>NvimTreeToggle<cr>
         nn tr <cmd>NvimTreeRefresh<cr>
 
-        nn <space>c :!cargo<space>
+        nn <space>c<space> :!cargo<space>
+        nn <space>cU <cmd>!cargo upgrade<cr>
+        nn <space>cb <cmd>!cargo build<cr>
+        nn <space>cd <cmd>!cargo doc --open<cr>
+        nn <space>cf <cmd>!cargo fmt<cr>
+        nn <space>cr <cmd>!cargo run<cr>
+        nn <space>ct <cmd>!cargo test<cr>
+        nn <space>cu <cmd>!cargo update<cr>
         nn <space>g<space> :Git<space>
         nn <space>ga <cmd>Git add -p<cr>
         nn <space>gb <cmd>Git blame<cr>
@@ -95,7 +103,13 @@
         nn <space>gp <cmd>Git push<cr>
         nn <space>gr <cmd>Rg!<cr>
         nn <space>gs <cmd>GFiles!?<cr>
-        nn <space>n :!nix<space>
+        nn <space>n<space> :!nix<space>
+        nn <space>nb <cmd>!${nix} build<cr>
+        nn <space>nf <cmd>!${pkgs.fd}/bin/fd -H '.nix$' -x ${pkgs.nixfmt}/bin/nixfmt<cr>
+        nn <space>ni <cmd>12split term://${nix} repl<cr>ipkgs = import <nixpkgs> {}<cr>
+        nn <space>nr <cmd>!${nix} run<cr>
+        nn <space>nt <cmd>!${nix} flake check<cr>
+        nn <space>nu <cmd>!${nix} flake update<cr>
         nn <space>t <cmd>12split term://${pkgs.fish}/bin/fish<cr>i
 
         vn < <gv
