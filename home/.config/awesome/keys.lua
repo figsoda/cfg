@@ -33,28 +33,22 @@ local lockscreen = exec {
 }
 
 local ckbs = {
-    {m, "k", function() awful.client.focus.byidx(-1) end, "previous client"},
-    {m, "l", function() awful.client.focus.byidx(1) end, "next client"},
-    {
-        ms,
-        "f",
-        function(c) c.fullscreen = not c.fullscreen end,
-        "toggle fullscreen",
-    },
-    {ms, "n", function(c) c.minimized = true end, "minimize the client"},
-    {ms, "q", function(c) c:kill() end, "kill the client"},
-    {ms, "t", function(c) c.ontop = not c.ontop end, "toggle stay on top"},
+    {m, "k", function() awful.client.focus.byidx(-1) end},
+    {m, "l", function() awful.client.focus.byidx(1) end},
+    {ms, "f", function(c) c.fullscreen = not c.fullscreen end},
+    {ms, "n", function(c) c.minimized = true end},
+    {ms, "q", function(c) c:kill() end},
+    {ms, "t", function(c) c.ontop = not c.ontop end},
 }
 
-local kbss = {
-    session = {
-        {mc, "l", lockscreen, "lock screen"},
-        {
-            mc,
-            "Return",
-            function()
-                awful.spawn.easy_async_with_shell(
-                    "echo '\z
+local kbs = {
+    {mc, "l", lockscreen},
+    {
+        mc,
+        "Return",
+        function()
+            awful.spawn.easy_async_with_shell(
+                "echo '\z
                     1 ⏻  shutdown,\z
                     2   reboot,\z
                     3 ⏼  suspend,\z
@@ -64,238 +58,111 @@ local kbss = {
                     7   reload awesome\z
                     ' | rofi -dmenu -sep , \z
                         -p session -format i -no-custom -select 7", --
-                    function(stdout)
-                        ({
-                            exec("poweroff"),
-                            exec("reboot"),
-                            exec {"systemctl", "suspend"},
-                            exec {"systemctl", "hibernate"},
-                            lockscreen,
-                            awesome.quit,
-                            awesome.restart,
-                        })[stdout:byte() - 47]()
-                    end
-                )
-            end,
-            "session menu",
-        },
-    },
-    layout = {
-        {ms, "Left", function() awful.layout.inc(-1) end, "previous layout"},
-        {ms, "Right", function() awful.layout.inc(1) end, "next layout"},
-        {m, " ", function() awful.layout.inc(1) end, "next layout"},
-        {
-            m,
-            "i",
-            function() awful.tag.incmwfact(-0.05) end,
-            "reduce master width",
-        },
-        {
-            m,
-            "o",
-            function() awful.tag.incmwfact(0.05) end,
-            "increase master width",
-        },
-        {
-            m,
-            "p",
-            maptag(
-                function(t)
-                    t.master_width_factor = b.master_width_factor or 0.5
+                function(stdout)
+                    ({
+                        exec("poweroff"),
+                        exec("reboot"),
+                        exec {"systemctl", "suspend"},
+                        exec {"systemctl", "hibernate"},
+                        lockscreen,
+                        awesome.quit,
+                        awesome.restart,
+                    })[stdout:byte() - 47]()
                 end
-            ),
-            "reset master width",
-        },
-        {ms, "i", function() awful.tag.incncol(-1) end, "remove a column"},
-        {ms, "o", function() awful.tag.incncol(1) end, "add a column"},
-        {
-            ms,
-            "p",
-            maptag(function(t) t.column_count = b.column_count or 1 end),
-            "reset column count",
+            )
+        end,
+    },
+
+    {ms, "Left", function() awful.layout.inc(-1) end},
+    {ms, "Right", function() awful.layout.inc(1) end},
+    {m, " ", function() awful.layout.inc(1) end},
+    {m, "i", function() awful.tag.incmwfact(-0.05) end},
+    {m, "o", function() awful.tag.incmwfact(0.05) end},
+    {m, "p", maptag(function(t) t.master_width_factor = 0.5 end)},
+    {ms, "i", function() awful.tag.incncol(-1) end},
+    {ms, "o", function() awful.tag.incncol(1) end},
+    {ms, "p", maptag(function(t) t.column_count = b.column_count or 1 end)},
+    {ms, "k", function() awful.client.swap.byidx(-1) end},
+    {ms, "l", function() awful.client.swap.byidx(1) end},
+
+    {m, "Left", awful.tag.viewprev},
+    {m, "Right", awful.tag.viewnext},
+    {m, "BackSpace", awful.tag.history.restore},
+    {m, "Tab", awful.tag.viewnext},
+    {ms, "Tab", awful.tag.viewprev},
+
+    {{}, "XF86AudioLowerVolume", exec {"pamixer", "-d", "5"}},
+    {{}, "XF86AudioRaiseVolume", exec {"pamixer", "-i", "5"}},
+    {{}, "XF86AudioMute", exec {"pamixer", "-t"}},
+    {{}, "XF86MonBrightnessDown", exec {"xbacklight", "-4", "-time", "0"}},
+    {{}, "XF86MonBrightnessUp", exec {"xbacklight", "+4", "-time", "0"}},
+
+    {{}, "Print", exec_sh("maim -u ~/(date +%Y%m%d%H%M%S).png")},
+    {c, "Print", exec_sh("maim -us ~/(date +%Y%m%d%H%M%S).png")},
+    {m, "Return", exec("alacritty")},
+    {
+        m,
+        "/",
+        exec_sh(
+            "fd . ~ \z
+                | sd '^'$HOME/ '' \z
+                | rofi -dmenu \z
+                    -p 'fuzzy finder' -fullscreen \z
+                    -i -matching fuzzy -sorting-method fzf \z
+                | xargs -i xdg-open ~/{}"
+        ),
+
+    },
+    {m, "b", exec("firefox")},
+    {m, "c", exec_sh("CM_LAUNCHER=rofi clipmenu -p clipmenu")},
+    {ms, "c", exec {"clipdel", "-d", "."}},
+    {m, "e", exec("codium")},
+    {m, "f", exec("spacefm")},
+    {m, "m", exec {"alacritty", "-e", "mmtc"}},
+    {ms, "m", function() awful.screen.focused().mpd.reload() end},
+    {m, "r", exec {"rofi", "-show", "run", "-modi", "run"}},
+    {
+        m,
+        "u",
+        exec {
+            "rofi",
+            "-show",
+            "calc",
+            "-modi",
+            "calc,emoji",
+            "-location",
+            "4",
+            "-theme-str",
+            "* { width: 40%; height: 100%; }",
         },
     },
-    client = {
-        {
-            ms,
-            "k",
-            function() awful.client.swap.byidx(-1) end,
-            "swap with previous client",
-        },
-        {
-            ms,
-            "l",
-            function() awful.client.swap.byidx(1) end,
-            "swap with next client",
-        },
-    },
-    tag = {
-        {m, "Left", awful.tag.viewprev, "view previous tag"},
-        {m, "Right", awful.tag.viewnext, "view next tag"},
-        {m, "BackSpace", awful.tag.history.restore, "go back"},
-        {m, "Tab", awful.tag.viewnext, "view next tag"},
-        {ms, "Tab", awful.tag.viewprev, "view previous tag"},
-    },
-    volume = {
-        {
-            {},
-            "XF86AudioLowerVolume",
-            exec {"pamixer", "-d", "5"},
-            "lower volume",
-        },
-        {
-            {},
-            "XF86AudioRaiseVolume",
-            exec {"pamixer", "-i", "5"},
-            "raise volume",
-        },
-        {{}, "XF86AudioMute", exec {"pamixer", "-t"}, "toggle mute"},
-    },
-    brightness = {
-        {
-            {},
-            "XF86MonBrightnessDown",
-            exec {"xbacklight", "-4", "-time", "0"},
-            "reduce brightness",
-        },
-        {
-            {},
-            "XF86MonBrightnessUp",
-            exec {"xbacklight", "+4", "-time", "0"},
-            "increase brightness",
-        },
-    },
-    application = {
-        {
-            {},
-            "Print",
-            exec_sh("maim -u ~/(date +%Y%m%d%H%M%S).png"),
-            "take a screenshot",
-        },
-        {
-            c,
-            "Print",
-            exec_sh("maim -us ~/(date +%Y%m%d%H%M%S).png"),
-            "take a screenshot with a selection",
-        },
-        {m, "Return", exec("alacritty"), "launch alacritty"},
-        {
-            m,
-            "/",
-            exec_sh(
-                "fd . ~ \z
-                    | sd '^'$HOME/ '' \z
-                    | rofi -dmenu \z
-                        -p 'fuzzy finder' -fullscreen \z
-                        -i -matching fuzzy -sorting-method fzf \z
-                    | xargs -i xdg-open ~/{}"
-            ),
-            "launch rofi as a fuzzy finder",
-        },
-        {m, "b", exec("firefox"), "launch firefox"},
-        {
-            m,
-            "c",
-            exec_sh("CM_LAUNCHER=rofi clipmenu -p clipmenu"),
-            "launch clipmenu",
-        },
-        {ms, "c", exec {"clipdel", "-d", "."}, "clear clipmenu"},
-        {m, "e", exec("codium"), "launch vscodium"},
-        {m, "f", exec("spacefm"), "launch spacefm"},
-        {m, "m", exec {"alacritty", "-e", "mmtc"}, "launch mmtc"},
-        {
-            ms,
-            "m",
-            function() awful.screen.focused().mpd.reload() end,
-            "reload mpd",
-        },
-        {m, "r", exec {"rofi", "-show", "run", "-modi", "run"}, "launch rofi"},
-        {
-            m,
-            "u",
-            exec {
-                "rofi",
-                "-show",
-                "calc",
-                "-modi",
-                "calc,emoji",
-                "-location",
-                "4",
-                "-theme-str",
-                "* { width: 40%; height: 100%; }",
-            },
-            "launch rofi utilities",
-        },
-        {
-            m,
-            "w",
-            exec {"rofi", "-show", "window", "-modi", "window"},
-            "launch rofi with window modi",
-        },
-        {
-            m,
-            ",",
-            function() awful.screen.focused().mpd.toggle() end,
-            "play or pause music",
-        },
-        {
-            m,
-            ".",
-            function() awful.screen.focused().mpd.next() end,
-            "next song in the playlist",
-        },
-        {
-            m,
-            ";",
-            function() awful.screen.focused().mpd.stop() end,
-            "stop playing music",
-        },
-    },
+    {m, "w", exec {"rofi", "-show", "window", "-modi", "window"}},
+    {m, ",", function() awful.screen.focused().mpd.toggle() end},
+    {m, ".", function() awful.screen.focused().mpd.next() end},
+    {m, ";", function() awful.screen.focused().mpd.stop() end},
 }
 
 for i = 1, 9 do
+    table.insert(kbs, {m, i, maptag(function(t) t:view_only() end, i)})
+    table.insert(kbs, {ma, i, maptag(awful.tag.viewtoggle, i)})
     table.insert(
-        kbss.tag,
-            {m, i, maptag(function(t) t:view_only() end, i), "view tag " .. i}
+        ckbs, --
+        {ms, i, function(c) maptag(function(t) c:move_to_tag(t) end, i)() end}
     )
     table.insert(
-        kbss.tag, {ma, i, maptag(awful.tag.viewtoggle, i), "toggle tag " .. i}
-    )
-    table.insert(
-        ckbs, {
-            ms,
-            i,
-            function(c) maptag(function(t) c:move_to_tag(t) end, i)() end,
-            "move client to tag " .. i,
-        }
-    )
-    table.insert(
-        ckbs, {
-            mc,
-            i,
-            function(c) maptag(function(t) c:toggle_tag(t) end, i)() end,
-            "toggle tag " .. i .. " for client",
-        }
+        ckbs, --
+        {mc, i, function(c) maptag(function(t) c:toggle_tag(t) end, i)() end}
     )
 end
 
 local keys = {client = {}, global = {}}
 
 for _, kb in pairs(ckbs) do
-    keys.client = gears.table.join(
-        keys.client, --
-        awful.key(kb[1], kb[2], kb[3], {description = kb[4], group = "client"})
-    )
+    keys.client = gears.table.join(keys.client, awful.key(kb[1], kb[2], kb[3]))
 end
 
-for group, kbs in pairs(kbss) do
-    for _, kb in pairs(kbs) do
-        keys.global = gears.table.join(
-            keys.global, awful.key(
-                kb[1], kb[2], kb[3], {description = kb[4], group = group}
-            )
-        )
-    end
+for _, kb in pairs(kbs) do
+    keys.global = gears.table.join(keys.global, awful.key(kb[1], kb[2], kb[3]))
 end
 
 return keys
