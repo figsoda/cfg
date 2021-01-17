@@ -87,11 +87,11 @@
 
         nn <space>c<space> :!cargo<space>
         nn <space>cU <cmd>!cargo upgrade<cr>
-        nn <space>cb <cmd>!cargo build<cr>
-        nn <space>cd <cmd>!cargo doc --open<cr>
+        nn <space>cb <cmd>12split term://cargo build<cr>i
+        nn <space>cd <cmd>12split term://cargo doc --open<cr>i
         nn <space>cf <cmd>!cargo fmt<cr>
-        nn <space>cr <cmd>!cargo run<cr>
-        nn <space>ct <cmd>!cargo test<cr>
+        nn <space>cr <cmd>12split term://cargo run<cr>i
+        nn <space>ct <cmd>12split term://cargo test<cr>i
         nn <space>cu <cmd>!cargo update<cr>
         nn <space>g<space> :Git<space>
         nn <space>ga <cmd>Git add -p<cr>
@@ -104,11 +104,11 @@
         nn <space>gr <cmd>Rg!<cr>
         nn <space>gs <cmd>GFiles!?<cr>
         nn <space>n<space> :!nix<space>
-        nn <space>nb <cmd>!${nix} build<cr>
+        nn <space>nb <cmd>12split term://${nix} build<cr>i
         nn <space>nf <cmd>!${pkgs.fd}/bin/fd -H '.nix$' -x ${pkgs.nixfmt}/bin/nixfmt<cr>
         nn <space>ni <cmd>12split term://${nix} repl<cr>ipkgs = import <nixpkgs> {}<cr>
-        nn <space>nr <cmd>!${nix} run<cr>
-        nn <space>nt <cmd>!${nix} flake check<cr>
+        nn <space>nr <cmd>12split term://${nix} run<cr>i
+        nn <space>nt <cmd>12split term://${nix} flake check<cr>i
         nn <space>nu <cmd>!${nix} flake update<cr>
         nn <space>t <cmd>12split term://${pkgs.fish}/bin/fish<cr>i
 
