@@ -132,6 +132,10 @@
     variables = {
       LESSHISTFILE = "-";
       PATH = "$HOME/.cargo/bin";
+      RIPGREP_CONFIG_PATH = toString (pkgs.writeText "rg-config" ''
+        -S
+        --hidden
+      '');
     };
   };
 }
