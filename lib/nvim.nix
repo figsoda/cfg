@@ -45,6 +45,7 @@
         \ menu_grey: #{gui: "#2c323c", cterm: "236", cterm16: "8"},
         \ }
         let g:onedark_terminal_italics = 1
+        let g:vim_json_syntax_conceal = 0
         let g:vim_markdown_conceal = 0
         let g:vim_markdown_conceal_code_blocks = 0
 
@@ -178,6 +179,7 @@
         vim-commentary
         vim-fugitive
         vim-hexokinase
+        vim-json
         vim-lastplace
         vim-markdown
         vim-nix
