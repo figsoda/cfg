@@ -86,14 +86,14 @@
                   ${i3lock-color}/bin/i3lock-color \
                     -i ~/.config/wallpaper.png -k \
                     --{inside{ver,wrong,},ring,line,separator}color=00000000 \
-                    --ringvercolor=98c040 --ringwrongcolor=d02828 \
-                    --keyhlcolor=2060a0 --bshlcolor=d06020 \
-                    --verifcolor=b8f080 --wrongcolor=ff8080 \
+                    --ringvercolor=98c379 --ringwrongcolor=f83c40 \
+                    --keyhlcolor=61afef --bshlcolor=d19a66 \
+                    --verifcolor=98c379 --wrongcolor=f83c40 \
                     --indpos=x+w/7:y+h-w/8 \
                     --{time,date}-font=monospace \
                     --{layout,verif,wrong,greeter}size=32 \
-                    --timecolor=60b8ff --timesize=36 \
-                    --datepos=ix:iy+36 --datecolor=e0a878 --datestr=%F --datesize=28 \
+                    --timecolor=61afef --timesize=36 \
+                    --datepos=ix:iy+36 --datecolor=98c379 --datestr=%F --datesize=28 \
                     --veriftext=Verifying... \
                     --wrongtext="Try again!" \
                     --noinputtext="No input" \
