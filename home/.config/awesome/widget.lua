@@ -114,11 +114,11 @@ function widget.mpd()
             )
             if name and st and t then
                 if st == "playing" then
-                    status.text = "▶️"
+                    status.markup = [[<span fgcolor="#d19a66"></span>]]
                 elseif st == "paused" then
-                    status.text = "⏸️"
+                    status.markup = [[<span fgcolor="#d19a66"></span>]]
                 else
-                    status.text = "⏹️"
+                    status.markup = [[<span fgcolor="#d19a66"></span>]]
                 end
                 txt.markup = string.format(
                     [[<span fgcolor="#c678dd">%s</span>]], --
