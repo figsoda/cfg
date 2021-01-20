@@ -10,7 +10,7 @@
           [ -z "$1" ] && ${coreutils}/bin/cat "$todos" && exit 0
 
           if item=$(${ripgrep}/bin/rg '^\+\s*([^\s](.*[^\s])?)\s*$' -r '$1' <<< "$1"); then
-            ${coreutils}/bin/sort -u "$todos" <(echo "$item") -o "$todos"
+            ${coreutils}/bin/sort "$todos" - -uo "$todos" <<< "$item"
           else
             while read -r line; do
               [ "$line" = "$1" ] || echo "$line"
