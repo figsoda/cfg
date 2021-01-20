@@ -44,8 +44,7 @@
         nf = "nix flake";
         nfu = "nix flake update";
         npu = "nix-prefetch-url";
-        ns = "nix-shell";
-        nsf = "nix-shell --run fish -p";
+        ns = "nix shell";
       })}
 
       function f -a lang
@@ -65,6 +64,11 @@
         string length -q -- $template $name
         ~/rust-templates/gen.sh ~/rust-templates/$template \
           $name $name '["figsoda <figsoda@pm.me>"]' figsoda/$name
+      end
+
+      function with
+        IN_NIX_SHELL=pure name="packages: "(string join ", " $argv) \
+          ${config.nix.package}/bin/nix shell --inputs-from /etc/nixos nixpkgs#$argv
       end
     '';
     loginShellInit = ''
