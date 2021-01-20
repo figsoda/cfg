@@ -135,6 +135,8 @@
         \ #{ bg: #{ gui: "#1f2227" } },
         \ )
 
+        autocmd FileType yaml setlocal shiftwidth=2
+
         colorscheme onedark
         filetype plugin indent on
         syntax enable
