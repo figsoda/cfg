@@ -10,8 +10,8 @@ echo "$ nix flake update"
 nix flake update
 
 echo
-echo "$ sudo cp -r lib flake.{lock,nix} /etc/nixos"
-sudo cp -r lib flake.{lock,nix} /etc/nixos
+echo "$ sudo cp -r lib flake.lock flake.nix /etc/nixos"
+sudo cp -r lib flake.lock flake.nix /etc/nixos
 
 echo
 echo "$ sudo nixos-rebuild switch $@"
