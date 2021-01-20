@@ -7,20 +7,13 @@
           mkdir -p ~/.local/share
           touch "$todos"
 
-          if [ -z "$1" ]; then
-            ${coreutils}/bin/cat "$todos"
-            exit 0
-          fi
+          [ -z "$1" ] && ${coreutils}/bin/cat "$todos" && exit 0
 
-          item=$(${ripgrep}/bin/rg '^\+\s*([^\s](.*[^\s])?)\s*' -r '$1' <<< "$1")
-          if [ $? -eq 0 ]; then
-            echo "$item" >> "$todos"
-            ${coreutils}/bin/sort -u "$todos" -o "$todos"
+          if item=$(${ripgrep}/bin/rg '^\+\s*([^\s](.*[^\s])?)\s*$' -r '$1' <<< "$1"); then
+            ${coreutils}/bin/sort -u "$todos" <(echo "$item") -o "$todos"
           else
             while read -r line; do
-              if [ "$line" != "$1" ]; then
-                echo "$line"
-              fi
+              [ "$line" = "$1" ] || echo "$line"
             done < "$todos" | ${moreutils}/bin/sponge "$todos"
           fi
         ''
