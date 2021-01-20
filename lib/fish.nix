@@ -67,7 +67,7 @@
       end
 
       function with
-        IN_NIX_SHELL=pure name="packages: "(string join ", " $argv) \
+        IN_NIX_SHELL=impure name="with: "(string join ", " $argv) \
           ${config.nix.package}/bin/nix shell --inputs-from /etc/nixos nixpkgs#$argv
       end
     '';
