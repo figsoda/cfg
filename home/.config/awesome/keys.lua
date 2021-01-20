@@ -1,5 +1,4 @@
 local awful = require("awful")
-local b = require("beautiful")
 local gears = require("gears")
 
 local c = {"Control"}
@@ -81,7 +80,7 @@ local kbs = {
     {m, "p", maptag(function(t) t.master_width_factor = 0.5 end)},
     {ms, "i", function() awful.tag.incncol(-1) end},
     {ms, "o", function() awful.tag.incncol(1) end},
-    {ms, "p", maptag(function(t) t.column_count = b.column_count or 1 end)},
+    {ms, "p", maptag(function(t) t.column_count = 1 end)},
     {ms, "k", function() awful.client.swap.byidx(-1) end},
     {ms, "l", function() awful.client.swap.byidx(1) end},
 
@@ -143,7 +142,7 @@ local kbs = {
     {m, ";", function() awful.screen.focused().mpd.stop() end},
 }
 
-for i = 1, 9 do
+for i = 1, 6 do
     table.insert(kbs, {m, i, maptag(function(t) t:view_only() end, i)})
     table.insert(kbs, {ma, i, maptag(awful.tag.viewtoggle, i)})
     table.insert(
