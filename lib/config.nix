@@ -60,11 +60,11 @@
   programs = {
     command-not-found.enable = false;
     dconf.enable = true;
-    ssh.askPassword = toString (pkgs.writeShellScript "password-prompt" ''
+    ssh.askPassword = "${pkgs.writeShellScript "password-prompt" ''
       ${pkgs.yad}/bin/yad --title "Password prompt" \
         --fixed --on-top --center \
         --entry --hide-text
-    '');
+    ''}";
     steam.enable = true;
   };
 
