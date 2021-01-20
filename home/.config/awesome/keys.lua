@@ -121,6 +121,7 @@ local kbs = {
     {m, "m", exec {"alacritty", "-e", "mmtc"}},
     {ms, "m", function() awful.screen.focused().mpd.reload() end},
     {m, "r", exec {"rofi", "-show", "run", "-modi", "run"}},
+    {m, "t", exec("rofi-todo")},
     {
         m,
         "u",

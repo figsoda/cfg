@@ -1,5 +1,31 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
+    (writeShellScriptBin "rofi-todo" ''
+      ${pkgs.rofi}/bin/rofi -show todo -modi todo:${
+        writeShellScript "todo-modi" ''
+          todos=~/.local/share/todos
+          mkdir -p ~/.local/share
+          touch "$todos"
+
+          if [ -z "$1" ]; then
+            ${coreutils}/bin/cat "$todos"
+            exit 0
+          fi
+
+          item=$(${ripgrep}/bin/rg '^\+\s*([^\s](.*[^\s])?)\s*' -r '$1' <<< "$1")
+          if [ $? -eq 0 ]; then
+            echo "$item" >> "$todos"
+            ${coreutils}/bin/sort -u "$todos" -o "$todos"
+          else
+            while read -r line; do
+              if [ "$line" != "$1" ]; then
+                echo "$line"
+              fi
+            done < "$todos" | ${moreutils}/bin/sponge "$todos"
+          fi
+        ''
+      }
+    '')
     (writeTextDir "/share/icons/default/index.theme" ''
       [icon theme]
       Inherits=Qogir
