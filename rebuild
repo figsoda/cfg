@@ -14,5 +14,5 @@ echo "$ sudo cp -r lib flake.lock flake.nix /etc/nixos"
 sudo cp -r lib flake.lock flake.nix /etc/nixos
 
 echo
-echo "$ sudo nixos-rebuild switch $@"
+echo "$ sudo nixos-rebuild switch $*"
 sudo nixos-rebuild switch "$@"
