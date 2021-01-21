@@ -36,8 +36,8 @@
         pager_color_completion = "abb2bf";
         pager_color_description = "98c379";
         pager_color_prefix = "abb2bf -o";
-        pager_color_progress = "c678dd";
-        pager_color_selected_completion = "61afef";
+        pager_color_progress = "e5c07b";
+        pager_color_selected_completion = "61afef -o";
         pager_color_selected_description = "e5c07b";
         pager_color_selected_prefix = "61afef -o -u";
       })}
