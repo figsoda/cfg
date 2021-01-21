@@ -62,11 +62,11 @@
         "rust-analyzer-src": "rust-analyzer-src"
       },
       "locked": {
-        "lastModified": 1611112341,
-        "narHash": "sha256-e3dt+5a0kAYeaTAPCUDbRUXGNcqKwzPPYhWVEzOJvoE=",
+        "lastModified": 1611198468,
+        "narHash": "sha256-LWAnf/Njg5lNcN3vWoiQjE61oodP8pkOq6qxV/RCcX4=",
         "owner": "figsoda",
         "repo": "fenix",
-        "rev": "2fddca7f04a6954c1f265a35f63ec0dd346f565e",
+        "rev": "94841c13909fd4c7edcb335e74fd922bd1cd5d5e",
         "type": "github"
       },
       "original": {
@@ -98,11 +98,11 @@
         "yaml-cpp": "yaml-cpp"
       },
       "locked": {
-        "lastModified": 1611115339,
-        "narHash": "sha256-wn6oqlEfnuXG178xXtIbMf+uoSo6yS17vRo2y3pxm1I=",
+        "lastModified": 1611201669,
+        "narHash": "sha256-cjGs0HqciQepDKBrw+YHB17ChzGZn3fgHovCimJpn1Q=",
         "owner": "figsoda",
         "repo": "nix-packages",
-        "rev": "c2c560cc6ce6525f8862457ed9f7e44c6d242726",
+        "rev": "0f49302d470e39549db34df6520bbd8d335a47de",
         "type": "github"
       },
       "original": {
@@ -242,11 +242,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1611045551,
-        "narHash": "sha256-7IOzJ+plfX8qiGM1ftCtWMoxkdz46BNvc151wj8tc2U=",
+        "lastModified": 1611132069,
+        "narHash": "sha256-MSmTcTs9ROrXoVvSS0Ng4JckfBcc+RGvsJ31ZZtOHKE=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "b94a3c82e79683af9a0aaf700396a01ed3d71102",
+        "rev": "80d1d633541d73cfced3d51118c7067c85c483da",
         "type": "github"
       },
       "original": {
@@ -299,11 +299,11 @@
     "rust-analyzer-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1611083964,
-        "narHash": "sha256-Gf1QwGo5eBqOSUFHNQVvgdK9H5zotryoFNoZESUH8vg=",
+        "lastModified": 1611180458,
+        "narHash": "sha256-K/EfLxnhU2G/nZ8L8kd/L+A7JKZeSjGVLJvPhmglZpE=",
         "owner": "rust-analyzer",
         "repo": "rust-analyzer",
-        "rev": "63f509f4924e7448b9131514bbdd7a4da5292cd1",
+        "rev": "70f7a10013775c1dce10b0d7a7724a48bb76b065",
         "type": "github"
       },
       "original": {
