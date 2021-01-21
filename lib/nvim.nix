@@ -59,6 +59,7 @@
           end
         endf
 
+        no <c-_> <cmd>let @/ = ""<cr>
         no <c-s> <cmd>write<cr>
         no <c-w> <cmd>call Close()<cr>
 
