@@ -8,26 +8,38 @@
       }
 
       ${concatStringsSep "\n" (mapAttrsFlatten (k: v: "set -g fish_${k} ${v}") {
-        color_normal = "abb2bf";
+        color_autosuggestion = "606886";
+        color_cancel = "e06c75";
         color_command = "61afef -o";
-        color_quote = "98c379";
-        color_redirection = "c678dd";
+        color_comment = "5c6370 -i";
+        color_cwd = "98c379";
+        color_cwd_root = "61afef";
         color_end = "9ab5e4";
         color_error = "f83c40";
-        color_param = "9ab5e4";
-        color_comment = "5c6370 -i";
-        color_match = "56b6c2";
-        color_selection = "2c323c";
-        color_search_match = "e5c07b";
-        color_operator = "56b6c2";
         color_escape = "56b6c2";
-        color_cwd = "98c379";
-        color_autosuggestion = "606886";
-        color_user = "e5c07b";
+        color_history_current = "e5c07b -o";
         color_host = "61afef";
         color_host_remote = "61afef";
-        color_cancel = "e06c75";
+        color_match = "56b6c2";
+        color_normal = "abb2bf";
+        color_operator = "56b6c2";
+        color_param = "9ab5e4";
+        color_quote = "98c379";
+        color_redirection = "c678dd";
+        color_search_match = "e5c07b";
+        color_selection = "2c323c";
+        color_status = "e06c75";
+        color_user = "e5c07b";
+        color_valid_path = "e5c07b";
         greeting = "";
+        pager_color_background = "";
+        pager_color_completion = "abb2bf";
+        pager_color_description = "98c379";
+        pager_color_prefix = "abb2bf -o";
+        pager_color_progress = "c678dd";
+        pager_color_selected_completion = "61afef";
+        pager_color_selected_description = "e5c07b";
+        pager_color_selected_prefix = "61afef -o -u";
       })}
 
       ${concatStringsSep "\n"
