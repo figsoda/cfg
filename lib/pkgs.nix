@@ -37,6 +37,7 @@
     gitAndTools.delta
     libreoffice-fresh
     libressl
+    lld
     luaformatter
     maim
     mmtc
