@@ -20,7 +20,7 @@
         name = figsoda
         email = figsoda@pm.me
 
-        [credential "https://github.com"]
+        [credential "https://github.com/"]
         username = figsoda
         helper = ${
           pkgs.writeShellScript "credential-helper-github" ''
@@ -30,6 +30,10 @@
             fi
           ''
         }
+
+        [url "https://github.com/"]
+        insteadOf = gh:
+        insteadOf = github:
       '';
       "resolv.conf".text = ''
         nameserver 1.1.1.1
