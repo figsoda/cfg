@@ -28,10 +28,11 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
-  outputs = { fenix, figsoda-pkgs, neovim-nightly-overlay, nixpkgs, ... }: {
+  outputs = inputs@{ nixpkgs, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -60,7 +61,7 @@
 
           nixpkgs = {
             config.allowUnfree = true;
-            overlays = [
+            overlays = with inputs; [
               fenix.overlay
               figsoda-pkgs.overlay
               neovim-nightly-overlay.overlay
@@ -68,6 +69,7 @@
           };
         })
 
+        inputs.nixos-hardware.nixosModules.lenovo-thinkpad-e470
         ./lib/config.nix
         ./lib/env.nix
         ./lib/fish.nix
