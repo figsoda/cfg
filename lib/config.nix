@@ -83,9 +83,16 @@
       ''];
       libinput = {
         enable = true;
-        accelProfile = "flat";
-        accelSpeed = "0";
-        tapping = false;
+        mouse = {
+          accelProfile = "flat";
+          accelSpeed = "0";
+        };
+        touchpad = {
+          accelProfile = "flat";
+          accelSpeed = "0";
+          disableWhileTyping = true;
+          tapping = false;
+        };
       };
       serverFlagsSection = ''
         Option "BlankTime" "0"
