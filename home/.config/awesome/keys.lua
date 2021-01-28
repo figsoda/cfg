@@ -20,16 +20,12 @@ local function maptag(f, i)
     end
 end
 
-local lockscreen = exec {
-    "xidlehook-client",
-    "--socket",
-    "/tmp/xidlehook.sock",
-    "control",
-    "--action",
-    "trigger",
-    "--timer",
-    "0",
-}
+local function trigger(timers)
+    return exec_sh(
+        "xidlehook-client --socket /tmp/xidlehook.sock \z
+        control --action trigger --timer " .. timers
+    )
+end
 
 local ckbs = {
     {m, "k", function() awful.client.focus.byidx(-1) end},
@@ -41,7 +37,7 @@ local ckbs = {
 }
 
 local kbs = {
-    {mc, "l", lockscreen},
+    {mc, "l", trigger(0)},
     {
         mc,
         "Return",
@@ -61,9 +57,9 @@ local kbs = {
                     ({
                         exec("poweroff"),
                         exec("reboot"),
-                        exec {"systemctl", "suspend"},
-                        exec {"systemctl", "hibernate"},
-                        lockscreen,
+                        trigger("0 1"),
+                        trigger("0 && systemctl hibernate"),
+                        trigger(0),
                         awesome.quit,
                         awesome.restart,
                     })[stdout:byte() - 47]()
