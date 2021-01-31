@@ -91,6 +91,8 @@ local kbs = {
     {{}, "XF86AudioMute", exec {"pamixer", "-t"}},
     {{}, "XF86MonBrightnessDown", exec {"xbacklight", "-4", "-time", "0"}},
     {{}, "XF86MonBrightnessUp", exec {"xbacklight", "+4", "-time", "0"}},
+    {c, "XF86MonBrightnessDown", exec {"xbacklight", "-1", "-time", "0"}},
+    {c, "XF86MonBrightnessUp", exec {"xbacklight", "+1", "-time", "0"}},
 
     {{}, "Print", exec_sh("maim -u ~/(date +%Y%m%d%H%M%S).png")},
     {c, "Print", exec_sh("maim -us ~/(date +%Y%m%d%H%M%S).png")},
