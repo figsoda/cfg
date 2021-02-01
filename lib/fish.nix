@@ -49,7 +49,7 @@
         gff = "git pull --ff-only";
         gp = "git push";
         nb = "nix build";
-        nd = "nix develop";
+        nd = "nix develop -c fish";
         ne = "nix-env";
         nei = "nix-env -f '<nixos>' -iA";
         ner = "nix-env -e";
