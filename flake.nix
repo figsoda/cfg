@@ -1,7 +1,7 @@
 {
   inputs = {
     fenix = {
-      url = "github:figsoda/fenix";
+      url = "github:nix-community/fenix";
       inputs = {
         naersk.follows = "naersk";
         nixpkgs.follows = "nixpkgs";

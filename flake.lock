@@ -64,13 +64,13 @@
       "locked": {
         "lastModified": 1612146936,
         "narHash": "sha256-EgrBnSok7EfHECpXnA0QF98hzgk5WPnL+6hTRy0cCnE=",
-        "owner": "figsoda",
+        "owner": "nix-community",
         "repo": "fenix",
         "rev": "07ccf7260637722d4d21c9e4c45948539ac4dee0",
         "type": "github"
       },
       "original": {
-        "owner": "figsoda",
+        "owner": "nix-community",
         "repo": "fenix",
         "type": "github"
       }
