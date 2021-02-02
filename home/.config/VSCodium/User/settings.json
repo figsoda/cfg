@@ -4,7 +4,7 @@
     "editor.cursorStyle": "line-thin",
     "editor.fontFamily": "monospace",
     "editor.fontLigatures": true,
-    "editor.fontSize": 12.5,
+    "editor.fontSize": 13,
     "editor.formatOnPaste": true,
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "boundary",
