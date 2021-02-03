@@ -40,12 +40,10 @@
           nix = {
             autoOptimiseStore = true;
             binaryCachePublicKeys = [
-              "fenix.cachix.org-1:SVfCRUmFZ8kdAjJKShEYoyWHb/M0pxVkCjGXsFDHLk4="
               "figsoda.cachix.org-1:mJfTEL4qLCqymqynJlaTxxi5APlaM0DfWg+h+CRGa20="
               "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
             ];
             binaryCaches = [
-              "https://fenix.cachix.org"
               "https://figsoda.cachix.org"
               "https://nix-community.cachix.org"
             ];
