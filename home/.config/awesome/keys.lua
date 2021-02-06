@@ -10,6 +10,14 @@ local ms = {"Mod4", "Shift"}
 local function exec(cmd) return function() awful.spawn(cmd) end end
 local function exec_sh(cmd) return function() awful.spawn.with_shell(cmd) end end
 
+local function focusdir(dir)
+    return function() awful.client.focus.bydirection(dir) end
+end
+
+local function swapdir(dir)
+    return function() awful.client.swap.bydirection(dir) end
+end
+
 local function maptag(f, i)
     return function()
         local s = awful.screen.focused()
@@ -28,8 +36,6 @@ local function trigger(timers)
 end
 
 local ckbs = {
-    {m, "k", function() awful.client.focus.byidx(-1) end},
-    {m, "l", function() awful.client.focus.byidx(1) end},
     {ms, "f", function(c) c.fullscreen = not c.fullscreen end},
     {ms, "n", function(c) c.minimized = true end},
     {ms, "q", function(c) c:kill() end},
@@ -77,8 +83,15 @@ local kbs = {
     {ms, "i", function() awful.tag.incncol(-1) end},
     {ms, "o", function() awful.tag.incncol(1) end},
     {ms, "p", maptag(function(t) t.column_count = 1 end)},
-    {ms, "k", function() awful.client.swap.byidx(-1) end},
-    {ms, "l", function() awful.client.swap.byidx(1) end},
+
+    {m, "h", focusdir("left")},
+    {m, "j", focusdir("down")},
+    {m, "k", focusdir("up")},
+    {m, "l", focusdir("right")},
+    {ms, "h", swapdir("left")},
+    {ms, "j", swapdir("down")},
+    {ms, "k", swapdir("up")},
+    {ms, "l", swapdir("right")},
 
     {m, "Left", awful.tag.viewprev},
     {m, "Right", awful.tag.viewnext},
