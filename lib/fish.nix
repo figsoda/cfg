@@ -59,6 +59,15 @@
         ns = "nix shell";
       })}
 
+      function __fish_command_not_found_handler -e fish_command_not_found -a cmd
+        history delete --case-sensitive --exact "$argv"
+        if [ -d $cmd ]
+          cd $cmd
+        else
+          echo "fish: Unknown command: $cmd"
+        end
+      end
+
       function f -a lang
         switch $lang
           case lua
