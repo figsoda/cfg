@@ -2,25 +2,16 @@
   inputs = {
     fenix = {
       url = "github:nix-community/fenix";
-      inputs = {
-        naersk.follows = "naersk";
-        nixpkgs.follows = "nixpkgs";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     figsoda-pkgs = {
       url = "github:figsoda/nix-packages";
       inputs = {
-        fenix.follows = "fenix";
         flake-utils.follows = "flake-utils";
-        naersk.follows = "naersk";
         nixpkgs.follows = "nixpkgs";
       };
     };
     flake-utils.url = "github:numtide/flake-utils";
-    naersk = {
-      url = "github:nmattia/naersk";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs = {
