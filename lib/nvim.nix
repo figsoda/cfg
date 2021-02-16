@@ -157,6 +157,10 @@
             on_attach = completion.on_attach,
             settings = {
               ["rust-analyzer"] = {
+                assist = {
+                  importMergeBehavior = "full",
+                  importPrefix = "by_crate",
+                },
                 cargo = {
                   loadOutDirsFromCheck = true,
                 },
