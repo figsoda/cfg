@@ -155,6 +155,19 @@
           lspconfig.rust_analyzer.setup {
             cmd = {"${pkgs.rust-analyzer-nightly}/bin/rust-analyzer"},
             on_attach = completion.on_attach,
+            settings = {
+              ["rust-analyzer"] = {
+                cargo = {
+                  loadOutDirsFromCheck = true,
+                },
+                checkOnSave = {
+                  command = "clippy",
+                },
+                procMacro = {
+                  enable = true,
+                },
+              },
+            },
           }
 
           vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
