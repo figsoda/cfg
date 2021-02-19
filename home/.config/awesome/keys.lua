@@ -98,6 +98,14 @@ local kbs = {
     {m, "BackSpace", awful.tag.history.restore},
     {m, "Tab", awful.tag.viewnext},
     {ms, "Tab", awful.tag.viewprev},
+    {
+        m,
+        "p",
+        function()
+            local panel = awful.screen.focused().panel
+            panel.visible = not panel.visible
+        end,
+    },
 
     {{}, "XF86AudioLowerVolume", exec {"pamixer", "-d", "5"}},
     {{}, "XF86AudioRaiseVolume", exec {"pamixer", "-i", "5"}},
