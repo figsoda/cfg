@@ -36,7 +36,6 @@
       enable = true;
       powerOnBoot = false;
     };
-    pulseaudio.enable = true;
   };
 
   i18n.supportedLocales = [ "en_US.UTF-8/UTF-8" ];
@@ -72,6 +71,10 @@
     blueman.enable = true;
     gnome3.at-spi2-core.enable = true;
     logind.lidSwitch = "ignore";
+    pipewire = {
+      enable = true;
+      pulse.enable = true;
+    };
     xserver = {
       enable = true;
       displayManager.startx.enable = true;
