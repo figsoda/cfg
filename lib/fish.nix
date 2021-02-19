@@ -46,6 +46,7 @@
       (mapAttrsFlatten (k: v: "abbr -ag ${k} ${escapeShellArg v}") {
         gc = "git commit";
         gco = "git checkout";
+        gcp = "git commit -p";
         gff = "git pull --ff-only";
         gp = "git push";
         nb = "nix build";
