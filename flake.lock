@@ -60,11 +60,11 @@
         "rust-analyzer-src": "rust-analyzer-src"
       },
       "locked": {
-        "lastModified": 1613700944,
-        "narHash": "sha256-D5N+qP6JmsmsgygZR0Dkd1e4oHKeTgIizANoZU4Gb7o=",
+        "lastModified": 1613787312,
+        "narHash": "sha256-sQtprMQcuGTGOWioAy8jxPSS7bLYmBjU8mJnc0aHcrU=",
         "owner": "nix-community",
         "repo": "fenix",
-        "rev": "f591bd76b3b3c28f04b115f147e1af1166202a8a",
+        "rev": "eae6b383fc7b6fb515056335d4a8a79b45358b64",
         "type": "github"
       },
       "original": {
@@ -89,11 +89,11 @@
         "yaml-cpp": "yaml-cpp"
       },
       "locked": {
-        "lastModified": 1613704269,
-        "narHash": "sha256-UR5RXGNjDpWa9eJK77A9EI0u5FaOEDfzaqEtZmX973o=",
+        "lastModified": 1613790676,
+        "narHash": "sha256-OCyfnB8zdKyimDuUpcVUjN9qod04XVLfZE6D+qGyO6o=",
         "owner": "figsoda",
         "repo": "nix-packages",
-        "rev": "c57e0f0e1cf67c15635979a3663993e9f0df5d7a",
+        "rev": "5fe93fc91d5f036225a47a8f31a578699326d6db",
         "type": "github"
       },
       "original": {
@@ -216,11 +216,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1613635890,
-        "narHash": "sha256-PrpG/RYjIu+nAUIfplAFlKrivYQtOAsYb31NGcOOMbY=",
+        "lastModified": 1613722286,
+        "narHash": "sha256-LNO+zDyPt/V+bVGAqZE/C3z+AkICMEwqtuN6ZMuZnlY=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "25a18696c90c9e6aa06c73906d2f93016efca250",
+        "rev": "a6f7515ccd8a1c461fa01b6bd6e63026fdc97aec",
         "type": "github"
       },
       "original": {
