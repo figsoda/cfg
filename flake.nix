@@ -59,7 +59,7 @@
         })
 
         inputs.nixos-hardware.nixosModules.lenovo-thinkpad-e470
-        ./lib/config.nix
+        ./lib/cfg.nix
         ./lib/env.nix
         ./lib/fish.nix
         ./lib/nvim.nix
