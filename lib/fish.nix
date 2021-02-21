@@ -105,7 +105,6 @@
             ${volctl}/bin/volctl &
             [ -e /tmp/xidlehook.sock ] && ${coreutils}/bin/rm /tmp/xidlehook.sock
             ${xidlehook}/bin/xidlehook --socket /tmp/xidlehook.sock \
-              --not-when-audio \
               --timer 900 ${
                 writeShellScript "lockscreen" ''
                   ${xorg.xset}/bin/xset dpms force standby &
