@@ -50,12 +50,45 @@
         let g:vim_markdown_conceal = 0
         let g:vim_markdown_conceal_code_blocks = 0
 
+        let g:pairs = {
+        \ '"': '"',
+        \ "(": ")",
+        \ "[": "]",
+        \ "`": "`",
+        \ "{": "}",
+        \ }
+
         function Close()
           let win = winnr("$")
           if win == 1 || win == 2 && bufnr("NvimTree") != -1
             :BufferClose
           else
             :quit
+          end
+        endf
+
+        function InPair()
+          let line = getline(".")
+          let pos = col(".")
+          return (get(g:pairs, line[pos - 2], 1) == line[pos - 1])
+        endf
+
+        function InWord()
+          let line = getline(".")
+          let pos = col(".") - 1
+          return (pos != len(line) && line[pos] =~ '\w')
+        endf
+
+        function Quote(c)
+          let line = getline(".")
+          let pos = col(".") - 1
+          let r = line[pos]
+          if r == a:c
+            return "\<right>"
+          elseif pos == len(line) || r !~ '\w'
+            return a:c . a:c . "\<left>"
+          else
+            return a:c
           end
         endf
 
@@ -122,8 +155,21 @@
         ino <expr> <s-tab> pumvisible() ? "<c-p>" : "<s-tab>"
         ino <c-s> <cmd>write<cr>
         ino <c-w> <cmd>call Close()<cr><esc>
+        ino <expr> <bs> InPair() ? "<bs><del>" : "<bs>"
+
+        for [l, r] in items(g:pairs)
+          exec printf("ino %s<cr> %s<cr>%s<up><end><cr><tab>", l, l, r)
+          if l == r
+            exec printf("ino <expr> %s Quote('%s')", l, l)
+          else
+            exec printf("ino <expr> %s InWord() ? '%s' : '%s%s<left>'", l, l, l, r)
+            exec printf("ino <expr> %s getline('.')[col('.') - 1] == '%s' ? '<right>' : '%s'", r, r, r)
+          end
+        endfor
 
         tno <expr> <esc> stridx(b:term_title, "#FZF") == -1 ? "<c-\><c-n>" : "<esc>"
+
+        autocmd BufEnter *.nix :ino <buffer> '''<cr> '''<cr>'''<up><end><cr><tab>
 
         autocmd BufEnter,BufWinEnter,TabEnter *.rs lua
         \ require("lsp_extensions").inlay_hints {
@@ -184,7 +230,6 @@
         EOF
       '';
       packages.all.start = with pkgs.vimPlugins; [
-        auto-pairs
         barbar-nvim
         completion-nvim
         fzf-vim
