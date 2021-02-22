@@ -58,7 +58,7 @@
         \ "{": "}",
         \ }
 
-        function Close()
+        function s:close()
           let win = winnr("$")
           if win == 1 || win == 2 && bufnr("NvimTree") != -1
             BufferClose
@@ -67,19 +67,19 @@
           end
         endf
 
-        function InPair()
+        function s:in_pair()
           let line = getline(".")
           let pos = col(".")
           return (get(g:pairs, line[pos - 2], 1) == line[pos - 1])
         endf
 
-        function InWord()
+        function s:in_word()
           let line = getline(".")
           let pos = col(".") - 1
           return (pos != len(line) && line[pos] =~ '\w')
         endf
 
-        function Quote(c)
+        function s:quote(c)
           let line = getline(".")
           let pos = col(".") - 1
           let r = line[pos]
@@ -94,7 +94,7 @@
 
         no <c-_> <cmd>let @/ = ""<cr>
         no <c-s> <cmd>write<cr>
-        no <c-w> <cmd>call Close()<cr>
+        no <c-w> <cmd>call <sid>close()<cr>
 
         nn <c-h> <c-w>h
         nn <c-j> <c-w>j
@@ -154,15 +154,15 @@
         ino <expr> <tab> pumvisible() ? "<c-n>" : "<tab>"
         ino <expr> <s-tab> pumvisible() ? "<c-p>" : "<s-tab>"
         ino <c-s> <cmd>write<cr>
-        ino <c-w> <cmd>call Close()<cr><esc>
-        ino <expr> <bs> InPair() ? "<bs><del>" : "<bs>"
+        ino <c-w> <cmd>call <sid>close()<cr><esc>
+        ino <expr> <bs> <sid>in_pair() ? "<bs><del>" : "<bs>"
 
         for [l, r] in items(g:pairs)
           exec printf("ino %s<cr> %s<cr>%s<up><end><cr><tab>", l, l, r)
           if l == r
-            exec printf("ino <expr> %s Quote('%s')", l, l)
+            exec printf("ino <expr> %s s:quote('%s')", l, l)
           else
-            exec printf("ino <expr> %s InWord() ? '%s' : '%s%s<left>'", l, l, l, r)
+            exec printf("ino <expr> %s <sid>in_word() ? '%s' : '%s%s<left>'", l, l, l, r)
             exec printf("ino <expr> %s getline('.')[col('.') - 1] == '%s' ? '<right>' : '%s'", r, r, r)
           end
         endfor
