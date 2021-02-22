@@ -61,9 +61,9 @@
         function Close()
           let win = winnr("$")
           if win == 1 || win == 2 && bufnr("NvimTree") != -1
-            :BufferClose
+            BufferClose
           else
-            :quit
+            quit
           end
         endf
 
