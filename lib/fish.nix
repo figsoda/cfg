@@ -43,6 +43,13 @@
       })}
 
       ${concatStringsSep "\n"
+      (mapAttrsFlatten (k: v: "set -gx LESS_TERMCAP_${k} ${v}") {
+        md = ''\e"[1m"\e"[38;2;97;175;239m"'';
+        ue = ''\e"[0m"'';
+        us = ''\e"[38;2;209;154;102m"'';
+      })}
+
+      ${concatStringsSep "\n"
       (mapAttrsFlatten (k: v: "abbr -ag ${k} ${escapeShellArg v}") {
         gc = "git commit";
         gco = "git checkout";
