@@ -160,7 +160,7 @@
         for [l, r] in items(g:pairs)
           exec printf("ino %s<cr> %s<cr>%s<up><end><cr><tab>", l, l, r)
           if l == r
-            exec printf("ino <expr> %s s:quote('%s')", l, l)
+            exec printf("ino <expr> %s <sid>quote('%s')", l, l)
           else
             exec printf("ino <expr> %s <sid>in_word() ? '%s' : '%s%s<left>'", l, l, l, r)
             exec printf("ino <expr> %s getline('.')[col('.') - 1] == '%s' ? '<right>' : '%s'", r, r, r)
