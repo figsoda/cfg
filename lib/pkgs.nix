@@ -25,6 +25,7 @@
     '')
     alacritty
     bat
+    binutils
     bottom
     cargo-edit
     clipmenu
