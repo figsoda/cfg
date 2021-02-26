@@ -156,6 +156,7 @@
 
         ino <expr> <tab> pumvisible() ? "<c-n>" : "<tab>"
         ino <expr> <s-tab> pumvisible() ? "<c-p>" : "<s-tab>"
+        ino <c-e> <esc>A
         ino <c-s> <cmd>write<cr>
         ino <c-w> <cmd>call <sid>close()<cr><esc>
         ino <expr> <bs> <sid>in_pair() ? "<bs><del>" : "<bs>"
