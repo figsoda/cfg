@@ -96,6 +96,7 @@
         no <c-s> <cmd>write<cr>
         no <c-w> <cmd>call <sid>close()<cr>
 
+        nn R "_diwhp
         nn x "_x
         nn X "_X
 
