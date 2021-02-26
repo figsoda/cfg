@@ -96,6 +96,9 @@
         no <c-s> <cmd>write<cr>
         no <c-w> <cmd>call <sid>close()<cr>
 
+        nn x "_x
+        nn X "_X
+
         nn <c-h> <c-w>h
         nn <c-j> <c-w>j
         nn <c-k> <c-w>k
