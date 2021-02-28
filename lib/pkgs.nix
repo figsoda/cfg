@@ -95,5 +95,6 @@
     xidlehook
     xsel
     xtrt
+    ymdl
   ];
 }
