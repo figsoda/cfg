@@ -85,14 +85,15 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "yaml-cpp": "yaml-cpp"
+        "yaml-cpp": "yaml-cpp",
+        "ymdl": "ymdl"
       },
       "locked": {
-        "lastModified": 1614309119,
-        "narHash": "sha256-HWTIhZ7AuML5NjmAtW3H5xmIpt9751561bRewBP67OI=",
+        "lastModified": 1614546583,
+        "narHash": "sha256-/aMcZ9F0Ih/UoOxxgijSlbCDOu7AiGk4idvhSKibHL0=",
         "owner": "figsoda",
         "repo": "nix-packages",
-        "rev": "029047fdddac4eca067bea6fa1299b31754af352",
+        "rev": "4fdd933d62183e689699d9992fa988c700f2b4a5",
         "type": "github"
       },
       "original": {
@@ -119,11 +120,11 @@
     },
     "flake-utils": {
       "locked": {
-        "lastModified": 1610051610,
-        "narHash": "sha256-U9rPz/usA1/Aohhk7Cmc2gBrEEKRzcW4nwPWMPwja4Y=",
+        "lastModified": 1614513358,
+        "narHash": "sha256-LakhOx3S1dRjnh0b5Dg3mbZyH0ToC9I8Y2wKSkBaTzU=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "3982c9903e93927c2164caa727cd3f6a0e6d14cc",
+        "rev": "5466c5bbece17adaab2d82fae80b46e807611bf3",
         "type": "github"
       },
       "original": {
@@ -316,6 +317,22 @@
         "owner": "jbeder",
         "ref": "yaml-cpp-0.6.3",
         "repo": "yaml-cpp",
+        "type": "github"
+      }
+    },
+    "ymdl": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1614546406,
+        "narHash": "sha256-0USSpGTaPbkxE4v1nxMArNnfN0fkk+ALCJsSZEwaVUE=",
+        "owner": "figsoda",
+        "repo": "ymdl",
+        "rev": "286427ff961d19265dc1050e02d1b3ce34020635",
+        "type": "github"
+      },
+      "original": {
+        "owner": "figsoda",
+        "repo": "ymdl",
         "type": "github"
       }
     }
