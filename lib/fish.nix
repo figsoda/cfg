@@ -51,7 +51,9 @@
 
       ${concatStringsSep "\n"
       (mapAttrsFlatten (k: v: "abbr -ag ${k} ${escapeShellArg v}") {
+        gb = "git branch";
         gc = "git commit";
+        gcb = "git checkout -b";
         gco = "git checkout";
         gcp = "git commit -p";
         gff = "git pull --ff-only";
