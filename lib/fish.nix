@@ -60,9 +60,6 @@
         gp = "git push";
         nb = "nix build";
         nd = "nix develop -c fish";
-        ne = "nix-env";
-        nei = "nix-env -f '<nixos>' -iA";
-        ner = "nix-env -e";
         nf = "nix flake";
         nfu = "nix flake update";
         npu = "nix-prefetch-url";
