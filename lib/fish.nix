@@ -72,9 +72,10 @@
       function __fish_command_not_found_handler -e fish_command_not_found -a cmd
         history delete --case-sensitive --exact "$argv"
         if [ -d $cmd ]
+          echo "fish: Entering directory: $cmd" >&2
           cd $cmd
         else
-          echo "fish: Unknown command: $cmd"
+          echo "fish: Unknown command: $cmd" >&2
         end
       end
 
