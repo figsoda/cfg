@@ -146,7 +146,7 @@
         nn <space>n<space> :!nix<space>
         nn <space>nb <cmd>12split term://${nix} build<cr>i
         nn <space>nf <cmd>!${pkgs.fd}/bin/fd -H '.nix$' -x ${pkgs.nixfmt}/bin/nixfmt<cr>
-        nn <space>ni <cmd>12split term://${nix} repl<cr>ipkgs = import <nixpkgs> {}<cr>
+        nn <space>ni <cmd>12split term://${nix} repl<cr>ipkgs = import <nixpkgs> {}<cr><c-l>
         nn <space>nr <cmd>12split term://${nix} run<cr>i
         nn <space>nt <cmd>12split term://${nix} flake check<cr>i
         nn <space>nu <cmd>!${nix} flake update<cr>
