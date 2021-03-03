@@ -31,6 +31,10 @@
           ''
         }
 
+        [url "https://gitlab.com/"]
+        insteadOf = gl:
+        insteadOf = gitlab:
+
         [url "https://github.com/"]
         insteadOf = gh:
         insteadOf = github:
