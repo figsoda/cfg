@@ -175,8 +175,6 @@
 
         tno <expr> <esc> stridx(b:term_title, "#FZF") == -1 ? "<c-\><c-n>" : "<esc>"
 
-        autocmd BufEnter *.nix :ino <buffer> '''<cr> '''<cr>'''<up><end><cr><tab>
-
         autocmd BufEnter,BufWinEnter,TabEnter *.rs lua
         \ require("lsp_extensions").inlay_hints {
         \   prefix = "",
@@ -188,6 +186,8 @@
         \ "TabLineFill",
         \ #{ bg: #{ gui: "#1f2227" } },
         \ )
+
+        autocmd FileType nix ino <buffer> '''<cr> '''<cr>'''<up><end><cr><tab>
 
         autocmd FileType yaml setlocal shiftwidth=2
 
