@@ -93,6 +93,7 @@
         endf
 
         no <c-_> <cmd>let @/ = ""<cr>
+        no <c-q> <cmd>confirm quitall<cr>
         no <c-s> <cmd>write<cr>
         no <c-w> <cmd>call <sid>close()<cr>
 
@@ -159,6 +160,7 @@
         ino <expr> <s-tab> pumvisible() ? "<c-p>" : "<s-tab>"
         ino <c-a> <home>
         ino <c-e> <end>
+        ino <c-q> <cmd>confirm quitall<cr>
         ino <c-s> <cmd>write<cr>
         ino <c-w> <cmd>call <sid>close()<cr><esc>
         ino <expr> <bs> <sid>in_pair() ? "<bs><del>" : "<bs>"
