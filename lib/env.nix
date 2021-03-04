@@ -14,7 +14,7 @@
         defaultBranch = main
 
         [interactive]
-        diffFilter = delta --color-only
+        diffFilter = ${pkgs.gitAndTools.delta}/bin/delta --color-only
 
         [user]
         name = figsoda
