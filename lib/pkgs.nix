@@ -28,6 +28,7 @@
     binutils
     bottom
     cargo-edit
+    cargo-play
     clipmenu
     fd
     firefox
