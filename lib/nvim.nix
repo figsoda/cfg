@@ -131,6 +131,7 @@
         nn <space>cb <cmd>12split term://cargo build<cr>i
         nn <space>cd <cmd>12split term://cargo doc --open<cr>i
         nn <space>cf <cmd>!cargo fmt<cr>
+        nn <space>cp <cmd>!${pkgs.cargo-play}/bin/cargo-play %<cr>
         nn <space>cr <cmd>12split term://cargo run<cr>i
         nn <space>ct <cmd>12split term://cargo test<cr>i
         nn <space>cu <cmd>!cargo update<cr>
