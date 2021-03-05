@@ -113,10 +113,10 @@
         nn <c-j> <c-w>j
         nn <c-k> <c-w>k
         nn <c-l> <c-w>l
-        nn <m-h> <cmd>vertical :resize -2<cr>
+        nn <m-h> <cmd>vertical resize -2<cr>
         nn <m-j> <cmd>resize -2<cr>
         nn <m-k> <cmd>resize +2<cr>
-        nn <m-l> <cmd>vertical :resize +2<cr>
+        nn <m-l> <cmd>vertical resize +2<cr>
 
         nn <tab> <cmd>BufferNext<cr>
         nn <m-tab> <cmd>BufferPick<cr>
