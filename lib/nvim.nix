@@ -79,6 +79,14 @@
           return (pos != len(line) && line[pos] =~ '\w')
         endf
 
+        function s:play(...)
+          if a:0
+            exec "e" system("${pkgs.coreutils}/bin/mktemp --suffix ." . a:1)
+          else
+            exec "e" system("${pkgs.coreutils}/bin/mktemp")
+          end
+        endf
+
         function s:quote(c)
           let line = getline(".")
           let pos = col(".") - 1
@@ -193,6 +201,8 @@
         autocmd FileType nix ino <buffer> '''<cr> '''<cr>'''<up><end><cr><tab>
 
         autocmd FileType yaml setlocal shiftwidth=2
+
+        command -nargs=? P call <sid>play(<f-args>)
 
         colorscheme onedark
         filetype plugin indent on
