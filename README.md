@@ -11,18 +11,14 @@ mount /dev/disk/by-label/nixos /mnt
 mkdir /mnt/boot
 mount /dev/disk/by-label/boot /mnt/boot
 swapon /dev/disk/by-label/swap
-nano /etc/nixos/configuration.nix # nix.package = pkgs.nixUnstable
-nixos-rebuild switch
 nixos-generate-config --root /mnt
+rm /mnt/etc/nixos/configuration.nix
 git clone https://github.com/figsoda/dotfiles
-cd dotfiles
-cp /mnt/etc/nixos/hardware-configuration.nix .
-git add hardware-configuration.nix
-nixos-install --flake .#nixos --no-channel-copy
+cp -r dotfiles/{lib,flake.*} /mnt/etc/nixos
+nix-shell -p nixUnstable --run "nixos-install --flake /mnt/etc/nixos#nixos --no-channel-copy"
 reboot
 
 # as root
-rm /etc/nixos/configuration.nix
 passwd nixos
 
 # as user
