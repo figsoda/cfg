@@ -67,6 +67,11 @@
           end
         endf
 
+        function s:indent_pair(l, r)
+          let indent = repeat(" ", indent(line(".")))
+          return printf("%s\<cr>\<c-u>\<cr>\<c-u>%s%s\<up>%s\<tab>", a:l, indent, a:r, indent)
+        endf
+
         function s:in_pair()
           let line = getline(".")
           let pos = col(".")
@@ -175,7 +180,7 @@
         ino <expr> <bs> <sid>in_pair() ? "<bs><del>" : "<bs>"
 
         for [l, r] in items(g:pairs)
-          exec printf("ino %s<cr> %s<cr>%s<up><end><cr><tab>", l, l, r)
+          exec printf("ino <expr> %s<cr> <sid>indent_pair('%s', '%s')", l, l, r)
           if l == r
             exec printf("ino <expr> %s <sid>quote('%s')", l, l)
           else
@@ -198,7 +203,7 @@
         \ #{ bg: #{ gui: "#1f2227" } },
         \ )
 
-        autocmd FileType nix ino <buffer> '''<cr> '''<cr>'''<up><end><cr><tab>
+        autocmd FileType nix ino <buffer> <expr> '''<cr> <sid>indent_pair("'''", "'''")
 
         autocmd FileType yaml setlocal shiftwidth=2
 
