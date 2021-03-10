@@ -61,7 +61,12 @@
         inode/directory=spacefm.desktop
       '';
     };
-    variables = {
+    variables = let fd = "${pkgs.fd}/bin/fd";
+    in {
+      FZF_ALT_C_COMMAND = "${fd} -t d";
+      FZF_CTRL_T_COMMAND = fd;
+      FZF_CTRL_T_OPTS = "--preview 'bat {} --color always'";
+      FZF_DEFAULT_COMMAND = fd;
       LESSHISTFILE = "-";
       PATH = "$HOME/.cargo/bin";
       RIPGREP_CONFIG_PATH = "${pkgs.writeText "rg-config" ''
