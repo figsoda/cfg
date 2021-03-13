@@ -121,7 +121,7 @@
   systemd.services.nixos-upgrade = {
     script = lib.mkForce ''
       /run/wrappers/bin/sudo -u figsoda \
-        ${config.nix.package}/bin/nix flake update --{recreate,commit}-lock-file
+        ${config.nix.package}/bin/nix flake update --commit-lock-file
       ${pkgs.coreutils}/bin/cp flake.lock /etc/nixos
       ${config.system.build.nixos-rebuild}/bin/nixos-rebuild switch
     '';

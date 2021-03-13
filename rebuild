@@ -6,10 +6,6 @@ sudo echo "$ nixfmt flake.nix lib/*.nix"
 nixfmt flake.nix lib/*.nix
 
 echo
-echo "$ nix flake update"
-nix flake update
-
-echo
 echo "$ sudo cp -r lib flake.lock flake.nix /etc/nixos"
 sudo cp -r lib flake.lock flake.nix /etc/nixos
 
