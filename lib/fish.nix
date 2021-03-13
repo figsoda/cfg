@@ -51,6 +51,12 @@
 
       ${concatStringsSep "\n"
       (mapAttrsFlatten (k: v: "abbr -ag ${k} ${escapeShellArg v}") {
+        c = "cargo";
+        cb = "cargo build";
+        cbr = "cargo build --release";
+        cr = "cargo run";
+        ct = "cargo test";
+        g = "git";
         gb = "git branch";
         gc = "git commit";
         gcb = "git checkout -b";
@@ -58,6 +64,7 @@
         gcp = "git commit -p";
         gff = "git pull --ff-only";
         gp = "git push";
+        n = "nix";
         nb = "nix build";
         nd = "nix develop -c fish";
         nf = "nix flake";
