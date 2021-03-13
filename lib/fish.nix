@@ -66,6 +66,8 @@
         ns = "nix shell";
       })}
 
+      bind \cl "${ncurses}/bin/clear; fish_prompt"
+
       function __fish_command_not_found_handler -e fish_command_not_found -a cmd
         history delete --case-sensitive --exact "$argv"
         if [ -d $cmd ]
