@@ -104,6 +104,10 @@
           $name $name '["figsoda <figsoda@pm.me>"]' figsoda/$name
       end
 
+      function run -a pkg
+        ${config.nix.package}/bin/nix run --inputs-from /etc/nixos nixpkgs#$pkg
+      end
+
       function with
         IN_NIX_SHELL=impure name="with: "(string join ", " $argv) \
           ${config.nix.package}/bin/nix shell --inputs-from /etc/nixos nixpkgs#$argv
