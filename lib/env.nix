@@ -39,10 +39,6 @@
         insteadOf = gh:
         insteadOf = github:
       '';
-      "resolv.conf".text = ''
-        nameserver 1.1.1.1
-        nameserver 1.0.0.1
-      '';
       "xdg/mimeapps.list".text = ''
         [Default Applications]
         application/pdf=firefox.desktop
