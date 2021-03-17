@@ -1,5 +1,6 @@
 { config, lib, pkgs, ... }: {
-  programs.fish = with pkgs; {
+  programs.fish = let nix = "${config.nix.package}/bin/nix";
+  in with pkgs; {
     enable = true;
     interactiveShellInit = with lib; ''
       source ${
@@ -105,12 +106,12 @@
       end
 
       function run -a pkg
-        ${config.nix.package}/bin/nix run --inputs-from /etc/nixos nixpkgs#$pkg
+        ${nix} run --inputs-from /etc/nixos nixpkgs#$pkg -- $argv[2 ..]
       end
 
       function with
         IN_NIX_SHELL=impure name="with: "(string join ", " $argv) \
-          ${config.nix.package}/bin/nix shell --inputs-from /etc/nixos nixpkgs#$argv
+          ${nix} shell --inputs-from /etc/nixos nixpkgs#$argv
       end
     '';
     loginShellInit = ''
