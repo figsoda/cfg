@@ -103,6 +103,8 @@
         string length -q -- $template $name
         ~/rust-templates/gen.sh ~/rust-templates/$template \
           $name $name '["figsoda <figsoda@pm.me>"]' figsoda/$name
+        cd $name
+        commandline "git push -u origin main"
       end
 
       function run -a pkg
