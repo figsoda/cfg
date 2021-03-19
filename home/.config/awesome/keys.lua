@@ -118,9 +118,16 @@ local kbs = {
     {{}, "Print", exec_sh("maim -u ~/(date +%Y%m%d%H%M%S).png")},
     {c, "Print", exec_sh("maim -us ~/(date +%Y%m%d%H%M%S).png")},
     {m, "Return", exec("alacritty")},
+    {m, "b", exec("firefox")},
+    {m, "c", exec_sh("CM_LAUNCHER=rofi clipmenu -p clipmenu")},
+    {ms, "c", exec {"clipdel", "-d", "."}},
+    {m, "e", exec("codium")},
+    {m, "f", exec("spacefm")},
+    {m, "m", exec {"alacritty", "-e", "mmtc"}},
+    {ms, "m", function() awful.screen.focused().mpd.reload() end},
     {
         m,
-        "/",
+        "o",
         exec_sh(
             "fd . ~ \z
                 | sd '^'$HOME/ '' \z
@@ -129,15 +136,7 @@ local kbs = {
                     -i -matching fuzzy -sorting-method fzf \z
                 | xargs -i xdg-open ~/{}"
         ),
-
     },
-    {m, "b", exec("firefox")},
-    {m, "c", exec_sh("CM_LAUNCHER=rofi clipmenu -p clipmenu")},
-    {ms, "c", exec {"clipdel", "-d", "."}},
-    {m, "e", exec("codium")},
-    {m, "f", exec("spacefm")},
-    {m, "m", exec {"alacritty", "-e", "mmtc"}},
-    {ms, "m", function() awful.screen.focused().mpd.reload() end},
     {m, "r", exec {"rofi", "-show", "run", "-modi", "run"}},
     {m, "t", exec("rofi-todo")},
     {
