@@ -14,9 +14,10 @@
     fontconfig = {
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
-        monospace = [ "JetBrainsMono Nerd Font" "Cascadia Code" ];
-        sansSerif = [ "Arimo Nerd Font" ];
-        serif = [ "Arimo Nerd Font" ];
+        monospace =
+          [ "JetBrainsMono Nerd Font" "Cascadia Code" "Source Han Sans K" ];
+        sansSerif = [ "Arimo Nerd Font" "Source Han Sans K" ];
+        serif = [ "Arimo Nerd Font" "Source Han Sans K" ];
       };
       includeUserConf = false;
     };
