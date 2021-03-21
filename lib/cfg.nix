@@ -39,7 +39,13 @@
     };
   };
 
-  i18n.supportedLocales = [ "en_US.UTF-8/UTF-8" ];
+  i18n = {
+    inputMethod = {
+      enabled = "fcitx5";
+      fcitx5.addons = [ pkgs.fcitx5-rime ];
+    };
+    supportedLocales = [ "en_US.UTF-8/UTF-8" ];
+  };
 
   networking = {
     firewall.enable = false;

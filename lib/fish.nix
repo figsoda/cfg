@@ -121,6 +121,7 @@
         exec ${xorg.xinit}/bin/startx ${
           writeText "xinitrc" ''
             CM_MAX_CLIPS=20 CM_SELECTIONS=clipboard ${clipmenu}/bin/clipmenud &
+            ${config.i18n.inputMethod.package}/bin/fcitx5 &
             ${mpd}/bin/mpd &
             ${networkmanagerapplet}/bin/nm-applet &
             ${spaceFM}/bin/spacefm -d &
