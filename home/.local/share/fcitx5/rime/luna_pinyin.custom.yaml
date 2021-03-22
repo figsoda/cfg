@@ -1,0 +1,15 @@
+patch:
+  style/color_scheme: starcraft
+  switches:
+    - name: ascii_mode
+      reset: 0
+      states: [ 中文, ascii ]
+    - name: ascii_punct
+      reset: 1
+      states: [ "。", "." ]
+    - name: full_shape
+      reset: 0
+      states: [ 半角, 全角 ]
+    - name: simplification
+      reset: 1
+      states: [ 繁體, 简体 ]

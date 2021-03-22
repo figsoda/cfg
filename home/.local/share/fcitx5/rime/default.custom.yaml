@@ -1,0 +1,13 @@
+patch:
+  ascii_composer/switch_key:
+    Caps_Lock: inline_ascii
+    Control_L: noop
+    Control_R: noop
+    Shift_L: inline_ascii
+    Shift_R: inline_ascii
+  menu:
+    page_size: 6
+  schema_list:
+    - schema: luna_pinyin
+  switcher/caption: "选项"
+  switcher/fold_options: false
