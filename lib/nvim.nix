@@ -228,17 +228,10 @@
             settings = {
               ["rust-analyzer"] = {
                 assist = {
-                  importMergeBehavior = "full",
                   importPrefix = "by_crate",
-                },
-                cargo = {
-                  loadOutDirsFromCheck = true,
                 },
                 checkOnSave = {
                   command = "clippy",
-                },
-                procMacro = {
-                  enable = true,
                 },
               },
             },
