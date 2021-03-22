@@ -1,3 +1,6 @@
+[Behavior]
+ShareInputState=All
+
 [Hotkey]
 ActivateKeys=
 AltTriggerKeys=
