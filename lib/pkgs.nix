@@ -70,16 +70,7 @@
     sxiv
     rnix-lsp
     (vscode-with-extensions.override {
-      vscode = vscodium.overrideAttrs (old: {
-        buildInputs = old.buildInputs ++ [ jq moreutils ];
-        installPhase = ''
-          jq -e '.extensionsGallery = {
-            "serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
-            "cacheUrl": "https://vscode.blob.core.windows.net/gallery/index",
-            "itemUrl": "https://marketplace.visualstudio.com/items",
-          }' resources/app/product.json | sponge resources/app/product.json
-        '' + old.installPhase;
-      });
+      vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [
         a5huynh.vscode-ron
         jnoortheen.nix-ide
