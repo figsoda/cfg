@@ -1,2 +1,11 @@
+[Hotkey]
+ActivateKeys=
+AltTriggerKeys=
+DeactivateKeys=
+EnumerateBackwardKeys=
+EnumerateForwardKeys=
+EnumerateGroupBackwardKeys=
+EnumerateGroupForwardKeys=
+
 [Hotkey/TriggerKeys]
 0=Super+I
