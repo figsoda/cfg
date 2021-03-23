@@ -9,11 +9,11 @@
         "rust-analyzer-src": "rust-analyzer-src"
       },
       "locked": {
-        "lastModified": 1616380245,
-        "narHash": "sha256-yixGip2XFiiNrjARuQ1JTRoPjw7RIceHCBykX7/7bOU=",
+        "lastModified": 1616466597,
+        "narHash": "sha256-1ro8UVFUsBuHEdTFT3hfMWhAXz58GC9eCrrLAJhW+ss=",
         "owner": "nix-community",
         "repo": "fenix",
-        "rev": "7c2b7156e777baefaceec297730930af75ccfdba",
+        "rev": "37a0c84cc09eb27fc8a038a75678a0d2de6151da",
         "type": "github"
       },
       "original": {
@@ -116,11 +116,11 @@
     "neovim-nightly": {
       "flake": false,
       "locked": {
-        "lastModified": 1616287916,
-        "narHash": "sha256-BUB7Hs0if/QYthMzwav9e1KS5HZHc8XDPIBDMuVX9z8=",
+        "lastModified": 1616342646,
+        "narHash": "sha256-rWLubr/XtEWSWUZbcg5lxp3DGjWwc67DwSi0lOeHV+Y=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "e5bef5974e900001cb6ed302b39a6f5ddf48d9a4",
+        "rev": "070e084a64dd08ff28c826843f0d61ca51837841",
         "type": "github"
       },
       "original": {
@@ -143,11 +143,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1616314335,
-        "narHash": "sha256-LgOnUatXbBJqIvu2RHhibVrc03hqHVboF5Q0NJmWnCo=",
+        "lastModified": 1616401070,
+        "narHash": "sha256-iqpjIKhxDRIGwLjv4DiX/ARcDEUNKLGb/fy0B8leW6U=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "037b3a20336900649b1aff66d9343c6999040897",
+        "rev": "5e3737ae3243e2e206360d39131d5eb6f65ecff5",
         "type": "github"
       },
       "original": {
