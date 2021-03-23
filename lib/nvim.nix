@@ -31,7 +31,6 @@
         set updatetime=300
 
         let g:bufferline = #{ animation: v:false }
-        let g:Hexokinase_highlighters = ["backgroundfull"]
         let g:indentLine_char = "⎸"
         let g:lightline = #{ colorscheme: "onedark" }
         let g:nvim_tree_auto_open = 1
