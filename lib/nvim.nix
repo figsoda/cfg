@@ -249,6 +249,7 @@
         barbar-nvim
         completion-nvim
         fzf-vim
+        gitsigns-nvim
         indentLine
         lightline-vim
         lsp_extensions-nvim
@@ -265,7 +266,6 @@
         vim-lastplace
         vim-markdown
         vim-nix
-        vim-signify
         vim-sneak
         vim-surround
         vim-toml
