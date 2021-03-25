@@ -44,7 +44,9 @@
     maim
     mmtc
     mpc_cli
-    (mpv.override { scripts = with mpvScripts; [ autoload sponsorblock ]; })
+    (mpv.override {
+      scripts = with mpvScripts; [ autoload sponsorblock thumbnail ];
+    })
     nixfmt
     pamixer
     papirus-icon-theme
