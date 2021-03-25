@@ -216,6 +216,8 @@
           local completion = require("completion")
           local lspconfig = require("lspconfig")
 
+          require("gitsigns").setup()
+
           lspconfig.rnix.setup {
             cmd = {"${pkgs.rnix-lsp}/bin/rnix-lsp"},
             on_attach = completion.on_attach,
