@@ -164,5 +164,6 @@
       mv = "${coreutils}/bin/mv -i";
       rm = "${coreutils}/bin/rm -I";
     };
+    useBabelfish = true;
   };
 }
