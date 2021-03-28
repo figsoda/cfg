@@ -216,6 +216,8 @@
           local completion = require("completion")
           local lspconfig = require("lspconfig")
 
+          require("colorizer").setup(nil, {css = true})
+
           require("gitsigns").setup()
 
           lspconfig.rnix.setup {
@@ -255,6 +257,7 @@
         indentLine
         lightline-vim
         lsp_extensions-nvim
+        nvim-colorizer-lua
         nvim-lspconfig
         nvim-tree-lua
         nvim-web-devicons
@@ -263,7 +266,6 @@
         popup-nvim
         vim-commentary
         vim-fugitive
-        vim-hexokinase
         vim-json
         vim-lastplace
         vim-markdown
