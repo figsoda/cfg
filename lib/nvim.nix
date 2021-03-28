@@ -32,7 +32,10 @@
 
         let g:bufferline = #{ animation: v:false }
         let g:indentLine_char = "⎸"
-        let g:lightline = #{ colorscheme: "onedark" }
+        let g:lightline = #{
+        \ colorscheme: "onedark",
+        \ enable: #{ tabline: 0 },
+        \ }
         let g:nvim_tree_auto_open = 1
         let g:nvim_tree_icons = #{ default: "" }
         let g:nvim_tree_ignore = [".git"]
@@ -60,7 +63,7 @@
         function s:close()
           let win = winnr("$")
           if win == 1 || win == 2 && bufnr("NvimTree") != -1
-            BufferClose
+            bdelete
           else
             quit
           end
@@ -122,9 +125,9 @@
         nn <m-k> <cmd>resize +2<cr>
         nn <m-l> <cmd>vertical resize +2<cr>
 
-        nn <tab> <cmd>BufferNext<cr>
-        nn <m-tab> <cmd>BufferPick<cr>
-        nn <s-tab> <cmd>BufferPrevious<cr>
+        nn <tab> <cmd>BufferLineCycleNext<cr>
+        nn <m-tab> <cmd>BufferLinePick<cr>
+        nn <s-tab> <cmd>BufferLineCyclePrev<cr>
 
         nn g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
         nn g] <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
@@ -197,11 +200,6 @@
         \   enabled = {"ChainingHint", "TypeHint"},
         \ }
 
-        autocmd ColorScheme * call onedark#extend_highlight(
-        \ "TabLineFill",
-        \ #{ bg: #{ gui: "#1f2227" } },
-        \ )
-
         autocmd FileType nix ino <buffer> <expr> '''<cr> <sid>indent_pair("'''", "'''")
 
         autocmd FileType yaml setlocal shiftwidth=2
@@ -215,6 +213,42 @@
         lua <<EOF
           local completion = require("completion")
           local lspconfig = require("lspconfig")
+
+          require("bufferline").setup {
+            highlights = {
+              background = {guibg = "#1f2227"},
+              buffer_visible = {guibg = "#1f2227"},
+              duplicate = {guibg = "#1f2227"},
+              duplicate_visible = {guibg = "#1f2227"},
+              error = {guibg = "#1f2227"},
+              error_visible = {guibg = "#1f2227"},
+              fill = {guibg = "#1f2227"},
+              indicator_selected = {guifg = "#61afef"},
+              modified = {guibg = "#1f2227"},
+              modified_visible = {guibg = "#1f2227"},
+              pick = {guibg = "#1f2227"},
+              pick_visible = {guibg = "#1f2227"},
+              separator = {
+                guifg = "#1f2227",
+                guibg = "#1f2227",
+              },
+              separator_visible = {
+                guifg = "#1f2227",
+                guibg = "#1f2227",
+              },
+              tab = {guibg = "#1f2227"},
+              tab_close = {guibg = "#1f2227"},
+              warning = {guibg = "#1f2227"},
+              warning_selected = {guifg = "#e5c07b"},
+              warning_visible = {guibg = "#1f2227"},
+            },
+            options = {
+              custom_filter = function(n)
+                return vim.fn.isdirectory(vim.fn.bufname(n)) == 0
+              end,
+              diagnostics = "nvim_lsp",
+            },
+          }
 
           require("colorizer").setup(nil, {css = true})
 
@@ -250,13 +284,13 @@
         EOF
       '';
       packages.all.start = with pkgs.vimPlugins; [
-        barbar-nvim
         completion-nvim
         fzf-vim
         gitsigns-nvim
         indentLine
         lightline-vim
         lsp_extensions-nvim
+        nvim-bufferline-lua
         nvim-colorizer-lua
         nvim-lspconfig
         nvim-tree-lua
