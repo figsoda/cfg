@@ -31,6 +31,7 @@
         set updatetime=300
 
         let g:bufferline = #{ animation: v:false }
+        let g:completion_confirm_key = ""
         let g:indentLine_char = "⎸"
         let g:lightline = #{
         \ colorscheme: "onedark",
@@ -69,9 +70,31 @@
           end
         endf
 
-        function s:indent_pair(l, r)
+        function s:cr()
+          if pumvisible()
+            if complete_info()["selected"] != "-1"
+              call completion#completion_confirm()
+              return ""
+            else
+              let pre = "\<c-e>"
+            end
+          else
+            let pre = ""
+          end
+
+          let line = getline(".")
+          let pos = col(".")
+          if get(g:pairs, line[pos - 2], 1) == line[pos - 1]
+            let indent = repeat(" ", indent(line(".")))
+            return printf("%s\<cr>\<c-u>\<cr>\<c-u>%s\<up>%s\<tab>", pre, indent, indent)
+          else
+            return pre . "\<cr>"
+          end
+        endf
+
+        function s:indent_pair(r)
           let indent = repeat(" ", indent(line(".")))
-          return printf("%s\<cr>\<c-u>\<cr>\<c-u>%s%s\<up>%s\<tab>", a:l, indent, a:r, indent)
+          return printf("\<cr>\<c-u>\<cr>\<c-u>%s%s\<up>%s\<tab>", indent, a:r, indent)
         endf
 
         function s:in_pair()
@@ -180,9 +203,9 @@
         ino <c-s> <cmd>write<cr>
         ino <c-w> <cmd>call <sid>close()<cr><esc>
         ino <expr> <bs> <sid>in_pair() ? "<bs><del>" : "<bs>"
+        ino <expr> <cr> <sid>cr()
 
         for [l, r] in items(g:pairs)
-          exec printf("ino <expr> %s<cr> <sid>indent_pair('%s', '%s')", l, l, r)
           if l == r
             exec printf("ino <expr> %s <sid>quote('%s')", l, l)
           else
@@ -200,7 +223,8 @@
         \   enabled = {"ChainingHint", "TypeHint"},
         \ }
 
-        autocmd FileType nix ino <buffer> <expr> '''<cr> <sid>indent_pair("'''", "'''")
+        autocmd FileType nix ino <buffer> <expr> '''<cr> "'''" . <sid>indent_pair("'''")
+        autocmd FileType nix ino <buffer> '''' ''''
 
         autocmd FileType yaml setlocal shiftwidth=2
 
