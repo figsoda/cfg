@@ -120,7 +120,7 @@ local kbs = {
     {m, "Return", exec("alacritty")},
     {m, "b", exec("firefox")},
     {m, "c", exec_sh("CM_LAUNCHER=rofi clipmenu -p clipmenu")},
-    {ms, "c", exec {"clipdel", "-d", "."}},
+    {ms, "c", exec_sh("xsel -bc; clipdel -d .")},
     {m, "e", exec("codium")},
     {m, "f", exec("spacefm")},
     {m, "m", exec {"alacritty", "-e", "mmtc"}},
