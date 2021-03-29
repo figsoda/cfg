@@ -73,7 +73,7 @@
         function s:cr()
           if pumvisible()
             if complete_info()["selected"] != "-1"
-              call completion#completion_confirm()
+              completion#completion_confirm()
               return ""
             else
               let pre = "\<c-e>"
