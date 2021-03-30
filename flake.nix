@@ -46,6 +46,7 @@
             };
             nixPath = [ "nixos=${nixpkgs}" "nixpkgs=${nixpkgs}" ];
             package = pkgs.nixUnstable;
+            registry.nixpkgs.flake = nixpkgs;
           };
 
           nixpkgs = {

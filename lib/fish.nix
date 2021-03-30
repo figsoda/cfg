@@ -108,12 +108,12 @@
       end
 
       function run -a pkg
-        ${nix} run --inputs-from /etc/nixos nixpkgs#$pkg -- $argv[2 ..]
+        ${nix} run nixpkgs#$pkg -- $argv[2 ..]
       end
 
       function with
         IN_NIX_SHELL=impure name="with: "(string join ", " $argv) \
-          ${nix} shell --inputs-from /etc/nixos nixpkgs#$argv
+          ${nix} shell nixpkgs#$argv
       end
     '';
     loginShellInit = ''
