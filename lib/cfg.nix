@@ -23,8 +23,8 @@
     };
     fonts = with pkgs; [
       cascadia-code
-      noto-fonts-emoji
       (nerdfonts.override { fonts = [ "Arimo" "JetBrainsMono" ]; })
+      noto-fonts-emoji
       source-han-sans
     ];
   };
