@@ -192,6 +192,7 @@
 
         ino <c-a> <home>
         ino <c-e> <end>
+        ino <c-l> <cmd>call setline(".", getline(".") . nr2char(getchar()))<cr>
         ino <c-q> <cmd>confirm quitall<cr>
         ino <c-s> <cmd>write<cr>
         ino <c-w> <cmd>call <sid>close()<cr><esc>
