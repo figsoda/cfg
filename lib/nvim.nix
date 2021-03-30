@@ -86,7 +86,7 @@
           let pos = col(".")
           if get(g:pairs, line[pos - 2], 1) == line[pos - 1]
             let indent = repeat(" ", indent(line(".")))
-            return printf("%s\<cr>\<c-u>\<cr>\<c-u>%s\<up>%s\<tab>", pre, indent, indent)
+            return printf("%s\<cr> \<c-u>\<cr> \<c-u>%s\<up>%s\<tab>", pre, indent, indent)
           else
             return pre . "\<cr>"
           end
@@ -94,7 +94,7 @@
 
         function s:indent_pair(r)
           let indent = repeat(" ", indent(line(".")))
-          return printf("\<cr>\<c-u>\<cr>\<c-u>%s%s\<up>%s\<tab>", indent, a:r, indent)
+          return printf("\<cr> \<c-u>\<cr> \<c-u>%s%s\<up>%s\<tab>", indent, a:r, indent)
         endf
 
         function s:in_pair()
