@@ -135,10 +135,6 @@
         no <c-s> <cmd>write<cr>
         no <c-w> <cmd>call <sid>close()<cr>
 
-        nn R "_diwhp
-        nn x "_x
-        nn X "_X
-
         nn <c-h> <c-w>h
         nn <c-j> <c-w>j
         nn <c-k> <c-w>k
@@ -147,23 +143,8 @@
         nn <m-j> <cmd>resize -2<cr>
         nn <m-k> <cmd>resize +2<cr>
         nn <m-l> <cmd>vertical resize +2<cr>
-
-        nn <tab> <cmd>BufferLineCycleNext<cr>
         nn <m-tab> <cmd>BufferLinePick<cr>
         nn <s-tab> <cmd>BufferLineCyclePrev<cr>
-
-        nn g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
-        nn g] <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
-        nn ga <cmd>lua vim.lsp.buf.code_action()<cr>
-        nn gd <cmd>lua vim.lsp.buf.definition()<cr>
-        nn gf <cmd>lua vim.lsp.buf.formatting()<cr>
-        nn gk <cmd>lua vim.lsp.buf.hover()<cr>
-        nn gr <cmd>lua vim.lsp.buf.rename()<cr>
-        nn gt <cmd>lua vim.lsp.buf.type_definition()<cr>
-
-        nn tt <cmd>NvimTreeToggle<cr>
-        nn tr <cmd>NvimTreeRefresh<cr>
-
         nn <space>c<space> :!cargo<space>
         nn <space>cU <cmd>!cargo upgrade<cr>
         nn <space>cb <cmd>12split term://cargo build<cr>i
@@ -191,12 +172,24 @@
         nn <space>nt <cmd>12split term://${nix} flake check<cr>i
         nn <space>nu <cmd>!${nix} flake update<cr>
         nn <space>t <cmd>12split term://${pkgs.fish}/bin/fish<cr>i
+        nn <tab> <cmd>BufferLineCycleNext<cr>
+        nn R "_diwhp
+        nn X "_X
+        nn g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
+        nn g] <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
+        nn ga <cmd>lua vim.lsp.buf.code_action()<cr>
+        nn gd <cmd>lua vim.lsp.buf.definition()<cr>
+        nn gf <cmd>lua vim.lsp.buf.formatting()<cr>
+        nn gk <cmd>lua vim.lsp.buf.hover()<cr>
+        nn gr <cmd>lua vim.lsp.buf.rename()<cr>
+        nn gt <cmd>lua vim.lsp.buf.type_definition()<cr>
+        nn tr <cmd>NvimTreeRefresh<cr>
+        nn tt <cmd>NvimTreeToggle<cr>
+        nn x "_x
 
         vn < <gv
         vn > >gv
 
-        ino <expr> <tab> pumvisible() ? "<c-n>" : "<tab>"
-        ino <expr> <s-tab> pumvisible() ? "<c-p>" : "<s-tab>"
         ino <c-a> <home>
         ino <c-e> <end>
         ino <c-q> <cmd>confirm quitall<cr>
@@ -204,6 +197,8 @@
         ino <c-w> <cmd>call <sid>close()<cr><esc>
         ino <expr> <bs> <sid>in_pair() ? "<bs><del>" : "<bs>"
         ino <expr> <cr> <sid>cr()
+        ino <expr> <s-tab> pumvisible() ? "<c-p>" : "<s-tab>"
+        ino <expr> <tab> pumvisible() ? "<c-n>" : "<tab>"
 
         for [l, r] in items(g:pairs)
           if l == r
