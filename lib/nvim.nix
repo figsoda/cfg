@@ -64,9 +64,9 @@
         function s:close()
           let win = winnr("$")
           if win == 1 || win == 2 && bufnr("NvimTree") != -1
-            bdelete
+            confirm bdelete
           else
-            quit
+            confirm quit
           end
         endf
 
