@@ -152,12 +152,12 @@
         nn <s-tab> <cmd>BufferLineCyclePrev<cr>
         nn <space>c<space> :!cargo<space>
         nn <space>cU <cmd>!cargo upgrade<cr>
-        nn <space>cb <cmd>12split term://cargo build<cr>i
-        nn <space>cd <cmd>12split term://cargo doc --open<cr>i
+        nn <space>cb <cmd>T cargo build<cr>i
+        nn <space>cd <cmd>T cargo doc --open<cr>i
         nn <space>cf <cmd>!cargo fmt<cr>
         nn <space>cp <cmd>!${pkgs.cargo-play}/bin/cargo-play %<cr>
-        nn <space>cr <cmd>12split term://cargo run<cr>i
-        nn <space>ct <cmd>12split term://cargo test<cr>i
+        nn <space>cr <cmd>T cargo run<cr>i
+        nn <space>ct <cmd>T cargo test<cr>i
         nn <space>cu <cmd>!cargo update<cr>
         nn <space>g<space> :Git<space>
         nn <space>ga <cmd>Git add -p<cr>
@@ -170,13 +170,13 @@
         nn <space>gr <cmd>Rg!<cr>
         nn <space>gs <cmd>GFiles!?<cr>
         nn <space>n<space> :!nix<space>
-        nn <space>nb <cmd>12split term://${nix} build<cr>i
+        nn <space>nb <cmd>T ${nix} build<cr>i
         nn <space>nf <cmd>!${pkgs.fd}/bin/fd -H '.nix$' -x ${pkgs.nixfmt}/bin/nixfmt<cr>
-        nn <space>ni <cmd>12split term://${nix} repl<cr>ipkgs = import <nixpkgs> {}<cr><c-l>
-        nn <space>nr <cmd>12split term://${nix} run<cr>i
-        nn <space>nt <cmd>12split term://${nix} flake check<cr>i
+        nn <space>ni <cmd>T ${nix} repl<cr>ipkgs = import <nixpkgs> {}<cr><c-l>
+        nn <space>nr <cmd>T ${nix} run<cr>i
+        nn <space>nt <cmd>T ${nix} flake check<cr>i
         nn <space>nu <cmd>!${nix} flake update<cr>
-        nn <space>t <cmd>12split term://${pkgs.fish}/bin/fish<cr>i
+        nn <space>t <cmd>T ${pkgs.fish}/bin/fish<cr>i
         nn <tab> <cmd>BufferLineCycleNext<cr>
         nn R "_diwhp
         nn X "_X
@@ -232,6 +232,7 @@
         autocmd VimEnter * call <sid>init()
 
         command -nargs=? P call <sid>play(<f-args>)
+        command -nargs=+ T botright 12split term://<args>
 
         colorscheme onedark
         filetype plugin indent on
