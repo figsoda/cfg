@@ -61,15 +61,6 @@
         \ "{": "}",
         \ }
 
-        function s:close()
-          let win = winnr("$")
-          if win == 1 || win == 2 && bufnr("NvimTree") != -1
-            confirm bdelete
-          else
-            confirm quit
-          end
-        endf
-
         function s:cr()
           if pumvisible()
             if complete_info()["selected"] != "-1"
@@ -131,7 +122,7 @@
         no <c-_> <cmd>let @/ = ""<cr>
         no <c-q> <cmd>confirm quitall<cr>
         no <c-s> <cmd>write<cr>
-        no <c-w> <cmd>call <sid>close()<cr>
+        no <c-w> <cmd>confirm bdelete<cr>
 
         nn <c-h> <c-w>h
         nn <c-j> <c-w>j
@@ -193,7 +184,7 @@
         ino <c-l> <cmd>call setline(".", getline(".") . nr2char(getchar()))<cr>
         ino <c-q> <cmd>confirm quitall<cr>
         ino <c-s> <cmd>write<cr>
-        ino <c-w> <cmd>call <sid>close()<cr><esc>
+        ino <c-w> <cmd>confirm bdelete<cr><esc>
         ino <expr> <bs> <sid>in_pair() ? "<bs><del>" : "<bs>"
         ino <expr> <cr> <sid>cr()
         ino <expr> <s-tab> pumvisible() ? "<c-p>" : "<s-tab>"
