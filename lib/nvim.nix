@@ -82,9 +82,7 @@
             let pre = ""
           end
 
-          let line = getline(".")
-          let pos = col(".")
-          if get(g:pairs, line[pos - 2], 1) == line[pos - 1]
+          if s:in_pair()
             let indent = repeat(" ", indent(line(".")))
             return printf("%s\<cr> \<c-u>\<cr> \<c-u>%s\<up>%s\<tab>", pre, indent, indent)
           else
