@@ -86,6 +86,14 @@
           return printf("\<cr> \<c-u>\<cr> \<c-u>%s%s\<up>%s\<tab>", indent, a:r, indent)
         endf
 
+        function s:init()
+          let name = bufname(1)
+          if isdirectory(name)
+            exec "cd" name
+            bdelete 1
+          end
+        endf
+
         function s:in_pair()
           let line = getline(".")
           let pos = col(".")
@@ -213,6 +221,8 @@
 
         autocmd FileType yaml setlocal shiftwidth=2
 
+        autocmd VimEnter * call <sid>init()
+
         command -nargs=? P call <sid>play(<f-args>)
 
         colorscheme onedark
@@ -253,7 +263,7 @@
             },
             options = {
               custom_filter = function(n)
-                return vim.fn.isdirectory(vim.fn.bufname(n)) == 0
+                return vim.fn.bufname(n) ~= ""
               end,
               diagnostics = "nvim_lsp",
               show_close_icon = false,
