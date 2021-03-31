@@ -61,6 +61,14 @@
         \ "{": "}",
         \ }
 
+        function s:close()
+          if &buftype == "terminal"
+            quit
+          else
+            confirm bdelete
+          end
+        endf
+
         function s:cr()
           if pumvisible()
             if complete_info()["selected"] != "-1"
@@ -130,7 +138,7 @@
         no <c-_> <cmd>let @/ = ""<cr>
         no <c-q> <cmd>confirm quitall<cr>
         no <c-s> <cmd>write<cr>
-        no <c-w> <cmd>confirm bdelete<cr>
+        no <c-w> <cmd>call <sid>close()<cr>
 
         nn <c-h> <c-w>h
         nn <c-j> <c-w>j
