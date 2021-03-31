@@ -265,6 +265,7 @@
                 return vim.fn.isdirectory(vim.fn.bufname(n)) == 0
               end,
               diagnostics = "nvim_lsp",
+              show_close_icon = false,
             },
           }
 
