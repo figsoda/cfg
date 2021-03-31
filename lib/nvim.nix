@@ -53,7 +53,7 @@
         let g:vim_markdown_conceal = 0
         let g:vim_markdown_conceal_code_blocks = 0
 
-        let g:pairs = {
+        let s:pairs = {
         \ '"': '"',
         \ "(": ")",
         \ "[": "]",
@@ -105,7 +105,7 @@
         function s:in_pair()
           let line = getline(".")
           let pos = col(".")
-          return (get(g:pairs, line[pos - 2], 1) == line[pos - 1])
+          return (get(s:pairs, line[pos - 2], 1) == line[pos - 1])
         endf
 
         function s:in_word()
@@ -206,7 +206,7 @@
         ino <expr> <s-tab> pumvisible() ? "<c-p>" : "<s-tab>"
         ino <expr> <tab> pumvisible() ? "<c-n>" : "<tab>"
 
-        for [l, r] in items(g:pairs)
+        for [l, r] in items(s:pairs)
           if l == r
             exec printf("ino <expr> %s <sid>quote('%s')", l, l)
           else
