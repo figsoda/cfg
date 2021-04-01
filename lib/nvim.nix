@@ -19,7 +19,7 @@
         set relativenumber
         set scrolloff=2
         set shiftwidth=4
-        set shortmess+=c
+        set shortmess=aoOtTIcF
         set showtabline=2
         set signcolumn=yes
         set smartindent
