@@ -229,9 +229,9 @@
 
         autocmd FileType yaml setlocal shiftwidth=2
 
-        autocmd VimEnter * call <sid>init()
+        autocmd VimEnter * call s:init()
 
-        command -nargs=? P call <sid>play(<f-args>)
+        command -nargs=? P call s:play(<f-args>)
         command -nargs=+ T botright 12split term://<args>
 
         colorscheme onedark
