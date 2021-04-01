@@ -30,7 +30,6 @@
         set title
         set updatetime=300
 
-        let g:bufferline = #{ animation: v:false }
         let g:completion_confirm_key = ""
         let g:indentLine_char = "⎸"
         let g:lightline = #{
