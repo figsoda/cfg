@@ -76,15 +76,14 @@
 
       bind \cl "${ncurses}/bin/clear; fish_prompt"
 
-      function __fish_command_not_found_handler -e fish_command_not_found
+      function __fish_command_not_found_handler -e fish_command_not_found -a cmd
         history merge
-        set -l cmd $history[1]
-        history delete -Ce $cmd
-        if [ -d $argv[1] ]
-          echo "fish: Entering directory: $argv[1]" >&2
-          cd $argv[1]
+        history delete -Ce $history[1]
+        if [ -d $cmd ]
+          echo "fish: Entering directory: $cmd" >&2
+          cd $cmd
         else
-          echo "fish: Unknown command: $argv[1]" >&2
+          echo "fish: Unknown command: $cmd" >&2
         end
       end
 
