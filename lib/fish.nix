@@ -81,10 +81,10 @@
         set -l cmd $history[1]
         history delete -Ce $cmd
         if [ -d $argv[1] ]
-          echo "fish: Entering directory: $cmd" >&2
+          echo "fish: Entering directory: $argv[1]" >&2
           cd $argv[1]
         else
-          echo "fish: Unknown command: $cmd" >&2
+          echo "fish: Unknown command: $argv[1]" >&2
         end
       end
 
