@@ -9,11 +9,11 @@
         "rust-analyzer-src": "rust-analyzer-src"
       },
       "locked": {
-        "lastModified": 1617504122,
-        "narHash": "sha256-NDU+yXHacTLaoqC2xUMrxiZo/vzZ88zKW1kscJhKc9o=",
+        "lastModified": 1617590384,
+        "narHash": "sha256-qB8cXmPTM561ZIc701o6sYyVpHX8oUrZThqr/rqyxrk=",
         "owner": "nix-community",
         "repo": "fenix",
-        "rev": "1cec537c45f2faceedf5ced104303dbe61a0241c",
+        "rev": "c6340d1d77cf8cc93f4573864de6d28edebd1681",
         "type": "github"
       },
       "original": {
@@ -116,11 +116,11 @@
     "neovim-nightly": {
       "flake": false,
       "locked": {
-        "lastModified": 1617398143,
-        "narHash": "sha256-O2Q6qvVGE2UUqq9q4XGvV9DIwCI7awAkGPIwjmEbWbg=",
+        "lastModified": 1617522154,
+        "narHash": "sha256-88Dncl0VrLaH94ouQDRaLrXkwSvuRhdPRESrDnX0u1k=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "6db3ba9df27619703947fee11493354ca3a06878",
+        "rev": "ce976bf3559edca6d3a649c9053fab88959de6cf",
         "type": "github"
       },
       "original": {
@@ -143,11 +143,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1617437781,
-        "narHash": "sha256-oEeI5yxhjshR16rQFNlDHsszPxtqeYHwH6l8TkeWmiE=",
+        "lastModified": 1617524186,
+        "narHash": "sha256-j6+p95CRleYvlMhexsCsPLAen2UXL8jeNB3qFtTecy4=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "a8c4baa84129f046823b44f92ebf650263e64e85",
+        "rev": "956044637f7470df4277bfc2c9152a58d88dcdd9",
         "type": "github"
       },
       "original": {
@@ -216,11 +216,11 @@
     "rust-analyzer-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1617493630,
-        "narHash": "sha256-WSgz+Maktk20AsXhgm584lGl/XxCKhGxFUzGVSX/Yac=",
+        "lastModified": 1617579769,
+        "narHash": "sha256-ZDxy87F3uz8bTF1/2LIy5r4Nv/M3xe97F7mwJNEFcUs=",
         "owner": "rust-analyzer",
         "repo": "rust-analyzer",
-        "rev": "234ddf34c743924a15cca7480fb3b4db4581308e",
+        "rev": "19e09a4a54c75312aeaac04577f2d0e067463ab6",
         "type": "github"
       },
       "original": {
