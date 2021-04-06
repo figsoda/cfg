@@ -108,6 +108,10 @@
         commandline "git push -u origin main"
       end
 
+      function path -a name
+        realpath (which $name)
+      end
+
       function run -a pkg
         ${nix} run nixpkgs#$pkg -- $argv[2 ..]
       end
