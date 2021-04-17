@@ -159,15 +159,20 @@
         nn <space>ct <cmd>T cargo test<cr>i
         nn <space>cu <cmd>!cargo update<cr>
         nn <space>g<space> :Git<space>
+        nn <space>gB <cmd>Git blame<cr>
+        nn <space>gR <cmd>lua require("gitsigns").reset_buffer()<cr>
         nn <space>ga <cmd>Git add -p<cr>
-        nn <space>gb <cmd>Git blame<cr>
+        nn <space>gb <cmd>lua require("gitsigns").blame_line()<cr>
         nn <space>gc <cmd>Git commit<cr>
         nn <space>gf <cmd>GFiles!<cr>
+        nn <space>gh <cmd>lua require("gitsigns").preview_hunk()<cr>
         nn <space>gi <cmd>Git<cr>
         nn <space>gl <cmd>Commits!<cr>
         nn <space>gp <cmd>Git push<cr>
         nn <space>gr <cmd>Rg!<cr>
-        nn <space>gs <cmd>GFiles!?<cr>
+        nn <space>gr <cmd>lua require("gitsigns").reset_hunk()<cr>
+        nn <space>gs <cmd>lua require("gitsigns").stage_hunk()<cr>
+        nn <space>gu <cmd>lua require("gitsigns").undo_stage_hunk()<cr>
         nn <space>n<space> :!nix<space>
         nn <space>nb <cmd>T ${nix} build<cr>i
         nn <space>nf <cmd>!${pkgs.fd}/bin/fd -H '.nix$' -x ${pkgs.nixfmt}/bin/nixfmt<cr>
