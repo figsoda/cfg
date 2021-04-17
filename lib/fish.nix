@@ -50,30 +50,6 @@
         us = ''\e"[38;2;209;154;102m"'';
       })}
 
-      ${concatStringsSep "\n"
-      (mapAttrsFlatten (k: v: "abbr -ag ${k} ${escapeShellArg v}") {
-        c = "cargo";
-        cb = "cargo build";
-        cbr = "cargo build --release";
-        cr = "cargo run";
-        ct = "cargo test";
-        g = "git";
-        gb = "git branch";
-        gc = "git commit";
-        gcb = "git checkout -b";
-        gco = "git checkout";
-        gcp = "git commit -p";
-        gff = "git pull --ff-only";
-        gp = "git push";
-        n = "nix";
-        nb = "nix build";
-        nd = "nix develop -c fish";
-        nf = "nix flake";
-        nfu = "nix flake update";
-        npu = "nix-prefetch-url";
-        ns = "nix shell";
-      })}
-
       bind \cl "${ncurses}/bin/clear; fish_prompt"
 
       function __fish_command_not_found_handler -e fish_command_not_found -a cmd
@@ -162,6 +138,28 @@
         } -- -ardelay 400 -arinterval 32
       end
     '';
+    shellAbbrs = {
+      c = "cargo";
+      cb = "cargo build";
+      cbr = "cargo build --release";
+      cr = "cargo run";
+      ct = "cargo test";
+      g = "git";
+      gb = "git branch";
+      gc = "git commit";
+      gcb = "git checkout -b";
+      gco = "git checkout";
+      gcp = "git commit -p";
+      gff = "git pull --ff-only";
+      gp = "git push";
+      n = "nix";
+      nb = "nix build";
+      nd = "nix develop -c fish";
+      nf = "nix flake";
+      nfu = "nix flake update";
+      npu = "nix-prefetch-url";
+      ns = "nix shell";
+    };
     shellAliases = {
       cp = "${coreutils}/bin/cp -ir";
       ls =
