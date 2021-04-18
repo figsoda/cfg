@@ -164,12 +164,12 @@
         nn <space>ga <cmd>Git add -p<cr>
         nn <space>gb <cmd>lua require("gitsigns").blame_line()<cr>
         nn <space>gc <cmd>Git commit<cr>
-        nn <space>gf <cmd>GFiles!<cr>
+        nn <space>gf <cmd>Rg!<cr>
         nn <space>gh <cmd>lua require("gitsigns").preview_hunk()<cr>
         nn <space>gi <cmd>Git<cr>
         nn <space>gl <cmd>Commits!<cr>
+        nn <space>go <cmd>GFiles!<cr>
         nn <space>gp <cmd>Git push<cr>
-        nn <space>gr <cmd>Rg!<cr>
         nn <space>gr <cmd>lua require("gitsigns").reset_hunk()<cr>
         nn <space>gs <cmd>lua require("gitsigns").stage_hunk()<cr>
         nn <space>gu <cmd>lua require("gitsigns").undo_stage_hunk()<cr>
