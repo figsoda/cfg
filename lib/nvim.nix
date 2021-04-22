@@ -176,7 +176,7 @@
         nn <space>n<space> :!nix<space>
         nn <space>nb <cmd>T ${nix} build<cr>i
         nn <space>nf <cmd>!${pkgs.fd}/bin/fd -H '.nix$' -x ${pkgs.nixfmt}/bin/nixfmt<cr>
-        nn <space>ni <cmd>T ${nix} repl<cr>ipkgs = import <nixpkgs> {}<cr><c-l>
+        nn <space>ni <cmd>T ${nix} repl ${config.nix.registry.nixpkgs.flake}<cr>i
         nn <space>nr <cmd>T ${nix} run<cr>i
         nn <space>nt <cmd>T ${nix} flake check<cr>i
         nn <space>nu <cmd>!${nix} flake update<cr>
