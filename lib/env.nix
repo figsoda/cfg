@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   environment = {
     etc = {
       gitconfig.text = ''
@@ -25,8 +25,9 @@
         helper = ${
           pkgs.writeShellScript "credential-helper-github" ''
             if [ "$1" = get ]; then
-              echo "password=$(${pkgs.libressl}/bin/openssl aes-256-cbc \
-                -d -in ~/.config/secrets/github -pass file:<($SSH_ASKPASS))"
+              echo "password=$(${pkgs.libressl}/bin/openssl aes-256-cbc -d \
+                -in ~/.config/secrets/github \
+                -pass file:<(${config.programs.ssh.askPassword}))"
             fi
           ''
         }
