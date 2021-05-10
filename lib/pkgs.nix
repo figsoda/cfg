@@ -47,6 +47,7 @@
     (mpv.override {
       scripts = with mpvScripts; [ autoload sponsorblock thumbnail ];
     })
+    newsflash
     nixfmt
     pamixer
     papirus-icon-theme
