@@ -59,7 +59,7 @@
     qogir-theme
     ripgrep
     (rofi.override { plugins = [ rofi-calc rofi-emoji ]; })
-    (with rust-nightly;
+    (with fenix;
       combine (with default; [
         cargo
         clippy-preview

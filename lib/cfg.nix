@@ -78,7 +78,7 @@
   services = {
     auto-cpufreq.enable = true;
     blueman.enable = true;
-    gnome3.at-spi2-core.enable = true;
+    gnome.at-spi2-core.enable = true;
     journald.extraConfig = ''
       SystemMaxUse=256M
     '';
