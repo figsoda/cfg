@@ -31,6 +31,15 @@
     cargo-play
     clipmenu
     fd
+    (with fenix;
+      combine (with default; [
+        cargo
+        clippy-preview
+        rust-std
+        rustc
+        rustfmt-preview
+        latest.rust-src
+      ]))
     firefox
     fzf
     gcc
@@ -59,15 +68,6 @@
     qogir-theme
     ripgrep
     (rofi.override { plugins = [ rofi-calc rofi-emoji ]; })
-    (with fenix;
-      combine (with default; [
-        cargo
-        clippy-preview
-        rust-std
-        rustc
-        rustfmt-preview
-        latest.rust-src
-      ]))
     sd
     spaceFM
     sxiv
