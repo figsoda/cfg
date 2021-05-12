@@ -37,7 +37,6 @@
     gimp
     git
     gitAndTools.delta
-    libreoffice-fresh
     libressl
     llvmPackages_latest.lld
     luaformatter
@@ -49,6 +48,7 @@
     })
     newsflash
     nixfmt
+    onlyoffice-bin
     pamixer
     papirus-icon-theme
     pavucontrol
