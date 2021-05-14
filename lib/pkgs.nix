@@ -63,14 +63,15 @@
     psmisc
     python3
     qalculate-gtk
-    tela-icon-theme
+    qogir-icon-theme
     qogir-theme
     ripgrep
+    rnix-lsp
     (rofi.override { plugins = [ rofi-calc rofi-emoji ]; })
     sd
     spaceFM
     sxiv
-    rnix-lsp
+    tela-icon-theme
     (vscode-with-extensions.override {
       vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [
