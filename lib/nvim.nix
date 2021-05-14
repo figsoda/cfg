@@ -143,11 +143,13 @@
         nn <c-j> <c-w>j
         nn <c-k> <c-w>k
         nn <c-l> <c-w>l
+        nn <m-down> <cmd>move +1<cr>
         nn <m-h> <cmd>vertical resize -2<cr>
         nn <m-j> <cmd>resize -2<cr>
         nn <m-k> <cmd>resize +2<cr>
         nn <m-l> <cmd>vertical resize +2<cr>
         nn <m-tab> <cmd>BufferLinePick<cr>
+        nn <m-up> <cmd>move -2<cr>
         nn <s-tab> <cmd>BufferLineCyclePrev<cr>
         nn <space>c<space> :!cargo<space>
         nn <space>cU <cmd>!cargo upgrade<cr>
@@ -209,6 +211,8 @@
         ino <expr> <cr> <sid>cr()
         ino <expr> <s-tab> pumvisible() ? "<c-p>" : "<s-tab>"
         ino <expr> <tab> pumvisible() ? "<c-n>" : "<tab>"
+        ino <m-down> <cmd>move +1<cr>
+        ino <m-up> <cmd>move -2<cr>
 
         for [l, r] in items(s:pairs)
           if l == r
