@@ -59,12 +59,11 @@
     nixfmt
     onlyoffice-bin
     pamixer
-    papirus-icon-theme
     pavucontrol
     psmisc
     python3
     qalculate-gtk
-    qogir-icon-theme
+    tela-icon-theme
     qogir-theme
     ripgrep
     (rofi.override { plugins = [ rofi-calc rofi-emoji ]; })
