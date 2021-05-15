@@ -30,7 +30,6 @@
         set title
         set updatetime=300
 
-        let g:completion_confirm_key = ""
         let g:indentLine_char = "⎸"
         let g:lightline = #{
         \ colorscheme: "onedark",
@@ -65,26 +64,6 @@
             quit
           else
             confirm bdelete
-          end
-        endf
-
-        function s:cr()
-          if pumvisible()
-            if complete_info()["selected"] != "-1"
-              completion#completion_confirm()
-              return ""
-            else
-              let pre = "\<c-e>"
-            end
-          else
-            let pre = ""
-          end
-
-          if s:in_pair()
-            let indent = repeat(" ", indent(line(".")))
-            return printf("%s\<cr> \<c-u>\<cr> \<c-u>%s\<up>%s\<tab>", pre, indent, indent)
-          else
-            return pre . "\<cr>"
           end
         endf
 
@@ -208,7 +187,7 @@
         ino <c-s> <cmd>write<cr>
         ino <c-w> <cmd>confirm bdelete<cr><esc>
         ino <expr> <bs> <sid>in_pair() ? "<bs><del>" : "<bs>"
-        ino <expr> <cr> <sid>cr()
+        ino <expr> <cr> compe#confirm(<sid>in_pair() ? <sid>indent_pair("") : "<cr>")
         ino <expr> <s-tab> pumvisible() ? "<c-p>" : "<s-tab>"
         ino <expr> <tab> pumvisible() ? "<c-n>" : "<tab>"
         ino <m-down> <cmd>move +1<cr>
@@ -247,7 +226,6 @@
         syntax enable
 
         lua <<EOF
-          local completion = require("completion")
           local lspconfig = require("lspconfig")
 
           require("bufferline").setup {
@@ -289,16 +267,22 @@
 
           require("colorizer").setup(nil, {css = true})
 
+          require("compe").setup {
+            source = {
+              buffer = true,
+              path = true,
+              nvim_lsp = true,
+            },
+          }
+
           require("gitsigns").setup()
 
           lspconfig.rnix.setup {
             cmd = {"${pkgs.rnix-lsp}/bin/rnix-lsp"},
-            on_attach = completion.on_attach,
           }
 
           lspconfig.rust_analyzer.setup {
             cmd = {"${pkgs.rust-analyzer-nightly}/bin/rust-analyzer"},
-            on_attach = completion.on_attach,
             settings = {
               ["rust-analyzer"] = {
                 assist = {
@@ -319,7 +303,6 @@
         EOF
       '';
       packages.all.start = with pkgs.vimPlugins; [
-        completion-nvim
         fzf-vim
         gitsigns-nvim
         indentLine
@@ -327,6 +310,7 @@
         lsp_extensions-nvim
         nvim-bufferline-lua
         nvim-colorizer-lua
+        nvim-compe
         nvim-lspconfig
         nvim-tree-lua
         nvim-web-devicons
