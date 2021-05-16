@@ -277,6 +277,8 @@
 
           require("gitsigns").setup()
 
+          require("lspkind").init()
+
           lspconfig.rnix.setup {
             cmd = {"${pkgs.rnix-lsp}/bin/rnix-lsp"},
           }
@@ -308,6 +310,7 @@
         indentLine
         lightline-vim
         lsp_extensions-nvim
+        lspkind-nvim
         nvim-bufferline-lua
         nvim-colorizer-lua
         nvim-compe
