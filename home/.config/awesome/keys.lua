@@ -137,7 +137,7 @@ local kbs = {
                 | xargs -i xdg-open ~/{}"
         ),
     },
-    {m, "r", exec {"rofi", "-show", "run", "-modi", "run"}},
+    {m, "r", exec {"rofi", "-show", "run", "-modi", "run,drun"}},
     {m, "t", exec("rofi-todo")},
     {
         m,
