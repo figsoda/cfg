@@ -228,6 +228,12 @@
         lua <<EOF
           local lspconfig = require("lspconfig")
 
+          local cap = vim.lsp.protocol.make_client_capabilities()
+          cap.textDocument.completion.completionItem.snippetSupport = true
+          cap.textDocument.completion.completionItem.resovleSupport = {
+            properties = {"additionalTextEdits"},
+          }
+
           require("bufferline").setup {
             highlights = {
               background = {guibg = "#1f2227"},
@@ -284,6 +290,7 @@
           }
 
           lspconfig.rust_analyzer.setup {
+            capabilities = cap,
             cmd = {"${pkgs.rust-analyzer-nightly}/bin/rust-analyzer"},
             settings = {
               ["rust-analyzer"] = {
@@ -330,6 +337,7 @@
         vim-surround
         vim-toml
         vim-visual-multi
+        vim-vsnip
       ];
     };
     package = pkgs.neovim-nightly;
