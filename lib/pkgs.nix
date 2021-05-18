@@ -58,7 +58,6 @@
     })
     newsflash
     nixfmt
-    onlyoffice-bin
     pamixer
     pavucontrol
     psmisc
