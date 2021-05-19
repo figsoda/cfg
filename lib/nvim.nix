@@ -337,6 +337,7 @@
         vim-surround
         vim-toml
         vim-visual-multi
+        vim-vsnip
       ];
     };
     package = pkgs.neovim-nightly;
