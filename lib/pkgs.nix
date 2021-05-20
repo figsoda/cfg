@@ -30,6 +30,7 @@
     cargo-edit
     cargo-play
     clipmenu
+    element-desktop
     fd
     (with fenix;
       combine (with default; [
