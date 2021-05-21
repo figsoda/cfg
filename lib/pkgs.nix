@@ -30,7 +30,9 @@
     cargo-edit
     cargo-play
     clipmenu
-    element-desktop
+    (element-desktop.override {
+      element-web = element-web.override { conf.showLabSettings = true; };
+    })
     fd
     (with fenix;
       combine (with default; [
