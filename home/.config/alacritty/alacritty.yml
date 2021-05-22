@@ -41,7 +41,3 @@ cursor:
 
 shell:
   program: fish
-
-mouse:
-  url:
-    modifiers: Control
