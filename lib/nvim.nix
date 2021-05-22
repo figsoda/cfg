@@ -6,6 +6,7 @@
       customRC = let nix = "${config.nix.package}/bin/nix";
       in ''
         set clipboard+=unnamedplus
+        set colorcolumn=10000
         set completeopt=menuone,noinsert,noselect
         set cursorline
         set expandtab
@@ -30,7 +31,9 @@
         set title
         set updatetime=300
 
-        let g:indentLine_char = "⎸"
+        let g:indent_blankline_buftype_exclude = ["terminal"]
+        let g:indent_blankline_char = "⎸"
+        let g:indent_blankline_filetype_exclude = ["help", "NvimTree"]
         let g:lightline = #{
         \ colorscheme: "onedark",
         \ enable: #{ tabline: 0 },
@@ -321,7 +324,7 @@
       packages.all.start = with pkgs.vimPlugins; [
         fzf-vim
         gitsigns-nvim
-        indentLine
+        indent-blankline-nvim-lua
         lightline-vim
         lsp_extensions-nvim
         lsp_signature-nvim
