@@ -80,11 +80,9 @@ function widget.mpd()
                     awful.spawn {"alacritty", "-e", "mmtc"}
                 end
             ), --
-            awful.button(
-                {}, 3, function()
-                    awful.screen.focused().mpd.next()
-                end
-            )
+            awful.button({}, 3, function()
+                awful.screen.focused().mpd.next()
+            end)
         ),
         widget.padding(8),
         status,
