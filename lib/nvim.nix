@@ -292,6 +292,13 @@
           lspconfig.rust_analyzer.setup {
             capabilities = cap,
             cmd = {"${pkgs.rust-analyzer-nightly}/bin/rust-analyzer"},
+            on_attach = function()
+              require("lsp_signature").on_attach {
+                handler_opts = {
+                  border = "double",
+                },
+              }
+            end,
             settings = {
               ["rust-analyzer"] = {
                 assist = {
@@ -317,6 +324,7 @@
         indentLine
         lightline-vim
         lsp_extensions-nvim
+        lsp_signature-nvim
         lspkind-nvim
         nvim-bufferline-lua
         nvim-colorizer-lua
