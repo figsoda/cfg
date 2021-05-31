@@ -71,7 +71,7 @@ awful.screen.connect_for_each_screen(
         )
         textclock.font = b.textclock_font
         awful.widget.calendar_popup.month {font = "monospace 12"}:attach(
-            textclock, "tr", {on_hover = false}
+            textclock, "tr"
         )
 
         s.panel = awful.wibar {screen = s}
