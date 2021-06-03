@@ -104,15 +104,12 @@
         endf
 
         function s:quote(c)
-          let line = getline(".")
-          let pos = col(".") - 1
-          let r = line[pos]
-          if r == a:c
-            return "\<right>"
-          elseif pos == len(line) || r !~ '\w'
-            return a:c . a:c . "\<left>"
+          let pos = col(".")
+          let syn = synIDattr(synIDtrans(synID(line("."), pos, 1)), "name")
+          if syn == "String" || syn == "Delimiter"
+            return getline(".")[pos - 1] == a:c ? "\<right>" : a:c
           else
-            return a:c
+            return a:c . a:c . "\<left>"
           end
         endf
 
