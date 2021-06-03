@@ -70,6 +70,18 @@
           end
         endf
 
+        function s:cr_nix()
+          let line = getline(".")
+          let pos = col(".")
+          if get(s:pairs, line[pos - 2], 1) == line[pos - 1]
+            return s:indent_pair("")
+          elseif line[pos - 3 : pos - 2] == "'''" && line[pos - 4] != "'"
+            return s:indent_pair("'''")
+          else
+            return "\<cr>"
+          end
+        endf
+
         function s:indent_pair(r)
           let indent = repeat(" ", indent(line(".")))
           return printf("\<cr> \<c-u>\<cr> \<c-u>%s%s\<up>%s\<tab>", indent, a:r, indent)
@@ -204,11 +216,10 @@
 
         tno <expr> <esc> stridx(b:term_title, "#FZF") == -1 ? "<c-\><c-n>" : "<esc>"
 
-        autocmd FileType nix ino <buffer> <expr> '''<cr> "'''" . <sid>indent_pair("'''")
-        autocmd FileType nix ino <buffer> '''' ''''
+        autocmd FileType nix ino <buffer> <expr> <cr> compe#confirm(<sid>cr_nix())
 
         autocmd FileType rust nn <buffer> J <cmd>RustJoinLines<cr>
-        autocmd fileType rust nn <buffer> ge <cmd>RustExpandMacro<cr>
+        autocmd FileType rust nn <buffer> ge <cmd>RustExpandMacro<cr>
 
         autocmd FileType yaml setlocal shiftwidth=2
 
