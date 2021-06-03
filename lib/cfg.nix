@@ -11,6 +11,11 @@
     };
   };
 
+  documentation = {
+    doc.enable = false;
+    info.enable = false;
+  };
+
   fonts = {
     fontconfig = {
       defaultFonts = {
