@@ -11,6 +11,8 @@
     };
   };
 
+  console.useXkbConfig = true;
+
   documentation = {
     doc.enable = false;
     info.enable = false;
@@ -124,6 +126,7 @@
         enable = true;
         noArgb = true;
       };
+      xkbOptions = "ctrl:nocaps";
     };
   };
 
