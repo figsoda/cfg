@@ -219,7 +219,7 @@
 
         autocmd FileType yaml setlocal shiftwidth=2
 
-        autocmd VimEnter * call s:init()
+        autocmd VimEnter * silent exec "!kill -s SIGWINCH" getpid() | call s:init()
 
         command -nargs=? P call s:play(<f-args>)
         command -nargs=+ T botright 12split term://<args>
