@@ -207,15 +207,11 @@
 
         tno <expr> <esc> stridx(b:term_title, "#FZF") == -1 ? "<c-\><c-n>" : "<esc>"
 
-        autocmd BufEnter,BufWinEnter,TabEnter *.rs lua
-        \ require("lsp_extensions").inlay_hints {
-        \   prefix = "",
-        \   highlight = "Comment",
-        \   enabled = {"ChainingHint", "TypeHint"},
-        \ }
-
         autocmd FileType nix ino <buffer> <expr> '''<cr> "'''" . <sid>indent_pair("'''")
         autocmd FileType nix ino <buffer> '''' ''''
+
+        autocmd FileType rust nn <buffer> J <cmd>RustJoinLines<cr>
+        autocmd fileType rust nn <buffer> ge <cmd>RustExpandMacro<cr>
 
         autocmd FileType yaml setlocal shiftwidth=2
 
@@ -229,8 +225,6 @@
         syntax enable
 
         lua <<EOF
-          local lspconfig = require("lspconfig")
-
           local cap = vim.lsp.protocol.make_client_capabilities()
           cap.textDocument.completion.completionItem.snippetSupport = true
           cap.textDocument.completion.completionItem.resovleSupport = {
@@ -286,30 +280,38 @@
 
           require("gitsigns").setup()
 
-          require("lspkind").init()
-
-          lspconfig.rnix.setup {
+          require("lspconfig").rnix.setup {
             cmd = {"${pkgs.rnix-lsp}/bin/rnix-lsp"},
           }
 
-          lspconfig.rust_analyzer.setup {
-            capabilities = cap,
-            cmd = {"${pkgs.rust-analyzer-nightly}/bin/rust-analyzer"},
-            on_attach = function()
-              require("lsp_signature").on_attach {
-                handler_opts = {
-                  border = "double",
+          require("lspkind").init()
+
+          require("rust-tools").setup {
+            server = {
+              capabilities = cap,
+              cmd = {"${pkgs.rust-analyzer-nightly}/bin/rust-analyzer"},
+              on_attach = function()
+                require("lsp_signature").on_attach {
+                  handler_opts = {
+                    border = "double",
+                  },
+                }
+              end,
+              settings = {
+                ["rust-analyzer"] = {
+                  assist = {
+                    importPrefix = "by_crate",
+                  },
+                  checkOnSave = {
+                    command = "clippy",
+                  },
                 },
-              }
-            end,
-            settings = {
-              ["rust-analyzer"] = {
-                assist = {
-                  importPrefix = "by_crate",
-                },
-                checkOnSave = {
-                  command = "clippy",
-                },
+              },
+            },
+            tools = {
+              inlay_hints = {
+                other_hints_prefix = "",
+                show_parameter_hints = false,
               },
             },
           }
@@ -326,7 +328,6 @@
         gitsigns-nvim
         indent-blankline-nvim-lua
         lightline-vim
-        lsp_extensions-nvim
         lsp_signature-nvim
         lspkind-nvim
         nvim-bufferline-lua
@@ -338,6 +339,7 @@
         onedark-vim
         plenary-nvim
         popup-nvim
+        rust-tools-nvim
         vim-commentary
         vim-fugitive
         vim-json
