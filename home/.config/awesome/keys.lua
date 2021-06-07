@@ -50,12 +50,12 @@ local kbs = {
         function()
             awful.spawn.easy_async_with_shell(
                 "echo '\z
-                    1 ⏻  shutdown,\z
-                    2   reboot,\z
-                    3 ⏼  suspend,\z
+                    1 ⏻  shutdown | poweroff,\z
+                    2   reboot | restart,\z
+                    3 ⏼  suspend | sleep,\z
                     4 望  hibernate,\z
                     5   lock screen,\z
-                    6   quit awesome,\z
+                    6   quit | log out,\z
                     7   reload awesome\z
                     ' | rofi -dmenu -sep , \z
                         -p session -format i -no-custom -select 7", --
