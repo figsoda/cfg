@@ -116,19 +116,19 @@
                   ${xorg.xset}/bin/xset dpms force standby &
                   ${i3lock-color}/bin/i3lock-color \
                     -i ~/.config/wallpaper.png -k \
-                    --{inside{ver,wrong,},ring,line,separator}color=00000000 \
-                    --ringvercolor=98c379 --ringwrongcolor=f83c40 \
-                    --keyhlcolor=61afef --bshlcolor=d19a66 \
-                    --verifcolor=98c379 --wrongcolor=f83c40 \
-                    --indpos=x+w/7:y+h-w/8 \
+                    --{inside{ver,wrong,},ring,line,separator}-color=00000000 \
+                    --ringver-color=98c379 --ringwrong-color=f83c40 \
+                    --keyhl-color=61afef --bshl-color=d19a66 \
+                    --verif-color=98c379 --wrong-color=f83c40 \
+                    --ind-pos=x+w/7:y+h-w/8 \
                     --{time,date}-font=monospace \
-                    --{layout,verif,wrong,greeter}size=32 \
-                    --timecolor=61afef --timesize=36 \
-                    --datepos=ix:iy+36 --datecolor=98c379 --datestr=%F --datesize=28 \
-                    --veriftext=Verifying... \
-                    --wrongtext="Try again!" \
-                    --noinputtext="No input" \
-                    --locktext=Locking... --lockfailedtext="Lock failed!" \
+                    --{layout,verif,wrong,greeter}-size=32 \
+                    --time-color=61afef --time-size=36 \
+                    --date-pos=ix:iy+36 --date-color=98c379 --date-str=%F --date-size=28 \
+                    --verif-text=Verifying... \
+                    --wrong-text="Try again!" \
+                    --noinput-text="No input" \
+                    --lock-text=Locking... --lockfailed-text="Lock failed!" \
                     --radius 108 --ring-width 8
                 ''
               } "" \
