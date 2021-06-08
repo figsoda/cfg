@@ -121,7 +121,13 @@ local kbs = {
     {m, "b", exec("firefox")},
     {m, "c", exec_sh("CM_LAUNCHER=rofi clipmenu -p clipmenu")},
     {ms, "c", exec_sh("xsel -bc; clipdel -d .")},
-    {m, "e", exec {"alacritty", "-e", "nvim", "dotfiles"}},
+    {
+        m,
+        "e",
+        exec_sh(
+            "fd -d 1 -t d | rofi -dmenu -p edit -i | xargs -r alacritty -e nvim"
+        ),
+    },
     {m, "f", exec("spacefm")},
     {m, "m", exec {"alacritty", "-e", "mmtc"}},
     {ms, "m", function() awful.screen.focused().mpd.reload() end},
