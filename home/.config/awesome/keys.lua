@@ -125,18 +125,7 @@ local kbs = {
     {m, "f", exec("spacefm")},
     {m, "m", exec {"alacritty", "-e", "mmtc"}},
     {ms, "m", function() awful.screen.focused().mpd.reload() end},
-    {
-        m,
-        "o",
-        exec_sh(
-            "fd . ~ \z
-                | sd '^'$HOME/ '' \z
-                | rofi -dmenu \z
-                    -p 'fuzzy finder' -fullscreen \z
-                    -i -matching fuzzy -sorting-method fzf \z
-                | xargs -i xdg-open ~/{}"
-        ),
-    },
+    {m, "o", exec_sh("xdg-open (fd | rofi -dmenu -p open -i -matching fuzzy)")},
     {m, "r", exec {"rofi", "-show", "run", "-modi", "run,drun"}},
     {m, "t", exec("rofi-todo")},
     {
