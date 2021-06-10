@@ -1,5 +1,6 @@
 local awful = require("awful")
 local gears = require("gears")
+local naughty = require("naughty")
 
 local c = {"Control"}
 local m = {"Mod4"}
@@ -33,6 +34,22 @@ local function trigger(timers)
         "xidlehook-client --socket /tmp/xidlehook.sock \z
         control --action trigger --timer " .. timers
     )
+end
+
+local function maim(flags)
+    return function()
+        local name = os.date("%Y%m%d%H%M%S") .. ".png"
+        awful.spawn.easy_async_with_shell(
+            "maim ~/" .. name .. " " .. flags, function()
+                naughty.notify {
+                    text = name,
+                    title = "screenshot created",
+                    icon = os.getenv("HOME") .. "/" .. name,
+                    icon_size = 96,
+                }
+            end
+        )
+    end
 end
 
 local ckbs = {
@@ -115,8 +132,8 @@ local kbs = {
     {c, "XF86MonBrightnessDown", exec {"xbacklight", "-1", "-time", "0"}},
     {c, "XF86MonBrightnessUp", exec {"xbacklight", "+1", "-time", "0"}},
 
-    {{}, "Print", exec_sh("maim -u ~/(date +%Y%m%d%H%M%S).png")},
-    {c, "Print", exec_sh("maim -us ~/(date +%Y%m%d%H%M%S).png")},
+    {{}, "Print", maim("-u")},
+    {c, "Print", maim("-us")},
     {m, "Return", exec("alacritty")},
     {m, "b", exec("firefox")},
     {m, "c", exec_sh("CM_LAUNCHER=rofi clipmenu -p clipmenu")},
