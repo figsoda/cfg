@@ -57,6 +57,16 @@
         image/x-xpixmap=sxiv.desktop
         inode/directory=spacefm.desktop
       '';
+      "xdg/user-dirs.defaults".text = ''
+        DESKTOP=/dev/null
+        DOCUMENTS=files
+        DOWNLOAD=files
+        MUSIC=music
+        PICTURES=files
+        PUBLICSHARE=/dev/null
+        TEMPLATES=/dev/null
+        VIDEOS=files
+      '';
     };
     variables = let fd = "${pkgs.fd}/bin/fd";
     in {

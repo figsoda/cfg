@@ -108,6 +108,7 @@
             ${spaceFM}/bin/spacefm -d &
             ${unclutter-xfixes}/bin/unclutter --timeout 3 &
             ${volctl}/bin/volctl &
+            ${xdg-user-dirs}/bin/xdg-user-dirs-update &
             [ -e /tmp/xidlehook.sock ] && ${coreutils}/bin/rm /tmp/xidlehook.sock
             ${xidlehook}/bin/xidlehook --socket /tmp/xidlehook.sock \
               --not-when-audio \
