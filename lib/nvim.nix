@@ -31,32 +31,33 @@
         set title
         set updatetime=300
 
-        let g:indent_blankline_buftype_exclude = ["terminal"]
-        let g:indent_blankline_char = "⎸"
-        let g:indent_blankline_filetype_exclude = ["help", "NvimTree"]
-        let g:lightline = #{
+        let indent_blankline_buftype_exclude = ["terminal"]
+        let indent_blankline_char = "⎸"
+        let indent_blankline_filetype_exclude = ["help", "NvimTree"]
+        let lightline = #{
         \ colorscheme: "onedark",
         \ enable: #{ tabline: 0 },
         \ }
-        let g:nvim_tree_auto_open = 1
-        let g:nvim_tree_git_hl = 1
-        let g:nvim_tree_gitignore = 1
-        let g:nvim_tree_icons = #{ default: "" }
-        let g:nvim_tree_ignore = [".git"]
-        let g:nvim_tree_lsp_diagnostics = 1
-        let g:nvim_tree_width = 24
-        let g:nvim_tree_width_allow_resize = 1
-        let g:onedark_color_overrides = #{
+        let mapleader = " "
+        let nvim_tree_auto_open = 1
+        let nvim_tree_git_hl = 1
+        let nvim_tree_gitignore = 1
+        let nvim_tree_icons = #{ default: "" }
+        let nvim_tree_ignore = [".git"]
+        let nvim_tree_lsp_diagnostics = 1
+        let nvim_tree_width = 24
+        let nvim_tree_width_allow_resize = 1
+        let onedark_color_overrides = #{
         \ black: #{gui: "#1f2227", cterm: "234", cterm16: "0"},
         \ cursor_grey: #{gui: "#282c34", cterm: "235", cterm16: "8"},
         \ visual_grey: #{gui: "#2c323c", cterm: "236", cterm16: "8"},
         \ menu_grey: #{gui: "#2c323c", cterm: "236", cterm16: "8"},
         \ }
-        let g:onedark_hide_endofbuffer = 1
-        let g:onedark_terminal_italics = 1
-        let g:vim_json_syntax_conceal = 0
-        let g:vim_markdown_conceal = 0
-        let g:vim_markdown_conceal_code_blocks = 0
+        let onedark_hide_endofbuffer = 1
+        let onedark_terminal_italics = 1
+        let vim_json_syntax_conceal = 0
+        let vim_markdown_conceal = 0
+        let vim_markdown_conceal_code_blocks = 0
 
         let s:pairs = {
         \ '"': '"',
