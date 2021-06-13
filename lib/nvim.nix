@@ -155,13 +155,13 @@
         nn <space>cr <cmd>T cargo run<cr>i
         nn <space>ct <cmd>T cargo test<cr>i
         nn <space>cu <cmd>!cargo update<cr>
+        nn <space>g/ <cmd>Rg!<cr>
         nn <space>g<space> :Git<space>
         nn <space>gB <cmd>Git blame<cr>
         nn <space>gR <cmd>lua require("gitsigns").reset_buffer()<cr>
         nn <space>ga <cmd>Git add -p<cr>
         nn <space>gb <cmd>lua require("gitsigns").blame_line()<cr>
         nn <space>gc <cmd>Git commit<cr>
-        nn <space>gf <cmd>Rg!<cr>
         nn <space>gh <cmd>lua require("gitsigns").preview_hunk()<cr>
         nn <space>gi <cmd>Git<cr>
         nn <space>gl <cmd>Commits!<cr>
