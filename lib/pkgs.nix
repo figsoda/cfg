@@ -61,6 +61,7 @@
     })
     newsflash
     nixfmt
+    nixpkgs-hammering
     pamixer
     pavucontrol
     psmisc

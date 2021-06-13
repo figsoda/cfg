@@ -6,20 +6,18 @@
     };
     figsoda-pkgs = {
       url = "github:figsoda/nix-packages";
-      inputs = {
-        flake-utils.follows = "flake-utils";
-        nixpkgs.follows = "nixpkgs";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-utils.url = "github:numtide/flake-utils";
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
-      inputs = {
-        flake-utils.follows = "flake-utils";
-        nixpkgs.follows = "nixpkgs";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:nixos/nixos-hardware";
+    nixpkgs-hammering = {
+      url = "github:jtojnar/nixpkgs-hammering";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
@@ -55,6 +53,7 @@
               fenix.overlay
               figsoda-pkgs.overlay
               neovim-nightly-overlay.overlay
+              nixpkgs-hammering.overlay
             ];
           };
         })
