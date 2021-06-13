@@ -9,11 +9,11 @@
         "rust-analyzer-src": "rust-analyzer-src"
       },
       "locked": {
-        "lastModified": 1623468948,
-        "narHash": "sha256-K8obxGG4aCa8YWXC6vwajTrGtIrUfGEGEDIrrCP/YjU=",
+        "lastModified": 1623551841,
+        "narHash": "sha256-ePzdAvtnNAWx7d92qQN9XSh35oZ/vHAxPNknCG2BsnQ=",
         "owner": "nix-community",
         "repo": "fenix",
-        "rev": "a1593248d6819f24a362d15eca606a5847eafcdb",
+        "rev": "1663777cc86ebfc25e37cd434a08e6cc4929acde",
         "type": "github"
       },
       "original": {
@@ -24,20 +24,18 @@
     },
     "figsoda-pkgs": {
       "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
+        "flake-utils": "flake-utils",
         "nixpkgs": [
           "nixpkgs"
         ],
         "ymdl": "ymdl"
       },
       "locked": {
-        "lastModified": 1623124831,
-        "narHash": "sha256-M3d93TtLaOXu8AfjvC/7FiGBtSe2Hm9lEH9YbEAdykI=",
+        "lastModified": 1623554099,
+        "narHash": "sha256-5ZZ/8EBokCGMHWYM/DQZiG1wnKjOQGu1lGIPqmJbaEg=",
         "owner": "figsoda",
         "repo": "nix-packages",
-        "rev": "f8a4353eae2c2561b1123eeb5a501622db2771e5",
+        "rev": "dfd02352edaf0b8bb90628a7fd321a6091e5ce59",
         "type": "github"
       },
       "original": {
@@ -95,6 +93,21 @@
     },
     "flake-utils_2": {
       "locked": {
+        "lastModified": 1622445595,
+        "narHash": "sha256-m+JRe6Wc5OZ/mKw2bB3+Tl0ZbtyxxxfnAWln8Q5qs+Y=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "7d706970d94bc5559077eb1a6600afddcd25a7c8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_3": {
+      "locked": {
         "lastModified": 1610051610,
         "narHash": "sha256-U9rPz/usA1/Aohhk7Cmc2gBrEEKRzcW4nwPWMPwja4Y=",
         "owner": "numtide",
@@ -150,7 +163,7 @@
     },
     "neovim-flake": {
       "inputs": {
-        "flake-utils": "flake-utils_2",
+        "flake-utils": "flake-utils_3",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -251,7 +264,7 @@
       "inputs": {
         "fenix": "fenix",
         "figsoda-pkgs": "figsoda-pkgs",
-        "flake-utils": "flake-utils",
+        "flake-utils": "flake-utils_2",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
@@ -261,11 +274,11 @@
     "rust-analyzer-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1623448823,
-        "narHash": "sha256-v3PfFP2ND/DcALVfS85AqD42pbf8WQaMxHbGSCqdk+8=",
+        "lastModified": 1623531912,
+        "narHash": "sha256-o0OsiTAUH0JBjvoRxpmRmhYG6Yl9fhAbvd2ifkKCygU=",
         "owner": "rust-analyzer",
         "repo": "rust-analyzer",
-        "rev": "409f5fb563bfc992e4d05245d5c17e77ff8e2762",
+        "rev": "d6737e55fb49d286b5e646f57975b27b2c95ce92",
         "type": "github"
       },
       "original": {
