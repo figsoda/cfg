@@ -135,6 +135,8 @@
         no <c-s> <cmd>write<cr>
         no <c-w> <cmd>call <sid>close()<cr>
 
+        nn <c-a> <home>
+        nn <c-e> <end>
         nn <c-h> <c-w>h
         nn <c-j> <c-w>j
         nn <c-k> <c-w>k
@@ -195,6 +197,8 @@
         nn x "_x
 
         vn < <gv
+        vn <c-a> <home>
+        vn <c-e> <end>
         vn <silent> <m-down> :move '>+1<cr>gv
         vn <silent> <m-up> :move -2<cr>gv
         vn > >gv
