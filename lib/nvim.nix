@@ -195,6 +195,8 @@
         nn x "_x
 
         vn < <gv
+        vn <silent> <m-down> :move '>+1<cr>gv
+        vn <silent> <m-up> :move -2<cr>gv
         vn > >gv
 
         ino <c-a> <home>
