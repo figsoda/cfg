@@ -43,7 +43,7 @@ local function maim(flags)
             "maim ~/" .. name .. " " .. flags, function()
                 naughty.notify {
                     text = name,
-                    title = "screenshot created",
+                    title = "screenshot saved",
                     icon = os.getenv("HOME") .. "/" .. name,
                     icon_size = 96,
                 }
