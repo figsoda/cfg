@@ -183,6 +183,7 @@
         nn <space>t <cmd>T ${pkgs.fish}/bin/fish<cr>i
         nn <tab> <cmd>BufferLineCycleNext<cr>
         nn R "_diwhp
+        nn T <cmd>NvimTreeFindFile<cr>
         nn X "_X
         nn g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
         nn g] <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
