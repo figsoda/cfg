@@ -76,21 +76,6 @@
     spaceFM
     sxiv
     tela-icon-theme
-    (vscode-with-extensions.override {
-      vscode = vscodium;
-      vscodeExtensions = with vscode-extensions; [
-        a5huynh.vscode-ron
-        jnoortheen.nix-ide
-        matklad.rust-analyzer-nightly
-        mskelton.one-dark-theme
-        naumovs.color-highlight
-        pkief.material-icon-theme
-        redhat.vscode-yaml
-        serayuzgur.crates
-        skyapps.fish-vscode
-        tamasfe.even-better-toml
-      ];
-    })
     xidlehook
     xsel
     xtrt
