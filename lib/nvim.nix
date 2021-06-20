@@ -348,6 +348,7 @@
         gitsigns-nvim
         indent-blankline-nvim-lua
         lightline-vim
+        lightspeed-nvim
         lsp_signature-nvim
         lspkind-nvim
         nvim-bufferline-lua
@@ -366,7 +367,6 @@
         vim-lastplace
         vim-markdown
         vim-nix
-        vim-sneak
         vim-surround
         vim-toml
         vim-visual-multi
