@@ -127,6 +127,16 @@ local kbs = {
     {{}, "XF86AudioLowerVolume", exec {"pamixer", "-d", "5"}},
     {{}, "XF86AudioRaiseVolume", exec {"pamixer", "-i", "5"}},
     {{}, "XF86AudioMute", exec {"pamixer", "-t"}},
+    {
+        {},
+        "XF86KbdBrightnessDown",
+        exec {"brightnessctl", "s", "1-", "-d", "asus::kbd_backlight"},
+    },
+    {
+        {},
+        "XF86KbdBrightnessUp",
+        exec {"brightnessctl", "s", "1+", "-d", "asus::kbd_backlight"},
+    },
     {{}, "XF86MonBrightnessDown", exec {"brightnessctl", "s", "4-"}},
     {{}, "XF86MonBrightnessUp", exec {"brightnessctl", "s", "4+"}},
     {c, "XF86MonBrightnessDown", exec {"brightnessctl", "s", "1-"}},
