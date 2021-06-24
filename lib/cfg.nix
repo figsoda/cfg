@@ -126,7 +126,7 @@
         enable = true;
         noArgb = true;
       };
-      xkbOptions = "caps:escape";
+      xkbOptions = "ctrl:nocaps";
     };
   };
 
