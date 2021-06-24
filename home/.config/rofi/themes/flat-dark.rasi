@@ -2,8 +2,8 @@
     background-color: #1f2227;
     border-color: #5c6370;
     text-color: #bdc4d0;
-    width: 768px;
-    height: 512px;
+    width: 1024px;
+    height: 704px;
 }
 
 window {
@@ -29,7 +29,7 @@ listview {
 }
 
 element {
-    padding: 6px 24px;
+    padding: 8px 24px;
 }
 
 element selected {
@@ -38,5 +38,5 @@ element selected {
 }
 
 element-icon {
-    size: 20px;
+    size: 32px;
 }

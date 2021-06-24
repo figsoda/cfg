@@ -59,7 +59,7 @@ function widget.mpd()
     local status = wibox.widget.textbox()
     local txt = wibox.widget.textbox()
     local time = wibox.widget.textbox()
-    time.font = "monospace 10"
+    time.font = "monospace 12.5"
 
     local scr = wibox.container.scroll.horizontal(
         txt, 60, 60, 16, true, 160, nil, 160

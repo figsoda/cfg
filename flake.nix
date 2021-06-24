@@ -21,11 +21,16 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
-  outputs = inputs@{ nixpkgs, ... }: {
+  outputs = inputs@{ nixos-hardware, nixpkgs, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [
+      modules = with nixos-hardware.nixosModules; [
         ({ pkgs, ... }: {
+          hardware.nvidia.prime = {
+            amdgpuBusId = "PCI:4:0:0";
+            nvidiaBusId = "PCI:1:0:0";
+          };
+
           nix = {
             autoOptimiseStore = true;
             binaryCachePublicKeys = [
@@ -58,7 +63,11 @@
           };
         })
 
-        inputs.nixos-hardware.nixosModules.lenovo-thinkpad-e470
+        common-cpu-amd
+        common-gpu-nvidia
+        common-pc-laptop
+        common-pc-ssd
+
         ./lib/cfg.nix
         ./lib/env.nix
         ./lib/fish.nix

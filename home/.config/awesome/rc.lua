@@ -70,7 +70,7 @@ awful.screen.connect_for_each_screen(
             <span fgcolor=\"#61afef\">%T</span> ", 1
         )
         textclock.font = b.textclock_font
-        awful.widget.calendar_popup.month {font = "monospace 12"}:attach(
+        awful.widget.calendar_popup.month {font = "monospace 16"}:attach(
             textclock, "tr"
         )
 

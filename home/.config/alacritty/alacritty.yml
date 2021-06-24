@@ -4,7 +4,7 @@ window:
     y: 4
 
 font:
-  size: 9
+  size: 8
 
 # https://github.com/joshdick/onedark.vim
 colors:

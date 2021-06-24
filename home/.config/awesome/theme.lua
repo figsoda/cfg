@@ -7,13 +7,13 @@ return {
     layout_max = themedir .. "zenburn/layouts/max.png",
     layout_tile = themedir .. "zenburn/layouts/tile.png",
 
-    notification_icon_size = 32,
-    wibar_height = 24,
+    notification_icon_size = 40,
+    wibar_height = 28,
 
-    font = "sans 11",
-    battery_font = "monospace 8",
-    taglist_font = "monospace 12",
-    textclock_font = "monospace 10",
+    font = "sans 14",
+    battery_font = "monospace 10",
+    taglist_font = "monospace 16",
+    textclock_font = "monospace 12.5",
 
     bg_normal = "#101014",
     bg_focus = "#202428",
