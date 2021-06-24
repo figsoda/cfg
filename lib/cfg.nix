@@ -39,12 +39,9 @@
 
   gtk.iconCache.enable = true;
 
-  hardware = {
-    acpilight.enable = true;
-    bluetooth = {
-      enable = true;
-      powerOnBoot = false;
-    };
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
   };
 
   i18n = {

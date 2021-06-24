@@ -27,6 +27,7 @@
     bat
     binutils
     bottom
+    brightnessctl
     cargo-edit
     cargo-play
     clipmenu
