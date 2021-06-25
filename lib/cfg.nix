@@ -110,7 +110,6 @@
           accelProfile = "flat";
           accelSpeed = "0";
           disableWhileTyping = true;
-          tapping = false;
         };
       };
       serverFlagsSection = ''
