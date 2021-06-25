@@ -151,7 +151,10 @@
       gcb = "git checkout -b";
       gco = "git checkout";
       gcp = "git commit -p";
+      gf = "git fetch";
       gff = "git pull --ff-only";
+      gfu = "git fetch upstream";
+      gm = "git merge";
       gp = "git push";
       n = "nix";
       nb = "nix build";
@@ -159,6 +162,7 @@
       nf = "nix flake";
       nfu = "nix flake update";
       npu = "nix-prefetch-url";
+      nr = "nix run";
       ns = "nix shell";
     };
     shellAliases = {
