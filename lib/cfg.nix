@@ -4,10 +4,7 @@
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       efi.canTouchEfiVariables = true;
-      grub = {
-        device = "nodev";
-        efiSupport = true;
-      };
+      systemd-boot.enable = true;
     };
   };
 
