@@ -351,6 +351,7 @@
         lightspeed-nvim
         lsp_signature-nvim
         lspkind-nvim
+        luasnip
         nvim-bufferline-lua
         nvim-colorizer-lua
         nvim-compe
@@ -370,7 +371,6 @@
         vim-surround
         vim-toml
         vim-visual-multi
-        vim-vsnip
       ];
     };
     package = pkgs.neovim-nightly;
