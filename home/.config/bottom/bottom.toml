@@ -1,5 +1,4 @@
 [[row]]
-ratio = 7
 [[row.child]]
 ratio = 3
 [[row.child.child]]
@@ -16,7 +15,6 @@ ratio = 4
 type = "net"
 
 [[row]]
-ratio = 5
 [[row.child]]
 ratio = 1
 type = "temp"
@@ -25,7 +23,6 @@ ratio = 5
 type = "cpu"
 
 [[row]]
-ratio = 6
 [[row.child]]
 ratio = 1
 type = "proc"
