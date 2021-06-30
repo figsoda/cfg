@@ -128,7 +128,7 @@
       enable = true;
       dates = "01:00";
     };
-    stateVersion = "21.03";
+    stateVersion = "21.05";
   };
 
   systemd.services.nixos-upgrade = {
