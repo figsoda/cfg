@@ -66,7 +66,6 @@ end
 
 local ckbs = {
     {ms, "f", function(c) c.fullscreen = not c.fullscreen end},
-    {ms, "n", function(c) c.minimized = true end},
     {ms, "q", function(c) c:kill() end},
     {ms, "t", function(c) c.ontop = not c.ontop end},
     {m, "h", focus(-1, "left")},
@@ -126,6 +125,28 @@ local kbs = {
     {m, "BackSpace", awful.tag.history.restore},
     {m, "Tab", awful.tag.viewnext},
     {ms, "Tab", awful.tag.viewprev},
+    {
+        m,
+        "n",
+        function()
+            local c = client.focus
+            if c then
+                c.minimized = true
+            else
+                awful.client.restore(awful.screen.focused())
+            end
+        end,
+    },
+    {
+        ms,
+        "n",
+        function()
+            local c = awful.client.restore(awful.screen.focused())
+            if c then
+                c:emit_signal("request::activate", "mouse_click", {raise = true})
+            end
+        end,
+    },
     {
         m,
         "p",
