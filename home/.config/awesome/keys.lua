@@ -11,12 +11,24 @@ local ms = {"Mod4", "Shift"}
 local function exec(cmd) return function() awful.spawn(cmd) end end
 local function exec_sh(cmd) return function() awful.spawn.with_shell(cmd) end end
 
-local function focusdir(dir)
-    return function() awful.client.focus.bydirection(dir) end
+local function focus(idx, dir)
+    return function(c)
+        if c.screen.selected_tag.layout.name == "max" then
+            awful.client.focus.byidx(idx, c)
+        else
+            awful.client.focus.bydirection(dir, c)
+        end
+    end
 end
 
-local function swapdir(dir)
-    return function() awful.client.swap.bydirection(dir) end
+local function swap(idx, dir)
+    return function(c)
+        if c.screen.selected_tag.layout.name == "max" then
+            awful.client.swap.byidx(idx, c)
+        else
+            awful.client.swap.bydirection(dir, c)
+        end
+    end
 end
 
 local function maptag(f, i)
@@ -57,6 +69,14 @@ local ckbs = {
     {ms, "n", function(c) c.minimized = true end},
     {ms, "q", function(c) c:kill() end},
     {ms, "t", function(c) c.ontop = not c.ontop end},
+    {m, "h", focus(-1, "left")},
+    {m, "j", focus(1, "down")},
+    {m, "k", focus(-1, "up")},
+    {m, "l", focus(1, "right")},
+    {ms, "h", swap(-1, "left")},
+    {ms, "j", swap(1, "down")},
+    {ms, "k", swap(-1, "up")},
+    {ms, "l", swap(1, "right")},
 }
 
 local kbs = {
@@ -100,15 +120,6 @@ local kbs = {
     {ms, "[", function() awful.tag.incncol(-1) end},
     {ms, "]", function() awful.tag.incncol(1) end},
     {ms, "\\", maptag(function(t) t.column_count = 1 end)},
-
-    {m, "h", focusdir("left")},
-    {m, "j", focusdir("down")},
-    {m, "k", focusdir("up")},
-    {m, "l", focusdir("right")},
-    {ms, "h", swapdir("left")},
-    {ms, "j", swapdir("down")},
-    {ms, "k", swapdir("up")},
-    {ms, "l", swapdir("right")},
 
     {m, "Left", awful.tag.viewprev},
     {m, "Right", awful.tag.viewnext},
