@@ -145,6 +145,7 @@ local kbs = {
     {{}, "Print", maim("-u")},
     {c, "Print", maim("-us")},
     {m, "Return", exec("alacritty")},
+    {m, "a", exec("pavucontrol")},
     {m, "b", exec("firefox")},
     {m, "c", exec_sh("CM_LAUNCHER=rofi clipmenu -p clipmenu")},
     {ms, "c", exec_sh("xsel -bc; clipdel -d .")},
