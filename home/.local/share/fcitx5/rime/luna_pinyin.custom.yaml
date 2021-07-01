@@ -1,5 +1,4 @@
 patch:
-  style/color_scheme: starcraft
   switches:
     - name: ascii_mode
       reset: 0
