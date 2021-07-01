@@ -159,8 +159,6 @@ local kbs = {
     {m, "m", exec {"alacritty", "-e", "mmtc"}},
     {ms, "m", function() awful.screen.focused().mpd.reload() end},
     {m, "o", exec_sh("xdg-open (fd | rofi -dmenu -p open -i -matching fuzzy)")},
-    {m, "r", exec {"rofi", "-show", "run", "-modi", "run,drun"}},
-    {m, "t", exec("rofi-todo")},
     {
         m,
         "q",
@@ -176,6 +174,8 @@ local kbs = {
             "* { width: 40%; height: 100%; }",
         },
     },
+    {m, "r", exec {"rofi", "-show", "run", "-modi", "run,drun"}},
+    {m, "t", exec("rofi-todo")},
     {m, "w", exec {"rofi", "-show", "window", "-modi", "window"}},
     {m, ",", function() awful.screen.focused().mpd.toggle() end},
     {m, ".", function() awful.screen.focused().mpd.next() end},
