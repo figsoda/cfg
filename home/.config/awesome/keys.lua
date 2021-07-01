@@ -163,13 +163,13 @@ local kbs = {
     {m, "t", exec("rofi-todo")},
     {
         m,
-        "u",
+        "q",
         exec {
             "rofi",
             "-show",
             "calc",
             "-modi",
-            "calc,emoji",
+            "calc",
             "-location",
             "4",
             "-theme-str",

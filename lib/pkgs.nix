@@ -72,7 +72,7 @@
     qogir-theme
     ripgrep
     rnix-lsp
-    (rofi.override { plugins = [ rofi-calc rofi-emoji ]; })
+    (rofi.override { plugins = [ rofi-calc ]; })
     sd
     spaceFM
     sxiv
