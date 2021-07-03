@@ -208,6 +208,7 @@ local kbs = {
         },
     },
     {m, "r", exec {"rofi", "-show", "run", "-modi", "run,drun"}},
+    {m, "s", exec {"alacritty", "-e", "btm"}},
     {m, "t", exec("rofi-todo")},
     {m, "w", exec {"rofi", "-show", "window", "-modi", "window"}},
     {m, ",", function() awful.screen.focused().mpd.toggle() end},
