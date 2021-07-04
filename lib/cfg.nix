@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }: {
   boot = {
     cleanTmpDir = true;
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_5_12;
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = true;
