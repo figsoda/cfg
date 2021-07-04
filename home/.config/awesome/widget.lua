@@ -163,6 +163,8 @@ function widget.mpd()
                     end
                 elseif k == "toggle" then
                     return cmd_then_update("toggle")
+                elseif k == "prev" then
+                    return cmd_then_update("prev")
                 elseif k == "next" then
                     return cmd_then_update("next")
                 elseif k == "stop" then

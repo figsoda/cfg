@@ -157,8 +157,11 @@ local kbs = {
     },
 
     {{}, "XF86AudioLowerVolume", exec {"pamixer", "-d", "5"}},
-    {{}, "XF86AudioRaiseVolume", exec {"pamixer", "-i", "5"}},
     {{}, "XF86AudioMute", exec {"pamixer", "-t"}},
+    {{}, "XF86AudioNext", function() awful.screen.focused().mpd.next() end},
+    {{}, "XF86AudioPlay", function() awful.screen.focused().mpd.toggle() end},
+    {{}, "XF86AudioPrev", function() awful.screen.focused().mpd.prev() end},
+    {{}, "XF86AudioRaiseVolume", exec {"pamixer", "-i", "5"}},
     {
         {},
         "XF86KbdBrightnessDown",
