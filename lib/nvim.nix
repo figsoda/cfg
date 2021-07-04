@@ -373,7 +373,6 @@
         vim-visual-multi
       ];
     };
-    package = pkgs.neovim-nightly;
     viAlias = true;
     vimAlias = true;
     withRuby = false;

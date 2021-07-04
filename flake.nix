@@ -9,10 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-utils.url = "github:numtide/flake-utils";
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixpkgs-hammering = {
       url = "github:jtojnar/nixpkgs-hammering";
@@ -57,7 +53,6 @@
             overlays = with inputs; [
               fenix.overlay
               figsoda-pkgs.overlay
-              neovim-nightly-overlay.overlay
               nixpkgs-hammering.overlay
             ];
           };
