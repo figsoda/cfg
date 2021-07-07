@@ -1,5 +1,9 @@
-{ pkgs, ... }: {
-  environment.systemPackages = with pkgs; [
+{ config, pkgs, ... }:
+
+with pkgs;
+
+{
+  environment.systemPackages = builtins.attrValues config.passthru ++ [
     (writeShellScriptBin "rofi-todo" ''
       ${pkgs.rofi}/bin/rofi -show todo -modi todo:${
         writeShellScript "todo-modi" ''
@@ -31,19 +35,7 @@
     cargo-edit
     cargo-play
     clipmenu
-    (element-desktop.override {
-      element-web = element-web.override { conf.showLabSettings = true; };
-    })
     fd
-    (with fenix;
-      combine (with default; [
-        cargo
-        clippy-preview
-        rust-std
-        rustc
-        rustfmt-preview
-        latest.rust-src
-      ]))
     firefox
     fzf
     gcc
@@ -81,4 +73,19 @@
     xtrt
     ymdl
   ];
+
+  passthru = {
+    element-desktop = (element-desktop.override {
+      element-web = element-web.override { conf.showLabSettings = true; };
+    });
+    rust = with fenix;
+      combine (with default; [
+        cargo
+        clippy-preview
+        rust-std
+        rustc
+        rustfmt-preview
+        latest.rust-src
+      ]);
+  };
 }

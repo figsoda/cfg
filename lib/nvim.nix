@@ -3,7 +3,9 @@
     enable = true;
     defaultEditor = true;
     configure = {
-      customRC = let nix = "${config.nix.package}/bin/nix";
+      customRC = let
+        cargo = "${config.passthru.rust}/bin/cargo";
+        nix = "${config.nix.package}/bin/nix";
       in ''
         set clipboard+=unnamedplus
         set colorcolumn=10000
@@ -150,14 +152,14 @@
         nn <m-up> <cmd>move -2<cr>
         nn <s-tab> <cmd>BufferLineCyclePrev<cr>
         nn <space>c<space> :!cargo<space>
-        nn <space>cU <cmd>!cargo upgrade<cr>
-        nn <space>cb <cmd>T cargo build<cr>i
-        nn <space>cd <cmd>T cargo doc --open<cr>i
-        nn <space>cf <cmd>!cargo fmt<cr>
+        nn <space>cU <cmd>!${cargo} upgrade<cr>
+        nn <space>cb <cmd>T ${cargo} build<cr>i
+        nn <space>cd <cmd>T ${cargo} doc --open<cr>i
+        nn <space>cf <cmd>!${cargo} fmt<cr>
         nn <space>cp <cmd>!${pkgs.cargo-play}/bin/cargo-play %<cr>
-        nn <space>cr <cmd>T cargo run<cr>i
-        nn <space>ct <cmd>T cargo test<cr>i
-        nn <space>cu <cmd>!cargo update<cr>
+        nn <space>cr <cmd>T ${cargo} run<cr>i
+        nn <space>ct <cmd>T ${cargo} test<cr>i
+        nn <space>cu <cmd>!${cargo} update<cr>
         nn <space>g/ <cmd>Rg!<cr>
         nn <space>g<space> :Git<space>
         nn <space>gB <cmd>Git blame<cr>
@@ -235,7 +237,7 @@
 
         autocmd FileType yaml setlocal shiftwidth=2
 
-        autocmd VimEnter * silent exec "!kill -s SIGWINCH" getpid() | call s:init()
+        autocmd VimEnter * silent exec "!${pkgs.util-linux}/bin/kill -s SIGWINCH" getpid() | call s:init()
 
         command -nargs=? P call s:play(<f-args>)
         command -nargs=+ T botright 12split term://<args>
