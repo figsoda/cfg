@@ -348,7 +348,7 @@
       packages.all.start = with pkgs.vimPlugins; [
         fzf-vim
         gitsigns-nvim
-        indent-blankline-nvim-lua
+        indent-blankline-nvim
         lightline-vim
         lightspeed-nvim
         lsp_signature-nvim
