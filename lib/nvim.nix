@@ -47,7 +47,7 @@
         let nvim_tree_icons = #{ default: "" }
         let nvim_tree_ignore = [".git"]
         let nvim_tree_lsp_diagnostics = 1
-        let nvim_tree_width = 24
+        let nvim_tree_quit_on_open = 1
         let nvim_tree_width_allow_resize = 1
         let onedark_color_overrides = #{
         \ black: #{gui: "#1f2227", cterm: "234", cterm16: "0"},
@@ -185,10 +185,8 @@
         nn <space>t <cmd>T ${pkgs.fish}/bin/fish<cr>i
         nn <tab> <cmd>BufferLineCycleNext<cr>
         nn R "_diwhp
-        nn T <cmd>NvimTreeFindFile<cr>
+        nn T <cmd>NvimTreeToggle<cr>
         nn X "_X
-        nn tr <cmd>NvimTreeRefresh<cr>
-        nn tt <cmd>NvimTreeToggle<cr>
         nn x "_x
 
         vn < <gv
