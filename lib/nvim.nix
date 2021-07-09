@@ -187,14 +187,6 @@
         nn R "_diwhp
         nn T <cmd>NvimTreeFindFile<cr>
         nn X "_X
-        nn g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
-        nn g] <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
-        nn ga <cmd>lua vim.lsp.buf.code_action()<cr>
-        nn gd <cmd>lua vim.lsp.buf.definition()<cr>
-        nn gf <cmd>lua vim.lsp.buf.formatting()<cr>
-        nn gk <cmd>lua vim.lsp.buf.hover()<cr>
-        nn gr <cmd>lua vim.lsp.buf.rename()<cr>
-        nn gt <cmd>lua vim.lsp.buf.type_definition()<cr>
         nn tr <cmd>NvimTreeRefresh<cr>
         nn tt <cmd>NvimTreeToggle<cr>
         nn x "_x
@@ -253,6 +245,25 @@
             properties = {"additionalTextEdits"},
           }
 
+          local function on_attach(_, buf)
+            local map = {
+              K = "buf.hover",
+              ["<space>d"] = "diagnostic.set_loclist",
+              ["<space>f"] = "buf.formatting",
+              ["[d"] = "diagnostic.goto_prev",
+              ["]d"] = "diagnostic.goto_next",
+              ga = "buf.code_action",
+              gd = "buf.definition",
+              gr = "buf.rename",
+              gt = "buf.type_definition",
+            }
+
+            for k, v in pairs(map) do
+              vim.api.nvim_buf_set_keymap(buf, "n", k,
+                "<cmd>lua vim.lsp." .. v .. "()<cr>", {noremap = true})
+            end
+          end
+
           require("bufferline").setup {
             highlights = {
               background = {guibg = "#1f2227"},
@@ -304,6 +315,7 @@
 
           require("lspconfig").rnix.setup {
             cmd = {"${pkgs.rnix-lsp}/bin/rnix-lsp"},
+            on_attach = on_attach,
           }
 
           require("lspkind").init()
@@ -312,7 +324,8 @@
             server = {
               capabilities = cap,
               cmd = {"${pkgs.rust-analyzer-nightly}/bin/rust-analyzer"},
-              on_attach = function()
+              on_attach = function(c, buf)
+                on_attach(c, buf)
                 require("lsp_signature").on_attach {
                   handler_opts = {
                     border = "double",
