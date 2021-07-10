@@ -70,7 +70,7 @@
           case nix
             ${fd}/bin/fd -H '\.nix$' -x ${nixfmt}/bin/nixfmt
           case rust
-            cargo fmt
+            ${config.passthru.rust}/bin/cargo fmt
           case "*"
             echo "unexpected language: $lang"
         end
@@ -85,7 +85,7 @@
       end
 
       function path -a name
-        realpath (which $name)
+        ${coreutils}/bin/realpath (${which}/bin/which $name)
       end
 
       function run -a pkg
