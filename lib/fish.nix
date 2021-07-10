@@ -162,6 +162,7 @@
       nd = "nix develop -c fish";
       nf = "nix flake";
       nfu = "nix flake update";
+      nh = "nixpkgs-hammer";
       npu = "nix-prefetch-url";
       nr = "nix run";
       ns = "nix shell";
