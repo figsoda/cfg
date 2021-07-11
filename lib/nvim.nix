@@ -206,6 +206,8 @@
         ino <expr> <cr> compe#confirm(<sid>in_pair() ? <sid>indent_pair("") : "<cr>")
         ino <expr> <s-tab> pumvisible() ? "<c-p>" : "<s-tab>"
         ino <expr> <tab> pumvisible() ? "<c-n>" : "<tab>"
+        ino <m-,> <cmd>call setline(".", getline(".") . ",")<cr>
+        ino <m-;> <cmd>call setline(".", getline(".") . ";")<cr>
         ino <m-down> <cmd>move +1<cr>
         ino <m-up> <cmd>move -2<cr>
 
