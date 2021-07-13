@@ -294,7 +294,7 @@
             },
             options = {
               custom_filter = function(n)
-                return vim.fn.bufname(n) ~= ""
+                return vim.fn.bufname(n) ~= "" and vim.api.nvim_buf_get_option(n, "buftype") ~= "terminal"
               end,
               diagnostics = "nvim_lsp",
               show_close_icon = false,
