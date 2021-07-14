@@ -329,7 +329,7 @@
                 on_attach(c, buf)
                 require("lsp_signature").on_attach {
                   handler_opts = {
-                    border = "double",
+                    border = "single",
                   },
                 }
               end,
