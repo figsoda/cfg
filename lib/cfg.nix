@@ -91,6 +91,7 @@
       enable = true;
       pulse.enable = true;
     };
+    ratbagd.enable = true;
     udev.extraHwdb = ''
       evdev:name:*:dmi:bvn*:bvr*:bd*:svnASUS*:pn*:*
        KEYBOARD_KEY_ff31007c=f20
@@ -99,11 +100,6 @@
       enable = true;
       displayManager.startx.enable = true;
       enableCtrlAltBackspace = true;
-      inputClassSections = [''
-        Identifier "pointer configuration"
-        MatchIsPointer "true"
-        Option "TransformationMatrix" "1 0 0 0 1 0 0 0 0.3"
-      ''];
       libinput = {
         enable = true;
         mouse = {
