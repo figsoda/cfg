@@ -255,6 +255,7 @@
               ["]d"] = "diagnostic.goto_next",
               ga = "buf.code_action",
               gd = "buf.definition",
+              ge = "diagnostic.show_line_diagnostics",
               gr = "buf.rename",
               gt = "buf.type_definition",
             }
