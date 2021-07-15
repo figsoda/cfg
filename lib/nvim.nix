@@ -49,12 +49,12 @@
         let nvim_tree_lsp_diagnostics = 1
         let nvim_tree_quit_on_open = 1
         let nvim_tree_width_allow_resize = 1
-        let nvim_tree_window_picker_exclude = #{buftype: ["terminal"]}
+        let nvim_tree_window_picker_exclude = #{ buftype: ["terminal"] }
         let onedark_color_overrides = #{
-        \ black: #{gui: "#1f2227", cterm: "234", cterm16: "0"},
-        \ cursor_grey: #{gui: "#282c34", cterm: "235", cterm16: "8"},
-        \ visual_grey: #{gui: "#2c323c", cterm: "236", cterm16: "8"},
-        \ menu_grey: #{gui: "#2c323c", cterm: "236", cterm16: "8"},
+        \ black: #{ gui: "#1f2227", cterm: "234", cterm16: "0" },
+        \ cursor_grey: #{ gui: "#282c34", cterm: "235", cterm16: "8" },
+        \ visual_grey: #{ gui: "#2c323c", cterm: "236", cterm16: "8" },
+        \ menu_grey: #{ gui: "#2c323c", cterm: "236", cterm16: "8" },
         \ }
         let onedark_hide_endofbuffer = 1
         let onedark_terminal_italics = 1
