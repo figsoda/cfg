@@ -214,6 +214,22 @@ local kbs = {
     {m, "r", exec {"rofi", "-show", "run", "-modi", "run,drun"}},
     {m, "s", exec {"alacritty", "-e", "btm"}},
     {m, "t", exec("rofi-todo")},
+    {
+        m,
+        "u",
+        function()
+            root.fake_input("key_release", "u")
+            root.fake_input("key_release", "Super_L")
+            root.fake_input("key_press", "Alt_L")
+            root.fake_input("key_press", "Control_L")
+            root.fake_input("key_press", "Shift_L")
+            root.fake_input("key_press", "u")
+            root.fake_input("key_release", "u")
+            root.fake_input("key_release", "Alt_L")
+            root.fake_input("key_release", "Control_L")
+            root.fake_input("key_release", "Shift_L")
+        end,
+    },
     {m, "w", exec {"rofi", "-show", "window", "-modi", "window"}},
     {m, ",", function() awful.screen.focused().mpd.toggle() end},
     {m, ".", function() awful.screen.focused().mpd.next() end},
