@@ -52,9 +52,11 @@
         let nvim_tree_window_picker_exclude = #{ buftype: ["terminal"] }
         let onedark_color_overrides = #{
         \ black: #{ gui: "#1f2227", cterm: "234", cterm16: "0" },
+        \ background: #{ gui: "#1f2227", cterm: "234", cterm16: "0" },
         \ cursor_grey: #{ gui: "#282c34", cterm: "235", cterm16: "8" },
         \ visual_grey: #{ gui: "#2c323c", cterm: "236", cterm16: "8" },
         \ menu_grey: #{ gui: "#2c323c", cterm: "236", cterm16: "8" },
+        \ vertsplit: #{ gui: "#1f2227", cterm: "234", cterm16: "0" },
         \ }
         let onedark_hide_endofbuffer = 1
         let onedark_terminal_italics = 1
