@@ -126,10 +126,42 @@
         endf
 
         function s:quote(c)
-          let pos = col(".")
-          let syn = synIDattr(synIDtrans(synID(line("."), pos, 1)), "name")
-          if syn == "String" || syn == "Delimiter"
-            return getline(".")[pos - 1] == a:c ? "\<right>" : a:c
+          let x = col(".")
+          let y = line(".")
+          let line = getline(".")
+
+          if x == 1
+            let i = y
+            while i > 1
+              let i -= 1
+              let len = strlen(getline(i))
+              if len != 0
+                let l = synID(i, len, 1)
+                break
+              end
+            endw
+          end
+          if !exists("l")
+            let l = synID(y, x - 1, 1)
+          end
+
+          if x > strlen(line)
+            let i = y
+            while i < nvim_buf_line_count(0) 
+              let i += 1
+              if !empty(getline(i))
+                let r = synID(i, 1, 1)
+                break
+              end
+            endw
+          end
+          if !exists("r")
+            let r = synID(y, x, 1)
+          end
+
+          if synIDattr(l, "name") =~? "string\\|interpolationdelimiter"
+          \ && synIDattr(r, "name") =~? "string\\|interpolationdelimiter"
+            return line[x - 1] == a:c ? "\<right>" : a:c
           else
             return a:c . a:c . "\<left>"
           end
