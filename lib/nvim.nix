@@ -272,6 +272,7 @@
             highlights = {
               background = {guibg = "#1f2227"},
               buffer_visible = {guibg = "#1f2227"},
+              close_button = {guibg = "#1f2227"},
               duplicate = {guibg = "#1f2227"},
               duplicate_visible = {guibg = "#1f2227"},
               error = {guibg = "#1f2227"},
