@@ -99,8 +99,17 @@
     '';
     loginShellInit = ''
       if not set -q DISPLAY && [ (${coreutils}/bin/tty) = /dev/tty1 ]
-        exec ${xorg.xinit}/bin/startx ${
-          writeText "xinitrc" ''
+        exec ${
+          sx.override {
+            xorgserver = runCommand "xorgserver" {
+              nativeBuildInputs = [ makeWrapper ];
+            } ''
+              makeWrapper ${xorg.xorgserver}/bin/Xorg $out/bin/Xorg \
+                --add-flags "-ardelay 320 -arinterval 32"
+            '';
+          }
+        }/bin/sx ${
+          writeShellScript "sxrc" ''
             CM_MAX_CLIPS=20 CM_SELECTIONS=clipboard ${clipmenu}/bin/clipmenud &
             ${config.passthru.element-desktop}/bin/element-desktop --hidden &
             ${config.i18n.inputMethod.package}/bin/fcitx5 &
@@ -137,7 +146,7 @@
               --timer 12000 "${config.systemd.package}/bin/systemctl suspend" "" &
             exec ${awesome}/bin/awesome
           ''
-        } -- -ardelay 400 -arinterval 32
+        }
       end
     '';
     shellAbbrs = {

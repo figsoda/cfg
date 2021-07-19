@@ -98,8 +98,11 @@
     '';
     xserver = {
       enable = true;
-      displayManager.startx.enable = true;
-      enableCtrlAltBackspace = true;
+      displayManager = {
+        job.execCmd = "";
+        lightdm.enable = lib.mkForce false;
+      };
+      exportConfiguration = true;
       libinput = {
         enable = true;
         mouse = {
