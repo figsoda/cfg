@@ -74,7 +74,7 @@
 
         function s:close()
           if &buftype == "terminal"
-            quit
+            bdelete!
           else
             confirm bdelete
           end
