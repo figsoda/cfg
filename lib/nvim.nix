@@ -260,7 +260,7 @@
         autocmd FileType nix ino <buffer> <expr> <cr> compe#confirm(<sid>cr_nix())
 
         autocmd FileType rust nn <buffer> J <cmd>RustJoinLines<cr>
-        autocmd FileType rust nn <buffer> ge <cmd>RustExpandMacro<cr>
+        autocmd FileType rust nn <buffer> gm <cmd>RustExpandMacro<cr>
 
         autocmd FileType yaml setlocal shiftwidth=2
 
