@@ -354,7 +354,7 @@
             },
           }
 
-          require("gitsigns").setup()
+          require("gitsigns").setup {keymaps = {}}
 
           lspconfig.rnix.setup {
             cmd = {"${pkgs.rnix-lsp}/bin/rnix-lsp"},
