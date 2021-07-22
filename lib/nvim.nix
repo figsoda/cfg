@@ -289,20 +289,21 @@
           local function on_attach(_, buf)
             local map = {
               K = "buf.hover",
-              ["<space>d"] = "diagnostic.set_loclist",
-              ["<space>f"] = "buf.formatting",
-              ["[d"] = "diagnostic.goto_prev",
-              ["]d"] = "diagnostic.goto_next",
-              ga = "buf.code_action",
-              gd = "buf.definition",
-              ge = "diagnostic.show_line_diagnostics",
-              gr = "buf.rename",
-              gt = "buf.type_definition",
+              ["<space>d"] = "Trouble lsp_document_diagnostics",
+              ["<space>e"] = "Trouble lsp_workspace_diagnostics",
+              ["<space>f"] = "lua vim.lsp.buf.formatting()",
+              ["<space>r"] = "Trouble lsp_references",
+              ["[d"] = "lua vim.lsp.diagnostic.goto_prev()",
+              ["]d"] = "lua vim.lsp.diagnostic.goto_next()",
+              ga = "lua vim.lsp.buf.code_action()",
+              gd = "lua vim.lsp.buf.definition()",
+              ge = "lua vim.lsp.diagnostic.show_line_diagnostics()",
+              gr = "lua vim.lsp.buf.rename()",
+              gt = "lua vim.lsp.buf.type_definition()",
             }
 
             for k, v in pairs(map) do
-              vim.api.nvim_buf_set_keymap(buf, "n", k,
-                "<cmd>lua vim.lsp." .. v .. "()<cr>", {noremap = true})
+              vim.api.nvim_buf_set_keymap(buf, "n", k, "<cmd>" .. v .. "<cr>", {noremap = true})
             end
           end
 
@@ -409,11 +410,7 @@
             },
           }
 
-          vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-            vim.lsp.diagnostic.on_publish_diagnostics, {
-              update_in_insert = true,
-            }
-          )
+          require("trouble").setup()
         EOF
       '';
       packages.all.start = with pkgs.vimPlugins; [
@@ -436,6 +433,7 @@
         plenary-nvim
         popup-nvim
         rust-tools-nvim
+        trouble-nvim
         vim-commentary
         vim-fugitive
         vim-json
