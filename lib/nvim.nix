@@ -274,6 +274,9 @@
         syntax enable
 
         lua <<EOF
+          local null_ls = require("null-ls")
+          local nb = null_ls.builtins
+
           local cap = vim.lsp.protocol.make_client_capabilities()
           cap.textDocument.completion.completionItem.snippetSupport = true
           cap.textDocument.completion.completionItem.resovleSupport = {
@@ -357,6 +360,16 @@
 
           require("lspkind").init()
 
+          null_ls.setup {
+            on_attach = on_attach,
+            sources = {
+              nb.code_actions.gitsigns,
+              nb.diagnostics.shellcheck.with {command = "${pkgs.shellcheck}/bin/shellcheck"},
+              nb.formatting.prettier.with {command = "${pkgs.nodePackages.prettier}/bin/prettier"},
+              nb.formatting.stylua.with {command = "${pkgs.stylua}/bin/stylua"},
+            },
+          }
+
           require("rust-tools").setup {
             server = {
               capabilities = cap,
@@ -404,6 +417,7 @@
         lsp_signature-nvim
         lspkind-nvim
         luasnip
+        null-ls-nvim
         nvim-bufferline-lua
         nvim-colorizer-lua
         nvim-compe
