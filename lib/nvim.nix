@@ -222,6 +222,8 @@
         nn R "_diwhp
         nn T <cmd>NvimTreeToggle<cr>
         nn X "_X
+        nn [h <cmd>lua require("gitsigns.actions").prev_hunk()<cr>
+        nn ]h <cmd>lua require("gitsigns.actions").next_hunk()<cr>
         nn x "_x
 
         vn < <gv
