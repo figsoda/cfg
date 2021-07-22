@@ -274,6 +274,7 @@
         syntax enable
 
         lua <<EOF
+          local lspconfig = require("lspconfig")
           local null_ls = require("null-ls")
           local nb = null_ls.builtins
 
@@ -353,8 +354,13 @@
 
           require("gitsigns").setup()
 
-          require("lspconfig").rnix.setup {
+          lspconfig.rnix.setup {
             cmd = {"${pkgs.rnix-lsp}/bin/rnix-lsp"},
+            on_attach = on_attach,
+          }
+
+          lspconfig.yamlls.setup {
+            cmd = {"${pkgs.yaml-language-server}/bin/yaml-language-server", "--stdio"},
             on_attach = on_attach,
           }
 
