@@ -392,6 +392,50 @@
               enable = true,
               disable = {"nix"},
             },
+            textobjects = {
+              lsp_interop = {
+                enable = true,
+                border = "single",
+                peek_definition_code = {
+                  gK = "@function.outer",
+                },
+              },
+              move = {
+                enable = true,
+                goto_next_start = {
+                  ["]]"] = "@class.outer",
+                  ["]m"] = "@function.outer",
+                },
+                goto_next_end = {
+                  ["]["] = "@class.outer",
+                  ["]M"] = "@function.outer",
+                },
+                goto_previous_start = {
+                  ["[["] = "@class.outer",
+                  ["[m"] = "@function.outer",
+                },
+                goto_previous_end = {
+                  ["[]"] = "@class.outer",
+                  ["[M"] = "@function.outer",
+                },
+              },
+              select = {
+                enable = true,
+                lookahead = true,
+                keymaps = {
+                  ab = "@block.outer",
+                  ib = "@block.inner",
+                  ac = "@class.outer",
+                  ic = "@class.inner",
+                  af = "@function.outer",
+                  ["if"] = "@function.inner",
+                  ai = "@conditional.outer",
+                  ii = "@conditional.inner",
+                  al = "@loop.outer",
+                  il = "@loop.inner",
+                },
+              },
+            },
           }
 
           require("rust-tools").setup {
@@ -444,6 +488,7 @@
         nvim-lspconfig
         nvim-tree-lua
         (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
+        nvim-treesitter-textobjects
         nvim-web-devicons
         plenary-nvim
         popup-nvim
