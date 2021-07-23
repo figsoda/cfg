@@ -52,7 +52,10 @@ let
     SpecialChar.fg = orange;
     Tag = { };
     Delimiter = { };
-    SpecialComment.fg = gray;
+    SpecialComment = {
+      fg = dimwhite;
+      attrs = "italic";
+    };
     Debug = { };
     Underlined.attrs = "underline";
     Ignore = { };
