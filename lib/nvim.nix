@@ -363,6 +363,9 @@
                 },
               },
             },
+            sections = {
+              lualine_c = {"filename", {"diagnostics", sources = {"nvim_lsp"}}},
+            },
           }
 
           lspconfig.rnix.setup {
