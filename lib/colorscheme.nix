@@ -35,9 +35,9 @@ let
     Statement.fg = purple;
     Conditional.fg = purple;
     Repeat.fg = purple;
-    Label.fg = purple;
+    Label.fg = red;
     Operator.fg = purple;
-    Keyword.fg = red;
+    Keyword.fg = purple;
     Exception.fg = purple;
     PreProc.fg = yellow;
     Include.fg = blue;
@@ -210,6 +210,73 @@ let
 
     # vim-nix
     nixStringDelimiter.fg = green;
+
+    # nvim-treesitter
+    TSAnnocation.fg = white;
+    TSAttribute.fg = cyan;
+    TSBoolean.fg = orange;
+    TSCharacter.fg = white;
+    TSComment = {
+      fg = dimwhite;
+      attrs = "italic";
+    };
+    TSConditional.fg = purple;
+    TSConstant.fg = blue;
+    TSConstBuiltin.fg = orange;
+    TSConstMacro.fg = orange;
+    TSConstructor.fg = yellow;
+    TSError.fg = red;
+    TSException.fg = purple;
+    TSField.fg = blue;
+    TSFloat.fg = orange;
+    TSFunction.fg = blue;
+    TSFuncBuiltin.fg = cyan;
+    TSFuncMacro.fg = blue;
+    TSInclude.fg = purple;
+    TSKeyword.fg = purple;
+    TSKeywordFunction.fg = purple;
+    TSKeywordOperator.fg = purple;
+    TSKeywordReturn.fg = purple;
+    TSLabel.fg = red;
+    TSMethod.fg = blue;
+    TSNamespace.fg = white;
+    TSNone.fg = white;
+    TSNumber.fg = orange;
+    TSOperator.fg = purple;
+    TSParameter.fg = red;
+    TSParameterReference.fg = white;
+    TSProperty.fg = blue;
+    TSPunctDelimiter.fg = white;
+    TSPunctBracket.fg = white;
+    TSPunctSpecial.fg = white;
+    TSRepeat.fg = purple;
+    TSString.fg = green;
+    TSStringRegex.fg = orange;
+    TSStringEscape.fg = orange;
+    TSStringSpecial.fg = orange;
+    TSSymbol.fg = cyan;
+    TSTag.fg = blue;
+    TSTagAttribute.fg = red;
+    TSTagDelimiter.fg = blue;
+    TSText.fg = white;
+    TSStrong.fg = white;
+    TSEmphasis.fg = white;
+    TSUnderline.fg = white;
+    TSStrike.fg = white;
+    TSTitle.fg = green;
+    TSLiteral.fg = green;
+    TSURI.fg = blue;
+    TSMath.fg = white;
+    TSTextReference.fg = red;
+    TSEnvironment.fg = white;
+    TSEnvironmentName.fg = white;
+    TSNote.fg = blue;
+    TSWarning.fg = yellow;
+    TSDanger.fg = red;
+    TSType.fg = yellow;
+    TSTypeBuiltin.fg = orange;
+    TSVariable.fg = white;
+    TSVariableBuiltin.fg = purple;
   };
 
 in concatStringsSep "\n" (mapAttrsFlatten (group: highlight:

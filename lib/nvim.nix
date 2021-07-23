@@ -387,6 +387,13 @@
             },
           }
 
+          require("nvim-treesitter.configs").setup {
+            highlight = {
+              enable = true,
+              disable = {"nix"},
+            },
+          }
+
           require("rust-tools").setup {
             server = {
               capabilities = cap,
@@ -436,6 +443,7 @@
         nvim-compe
         nvim-lspconfig
         nvim-tree-lua
+        (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
         nvim-web-devicons
         plenary-nvim
         popup-nvim
@@ -443,12 +451,10 @@
         trouble-nvim
         vim-commentary
         vim-fugitive
-        vim-json
         vim-lastplace
         vim-markdown
         vim-nix
         vim-surround
-        vim-toml
         vim-visual-multi
       ];
     };
