@@ -37,7 +37,7 @@
         let indent_blankline_char = "⎸"
         let indent_blankline_filetype_exclude = ["help", "NvimTree"]
         let lightline = #{
-        \ colorscheme: "onedark",
+        \ colorscheme: "one",
         \ enable: #{ tabline: 0 },
         \ }
         let mapleader = " "
@@ -50,16 +50,6 @@
         let nvim_tree_quit_on_open = 1
         let nvim_tree_width_allow_resize = 1
         let nvim_tree_window_picker_exclude = #{ buftype: ["terminal"] }
-        let onedark_color_overrides = #{
-        \ black: #{ gui: "#1f2227", cterm: "234", cterm16: "0" },
-        \ background: #{ gui: "#1f2227", cterm: "234", cterm16: "0" },
-        \ cursor_grey: #{ gui: "#282c34", cterm: "235", cterm16: "8" },
-        \ visual_grey: #{ gui: "#2c323c", cterm: "236", cterm16: "8" },
-        \ menu_grey: #{ gui: "#2c323c", cterm: "236", cterm16: "8" },
-        \ vertsplit: #{ gui: "#1f2227", cterm: "234", cterm16: "0" },
-        \ }
-        let onedark_hide_endofbuffer = 1
-        let onedark_terminal_italics = 1
         let vim_json_syntax_conceal = 0
         let vim_markdown_conceal = 0
         let vim_markdown_conceal_code_blocks = 0
@@ -271,7 +261,7 @@
         command -nargs=? P call s:play(<f-args>)
         command -nargs=+ T botright 12split term://<args>
 
-        colorscheme onedark
+        ${pkgs.callPackage ./colorscheme.nix { }}
         filetype plugin indent on
         syntax enable
 
@@ -429,7 +419,6 @@
         nvim-lspconfig
         nvim-tree-lua
         nvim-web-devicons
-        onedark-vim
         plenary-nvim
         popup-nvim
         rust-tools-nvim
