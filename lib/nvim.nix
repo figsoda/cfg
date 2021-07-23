@@ -36,10 +36,6 @@
         let indent_blankline_buftype_exclude = ["terminal"]
         let indent_blankline_char = "⎸"
         let indent_blankline_filetype_exclude = ["help", "NvimTree"]
-        let lightline = #{
-        \ colorscheme: "one",
-        \ enable: #{ tabline: 0 },
-        \ }
         let mapleader = " "
         let nvim_tree_auto_open = 1
         let nvim_tree_git_hl = 1
@@ -347,6 +343,28 @@
 
           require("gitsigns").setup {keymaps = {}}
 
+          require("lualine").setup {
+            options = {
+              component_separators = "",
+              section_separators = "",
+              theme = {
+                normal = {
+                  a = {fg = "#1f2227", bg = "#98c379", gui = "bold"},
+                  b = {fg = "#abb2bf", bg = "#282c34"},
+                  c = {fg = "#abb2bf", bg = "#1f2227"},
+                },
+                insert = {a = {fg = "#1f2227", bg = "#61afef", gui = "bold"}},
+                visual = {a = {fg = "#1f2227", bg = "#c678dd", gui = "bold"}},
+                replace = {a = {fg = "#1f2227", bg = "#e06c75", gui = "bold"}},
+                inactive = {
+                  a = {fg = "#5c6370", bg = "#1f2227", gui = "bold"},
+                  b = {fg = "#5c6370", bg = "#1f2227"},
+                  c = {fg = "#5c6370", bg = "#1f2227"},
+                },
+              },
+            },
+          }
+
           lspconfig.rnix.setup {
             cmd = {"${pkgs.rnix-lsp}/bin/rnix-lsp"},
             on_attach = on_attach,
@@ -407,10 +425,10 @@
         fzf-vim
         gitsigns-nvim
         indent-blankline-nvim
-        lightline-vim
         lightspeed-nvim
         lsp_signature-nvim
         lspkind-nvim
+        lualine-nvim
         luasnip
         null-ls-nvim
         nvim-bufferline-lua
