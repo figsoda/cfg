@@ -153,11 +153,8 @@ let
     SpellCap.fg = orange;
     SpellLocal.fg = orange;
     SpellRare.fg = orange;
-    StatusLine = {
-      fg = white;
-      bg = darkgray;
-    };
-    StatusLineNC.fg = dimwhite;
+    StatusLine = { };
+    StatusLineNC = { };
     TabLine.fg = dimwhite;
     TabLineFill = { };
     TabLineSel.fg = white;
