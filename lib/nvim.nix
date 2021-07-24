@@ -341,12 +341,22 @@
             },
           }
 
-          require("gitsigns").setup {keymaps = {}}
+          require("gitsigns").setup {
+            keymaps = {},
+            status_formatter = function(status)
+              return " "
+                .. (status.head == "" and "detached HEAD" or status.head)
+                .. (status.added and status.added > 0 and "  " .. status.added or "")
+                .. (status.changed and status.changed > 0 and "  " .. status.changed or "")
+                .. (status.removed and status.removed > 0 and "  " .. status.removed or "")
+            end,
+          }
 
           require("lualine").setup {
             options = {
               component_separators = "",
               section_separators = "",
+              disabled_filetypes = {"NvimTree"},
               theme = {
                 normal = {
                   a = {fg = "#1f2227", bg = "#98c379", gui = "bold"},
@@ -364,6 +374,7 @@
               },
             },
             sections = {
+              lualine_b = {"b:gitsigns_status"},
               lualine_c = {"filename", {"diagnostics", sources = {"nvim_lsp"}}},
             },
           }
