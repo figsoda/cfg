@@ -258,8 +258,6 @@
         command -nargs=+ T botright 12split term://<args>
 
         ${pkgs.callPackage ./colorscheme.nix { }}
-        filetype plugin indent on
-        syntax enable
 
         lua <<EOF
           local lspconfig = require("lspconfig")
