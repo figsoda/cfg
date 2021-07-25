@@ -399,6 +399,8 @@
             },
           }
 
+          require("numb").setup()
+
           require("nvim-treesitter.configs").setup {
             highlight = {
               enable = true,
@@ -494,6 +496,7 @@
         lualine-nvim
         luasnip
         null-ls-nvim
+        numb-nvim
         nvim-bufferline-lua
         nvim-colorizer-lua
         nvim-compe
