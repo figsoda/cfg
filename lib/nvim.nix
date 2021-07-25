@@ -389,7 +389,7 @@
             on_attach = on_attach,
           }
 
-          require("lspkind").init()
+          require("lspkind").init {with_text = false}
 
           null_ls.setup {
             on_attach = on_attach,
