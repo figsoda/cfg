@@ -104,11 +104,9 @@
         endf
 
         function s:play(...)
-          if a:0
-            exec "e" system("${pkgs.coreutils}/bin/mktemp --suffix ." . a:1)
-          else
-            exec "e" system("${pkgs.coreutils}/bin/mktemp")
-          end
+          let file = system("${pkgs.coreutils}/bin/mktemp" .. (a:0 ? " --suffix ." . a:1 : ""))
+          exec "edit" file
+          exec "autocmd BufDelete <buffer> silent !${pkgs.coreutils}/bin/rm" file
         endf
 
         function s:quote(c)
