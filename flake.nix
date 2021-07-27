@@ -20,13 +20,8 @@
   outputs = inputs@{ nixos-hardware, nixpkgs, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = with nixos-hardware.nixosModules; [
+      modules = [
         ({ pkgs, ... }: {
-          hardware.nvidia.prime = {
-            amdgpuBusId = "PCI:4:0:0";
-            nvidiaBusId = "PCI:1:0:0";
-          };
-
           nix = {
             autoOptimiseStore = true;
             binaryCachePublicKeys = [
@@ -58,10 +53,7 @@
           };
         })
 
-        common-cpu-amd
-        common-gpu-nvidia
-        common-pc-laptop
-        common-pc-ssd
+        nixos-hardware.nixosModules.asus-zephyrus-ga401
 
         ./lib/cfg.nix
         ./lib/env.nix
