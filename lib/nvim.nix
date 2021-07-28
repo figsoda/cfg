@@ -57,14 +57,6 @@
         \ "{": "}",
         \ }
 
-        function s:close()
-          if &buftype == "terminal"
-            bdelete!
-          else
-            confirm bdelete
-          end
-        endf
-
         function s:cr_nix()
           let line = getline(".")
           let pos = col(".")
@@ -153,7 +145,7 @@
         no <c-_> <cmd>let @/ = ""<cr>
         no <c-q> <cmd>confirm quitall<cr>
         no <c-s> <cmd>write<cr>
-        no <c-w> <cmd>call <sid>close()<cr>
+        no <silent> <expr> <c-w> (&buftype == "terminal" ? ":bdelete!" : ":confirm bdelete") . "<cr>"
 
         nn <c-a> <home>
         nn <c-e> <end>
