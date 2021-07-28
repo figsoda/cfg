@@ -86,7 +86,6 @@
     journald.extraConfig = ''
       SystemMaxUse=256M
     '';
-    logind.lidSwitch = "ignore";
     pipewire = {
       enable = true;
       pulse.enable = true;
@@ -111,12 +110,6 @@
           disableWhileTyping = true;
         };
       };
-      serverFlagsSection = ''
-        Option "BlankTime" "0"
-        Option "StandbyTime" "0"
-        Option "SuspendTime" "0"
-        Option "OffTime" "0"
-      '';
       windowManager.awesome = {
         enable = true;
         noArgb = true;
@@ -133,14 +126,42 @@
     stateVersion = "21.05";
   };
 
-  systemd.services.nixos-upgrade = {
-    script = lib.mkForce ''
-      /run/wrappers/bin/sudo -u figsoda \
-        ${config.nix.package}/bin/nix flake update --commit-lock-file
-      ${pkgs.coreutils}/bin/cp flake.lock /etc/nixos
-      ${config.system.build.nixos-rebuild}/bin/nixos-rebuild switch
-    '';
-    serviceConfig.WorkingDirectory = "/home/figsoda/dotfiles";
+  systemd = {
+    services = {
+      lockscreen = {
+        wantedBy = [ "sleep.target" ];
+        before = [ "sleep.target" ];
+        environment = {
+          DISPLAY = ":1";
+          XAUTHORITY = "/home/figsoda/.local/share/sx/xauthority";
+        };
+        serviceConfig = {
+          Type = "forking";
+          User = "figsoda";
+          ExecStart = "${config.passthru.lockscreen}/bin/lockscreen";
+        };
+      };
+      nixos-upgrade = {
+        serviceConfig.WorkingDirectory = "/home/figsoda/dotfiles";
+        script = lib.mkForce ''
+          /run/wrappers/bin/sudo -u figsoda \
+            ${config.nix.package}/bin/nix flake update --commit-lock-file
+          ${pkgs.coreutils}/bin/cp flake.lock /etc/nixos
+          ${config.system.build.nixos-rebuild}/bin/nixos-rebuild switch
+        '';
+      };
+      rtcwake = {
+        wantedBy = [ "sleep.target" ];
+        before = [ "sleep.target" ];
+        script = ''
+          time=$(date -d 0:55 +%s)
+          if [ "$(date +%s)" -ge "$time" ]; then
+            time=$(date -d "tomorrow 0:55" +%s)
+          fi
+          ${pkgs.util-linux}/bin/rtcwake -m no -t "$time"
+        '';
+      };
+    };
   };
 
   time.timeZone = "America/New_York";

@@ -41,13 +41,6 @@ local function maptag(f, i)
     end
 end
 
-local function trigger(timers)
-    return exec_sh(
-        "xidlehook-client --socket /tmp/xidlehook.sock \z
-        control --action trigger --timer " .. timers
-    )
-end
-
 local function maim(flags)
     return function()
         local name = os.date("%Y%m%d%H%M%S") .. ".png"
@@ -79,7 +72,7 @@ local ckbs = {
 }
 
 local kbs = {
-    {mc, "l", trigger(0)},
+    {mc, "l", exec("lockscreen")},
     {
         mc,
         "Return",
@@ -87,8 +80,8 @@ local kbs = {
             awful.spawn.easy_async_with_shell(
                 "echo '\z
                     1 ⏻  shutdown | poweroff,\z
-                    2   reboot | restart,\z
-                    3 ⏼  suspend | sleep,\z
+                    2   reboot,\z
+                    3 ⏼  suspend,\z
                     4 望  hibernate,\z
                     5   lock screen,\z
                     6   quit | log out,\z
@@ -99,9 +92,9 @@ local kbs = {
                     ({
                         exec("poweroff"),
                         exec("reboot"),
-                        trigger("0 1"),
-                        trigger("0 && systemctl hibernate"),
-                        trigger(0),
+                        exec {"systemctl", "suspend-then-hibernate"},
+                        exec {"systemctl", "hibernate"},
+                        exec("lockscreen"),
                         awesome.quit,
                         awesome.restart,
                     })[stdout:byte() - 47]()
