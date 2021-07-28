@@ -46,7 +46,6 @@
         let nvim_tree_quit_on_open = 1
         let nvim_tree_width_allow_resize = 1
         let nvim_tree_window_picker_exclude = #{ buftype: ["terminal"] }
-        let vim_json_syntax_conceal = 0
         let vim_markdown_conceal = 0
         let vim_markdown_conceal_code_blocks = 0
 
