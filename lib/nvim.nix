@@ -509,7 +509,6 @@
         vim-lastplace
         vim-markdown
         vim-nix
-        vim-surround
         vim-visual-multi
       ];
     };
