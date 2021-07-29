@@ -92,7 +92,7 @@ local kbs = {
                     ({
                         exec("poweroff"),
                         exec("reboot"),
-                        exec {"systemctl", "suspend-then-hibernate"},
+                        exec {"systemctl", "suspend"},
                         exec {"systemctl", "hibernate"},
                         exec("lockscreen"),
                         awesome.quit,

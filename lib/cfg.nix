@@ -86,7 +86,6 @@
     journald.extraConfig = ''
       SystemMaxUse=256M
     '';
-    logind.lidSwitch = "suspend-then-hibernate";
     pipewire = {
       enable = true;
       pulse.enable = true;
@@ -151,18 +150,8 @@
           ${config.system.build.nixos-rebuild}/bin/nixos-rebuild switch
         '';
       };
-      rtcwake = {
-        wantedBy = [ "sleep.target" ];
-        before = [ "sleep.target" ];
-        script = ''
-          time=$(date -d 0:55 +%s)
-          if [ "$(date +%s)" -ge "$time" ]; then
-            time=$(date -d "tomorrow 0:55" +%s)
-          fi
-          ${pkgs.util-linux}/bin/rtcwake -m no -t "$time"
-        '';
-      };
     };
+    timers.nixos-upgrade.timerConfig.WakeSystem = true;
   };
 
   time.timeZone = "America/New_York";
