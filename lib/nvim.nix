@@ -389,6 +389,7 @@
             sources = {
               nb.code_actions.gitsigns,
               nb.diagnostics.shellcheck.with {command = "${pkgs.shellcheck}/bin/shellcheck"},
+              nb.formatting.black.with {command = "${pkgs.black}/bin/black"},
               nb.formatting.prettier.with {command = "${pkgs.nodePackages.prettier}/bin/prettier"},
               nb.formatting.stylua.with {command = "${pkgs.stylua}/bin/stylua"},
             },
