@@ -86,6 +86,7 @@
     journald.extraConfig = ''
       SystemMaxUse=256M
     '';
+    logind.lidSwitch = "suspend-then-hibernate";
     pipewire = {
       enable = true;
       pulse.enable = true;
