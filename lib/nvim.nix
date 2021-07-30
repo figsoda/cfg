@@ -122,7 +122,7 @@
 
           if x > strlen(line)
             let i = y
-            while i < nvim_buf_line_count(0) 
+            while i < nvim_buf_line_count(0)
               let i += 1
               if !empty(getline(i))
                 let r = synID(i, 1, 1)
