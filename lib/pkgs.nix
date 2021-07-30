@@ -65,6 +65,7 @@ with pkgs;
     (rofi.override { plugins = [ rofi-calc ]; })
     sd
     spaceFM
+    stylua
     sxiv
     tela-icon-theme
     xsel

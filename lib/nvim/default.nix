@@ -17,8 +17,8 @@
           inherit (pkgs) black shellcheck stylua;
           inherit (pkgs.nodePackages) prettier;
           rnix_lsp = pkgs.rnix-lsp;
-          yaml_language_server = pkgs.yaml-language-server;
           rust_analyzer = pkgs.rust-analyzer-nightly;
+          yaml_language_server = pkgs.yaml-language-server;
         };
       });
       packages.all.start = with pkgs.vimPlugins; [
