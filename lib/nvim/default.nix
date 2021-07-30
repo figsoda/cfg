@@ -6,7 +6,7 @@
       customRC = builtins.readFile (pkgs.substituteAll {
         src = ./init.vim;
         inherit (config.passthru) rust;
-        inherit (pkgs) coreutils fd fish nixfmt;
+        inherit (pkgs) coreutils fd fish nixfmt stylua;
         cargo_play = pkgs.cargo-play;
         nix = config.nix.package;
         nixpkgs = config.nix.registry.nixpkgs.flake;

@@ -184,6 +184,7 @@ nn <space>nr <cmd>T @nix@/bin/nix run<cr>i
 nn <space>nt <cmd>T @nix@/bin/nix flake check<cr>i
 nn <space>nu <cmd>!@nix@/bin/nix flake update<cr>
 nn <space>t <cmd>T @fish@/bin/fish<cr>i
+nn <space>lf <cmd>!@fd@/bin/fd -H '.lua$' -x @stylua@/bin/stylua<cr>
 nn <tab> <cmd>BufferLineCycleNext<cr>
 nn R "_diwhp
 nn T <cmd>NvimTreeToggle<cr>
