@@ -45,7 +45,6 @@ with pkgs;
     libreoffice-fresh
     libressl
     llvmPackages_latest.lld
-    luaformatter
     maim
     mmtc
     mpc_cli

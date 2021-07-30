@@ -63,19 +63,6 @@
         end
       end
 
-      function f -a lang
-        switch $lang
-          case lua
-            ${fd}/bin/fd -H '\.lua$' -x ${luaformatter}/bin/lua-format -i
-          case nix
-            ${fd}/bin/fd -H '\.nix$' -x ${nixfmt}/bin/nixfmt
-          case rust
-            ${config.passthru.rust}/bin/cargo fmt
-          case "*"
-            echo "unexpected language: $lang"
-        end
-      end
-
       function gen -a template name
         string length -q -- $template $name
         ~/rust-templates/gen.sh ~/rust-templates/$template \

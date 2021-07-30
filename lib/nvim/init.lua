@@ -5,7 +5,7 @@ local nb = null_ls.builtins
 local cap = vim.lsp.protocol.make_client_capabilities()
 cap.textDocument.completion.completionItem.snippetSupport = true
 cap.textDocument.completion.completionItem.resovleSupport = {
-  properties = {"additionalTextEdits"},
+  properties = { "additionalTextEdits" },
 }
 
 local function on_attach(_, buf)
@@ -25,25 +25,31 @@ local function on_attach(_, buf)
   }
 
   for k, v in pairs(map) do
-    vim.api.nvim_buf_set_keymap(buf, "n", k, "<cmd>" .. v .. "<cr>", {noremap = true})
+    vim.api.nvim_buf_set_keymap(
+      buf,
+      "n",
+      k,
+      "<cmd>" .. v .. "<cr>",
+      { noremap = true }
+    )
   end
 end
 
-require("bufferline").setup {
+require("bufferline").setup({
   highlights = {
-    background = {guibg = "#1f2227"},
-    buffer_visible = {guibg = "#1f2227"},
-    close_button = {guibg = "#1f2227"},
-    duplicate = {guibg = "#1f2227"},
-    duplicate_visible = {guibg = "#1f2227"},
-    error = {guibg = "#1f2227"},
-    error_visible = {guibg = "#1f2227"},
-    fill = {guibg = "#1f2227"},
-    indicator_selected = {guifg = "#61afef"},
-    modified = {guibg = "#1f2227"},
-    modified_visible = {guibg = "#1f2227"},
-    pick = {guibg = "#1f2227"},
-    pick_visible = {guibg = "#1f2227"},
+    background = { guibg = "#1f2227" },
+    buffer_visible = { guibg = "#1f2227" },
+    close_button = { guibg = "#1f2227" },
+    duplicate = { guibg = "#1f2227" },
+    duplicate_visible = { guibg = "#1f2227" },
+    error = { guibg = "#1f2227" },
+    error_visible = { guibg = "#1f2227" },
+    fill = { guibg = "#1f2227" },
+    indicator_selected = { guifg = "#61afef" },
+    modified = { guibg = "#1f2227" },
+    modified_visible = { guibg = "#1f2227" },
+    pick = { guibg = "#1f2227" },
+    pick_visible = { guibg = "#1f2227" },
     separator = {
       guifg = "#1f2227",
       guibg = "#1f2227",
@@ -52,98 +58,104 @@ require("bufferline").setup {
       guifg = "#1f2227",
       guibg = "#1f2227",
     },
-    tab = {guibg = "#1f2227"},
-    tab_close = {guibg = "#1f2227"},
-    warning = {guibg = "#1f2227"},
-    warning_selected = {guifg = "#e5c07b"},
-    warning_visible = {guibg = "#1f2227"},
+    tab = { guibg = "#1f2227" },
+    tab_close = { guibg = "#1f2227" },
+    warning = { guibg = "#1f2227" },
+    warning_selected = { guifg = "#e5c07b" },
+    warning_visible = { guibg = "#1f2227" },
   },
   options = {
     custom_filter = function(n)
-      return vim.fn.bufname(n) ~= "" and vim.api.nvim_buf_get_option(n, "buftype") ~= "terminal"
+      return vim.fn.bufname(n) ~= ""
+        and vim.api.nvim_buf_get_option(n, "buftype") ~= "terminal"
     end,
     diagnostics = "nvim_lsp",
     show_close_icon = false,
   },
-}
+})
 
-require("colorizer").setup(nil, {css = true})
+require("colorizer").setup(nil, { css = true })
 
-require("compe").setup {
+require("compe").setup({
   source = {
     buffer = true,
     path = true,
     nvim_lsp = true,
   },
-}
+})
 
-require("gitsigns").setup {
+require("gitsigns").setup({
   keymaps = {},
   status_formatter = function(status)
     return " "
       .. (status.head == "" and "detached HEAD" or status.head)
       .. (status.added and status.added > 0 and "  " .. status.added or "")
       .. (status.changed and status.changed > 0 and "  " .. status.changed or "")
-      .. (status.removed and status.removed > 0 and "  " .. status.removed or "")
+      .. (
+        status.removed
+          and status.removed > 0
+          and "  " .. status.removed
+        or ""
+      )
   end,
-}
+})
 
-require("lualine").setup {
+require("lualine").setup({
   options = {
     component_separators = "",
     section_separators = "",
-    disabled_filetypes = {"NvimTree"},
+    disabled_filetypes = { "NvimTree" },
     theme = {
       normal = {
-        a = {fg = "#1f2227", bg = "#98c379", gui = "bold"},
-        b = {fg = "#abb2bf", bg = "#282c34"},
-        c = {fg = "#abb2bf", bg = "#1f2227"},
+        a = { fg = "#1f2227", bg = "#98c379", gui = "bold" },
+        b = { fg = "#abb2bf", bg = "#282c34" },
+        c = { fg = "#abb2bf", bg = "#1f2227" },
       },
-      insert = {a = {fg = "#1f2227", bg = "#61afef", gui = "bold"}},
-      visual = {a = {fg = "#1f2227", bg = "#c678dd", gui = "bold"}},
-      replace = {a = {fg = "#1f2227", bg = "#e06c75", gui = "bold"}},
+      insert = { a = { fg = "#1f2227", bg = "#61afef", gui = "bold" } },
+      visual = { a = { fg = "#1f2227", bg = "#c678dd", gui = "bold" } },
+      replace = { a = { fg = "#1f2227", bg = "#e06c75", gui = "bold" } },
       inactive = {
-        a = {fg = "#5c6370", bg = "#1f2227", gui = "bold"},
-        b = {fg = "#5c6370", bg = "#1f2227"},
-        c = {fg = "#5c6370", bg = "#1f2227"},
+        a = { fg = "#5c6370", bg = "#1f2227", gui = "bold" },
+        b = { fg = "#5c6370", bg = "#1f2227" },
+        c = { fg = "#5c6370", bg = "#1f2227" },
       },
     },
   },
   sections = {
-    lualine_b = {"b:gitsigns_status"},
-    lualine_c = {"filename", {"diagnostics", sources = {"nvim_lsp"}}},
+    lualine_b = { "b:gitsigns_status" },
+    lualine_c = { "filename", { "diagnostics", sources = { "nvim_lsp" } } },
   },
-}
+})
 
-lspconfig.rnix.setup {
-  cmd = {"@rnix_lsp@/bin/rnix-lsp"},
+lspconfig.rnix.setup({
+  cmd = { "@rnix_lsp@/bin/rnix-lsp" },
   on_attach = on_attach,
-}
+})
 
-lspconfig.yamlls.setup {
-  cmd = {"@yaml_language_server@/bin/yaml-language-server", "--stdio"},
+lspconfig.yamlls.setup({
+  cmd = { "@yaml_language_server@/bin/yaml-language-server", "--stdio" },
   on_attach = on_attach,
-}
+})
 
-require("lspkind").init {with_text = false}
+require("lspkind").init({ with_text = false })
 
-null_ls.setup {
+null_ls.setup({
   on_attach = on_attach,
   sources = {
     nb.code_actions.gitsigns,
-    nb.diagnostics.shellcheck.with {command = "@shellcheck@/bin/shellcheck"},
-    nb.formatting.black.with {command = "@black@/bin/black"},
-    nb.formatting.prettier.with {command = "@prettier@/bin/prettier"},
-    nb.formatting.stylua.with {command = "@stylua@/bin/stylua"},
+    nb.diagnostics.shellcheck.with({ command = "@shellcheck@/bin/shellcheck" }),
+    nb.formatting.black.with({ command = "@black@/bin/black" }),
+    nb.formatting.prettier.with({ command = "@prettier@/bin/prettier" }),
+    nb.formatting.stylua.with({ command = "@stylua@/bin/stylua" }),
   },
-}
+})
 
 require("numb").setup()
 
-require("nvim-treesitter.configs").setup {
+require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true,
-    disable = {"nix"},
+    disable = { "nix" },
   },
   textobjects = {
     lsp_interop = {
@@ -189,19 +201,19 @@ require("nvim-treesitter.configs").setup {
       },
     },
   },
-}
+})
 
-require("rust-tools").setup {
+require("rust-tools").setup({
   server = {
     capabilities = cap,
-    cmd = {"@rust_analyzer@/bin/rust-analyzer"},
+    cmd = { "@rust_analyzer@/bin/rust-analyzer" },
     on_attach = function(c, buf)
       on_attach(c, buf)
-      require("lsp_signature").on_attach {
+      require("lsp_signature").on_attach({
         handler_opts = {
           border = "single",
         },
-      }
+      })
     end,
     settings = {
       ["rust-analyzer"] = {
@@ -220,6 +232,6 @@ require("rust-tools").setup {
       show_parameter_hints = false,
     },
   },
-}
+})
 
 require("trouble").setup()
