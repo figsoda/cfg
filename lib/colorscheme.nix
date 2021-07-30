@@ -190,6 +190,17 @@ let
       attrs = "underline";
     };
 
+    # diff
+    diffRemoved.fg = red;
+    diffAdded.fg = green;
+    diffChanged.fg = yellow;
+    diffSubname.fg = orange;
+    diffLine.fg = purple;
+    diffFile.fg = yellow;
+    diffOldFile.fg = red;
+    diffNewFile.fg = green;
+    diffIndexLine.fg = purple;
+
     # gitcommit.vim
     gitCommitUnmerged.fg = green;
     gitCommitOnBranch.fg = white;
