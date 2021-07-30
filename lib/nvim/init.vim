@@ -236,6 +236,8 @@ autocmd FileType nix ino <buffer> <expr> <cr> compe#confirm(<sid>cr_nix())
 autocmd FileType rust nn <buffer> J <cmd>RustJoinLines<cr>
 autocmd FileType rust nn <buffer> gm <cmd>RustExpandMacro<cr>
 
+autocmd FileType vim setlocal shiftwidth=2
+
 autocmd FileType yaml setlocal shiftwidth=2
 
 autocmd VimEnter * silent exec "!@util_linux@/bin/kill -s SIGWINCH" getpid() | call s:init()
