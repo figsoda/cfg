@@ -144,6 +144,7 @@
       nixos-upgrade = {
         serviceConfig.WorkingDirectory = "/home/figsoda/dotfiles";
         script = lib.mkForce ''
+          ${pkgs.networkmanager}/bin/nmcli device connect wlan0
           /run/wrappers/bin/sudo -u figsoda \
             ${config.nix.package}/bin/nix flake update --commit-lock-file
           ${pkgs.coreutils}/bin/cp flake.lock /etc/nixos
