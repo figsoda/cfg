@@ -58,7 +58,7 @@
         ./lib/cfg.nix
         ./lib/env.nix
         ./lib/fish.nix
-        ./lib/nvim.nix
+        ./lib/nvim
         ./lib/pkgs.nix
         ./hardware-configuration.nix
       ];
