@@ -3,24 +3,28 @@
     enable = true;
     defaultEditor = true;
     configure = {
-      customRC = builtins.readFile (pkgs.substituteAll {
-        src = ./init.vim;
-        inherit (config.passthru) rust;
-        inherit (pkgs) coreutils fd fish nixfmt stylua;
-        cargo_play = pkgs.cargo-play;
-        nix = config.nix.package;
-        nixpkgs = config.nix.registry.nixpkgs.flake;
-        util_linux = pkgs.util-linux;
-        colorscheme = pkgs.callPackage ./colorscheme.nix { };
-        init_lua = pkgs.substituteAll {
-          src = ./init.lua;
-          inherit (pkgs) black shellcheck stylua;
-          inherit (pkgs.nodePackages) prettier;
-          rnix_lsp = pkgs.rnix-lsp;
-          rust_analyzer = pkgs.rust-analyzer-nightly;
-          yaml_language_server = pkgs.yaml-language-server;
-        };
-      });
+      customRC = ''
+        source ${
+          pkgs.substituteAll rec {
+            src = ./init.vim;
+            inherit (config.passthru) rust;
+            inherit (pkgs) coreutils fd fish nixfmt stylua;
+            cargo_play = pkgs.cargo-play;
+            nix = config.nix.package;
+            nixpkgs = config.nix.registry.nixpkgs.flake;
+            util_linux = pkgs.util-linux;
+            colorscheme = pkgs.callPackage ./colorscheme.nix { };
+            init_lua = pkgs.substituteAll {
+              src = ./init.lua;
+              inherit (pkgs) black shellcheck stylua;
+              inherit (pkgs.nodePackages) prettier;
+              rnix_lsp = pkgs.rnix-lsp;
+              rust_analyzer = pkgs.rust-analyzer-nightly;
+              yaml_language_server = pkgs.yaml-language-server;
+            };
+          }
+        }
+      '';
       packages.all.start = with pkgs.vimPlugins; [
         fzf-vim
         gitsigns-nvim
