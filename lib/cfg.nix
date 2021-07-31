@@ -142,7 +142,7 @@
       nixos-upgrade = {
         serviceConfig.WorkingDirectory = "/home/figsoda/dotfiles";
         script = lib.mkForce ''
-          sleep 5
+          ${pkgs.coreutils}/bin/sleep 5
           /run/wrappers/bin/sudo -u figsoda \
             ${config.nix.package}/bin/nix flake update --commit-lock-file
           ${pkgs.coreutils}/bin/cp flake.lock /etc/nixos
