@@ -232,6 +232,8 @@ endfor
 
 tno <expr> <esc> stridx(b:term_title, "#FZF") == -1 ? "<c-\><c-n>" : "<esc>"
 
+autocmd FileType lua setlocal shiftwidth=2
+
 autocmd FileType nix ino <buffer> <expr> <cr> compe#confirm(<sid>cr_nix())
 
 autocmd FileType rust nn <buffer> J <cmd>RustJoinLines<cr>
