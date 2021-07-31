@@ -20,6 +20,7 @@
               inherit (pkgs.nodePackages) prettier;
               rnix_lsp = pkgs.rnix-lsp;
               rust_analyzer = pkgs.rust-analyzer-nightly;
+              sumneko_lua_language_server = pkgs.sumneko-lua-language-server;
               yaml_language_server = pkgs.yaml-language-server;
             };
           }

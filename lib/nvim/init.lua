@@ -132,6 +132,18 @@ lspconfig.rnix.setup({
   on_attach = on_attach,
 })
 
+lspconfig.sumneko_lua.setup({
+  cmd = { "@sumneko_lua_language_server@/bin/lua-language-server" },
+  on_attach = on_attach,
+  settings = {
+    Lua = {
+      diagnostics = {
+        disable = { "redefined-local", "undefined-global" },
+      },
+    },
+  },
+})
+
 lspconfig.yamlls.setup({
   cmd = { "@yaml_language_server@/bin/yaml-language-server", "--stdio" },
   on_attach = on_attach,
