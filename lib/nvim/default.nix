@@ -14,17 +14,20 @@
             nixpkgs = config.nix.registry.nixpkgs.flake;
             util_linux = pkgs.util-linux;
             colorscheme = pkgs.callPackage ./colorscheme.nix { };
-            init_lua = pkgs.substituteAll {
-              src = ./init.lua;
-              inherit (pkgs) black shellcheck stylua;
-              inherit (pkgs.nodePackages) prettier;
-              rnix_lsp = pkgs.rnix-lsp;
-              rust_analyzer = pkgs.rust-analyzer-nightly;
-              sumneko_lua_language_server = pkgs.sumneko-lua-language-server;
-              yaml_language_server = pkgs.yaml-language-server;
-            };
           }
         }
+        luafile ${
+          pkgs.substituteAll {
+            src = ./init.lua;
+            inherit (pkgs) black shellcheck stylua;
+            inherit (pkgs.nodePackages) prettier;
+            rnix_lsp = pkgs.rnix-lsp;
+            rust_analyzer = pkgs.rust-analyzer-nightly;
+            sumneko_lua_language_server = pkgs.sumneko-lua-language-server;
+            yaml_language_server = pkgs.yaml-language-server;
+          }
+        }
+        ${pkgs.callPackage ./colorscheme.nix { }}
       '';
       packages.all.start = with pkgs.vimPlugins; [
         fzf-vim

@@ -247,7 +247,3 @@ autocmd VimEnter * silent exec "!@util_linux@/bin/kill -s SIGWINCH" getpid() | c
 
 command -nargs=? P call s:play(<f-args>)
 command -nargs=+ T botright 12split term://<args>
-
-@colorscheme@
-
-luafile @init_lua@
