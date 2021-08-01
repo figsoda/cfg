@@ -177,6 +177,7 @@ nn <space>gp <cmd>Git push<cr>
 nn <space>gr <cmd>lua require("gitsigns").reset_hunk()<cr>
 nn <space>gs <cmd>lua require("gitsigns").stage_hunk()<cr>
 nn <space>gu <cmd>lua require("gitsigns").undo_stage_hunk()<cr>
+nn <space>lf <cmd>!@fd@/bin/fd -H '.lua$' -x @stylua@/bin/stylua<cr>
 nn <space>n<space> :!nix<space>
 nn <space>nb <cmd>T @nix@/bin/nix build<cr>i
 nn <space>nf <cmd>!@fd@/bin/fd -H '.nix$' -x @nixfmt@/bin/nixfmt<cr>
@@ -185,13 +186,14 @@ nn <space>nr <cmd>T @nix@/bin/nix run<cr>i
 nn <space>nt <cmd>T @nix@/bin/nix flake check<cr>i
 nn <space>nu <cmd>!@nix@/bin/nix flake update<cr>
 nn <space>t <cmd>T @fish@/bin/fish<cr>i
-nn <space>lf <cmd>!@fd@/bin/fd -H '.lua$' -x @stylua@/bin/stylua<cr>
 nn <tab> <cmd>BufferLineCycleNext<cr>
+nn N Nzz
 nn R "_diwhp
 nn T <cmd>NvimTreeToggle<cr>
 nn X "_X
 nn [h <cmd>lua require("gitsigns.actions").prev_hunk()<cr>
 nn ]h <cmd>lua require("gitsigns.actions").next_hunk()<cr>
+nn n nzz
 nn x "_x
 
 vn < <gv
