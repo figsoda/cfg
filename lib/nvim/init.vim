@@ -154,7 +154,7 @@ nn <m-tab> <cmd>BufferLinePick<cr>
 nn <m-up> <cmd>move -2<cr>
 nn <s-tab> <cmd>BufferLineCyclePrev<cr>
 nn <space>c<space> :!cargo<space>
-nn <space>cU <cmd>!@rust@ upgrade<cr>
+nn <space>cU <cmd>!@cargo_edit@/bin/cargo-upgrade upgrade<cr>
 nn <space>cb <cmd>T @rust@/bin/cargo build<cr>i
 nn <space>cd <cmd>T @rust@/bin/cargo doc --open<cr>i
 nn <space>cf <cmd>!@rust@/bin/cargo fmt<cr>
