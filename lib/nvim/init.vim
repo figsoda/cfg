@@ -177,6 +177,8 @@ nn <space>gp <cmd>Git push<cr>
 nn <space>gr <cmd>lua require("gitsigns").reset_hunk()<cr>
 nn <space>gs <cmd>lua require("gitsigns").stage_hunk()<cr>
 nn <space>gu <cmd>lua require("gitsigns").undo_stage_hunk()<cr>
+nn <space>j <cmd>move +1<cr>
+nn <space>k <cmd>move -2<cr>
 nn <space>lf <cmd>!@fd@/bin/fd -H '.lua$' -x @stylua@/bin/stylua<cr>
 nn <space>n<space> :!nix<space>
 nn <space>nb <cmd>T @nix@/bin/nix build<cr>i
@@ -201,6 +203,8 @@ vn <c-a> <home>
 vn <c-e> <end>
 vn <silent> <m-down> :move '>+1<cr>gv
 vn <silent> <m-up> :move -2<cr>gv
+vn <silent> <space>j :move '>+1<cr>gv
+vn <silent> <space>k :move -2<cr>gv
 vn > >gv
 
 ino <c-a> <esc>I
