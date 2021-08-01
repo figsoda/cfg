@@ -22,7 +22,13 @@
             inherit (pkgs) black shellcheck stylua;
             inherit (pkgs.nodePackages) prettier;
             rnix_lsp = pkgs.rnix-lsp;
-            rust_analyzer = pkgs.rust-analyzer-nightly;
+            rust_analyzer = pkgs.writeShellScriptBin "rust-analyzer" ''
+              wrapper=()
+              if ${config.nix.package}/bin/nix eval --raw .#devShell.x86_64-linux; then
+                wrapper=(${config.nix.package}/bin/nix develop -c)
+              fi
+              "''${wrapper[@]}" ${pkgs.rust-analyzer-nightly}/bin/rust-analyzer
+            '';
             sumneko_lua_language_server = pkgs.sumneko-lua-language-server;
             yaml_language_server = pkgs.yaml-language-server;
           }
