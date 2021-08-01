@@ -250,6 +250,8 @@ autocmd FileType vim setlocal shiftwidth=2
 
 autocmd FileType yaml setlocal shiftwidth=2
 
+autocmd TextYankPost * silent lua vim.highlight.on_yank()
+
 autocmd VimEnter * silent exec "!@util_linux@/bin/kill -s SIGWINCH" getpid() | call s:init()
 
 command -nargs=? P call s:play(<f-args>)
