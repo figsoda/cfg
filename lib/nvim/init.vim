@@ -25,8 +25,9 @@ set title
 set updatetime=300
 
 let indent_blankline_buftype_exclude = ["terminal"]
-let indent_blankline_char = "⎸"
+let indent_blankline_char = "│"
 let indent_blankline_filetype_exclude = ["help", "NvimTree"]
+let indent_blankline_use_treesitter = v:true
 let mapleader = " "
 let nvim_tree_auto_open = 1
 let nvim_tree_git_hl = 1

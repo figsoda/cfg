@@ -288,6 +288,9 @@ let
     TSTypeBuiltin.fg = orange;
     TSVariable.fg = white;
     TSVariableBuiltin.fg = purple;
+
+    # indent-blankline.nvim
+    IndentBlanklineChar.fg = gray;
   };
 
 in concatStringsSep "\n" (mapAttrsFlatten (group: highlight:
