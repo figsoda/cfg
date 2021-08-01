@@ -169,6 +169,7 @@ require("nvim-treesitter.configs").setup({
     enable = true,
     disable = { "nix" },
   },
+  indent = { enable = true },
   textobjects = {
     lsp_interop = {
       enable = true,
