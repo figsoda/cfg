@@ -95,14 +95,13 @@ with pkgs;
         --lock-text=Locking... --lockfailed-text="Lock failed!" \
         --radius 108 --ring-width 8
     '';
-    rust = with fenix;
-      combine (with default; [
-        cargo
-        clippy-preview
-        rust-std
-        rustc
-        rustfmt-preview
-        latest.rust-src
-      ]);
+    rust = fenix.complete.withComponents [
+      "cargo"
+      "clippy-preview"
+      "rust-src"
+      "rust-std"
+      "rustc"
+      "rustfmt-preview"
+    ];
   };
 }
