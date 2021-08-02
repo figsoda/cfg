@@ -239,6 +239,7 @@ require("rust-tools").setup({
     },
   },
   tools = {
+    hover_actions = { border = "single" },
     inlay_hints = {
       other_hints_prefix = "",
       show_parameter_hints = false,
