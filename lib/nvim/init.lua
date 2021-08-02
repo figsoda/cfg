@@ -228,19 +228,13 @@ require("rust-tools").setup({
     on_attach = function(c, buf)
       on_attach(c, buf)
       require("lsp_signature").on_attach({
-        handler_opts = {
-          border = "single",
-        },
+        handler_opts = { border = "single" },
       })
     end,
     settings = {
       ["rust-analyzer"] = {
-        assist = {
-          importPrefix = "by_crate",
-        },
-        checkOnSave = {
-          command = "clippy",
-        },
+        assist = { importPrefix = "by_crate" },
+        checkOnSave = { command = "clippy" },
       },
     },
   },
