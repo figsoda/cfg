@@ -10,7 +10,7 @@ cap.textDocument.completion.completionItem.resovleSupport = {
 
 local function on_attach(_, buf)
   local map = {
-    K = "buf.hover",
+    K = "lua vim.lsp.buf.hover()",
     ["<space>d"] = "Trouble lsp_document_diagnostics",
     ["<space>e"] = "Trouble lsp_workspace_diagnostics",
     ["<space>f"] = "lua vim.lsp.buf.formatting()",
