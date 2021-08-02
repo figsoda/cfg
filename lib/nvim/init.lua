@@ -144,6 +144,11 @@ lspconfig.sumneko_lua.setup({
   },
 })
 
+lspconfig.vimls.setup({
+  cmd = { "@vim_language_server@/bin/vim-language-server", "--stdio" },
+  on_attach = on_attach,
+})
+
 lspconfig.yamlls.setup({
   cmd = { "@yaml_language_server@/bin/yaml-language-server", "--stdio" },
   on_attach = on_attach,

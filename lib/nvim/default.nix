@@ -31,6 +31,7 @@
               "''${wrapper[@]}" ${pkgs.rust-analyzer-nightly}/bin/rust-analyzer
             '';
             sumneko_lua_language_server = pkgs.sumneko-lua-language-server;
+            vim_language_server = pkgs.nodePackages.vim-language-server;
             yaml_language_server = pkgs.yaml-language-server;
           }
         }
