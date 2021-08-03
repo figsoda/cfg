@@ -41,31 +41,6 @@ let nvim_tree_window_picker_exclude = #{ buftype: ["terminal"] }
 let vim_markdown_conceal = 0
 let vim_markdown_conceal_code_blocks = 0
 
-let s:pairs = {
-\ '"': '"',
-\ "(": ")",
-\ "[": "]",
-\ "`": "`",
-\ "{": "}",
-\ }
-
-function s:cr_nix()
-  let line = getline(".")
-  let pos = col(".")
-  if get(s:pairs, line[pos - 2], 1) == line[pos - 1]
-    return s:indent_pair("")
-  elseif line[pos - 3 : pos - 2] == "'''" && line[pos - 4] != "'"
-    return s:indent_pair("'''")
-  else
-    return "\<cr>"
-  end
-endf
-
-function s:indent_pair(r)
-  let indent = repeat(" ", indent(line(".")))
-  return printf("\<cr> \<c-u>\<cr> \<c-u>%s%s\<up>%s\<tab>", indent, a:r, indent)
-endf
-
 function s:init()
   let name = bufname(1)
   if isdirectory(name)
@@ -74,64 +49,10 @@ function s:init()
   end
 endf
 
-function s:in_pair()
-  let line = getline(".")
-  let pos = col(".")
-  return (get(s:pairs, line[pos - 2], 1) == line[pos - 1])
-endf
-
-function s:in_word()
-  let line = getline(".")
-  let pos = col(".") - 1
-  return (pos != len(line) && line[pos] =~ '\w')
-endf
-
 function s:play(...)
   let file = system("@coreutils@/bin/mktemp" .. (a:0 ? " --suffix ." . a:1 : ""))
   exec "edit" file
   exec "autocmd BufDelete <buffer> silent !@coreutils@/bin/rm" file
-endf
-
-function s:quote(c)
-  let x = col(".")
-  let y = line(".")
-  let line = getline(".")
-
-  if x == 1
-    let i = y
-    while i > 1
-      let i -= 1
-      let len = strlen(getline(i))
-      if len != 0
-        let l = synID(i, len, 1)
-        break
-      end
-    endw
-  end
-  if !exists("l")
-    let l = synID(y, x - 1, 1)
-  end
-
-  if x > strlen(line)
-    let i = y
-    while i < nvim_buf_line_count(0)
-      let i += 1
-      if !empty(getline(i))
-        let r = synID(i, 1, 1)
-        break
-      end
-    endw
-  end
-  if !exists("r")
-    let r = synID(y, x, 1)
-  end
-
-  if synIDattr(l, "name") =~? "string\\|interpolationdelimiter"
-  \ && synIDattr(r, "name") =~? "string\\|interpolationdelimiter"
-    return line[x - 1] == a:c ? "\<right>" : a:c
-  else
-    return a:c . a:c . "\<left>"
-  end
 endf
 
 no <c-_> <cmd>let @/ = ""<cr>
@@ -215,8 +136,6 @@ ino <c-k> <esc>O
 ino <c-q> <cmd>confirm quitall<cr>
 ino <c-s> <cmd>write<cr>
 ino <c-w> <cmd>confirm bdelete<cr><esc>
-ino <expr> <bs> <sid>in_pair() ? "<bs><del>" : "<bs>"
-ino <expr> <cr> compe#confirm(<sid>in_pair() ? <sid>indent_pair("") : "<cr>")
 ino <expr> <s-tab> pumvisible() ? "<c-p>" : "<s-tab>"
 ino <expr> <tab> pumvisible() ? "<c-n>" : "<tab>"
 ino <m-,> <cmd>call setline(".", getline(".") . ",")<cr>
@@ -228,20 +147,9 @@ ino <m-k> <up>
 ino <m-l> <esc>ea
 ino <m-up> <cmd>move -2<cr>
 
-for [l, r] in items(s:pairs)
-  if l == r
-    exec printf("ino <expr> %s <sid>quote('%s')", l, l)
-  else
-    exec printf("ino <expr> %s <sid>in_word() ? '%s' : '%s%s<left>'", l, l, l, r)
-    exec printf("ino <expr> %s getline('.')[col('.') - 1] == '%s' ? '<right>' : '%s'", r, r, r)
-  end
-endfor
-
 tno <expr> <esc> stridx(b:term_title, "#FZF") == -1 ? "<c-\><c-n>" : "<esc>"
 
 autocmd FileType lua setlocal shiftwidth=2
-
-autocmd FileType nix ino <buffer> <expr> <cr> compe#confirm(<sid>cr_nix())
 
 autocmd FileType rust nn <buffer> J <cmd>RustJoinLines<cr>
 autocmd FileType rust nn <buffer> gm <cmd>RustExpandMacro<cr>

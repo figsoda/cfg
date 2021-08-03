@@ -35,6 +35,7 @@
             yaml_language_server = pkgs.yaml-language-server;
           }
         }
+        luafile ${./autopairs.lua}
         ${pkgs.callPackage ./colorscheme.nix { }}
       '';
       packages.all.start = with pkgs.vimPlugins; [
