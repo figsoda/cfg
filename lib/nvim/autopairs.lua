@@ -25,6 +25,17 @@ local function indent_pair(r)
   )
 end
 
+local function is_string(y, x)
+  local ids = vim.fn.synstack(y, x)
+  local len = #ids
+  if len == 0 then
+    return false
+  else
+    local syn = vim.fn.synIDattr(ids[len], "name")
+    return syn:match("String") or syn:match("InterpolationDelimiter")
+  end
+end
+
 local autopairs = {
   ["("] = ")",
   ["["] = "]",
@@ -75,36 +86,15 @@ for l, r in pairs(autopairs) do
       makefn(function()
         local x = vim.fn.col(".")
         local y = vim.fn.line(".")
-        local line = vim.api.nvim_get_current_line()
-
-        local lsyn
-        if x == 1 then
-          for i = y - 1, 1, -1 do
-            local len = #vim.fn.getline(i)
-            if len ~= 0 then
-              lsyn = vim.fn.synID(i, len, 1)
-              break
-            end
-          end
-        end
-        local lsyn = vim.fn.synIDattr(lsyn or vim.fn.synID(y, x - 1, 1), "name")
-
-        local rsyn
-        if x > #line then
-          for i = y + 1, vim.api.nvim_buf_line_count(0) do
-            if vim.fn.getline(i) ~= "" then
-              rsyn = vim.fn.synID(i, 1, 1)
-              break
-            end
-          end
-        end
-        local rsyn = vim.fn.synIDattr(rsyn or vim.fn.synID(y, x, 1), "name")
-
         if
-          (lsyn:match("String") or lsyn:match("InterpolationDelimiter"))
-          and (rsyn:match("String") or rsyn:match("InterpolationDelimiter"))
+          is_string(y, x)
+          and (
+            x == 1 and is_string(y - 1, #vim.fn.getline(y - 1))
+            or is_string(y, x - 1)
+          )
         then
-          return get(line, x) == l and t("<right>") or l
+          return get(vim.api.nvim_get_current_line(), x) == l and t("<right>")
+            or l
         else
           return l .. l .. t("<left>")
         end
