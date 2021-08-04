@@ -134,11 +134,26 @@ lspconfig.rnix.setup({
 
 lspconfig.sumneko_lua.setup({
   cmd = { "@sumneko_lua_language_server@/bin/lua-language-server" },
+  root_dir = function(file)
+    return lspconfig.util.root_pattern("lua-globals")(file)
+      or lspconfig.util.find_git_ancestor(file)
+      or lspconfig.util.path.dirname(file)
+  end,
+  on_new_config = function(new_config, new_root_dir)
+    new_config.settings.Lua.diagnostics.globals = {}
+    local file = io.open(new_root_dir .. "/lua-globals", "r")
+    if file then
+      for line in file:lines() do
+        table.insert(new_config.settings.Lua.diagnostics.globals, line)
+      end
+      file:close()
+    end
+  end,
   on_attach = on_attach,
   settings = {
     Lua = {
       diagnostics = {
-        disable = { "redefined-local", "undefined-global" },
+        disable = { "lowercase-global", "redefined-local" },
       },
     },
   },
