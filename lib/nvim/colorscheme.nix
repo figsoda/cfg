@@ -291,6 +291,11 @@ let
 
     # indent-blankline.nvim
     IndentBlanklineChar.fg = gray;
+
+    # nvim-tree.lua
+    NvimTreeExecFile.fg = green;
+    NvimTreeSpecialFile.fg = yellow;
+    NvimTreeImageFile.fg = purple;
   };
 
 in concatStringsSep "\n" (mapAttrsFlatten (group: highlight:
