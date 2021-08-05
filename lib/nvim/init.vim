@@ -18,6 +18,7 @@ set shiftwidth=4
 set shortmess=aoOtTIcF
 set showtabline=2
 set signcolumn=yes
+set smartcase
 set smartindent
 set splitbelow
 set splitright
