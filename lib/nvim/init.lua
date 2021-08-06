@@ -79,8 +79,10 @@ require("colorizer").setup(nil, { css = true })
 require("compe").setup({
   source = {
     buffer = true,
-    path = true,
     nvim_lsp = true,
+    nvim_lua = true,
+    path = true,
+    treesitter = true,
   },
 })
 
