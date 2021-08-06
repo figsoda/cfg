@@ -173,6 +173,8 @@ lspconfig.yamlls.setup({
 
 require("lspkind").init({ with_text = false })
 
+vim.notify = require("notify")
+
 null_ls.setup({
   on_attach = on_attach,
   sources = {

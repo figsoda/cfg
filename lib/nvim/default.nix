@@ -53,6 +53,7 @@
         nvim-colorizer-lua
         nvim-compe
         nvim-lspconfig
+        nvim-notify
         nvim-tree-lua
         (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
         nvim-treesitter-textobjects
