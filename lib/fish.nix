@@ -137,6 +137,8 @@
       nh = "nixpkgs-hammer";
       npu = "nix-prefetch-url";
       nr = "nix run";
+      nrb = "nixpkgs-review rev (git branch --show-current) -b master";
+      nrp = "nixpkgs-review pr";
       ns = "nix shell";
     };
     shellAliases = {

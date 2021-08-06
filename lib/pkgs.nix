@@ -54,6 +54,7 @@ with pkgs;
     newsflash
     nixfmt
     nixpkgs-hammering
+    nixpkgs-review
     pamixer
     pavucontrol
     psmisc
