@@ -235,6 +235,19 @@ require("nvim-treesitter.configs").setup({
         il = "@loop.inner",
       },
     },
+    swap = {
+      enable = true,
+      swap_next = {
+        glc = "@class.outer",
+        glf = "@function.outer",
+        glp = "@parameter.inner",
+      },
+      swap_previous = {
+        ghc = "@class.outer",
+        ghf = "@function.outer",
+        ghp = "@parameter.inner",
+      },
+    },
   },
 })
 
