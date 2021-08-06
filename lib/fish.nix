@@ -128,6 +128,7 @@
       gfu = "git fetch upstream";
       gm = "git merge";
       gp = "git push";
+      gpu = "git push -u origin (git branch --show-current)";
       n = "nix";
       nb = "nix build";
       nd = "nix develop -c fish";
