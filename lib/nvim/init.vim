@@ -45,6 +45,7 @@ let vim_markdown_conceal = 0
 let vim_markdown_conceal_code_blocks = 0
 
 function s:init()
+  silent exec "!@util_linux@/bin/kill -s SIGWINCH" getpid()
   let name = bufname(1)
   if isdirectory(name)
     exec "cd" name
@@ -163,7 +164,7 @@ autocmd FileType yaml setlocal shiftwidth=2
 
 autocmd TextYankPost * silent lua vim.highlight.on_yank()
 
-autocmd VimEnter * silent exec "!@util_linux@/bin/kill -s SIGWINCH" getpid() | call s:init()
+autocmd VimEnter * call s:init()
 
 command -nargs=? P call s:play(<f-args>)
 command -nargs=+ T botright 12split term://<args>
