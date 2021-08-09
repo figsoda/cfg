@@ -182,7 +182,6 @@ vim.notify = require("notify")
 null_ls.setup({
   on_attach = on_attach,
   sources = {
-    nb.code_actions.gitsigns,
     nb.diagnostics.shellcheck.with({ command = "@shellcheck@/bin/shellcheck" }),
     nb.formatting.black.with({ command = "@black@/bin/black" }),
     nb.formatting.nixfmt.with({ command = "@nixfmt@/bin/nixfmt" }),
