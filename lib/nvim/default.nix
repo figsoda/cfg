@@ -20,7 +20,7 @@
         luafile ${
           pkgs.substituteAll {
             src = ./init.lua;
-            inherit (pkgs) black shellcheck stylua;
+            inherit (pkgs) black nixfmt shellcheck stylua;
             inherit (pkgs.nodePackages) prettier;
             rnix_lsp = pkgs.rnix-lsp;
             rust_analyzer = pkgs.writeShellScriptBin "rust-analyzer" ''

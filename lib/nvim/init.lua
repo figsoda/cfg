@@ -132,7 +132,10 @@ require("lualine").setup({
 
 lspconfig.rnix.setup({
   cmd = { "@rnix_lsp@/bin/rnix-lsp" },
-  on_attach = on_attach,
+  on_attach = function(c, buf)
+    on_attach(c, buf)
+    c.resolved_capabilities.document_formatting = false
+  end,
 })
 
 lspconfig.sumneko_lua.setup({
@@ -182,6 +185,7 @@ null_ls.setup({
     nb.code_actions.gitsigns,
     nb.diagnostics.shellcheck.with({ command = "@shellcheck@/bin/shellcheck" }),
     nb.formatting.black.with({ command = "@black@/bin/black" }),
+    nb.formatting.nixfmt.with({ command = "@nixfmt@/bin/nixfmt" }),
     nb.formatting.prettier.with({ command = "@prettier@/bin/prettier" }),
     nb.formatting.stylua.with({ command = "@stylua@/bin/stylua" }),
   },
