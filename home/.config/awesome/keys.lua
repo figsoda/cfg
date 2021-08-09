@@ -56,13 +56,15 @@ local function maim(flags)
     local name = os.date("%Y%m%d%H%M%S") .. ".png"
     awful.spawn.easy_async_with_shell(
       "maim ~/" .. name .. " " .. flags,
-      function()
-        naughty.notify({
-          text = name,
-          title = "screenshot saved",
-          icon = os.getenv("HOME") .. "/" .. name,
-          icon_size = 96,
-        })
+      function(_, _, _, exitcode)
+        if exitcode == 0 then
+          naughty.notify({
+            text = name,
+            title = "screenshot saved",
+            icon = os.getenv("HOME") .. "/" .. name,
+            icon_size = 96,
+          })
+        end
       end
     )
   end
