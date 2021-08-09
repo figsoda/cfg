@@ -58,6 +58,7 @@
         (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
         nvim-treesitter-textobjects
         nvim-web-devicons
+        nvim_context_vt
         plenary-nvim
         popup-nvim
         rust-tools-nvim

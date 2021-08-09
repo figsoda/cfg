@@ -1,6 +1,7 @@
 local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
 local nb = null_ls.builtins
+local ts_utils = require("nvim-treesitter.ts_utils")
 
 local cap = vim.lsp.protocol.make_client_capabilities()
 cap.textDocument.completion.completionItem.snippetSupport = true
@@ -251,6 +252,14 @@ require("nvim-treesitter.configs").setup({
       },
     },
   },
+})
+
+require("nvim_context_vt").setup({
+  custom_text_handler = function(node)
+    local text = ts_utils.get_node_text(node)[1]
+    local start_row, _, end_row, _ = ts_utils.get_node_range(node)
+    return #text > 3 and end_row - start_row > 12 and "<- " .. text or nil
+  end,
 })
 
 require("rust-tools").setup({
