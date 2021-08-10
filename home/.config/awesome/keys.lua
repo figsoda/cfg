@@ -64,6 +64,14 @@ local function shotgun(flags)
             icon = os.getenv("HOME") .. "/" .. name,
             icon_size = 96,
           })
+          awful.spawn({
+            "xclip",
+            name,
+            "-selection",
+            "clipboard",
+            "-t",
+            "image/png",
+          })
         end
       end
     )
