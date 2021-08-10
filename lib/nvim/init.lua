@@ -161,6 +161,7 @@ lspconfig.sumneko_lua.setup({
       diagnostics = {
         disable = { "lowercase-global", "redefined-local" },
       },
+      runtime = { version = "LuaJIT" },
     },
   },
 })
