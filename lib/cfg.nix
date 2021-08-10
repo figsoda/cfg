@@ -111,6 +111,7 @@
       windowManager.awesome = {
         enable = true;
         noArgb = true;
+        package = pkgs.awesome.override { luaPackages = pkgs.luajitPackages; };
       };
       xkbOptions = "ctrl:nocaps";
     };
