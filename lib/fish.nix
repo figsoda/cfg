@@ -106,6 +106,7 @@
             ${unclutter-xfixes}/bin/unclutter --timeout 3 &
             ${volctl}/bin/volctl &
             ${xdg-user-dirs}/bin/xdg-user-dirs-update &
+            ${xss-lock}/bin/xss-lock --ignore-sleep ${config.passthru.lockscreen}/bin/lockscreen &
             exec ${config.services.xserver.windowManager.awesome.package}/bin/awesome
           ''
         }
