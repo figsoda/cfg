@@ -69,7 +69,7 @@ with pkgs;
     stylua
     sxiv
     tela-icon-theme
-    xsel
+    xclip
     xtrt
     ymdl
   ];
