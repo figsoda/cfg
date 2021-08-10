@@ -52,30 +52,28 @@ local function maptag(f, i)
 end
 
 local function shotgun(flags)
-  return function()
-    local name = os.date("%Y%m%d%H%M%S") .. ".png"
-    awful.spawn.easy_async_with_shell(
-      table.concat({ "shotgun", name, flags }, " "),
-      function(_, _, _, exitcode)
-        if exitcode == 0 then
-          naughty.notify({
-            text = name,
-            title = "screenshot saved",
-            icon = os.getenv("HOME") .. "/" .. name,
-            icon_size = 96,
-          })
-          awful.spawn({
-            "xclip",
-            name,
-            "-selection",
-            "clipboard",
-            "-t",
-            "image/png",
-          })
-        end
+  local name = os.date("%Y%m%d%H%M%S") .. ".png"
+  awful.spawn.easy_async(
+    { "shotgun", name, unpack(flags) },
+    function(_, _, _, exitcode)
+      if exitcode == 0 then
+        naughty.notify({
+          text = name,
+          title = "screenshot saved",
+          icon = os.getenv("HOME") .. "/" .. name,
+          icon_size = 96,
+        })
+        awful.spawn({
+          "xclip",
+          name,
+          "-selection",
+          "clipboard",
+          "-t",
+          "image/png",
+        })
       end
-    )
-  end
+    end
+  )
 end
 
 local ckbs = {
@@ -265,8 +263,24 @@ local kbs = {
   { c, "XF86MonBrightnessDown", exec({ "brightnessctl", "s", "1-" }) },
   { c, "XF86MonBrightnessUp", exec({ "brightnessctl", "s", "1+" }) },
 
-  { {}, "Print", shotgun() },
-  { c, "Print", shotgun("-g (hacksaw)") },
+  {
+    {},
+    "Print",
+    function()
+      shotgun({})
+    end,
+  },
+  {
+    c,
+    "Print",
+    function()
+      awful.spawn.easy_async("hacksaw", function(stdout, _, _, exitcode)
+        if exitcode == 0 then
+          shotgun({ "-g", stdout:sub(1, -2) })
+        end
+      end)
+    end,
+  },
   { m, "Return", exec("alacritty") },
   { m, "a", exec("pavucontrol") },
   { m, "b", exec("firefox") },
