@@ -51,11 +51,11 @@ local function maptag(f, i)
   end
 end
 
-local function maim(flags)
+local function shotgun(flags)
   return function()
     local name = os.date("%Y%m%d%H%M%S") .. ".png"
     awful.spawn.easy_async_with_shell(
-      "maim ~/" .. name .. " " .. flags,
+      table.concat({ "shotgun", name, flags }, " "),
       function(_, _, _, exitcode)
         if exitcode == 0 then
           naughty.notify({
@@ -257,8 +257,8 @@ local kbs = {
   { c, "XF86MonBrightnessDown", exec({ "brightnessctl", "s", "1-" }) },
   { c, "XF86MonBrightnessUp", exec({ "brightnessctl", "s", "1+" }) },
 
-  { {}, "Print", maim("-u") },
-  { c, "Print", maim("-us") },
+  { {}, "Print", shotgun() },
+  { c, "Print", shotgun("-g (hacksaw)") },
   { m, "Return", exec("alacritty") },
   { m, "a", exec("pavucontrol") },
   { m, "b", exec("firefox") },

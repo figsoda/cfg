@@ -42,10 +42,10 @@ with pkgs;
     gimp
     git
     gitAndTools.delta
+    hacksaw
     libreoffice-fresh
     libressl
     llvmPackages_latest.lld
-    maim
     mmtc
     mpc_cli
     (mpv.override {
@@ -65,6 +65,7 @@ with pkgs;
     ripgrep
     (rofi.override { plugins = [ rofi-calc ]; })
     sd
+    shotgun
     spaceFM
     stylua
     sxiv
