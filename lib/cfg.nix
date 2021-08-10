@@ -151,7 +151,10 @@
         '';
       };
     };
-    timers.nixos-upgrade.timerConfig.WakeSystem = true;
+    timers = {
+      nix-gc.timerConfig.WakeSystem = true;
+      nixos-upgrade.timerConfig.WakeSystem = true;
+    };
   };
 
   time.timeZone = "America/New_York";
