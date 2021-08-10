@@ -106,7 +106,7 @@
             ${unclutter-xfixes}/bin/unclutter --timeout 3 &
             ${volctl}/bin/volctl &
             ${xdg-user-dirs}/bin/xdg-user-dirs-update &
-            exec ${awesome}/bin/awesome
+            exec ${config.services.xserver.windowManager.awesome.package}/bin/awesome
           ''
         }
       end
