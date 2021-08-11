@@ -1,3 +1,6 @@
+local highlighter = require("vim.treesitter.highlighter")
+local ts_utils = require("nvim-treesitter.ts_utils")
+
 Fn = { count = 0 }
 
 local function makefn(f)
@@ -26,6 +29,49 @@ local function indent_pair(r)
 end
 
 local function is_string(y, x)
+  local buf = vim.api.nvim_get_current_buf()
+  local hl = highlighter.active[buf]
+
+  if hl then
+    local tree = hl.tree
+    local lang = tree:lang()
+    local match = false
+
+    tree:for_each_tree(function(child)
+      if not child then
+        return
+      end
+
+      local root = child:root()
+      local start_row, _, end_row, _ = root:range()
+
+      if start_row > y - 1 or end_row < y - 1 then
+        return
+      end
+
+      local q = hl:get_query(lang)
+      local query = q:query()
+
+      if not query then
+        return
+      end
+
+      for capture, node in query:iter_captures(root, buf, y - 1, y) do
+        if
+          q.hl_cache[capture] and ts_utils.is_in_node_range(node, y - 1, x - 1)
+        then
+          local c = q._query.captures[capture]
+          if c and c:match("^string") then
+            match = true
+            return
+          end
+        end
+      end
+    end)
+
+    return match
+  end
+
   local ids = vim.fn.synstack(y, x)
   local len = #ids
   if len == 0 then
