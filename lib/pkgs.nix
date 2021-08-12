@@ -4,6 +4,9 @@ with pkgs;
 
 {
   environment.systemPackages = builtins.attrValues config.passthru ++ [
+    (writeShellScriptBin "r" ''
+      ${config.nix.package}/bin/nix run "nixpkgs#$1" -- "''${@:2}"
+    '')
     (writeShellScriptBin "rofi-todo" ''
       ${pkgs.rofi}/bin/rofi -show todo -modi todo:${
         writeShellScript "todo-modi" ''
