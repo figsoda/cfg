@@ -34,6 +34,14 @@ local function on_attach(_, buf)
       { noremap = true }
     )
   end
+
+  vim.api.nvim_buf_set_keymap(
+    buf,
+    "v",
+    "ga",
+    "<cmd>lua vim.lsp.buf.range_code_action()<cr>",
+    { noremap = true }
+  )
 end
 
 require("bufferline").setup({
