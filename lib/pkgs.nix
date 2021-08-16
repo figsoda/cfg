@@ -11,7 +11,7 @@ with pkgs;
       ${config.nix.package}/bin/nix run "nixpkgs#$1" -- "''${@:2}"
     '')
     (writeShellScriptBin "rofi-todo" ''
-      ${pkgs.rofi}/bin/rofi -show todo -modi todo:${
+      ${rofi}/bin/rofi -show todo -modi todo:${
         writeShellScript "todo-modi" ''
           todos=~/.local/share/todos
           mkdir -p ~/.local/share
@@ -86,7 +86,7 @@ with pkgs;
       element-web = element-web.override { conf.showLabSettings = true; };
     });
     lockscreen = writeShellScriptBin "lockscreen" ''
-      ${pkgs.i3lock-color}/bin/i3lock-color \
+      ${i3lock-color}/bin/i3lock-color \
         -i ~/.config/wallpaper.png -k \
         --{inside{ver,wrong,},ring,line,separator}-color=00000000 \
         --ringver-color=98c379 --ringwrong-color=f83c40 \
