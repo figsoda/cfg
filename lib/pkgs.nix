@@ -4,6 +4,9 @@ with pkgs;
 
 {
   environment.systemPackages = builtins.attrValues config.passthru ++ [
+    (writeShellScriptBin "ghtok" ''
+      ${libressl}/bin/openssl aes-256-cbc -d -in ~/.config/secrets/github
+    '')
     (writeShellScriptBin "r" ''
       ${config.nix.package}/bin/nix run "nixpkgs#$1" -- "''${@:2}"
     '')
