@@ -131,7 +131,7 @@
       nf = "nix flake";
       nfu = "nix flake update";
       nh = "nixpkgs-hammer";
-      npu = "nix-prefetch-url";
+      npu = " nix-prefetch-url --unpack";
       nr = "nix run";
       nrh = "nixpkgs-review rev HEAD";
       nrp = " GITHUB_TOKEN=(ghtok) nixpkgs-review pr";
