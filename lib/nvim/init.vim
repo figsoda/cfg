@@ -140,8 +140,6 @@ ino <c-k> <esc>O
 ino <c-q> <cmd>confirm quitall<cr>
 ino <c-s> <cmd>write<cr>
 ino <c-w> <cmd>confirm bdelete<cr><esc>
-ino <expr> <s-tab> pumvisible() ? "<c-p>" : "<s-tab>"
-ino <expr> <tab> pumvisible() ? "<c-n>" : "<tab>"
 ino <m-,> <cmd>call setline(".", getline(".") . ",")<cr>
 ino <m-;> <cmd>call setline(".", getline(".") . ";")<cr>
 ino <m-down> <cmd>move +1<cr>

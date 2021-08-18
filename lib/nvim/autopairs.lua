@@ -10,7 +10,12 @@ local function makefn(f)
 end
 
 local function map(lhs, rhs)
-  vim.api.nvim_set_keymap("i", lhs, rhs, { noremap = true, expr = true })
+  vim.api.nvim_set_keymap(
+    "i",
+    lhs,
+    makefn(rhs),
+    { noremap = true, expr = true }
+  )
 end
 
 local function t(c)
@@ -96,19 +101,16 @@ local function in_pair()
   return r ~= "" and r == autopairs[get(line, x - 1)]
 end
 
-map(
-  "<bs>",
-  makefn(function()
-    return in_pair() and t("<bs><del>") or t("<bs>")
-  end)
-)
+map("<bs>", function()
+  return in_pair() and t("<bs><del>") or t("<bs>")
+end)
 
-map("<cr>", "compe#confirm(" .. makefn(function()
+map("<cr>", function()
   return in_pair() and indent_pair("") or t("<cr>")
-end) .. ")")
+end)
 
 vim.api.nvim_command(
-  "autocmd FileType nix ino <buffer> <expr> <cr> compe#confirm("
+  "autocmd FileType nix ino <buffer> <expr> <cr> "
     .. makefn(function()
       local line = vim.api.nvim_get_current_line()
       local x = vim.fn.col(".")
@@ -121,48 +123,38 @@ vim.api.nvim_command(
         return t("<cr>")
       end
     end)
-    .. ")"
 )
 
 for l, r in pairs(autopairs) do
   if l == r then
-    map(
-      l,
-      makefn(function()
-        local x = vim.fn.col(".")
-        local y = vim.fn.line(".")
-        if
-          is_string(y, x)
-          and (
-            x == 1
-              and is_string(y - 1, math.max(#vim.fn.getline(y - 1), 1))
-            or is_string(y, x - 1)
-          )
-        then
-          return get(vim.api.nvim_get_current_line(), x) == l and t("<right>")
-            or l
-        else
-          return l .. l .. t("<left>")
-        end
-      end)
-    )
+    map(l, function()
+      local x = vim.fn.col(".")
+      local y = vim.fn.line(".")
+      if
+        is_string(y, x)
+        and (
+          x == 1
+            and is_string(y - 1, math.max(#vim.fn.getline(y - 1), 1))
+          or is_string(y, x - 1)
+        )
+      then
+        return get(vim.api.nvim_get_current_line(), x) == l and t("<right>")
+          or l
+      else
+        return l .. l .. t("<left>")
+      end
+    end)
   else
-    map(
-      l,
-      makefn(function()
-        local line = vim.api.nvim_get_current_line()
-        local pos = vim.fn.col(".")
-        return pos ~= #line and (get(line, pos) or ""):match("%w") and l
-          or l .. r .. t("<left>")
-      end)
-    )
-    map(
-      r,
-      makefn(function()
-        return get(vim.api.nvim_get_current_line(), vim.fn.col(".")) == r
-            and t("<right>")
-          or r
-      end)
-    )
+    map(l, function()
+      local line = vim.api.nvim_get_current_line()
+      local pos = vim.fn.col(".")
+      return pos ~= #line and (get(line, pos) or ""):match("%w") and l
+        or l .. r .. t("<left>")
+    end)
+    map(r, function()
+      return get(vim.api.nvim_get_current_line(), vim.fn.col(".")) == r
+          and t("<right>")
+        or r
+    end)
   end
 end

@@ -1,4 +1,6 @@
+local cmp = require("cmp")
 local lspconfig = require("lspconfig")
+local luasnip = require("luasnip")
 local null_ls = require("null-ls")
 local nb = null_ls.builtins
 local ts_utils = require("nvim-treesitter.ts_utils")
@@ -83,17 +85,30 @@ require("bufferline").setup({
   },
 })
 
-require("colorizer").setup(nil, { css = true })
-
-require("compe").setup({
-  source = {
-    buffer = true,
-    nvim_lsp = true,
-    nvim_lua = true,
-    path = true,
-    treesitter = true,
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
+  mapping = {
+    ["<cr>"] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    }),
+    ["<s-tab>"] = cmp.mapping.prev_item(),
+    ["<tab>"] = cmp.mapping.next_item(),
+  },
+  sources = {
+    { name = "buffer" },
+    { name = "nvim_lsp" },
+    { name = "path" },
   },
 })
+
+require("cmp_nvim_lsp").setup()
+
+require("colorizer").setup(nil, { css = true })
 
 require("gitsigns").setup({
   keymaps = {},

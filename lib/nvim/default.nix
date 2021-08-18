@@ -39,6 +39,9 @@
         ${pkgs.callPackage ./colorscheme.nix { }}
       '';
       packages.all.start = with pkgs.vimPlugins; [
+        cmp-buffer
+        cmp-nvim-lsp
+        cmp-path
         fzf-vim
         gitsigns-nvim
         indent-blankline-nvim
@@ -50,8 +53,8 @@
         null-ls-nvim
         numb-nvim
         nvim-bufferline-lua
+        nvim-cmp
         nvim-colorizer-lua
-        nvim-compe
         nvim-lspconfig
         nvim-notify
         nvim-tree-lua
