@@ -5,6 +5,8 @@ local null_ls = require("null-ls")
 local nb = null_ls.builtins
 local ts_utils = require("nvim-treesitter.ts_utils")
 
+local border = { "", "", "", " ", "", "", "", " " }
+
 local cap = vim.lsp.protocol.make_client_capabilities()
 cap.textDocument.completion.completionItem.snippetSupport = true
 cap.textDocument.completion.completionItem.resovleSupport = {
@@ -225,7 +227,7 @@ require("nvim-treesitter.configs").setup({
   textobjects = {
     lsp_interop = {
       enable = true,
-      border = "single",
+      border = border,
       peek_definition_code = {
         gK = "@function.outer",
       },
@@ -296,7 +298,7 @@ require("rust-tools").setup({
     on_attach = function(c, buf)
       on_attach(c, buf)
       require("lsp_signature").on_attach({
-        handler_opts = { border = "single" },
+        handler_opts = { border = border },
       })
     end,
     settings = {
@@ -307,7 +309,7 @@ require("rust-tools").setup({
     },
   },
   tools = {
-    hover_actions = { border = "single" },
+    hover_actions = { border = border },
     inlay_hints = {
       other_hints_prefix = "",
       show_parameter_hints = false,

@@ -124,18 +124,21 @@ let
       fg = white;
       bg = black;
     };
-    NormalFloat.fg = white;
+    NormalFloat = {
+      fg = white;
+      bg = darkgray;
+    };
     NormalNC.fg = white;
     Pmenu = {
       fg = white;
-      bg = gray;
+      bg = darkgray;
     };
     PmenuSel = {
-      fg = darkgray;
+      fg = black;
       bg = blue;
     };
     PmenuSbar.bg = darkgray;
-    PmenuThumb.bg = white;
+    PmenuThumb.bg = dimwhite;
     Question.fg = purple;
     QuickFixLine = {
       fg = black;
@@ -169,6 +172,10 @@ let
     };
 
     # nvim lsp
+    FloatBorder = {
+      fg = white;
+      bg = darkgray;
+    };
     LspDiagnosticsDefaultError.fg = red;
     LspDiagnosticsDefaultWarning.fg = yellow;
     LspDiagnosticsDefaultInformation.fg = blue;
