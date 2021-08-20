@@ -44,6 +44,14 @@ let nvim_tree_window_picker_exclude = #{ buftype: ["terminal"] }
 let vim_markdown_conceal = 0
 let vim_markdown_conceal_code_blocks = 0
 
+function s:cargo_add()
+  let flags = input("Add dependencies: ")
+  if flags != ""
+    exec "!@cargo_edit@/bin/cargo-add add" flags "&& @rust@/bin/cargo update"
+    NvimTreeRefresh
+  end
+endf
+
 function s:init()
   silent exec "!@util_linux@/bin/kill -s SIGWINCH" getpid()
   let name = bufname(1)
@@ -80,6 +88,7 @@ nn <m-up> <cmd>move -2<cr>
 nn <s-tab> <cmd>BufferLineCyclePrev<cr>
 nn <space>c<space> :!cargo<space>
 nn <space>cU <cmd>!@cargo_edit@/bin/cargo-upgrade upgrade<cr>
+nn <space>ca <cmd>call <sid>cargo_add()<cr>
 nn <space>cb <cmd>T @rust@/bin/cargo build<cr>i
 nn <space>cd <cmd>T @rust@/bin/cargo doc --open<cr>i
 nn <space>cf <cmd>!@rust@/bin/cargo fmt<cr>
