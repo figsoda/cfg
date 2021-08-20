@@ -229,7 +229,7 @@ require("nvim-treesitter.configs").setup({
       enable = true,
       border = border,
       peek_definition_code = {
-        gK = "@function.outer",
+        gp = "@function.outer",
       },
     },
     move = {
