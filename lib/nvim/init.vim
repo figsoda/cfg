@@ -125,11 +125,11 @@ nn <space>t <cmd>T @fish@/bin/fish<cr>i
 nn <tab> <cmd>BufferLineCycleNext<cr>
 nn N Nzz
 nn R "_di"hp
-nn T <cmd>NvimTreeToggle<cr>
 nn X "_X
 nn [h <cmd>lua require("gitsigns.actions").prev_hunk()<cr>
 nn ]h <cmd>lua require("gitsigns.actions").next_hunk()<cr>
 nn n nzz
+nn t <cmd>NvimTreeToggle<cr>
 nn x "_x
 
 vn < <gv
