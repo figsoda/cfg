@@ -143,12 +143,11 @@ vn > >gv
 
 ino <c-a> <esc>I
 ino <c-e> <end>
-ino <c-h> <esc>l"_dbi
+ino <c-h> <c-w>
 ino <c-j> <esc>o
 ino <c-k> <esc>O
 ino <c-q> <cmd>confirm quitall<cr>
 ino <c-s> <cmd>write<cr>
-ino <c-w> <cmd>confirm bdelete<cr><esc>
 ino <m-,> <cmd>call setline(".", getline(".") . ",")<cr>
 ino <m-;> <cmd>call setline(".", getline(".") . ";")<cr>
 ino <m-down> <cmd>move +1<cr>
