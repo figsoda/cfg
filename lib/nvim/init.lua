@@ -152,6 +152,11 @@ require("lualine").setup({
   },
 })
 
+lspconfig.pylsp.setup({
+  cmd = { "@python_lsp_server@/bin/pylsp" },
+  on_attach = on_attach,
+})
+
 lspconfig.rnix.setup({
   cmd = { "@rnix_lsp@/bin/rnix-lsp" },
   on_attach = function(c, buf)
@@ -206,7 +211,6 @@ null_ls.setup({
   on_attach = on_attach,
   sources = {
     nb.diagnostics.shellcheck.with({ command = "@shellcheck@/bin/shellcheck" }),
-    nb.formatting.black.with({ command = "@black@/bin/black" }),
     nb.formatting.nixfmt.with({ command = "@nixfmt@/bin/nixfmt" }),
     nb.formatting.prettier.with({ command = "@prettier@/bin/prettier" }),
     nb.formatting.stylua.with({ command = "@stylua@/bin/stylua" }),
