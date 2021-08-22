@@ -226,8 +226,13 @@ let
     GitSignsChange.fg = yellow;
     GitSignsDelete.fg = red;
 
-    # vim-nix
-    nixStringDelimiter.fg = green;
+    # indent-blankline.nvim
+    IndentBlanklineChar.fg = gray;
+
+    # nvim-tree.lua
+    NvimTreeExecFile.fg = green;
+    NvimTreeSpecialFile.fg = yellow;
+    NvimTreeImageFile.fg = purple;
 
     # nvim-treesitter
     TSAnnocation.fg = white;
@@ -296,13 +301,8 @@ let
     TSVariable.fg = white;
     TSVariableBuiltin.fg = purple;
 
-    # indent-blankline.nvim
-    IndentBlanklineChar.fg = gray;
-
-    # nvim-tree.lua
-    NvimTreeExecFile.fg = green;
-    NvimTreeSpecialFile.fg = yellow;
-    NvimTreeImageFile.fg = purple;
+    # vim-nix
+    nixStringDelimiter.fg = green;
   };
 
 in concatStringsSep "\n" (mapAttrsFlatten (group: highlight:
