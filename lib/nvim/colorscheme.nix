@@ -229,6 +229,65 @@ let
     # indent-blankline.nvim
     IndentBlanklineChar.fg = gray;
 
+    # lightspeed.nvim
+    LightspeedLabel = {
+      fg = black;
+      bg = blue;
+      attrs = "bold";
+    };
+    LightspeedLabelOverlapped = {
+      fg = black;
+      bg = cyan;
+      attrs = "bold";
+    };
+    LightspeedDistant = {
+      fg = white;
+      bg = yellow;
+      attrs = "bold";
+    };
+    LightspeedDistantOverlapped = {
+      fg = white;
+      bg = orange;
+      attrs = "bold";
+    };
+    LightspeedShortcut = {
+      fg = black;
+      bg = blue;
+      attrs = "bold";
+    };
+    LightspeedShortcutOverlapped = {
+      fg = black;
+      bg = cyan;
+      attrs = "bold";
+    };
+    LightspeedMaskedChar = {
+      fg = green;
+      attrs = "bold";
+    };
+    LightspeedGrayWash.fg = dimwhite;
+    LightspeedUnlabeledMatch = {
+      fg = purple;
+      attrs = "bold";
+    };
+    LightspeedOneCharMatch = {
+      fg = black;
+      bg = blue;
+      attrs = "bold";
+    };
+    LightspeedUniqueChar = {
+      fg = purple;
+      attrs = "bold";
+    };
+    LightspeedPendingOpArea = {
+      fg = white;
+      bg = red;
+      attrs = "bold";
+    };
+    LightspeedPendingChangeOpArea = {
+      fg = red;
+      attrs = "bold";
+    };
+
     # nvim-tree.lua
     NvimTreeExecFile.fg = green;
     NvimTreeSpecialFile.fg = yellow;
