@@ -87,11 +87,8 @@
       if not set -q DISPLAY && [ (${coreutils}/bin/tty) = /dev/tty1 ]
         exec ${
           sx.override {
-            xorgserver = runCommand "xorgserver" {
-              nativeBuildInputs = [ makeWrapper ];
-            } ''
-              makeWrapper ${xorg.xorgserver}/bin/Xorg $out/bin/Xorg \
-                --add-flags "-ardelay 320 -arinterval 32"
+            xorgserver = writeShellScriptBin "Xorg" ''
+              exec ${xorg.xorgserver}/bin/Xorg -ardelay 320 -arinterval 32 "$@"
             '';
           }
         }/bin/sx ${
