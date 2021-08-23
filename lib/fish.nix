@@ -75,7 +75,11 @@
       end
 
       function with
-        IN_NIX_SHELL=impure name="with: "(string join ", " $argv) \
+        if set -q with_pkgs
+          set with_pkgs ", $with_pkgs"
+        end
+        set -lx with_pkgs "$argv$with_pkgs"
+        IN_NIX_SHELL=impure name="with: $with_pkgs" \
           ${config.nix.package}/bin/nix shell nixpkgs#$argv
       end
     '';
