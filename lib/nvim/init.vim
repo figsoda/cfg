@@ -72,6 +72,7 @@ no <c-q> <cmd>confirm quitall<cr>
 no <c-s> <cmd>write<cr>
 no <silent> <expr> <c-w> (&buftype == "terminal" ? ":bdelete!" : ":confirm bdelete") . "<cr>"
 
+nn ; :
 nn <c-a> <home>
 nn <c-e> <end>
 nn <c-h> <c-w>h
@@ -100,6 +101,7 @@ nn <space>cu <cmd>!@rust@/bin/cargo update<cr>
 nn <space>g<space> :Git<space>
 nn <space>gB <cmd>Git blame<cr>
 nn <space>gR <cmd>lua require("gitsigns").reset_buffer()<cr>
+nn <space>gS <cmd>Telescope git_stash<cr>
 nn <space>ga <cmd>Git add -p<cr>
 nn <space>gb <cmd>lua require("gitsigns").blame_line()<cr>
 nn <space>gc <cmd>Git commit<cr>
@@ -114,6 +116,7 @@ nn <space>gu <cmd>lua require("gitsigns").undo_stage_hunk()<cr>
 nn <space>j <cmd>move +1<cr>
 nn <space>k <cmd>move -2<cr>
 nn <space>lf <cmd>!@fd@/bin/fd -H '.lua$' -x @stylua@/bin/stylua<cr>
+nn <space>m <cmd>Telescope man_pages<cr>
 nn <space>n<space> :!nix<space>
 nn <space>nb <cmd>T @nix@/bin/nix build<cr>i
 nn <space>nf <cmd>!@fd@/bin/fd -H '.nix$' -x @nixfmt@/bin/nixfmt<cr>
