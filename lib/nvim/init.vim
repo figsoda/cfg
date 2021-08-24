@@ -121,7 +121,7 @@ nn <space>ni <cmd>T @nix@/bin/nix repl @nixpkgs@<cr>i
 nn <space>nr <cmd>T @nix@/bin/nix run<cr>i
 nn <space>nt <cmd>T @nix@/bin/nix flake check<cr>i
 nn <space>nu <cmd>!@nix@/bin/nix flake update<cr>
-nn <space>o <cmd>Telescope find_files hidden=true<cr>
+nn <space>o <cmd>Telescope find_files<cr>
 nn <space>t <cmd>T @fish@/bin/fish<cr>i
 nn <tab> <cmd>BufferLineCycleNext<cr>
 nn N Nzz
@@ -170,6 +170,8 @@ autocmd FileType vim setlocal shiftwidth=2
 autocmd FileType yaml setlocal shiftwidth=2
 
 autocmd TextYankPost * silent lua vim.highlight.on_yank()
+
+autocmd User TelescopePreviewerLoaded setlocal number
 
 autocmd VimEnter * call s:init()
 
