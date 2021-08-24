@@ -68,12 +68,7 @@
         VIDEOS=files
       '';
     };
-    variables = let fd = "${pkgs.fd}/bin/fd";
-    in {
-      FZF_ALT_C_COMMAND = "${fd} -t d";
-      FZF_CTRL_T_COMMAND = fd;
-      FZF_CTRL_T_OPTS = "--preview '${pkgs.bat}/bin/bat {} --color always'";
-      FZF_DEFAULT_COMMAND = fd;
+    variables = {
       LESSHISTFILE = "-";
       PATH = "$HOME/.cargo/bin";
       RIPGREP_CONFIG_PATH = "${pkgs.writeText "rg-config" ''

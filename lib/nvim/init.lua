@@ -3,6 +3,7 @@ local lspconfig = require("lspconfig")
 local luasnip = require("luasnip")
 local null_ls = require("null-ls")
 local nb = null_ls.builtins
+local telescope = require("telescope")
 local ts_utils = require("nvim-treesitter.ts_utils")
 
 local border = { "", "", "", " ", "", "", "", " " }
@@ -327,5 +328,22 @@ require("rust-tools").setup({
     },
   },
 })
+
+telescope.setup({
+  defaults = {
+    mappings = {
+      i = {
+        ["<c-s>"] = require("trouble.providers.telescope").open_with_trouble,
+        ["<esc>"] = require("telescope.actions").close,
+      },
+    },
+  },
+  extensions = {
+    fzf = {
+      override_generic_sorter = true,
+    },
+  },
+})
+telescope.load_extension("fzf")
 
 require("trouble").setup()

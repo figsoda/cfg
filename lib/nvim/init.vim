@@ -86,6 +86,7 @@ nn <m-l> <cmd>vertical resize +2<cr>
 nn <m-tab> <cmd>BufferLinePick<cr>
 nn <m-up> <cmd>move -2<cr>
 nn <s-tab> <cmd>BufferLineCyclePrev<cr>
+nn <space>/ <cmd>Telescope live_grep<cr>
 nn <space>c<space> :!cargo<space>
 nn <space>cU <cmd>!@cargo_edit@/bin/cargo-upgrade upgrade<cr>
 nn <space>ca <cmd>call <sid>cargo_add()<cr>
@@ -96,7 +97,6 @@ nn <space>cp <cmd>!@cargo_play@/bin/cargo-play %<cr>
 nn <space>cr <cmd>T @rust@/bin/cargo run<cr>i
 nn <space>ct <cmd>T @rust@/bin/cargo test<cr>i
 nn <space>cu <cmd>!@rust@/bin/cargo update<cr>
-nn <space>g/ <cmd>Rg!<cr>
 nn <space>g<space> :Git<space>
 nn <space>gB <cmd>Git blame<cr>
 nn <space>gR <cmd>lua require("gitsigns").reset_buffer()<cr>
@@ -105,8 +105,8 @@ nn <space>gb <cmd>lua require("gitsigns").blame_line()<cr>
 nn <space>gc <cmd>Git commit<cr>
 nn <space>gh <cmd>lua require("gitsigns").preview_hunk()<cr>
 nn <space>gi <cmd>Git<cr>
-nn <space>gl <cmd>Commits!<cr>
-nn <space>go <cmd>GFiles!<cr>
+nn <space>gl <cmd>Telescope git_commits<cr>
+nn <space>go <cmd>Telescope git_branches<cr>
 nn <space>gp <cmd>Git push<cr>
 nn <space>gr <cmd>lua require("gitsigns").reset_hunk()<cr>
 nn <space>gs <cmd>lua require("gitsigns").stage_hunk()<cr>
@@ -121,6 +121,7 @@ nn <space>ni <cmd>T @nix@/bin/nix repl @nixpkgs@<cr>i
 nn <space>nr <cmd>T @nix@/bin/nix run<cr>i
 nn <space>nt <cmd>T @nix@/bin/nix flake check<cr>i
 nn <space>nu <cmd>!@nix@/bin/nix flake update<cr>
+nn <space>o <cmd>Telescope find_files hidden=true<cr>
 nn <space>t <cmd>T @fish@/bin/fish<cr>i
 nn <tab> <cmd>BufferLineCycleNext<cr>
 nn N Nzz
@@ -157,7 +158,7 @@ ino <m-k> <up>
 ino <m-l> <esc>ea
 ino <m-up> <cmd>move -2<cr>
 
-tno <expr> <esc> stridx(b:term_title, "#FZF") == -1 ? "<c-\><c-n>" : "<esc>"
+tno <esc> <c-\><c-n>
 
 autocmd FileType lua setlocal shiftwidth=2
 

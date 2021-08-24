@@ -43,7 +43,6 @@ with pkgs;
     clipmenu
     fd
     firefox
-    fzf
     gcc
     gimp
     git

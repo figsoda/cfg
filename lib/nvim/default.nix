@@ -49,7 +49,6 @@
         cmp-nvim-lsp
         cmp-nvim-lua
         cmp-path
-        fzf-vim
         gitsigns-nvim
         indent-blankline-nvim
         lightspeed-nvim
@@ -72,6 +71,8 @@
         plenary-nvim
         popup-nvim
         rust-tools-nvim
+        telescope-nvim
+        telescope-fzf-native-nvim
         trouble-nvim
         vim-commentary
         vim-fugitive
