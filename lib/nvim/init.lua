@@ -94,7 +94,7 @@ cmp.setup({
     end,
   },
   mapping = {
-    ["<cr>"] = cmp.mapping.confirm(),
+    ["<cr>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace }),
     ["<s-tab>"] = cmp.mapping.prev_item(),
     ["<tab>"] = cmp.mapping.next_item(),
   },
@@ -178,6 +178,16 @@ lspconfig.sumneko_lua.setup({
     if file then
       for line in file:lines() do
         table.insert(new_config.settings.Lua.diagnostics.globals, line)
+        if line == "vim" then
+          cmp.setup.buffer({
+            sources = {
+              { name = "buffer" },
+              { name = "nvim_lsp" },
+              { name = "nvim_lua" },
+              { name = "path" },
+            },
+          })
+        end
       end
       file:close()
     end

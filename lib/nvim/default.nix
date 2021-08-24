@@ -47,6 +47,7 @@
       packages.all.start = with pkgs.vimPlugins; [
         cmp-buffer
         cmp-nvim-lsp
+        cmp-nvim-lua
         cmp-path
         fzf-vim
         gitsigns-nvim
