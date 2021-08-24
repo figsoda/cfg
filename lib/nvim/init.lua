@@ -89,13 +89,14 @@ require("bufferline").setup({
 })
 
 cmp.setup({
+  confirmation = { default_behavior = cmp.ConfirmBehavior.Replace },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
     end,
   },
   mapping = {
-    ["<cr>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace }),
+    ["<cr>"] = cmp.mapping.confirm(),
     ["<s-tab>"] = cmp.mapping.prev_item(),
     ["<tab>"] = cmp.mapping.next_item(),
   },
@@ -179,21 +180,26 @@ lspconfig.sumneko_lua.setup({
     if file then
       for line in file:lines() do
         table.insert(new_config.settings.Lua.diagnostics.globals, line)
-        if line == "vim" then
-          cmp.setup.buffer({
-            sources = {
-              { name = "buffer" },
-              { name = "nvim_lsp" },
-              { name = "nvim_lua" },
-              { name = "path" },
-            },
-          })
-        end
       end
       file:close()
     end
   end,
-  on_attach = on_attach,
+  on_attach = function(c, buf)
+    on_attach(c, buf)
+    for _, i in pairs(c.config.settings.Lua.diagnostics.globals) do
+      if i == "vim" then
+        cmp.setup.buffer({
+          sources = {
+            { name = "buffer" },
+            { name = "nvim_lsp" },
+            { name = "nvim_lua" },
+            { name = "path" },
+          },
+        })
+        break
+      end
+    end
+  end,
   settings = {
     Lua = {
       diagnostics = {
