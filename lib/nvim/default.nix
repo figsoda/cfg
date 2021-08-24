@@ -5,7 +5,7 @@
     configure = {
       customRC = ''
         source ${
-          pkgs.substituteAll rec {
+          pkgs.substituteAll {
             src = ./init.vim;
             inherit (config.passthru) rust;
             inherit (pkgs) coreutils fd fish nixfmt stylua;
