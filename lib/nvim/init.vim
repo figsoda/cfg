@@ -67,12 +67,12 @@ function s:play(...)
   exec "autocmd BufDelete <buffer> silent !@coreutils@/bin/rm" file
 endf
 
+no ; :
 no <c-_> <cmd>let @/ = ""<cr>
 no <c-q> <cmd>confirm quitall<cr>
 no <c-s> <cmd>write<cr>
 no <silent> <expr> <c-w> (&buftype == "terminal" ? ":bdelete!" : ":confirm bdelete") . "<cr>"
 
-nn ; :
 nn <c-a> <home>
 nn <c-e> <end>
 nn <c-h> <c-w>h
