@@ -1,4 +1,5 @@
 local cmp = require("cmp")
+local gps = require("nvim-gps")
 local lspconfig = require("lspconfig")
 local luasnip = require("luasnip")
 local null_ls = require("null-ls")
@@ -127,6 +128,8 @@ require("gitsigns").setup({
   end,
 })
 
+gps.setup()
+
 require("lualine").setup({
   options = {
     component_separators = "",
@@ -150,7 +153,11 @@ require("lualine").setup({
   },
   sections = {
     lualine_b = { "b:gitsigns_status" },
-    lualine_c = { "filename", { "diagnostics", sources = { "nvim_lsp" } } },
+    lualine_c = {
+      "filename",
+      { "diagnostics", sources = { "nvim_lsp" } },
+      { gps.get_location, condition = gps.is_available },
+    },
   },
 })
 

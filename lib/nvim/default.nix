@@ -68,6 +68,7 @@
         numb-nvim
         nvim-cmp
         nvim-colorizer-lua
+        nvim-gps
         nvim-lspconfig
         nvim-notify
         nvim-tree-lua
