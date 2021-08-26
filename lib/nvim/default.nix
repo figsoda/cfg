@@ -45,6 +45,7 @@
         ${pkgs.callPackage ./colorscheme.nix { }}
       '';
       packages.all.start = with pkgs.vimPlugins; [
+        bufferline-nvim
         cmp-buffer
         cmp-nvim-lsp
         cmp-nvim-lua
@@ -58,7 +59,6 @@
         luasnip
         null-ls-nvim
         numb-nvim
-        nvim-bufferline-lua
         nvim-cmp
         nvim-colorizer-lua
         nvim-lspconfig
