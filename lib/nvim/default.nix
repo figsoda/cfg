@@ -22,12 +22,19 @@
             src = ./init.lua;
             inherit (pkgs) nixfmt shellcheck stylua;
             inherit (pkgs.nodePackages) prettier;
-            python_lsp_server = pkgs.python3.withPackages (ps:
-              with ps; [
-                pyls-isort
-                python-lsp-black
-                python-lsp-server
-              ]);
+            python_lsp_server = (pkgs.python3.override {
+              packageOverrides = _: super: {
+                python-lsp-server = super.python-lsp-server.override {
+                  withAutopep8 = false;
+                  withFlake8 = false;
+                  withMccabe = false;
+                  withPyflakes = false;
+                  withPylint = false;
+                  withYapf = false;
+                };
+              };
+            }).withPackages
+              (ps: with ps; [ pyls-isort python-lsp-black python-lsp-server ]);
             rnix_lsp = pkgs.rnix-lsp;
             rust_analyzer = pkgs.writeShellScriptBin "rust-analyzer" ''
               wrapper=()
