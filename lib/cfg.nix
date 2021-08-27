@@ -91,11 +91,7 @@
     ratbagd.enable = true;
     xserver = {
       enable = true;
-      displayManager = {
-        job.execCmd = "";
-        lightdm.enable = lib.mkForce false;
-      };
-      exportConfiguration = true;
+      displayManager.sx.enable = true;
       libinput = {
         enable = true;
         mouse = {
