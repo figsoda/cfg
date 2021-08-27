@@ -39,18 +39,6 @@ local function swap(idx, dir)
   end
 end
 
-local function maptag(f, i)
-  return function()
-    local s = awful.screen.focused()
-    if s ~= nil then
-      local tag = i and s.tags[i] or s.selected_tag
-      if tag ~= nil then
-        f(tag)
-      end
-    end
-  end
-end
-
 local function shotgun(flags)
   local name = os.date("%Y%m%d%H%M%S") .. ".png"
   awful.spawn.easy_async(
@@ -166,9 +154,13 @@ local kbs = {
       awful.tag.incmwfact(0.05)
     end,
   },
-  { m, "\\", maptag(function(t)
-    t.master_width_factor = 0.5
-  end) },
+  {
+    m,
+    "\\",
+    function()
+      awful.screen.focused().selected_tag.master_width_factor = 0.5
+    end,
+  },
   {
     ms,
     "[",
@@ -183,9 +175,13 @@ local kbs = {
       awful.tag.incncol(1)
     end,
   },
-  { ms, "\\", maptag(function(t)
-    t.column_count = 1
-  end) },
+  {
+    ms,
+    "\\",
+    function()
+      awful.screen.focused().selected_tag.column_count = 1
+    end,
+  },
 
   { m, "Left", awful.tag.viewprev },
   { m, "Right", awful.tag.viewnext },
@@ -362,26 +358,32 @@ local kbs = {
 }
 
 for i = 1, 6 do
-  table.insert(kbs, { m, i, maptag(function(t)
-    t:view_only()
-  end, i) })
-  table.insert(kbs, { ma, i, maptag(awful.tag.viewtoggle, i) })
+  table.insert(kbs, {
+    m,
+    i,
+    function()
+      awful.screen.focused().tags[i]:view_only()
+    end,
+  })
+  table.insert(kbs, {
+    ma,
+    i,
+    function()
+      awful.tag.viewtoggle(awful.screen.focused().tags[i])
+    end,
+  })
   table.insert(ckbs, {
     ms,
     i,
     function(c)
-      maptag(function(t)
-        c:move_to_tag(t)
-      end, i)()
+      c:move_to_tag(awful.screen.focused().tags[i])
     end,
   })
   table.insert(ckbs, {
     mc,
     i,
     function(c)
-      maptag(function(t)
-        c:toggle_tag(t)
-      end, i)()
+      c:toggle_tag(awful.screen.focused().tags[i])
     end,
   })
 end
