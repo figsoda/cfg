@@ -57,6 +57,7 @@
         cmp-nvim-lsp
         cmp-nvim-lua
         cmp-path
+        editorconfig-nvim
         gitsigns-nvim
         indent-blankline-nvim
         lightspeed-nvim
