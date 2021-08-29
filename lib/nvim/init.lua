@@ -108,8 +108,6 @@ cmp.setup({
   },
 })
 
-require("cmp_nvim_lsp").setup()
-
 require("colorizer").setup(nil, { css = true })
 
 require("gitsigns").setup({
