@@ -4,6 +4,7 @@ set completeopt=menuone,noinsert,noselect
 set cursorline
 set expandtab
 set hidden
+set ignorecase
 set inccommand=nosplit
 set list
 set listchars=tab:-->,trail:+,extends:>,precedes:<,nbsp:·
