@@ -1,7 +1,15 @@
-{ config, lib, pkgs, ... }: {
-  programs.fish = with pkgs; {
+{ config, lib, pkgs, ... }:
+
+with pkgs;
+
+let
+  inherit (builtins) concatStringsSep;
+  inherit (lib) mapAttrsFlatten;
+in {
+  programs.fish = {
     enable = true;
-    interactiveShellInit = with lib; ''
+
+    interactiveShellInit = ''
       source ${
         runCommand "starship-init-fish" { STARSHIP_CACHE = ".cache"; }
         "${starship}/bin/starship init fish --print-full-init > $out"
@@ -83,6 +91,7 @@
           ${config.nix.package}/bin/nix shell nixpkgs#$argv
       end
     '';
+
     loginShellInit = ''
       if not set -q DISPLAY && [ (${coreutils}/bin/tty) = /dev/tty1 ]
         exec ${
@@ -108,6 +117,7 @@
         }
       end
     '';
+
     shellAbbrs = {
       c = "cargo";
       cb = "cargo build";
@@ -138,6 +148,7 @@
       nrp = " GITHUB_TOKEN=(ghtok) nixpkgs-review pr";
       ns = "nix shell";
     };
+
     shellAliases = {
       cp = "${coreutils}/bin/cp -ir";
       ls =
@@ -145,6 +156,7 @@
       mv = "${coreutils}/bin/mv -i";
       rm = "${coreutils}/bin/rm -I";
     };
+
     useBabelfish = true;
   };
 }

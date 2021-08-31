@@ -104,11 +104,10 @@ with pkgs;
     '';
     rust = fenix.complete.withComponents [
       "cargo"
-      "clippy-preview"
+      "clippy"
       "rust-src"
-      "rust-std"
       "rustc"
-      "rustfmt-preview"
+      "rustfmt"
     ];
   };
 }

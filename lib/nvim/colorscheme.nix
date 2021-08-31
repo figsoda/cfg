@@ -1,8 +1,9 @@
 { lib }:
 
-with lib;
-
 let
+  inherit (builtins) concatStringsSep;
+  inherit (lib) imap0 mapAttrsFlatten;
+
   black = "#1f2227";
   blue = "#61afef";
   cyan = "#56b6c2";
