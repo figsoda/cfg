@@ -107,7 +107,7 @@ nn <space>ga <cmd>Git add -p<cr>
 nn <space>gb <cmd>lua require("gitsigns").blame_line()<cr>
 nn <space>gc <cmd>Git commit<cr>
 nn <space>gh <cmd>lua require("gitsigns").preview_hunk()<cr>
-nn <space>gi <cmd>Git<cr>
+nn <space>gi <cmd>exec "Git rebase -i HEAD~" . (v:count ? v:count : 2)<cr>
 nn <space>gl <cmd>Telescope git_commits<cr>
 nn <space>go <cmd>Telescope git_branches<cr>
 nn <space>gp <cmd>Git push<cr>
