@@ -119,6 +119,7 @@ require("colorizer").setup(nil, { css = true })
 
 require("gitsigns").setup({
   keymaps = {},
+  preview_config = { border = border },
   status_formatter = function(status)
     return " "
       .. (status.head == "" and "detached HEAD" or status.head)
