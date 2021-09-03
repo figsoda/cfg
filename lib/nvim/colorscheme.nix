@@ -289,6 +289,23 @@ let
       attrs = "bold";
     };
 
+    # nvim-notify
+    NotifyERRORBorder.fg = red;
+    NotifyERRORIcon.fg = red;
+    NotifyERRORTitle.fg = red;
+    NotifyWARNBorder.fg = yellow;
+    NotifyWARNIcon.fg = yellow;
+    NotifyWARNTitle.fg = yellow;
+    NotifyINFOBorder.fg = blue;
+    NotifyINFOIcon.fg = blue;
+    NotifyINFOTitle.fg = blue;
+    NotifyDEBUGBorder.fg = white;
+    NotifyDEBUGIcon.fg = white;
+    NotifyDEBUGTitle.fg = white;
+    NotifyTRACEBorder.fg = white;
+    NotifyTRACEIcon.fg = white;
+    NotifyTRACETitle.fg = white;
+
     # nvim-tree.lua
     NvimTreeExecFile.fg = green;
     NvimTreeSpecialFile.fg = yellow;

@@ -3,6 +3,7 @@ local gps = require("nvim-gps")
 local lspconfig = require("lspconfig")
 local lspkind = require("lspkind")
 local luasnip = require("luasnip")
+local notify = require("notify")
 local null_ls = require("null-ls")
 local nb = null_ls.builtins
 local telescope = require("telescope")
@@ -235,7 +236,8 @@ lspconfig.yamlls.setup({
 
 lspkind.init({ with_text = false })
 
-vim.notify = require("notify")
+notify.setup({ stages = "static" })
+vim.notify = notify
 
 null_ls.setup({
   on_attach = on_attach,
