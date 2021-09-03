@@ -100,8 +100,8 @@ cmp.setup({
   },
   mapping = {
     ["<cr>"] = cmp.mapping.confirm(),
-    ["<s-tab>"] = cmp.mapping.prev_item(),
-    ["<tab>"] = cmp.mapping.next_item(),
+    ["<s-tab>"] = cmp.mapping.select_prev_item(),
+    ["<tab>"] = cmp.mapping.select_next_item(),
   },
   snippet = {
     expand = function(args)
