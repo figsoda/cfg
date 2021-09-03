@@ -11,11 +11,9 @@ local ts_utils = require("nvim-treesitter.ts_utils")
 
 local border = { "", "", "", " ", "", "", "", " " }
 
-local cap = vim.lsp.protocol.make_client_capabilities()
-cap.textDocument.completion.completionItem.snippetSupport = true
-cap.textDocument.completion.completionItem.resovleSupport = {
-  properties = { "additionalTextEdits" },
-}
+local capabilities = require("cmp_nvim_lsp").update_capabilities(
+  vim.lsp.protocol.make_client_capabilities()
+)
 
 local function on_attach(_, buf)
   local map = {
@@ -169,11 +167,13 @@ require("lualine").setup({
 })
 
 lspconfig.pylsp.setup({
+  capabilities = capabilities,
   cmd = { "@python_lsp_server@/bin/pylsp" },
   on_attach = on_attach,
 })
 
 lspconfig.rnix.setup({
+  capabilities = capabilities,
   cmd = { "@rnix_lsp@/bin/rnix-lsp" },
   on_attach = function(c, buf)
     on_attach(c, buf)
@@ -182,6 +182,7 @@ lspconfig.rnix.setup({
 })
 
 lspconfig.sumneko_lua.setup({
+  capabilities = capabilities,
   cmd = { "@sumneko_lua_language_server@/bin/lua-language-server" },
   root_dir = function(file)
     return lspconfig.util.root_pattern("lua-globals")(file)
@@ -326,7 +327,7 @@ require("nvim_context_vt").setup({
 
 require("rust-tools").setup({
   server = {
-    capabilities = cap,
+    capabilities = capabilities,
     cmd = { "@rust_analyzer@/bin/rust-analyzer" },
     on_attach = function(c, buf)
       on_attach(c, buf)
