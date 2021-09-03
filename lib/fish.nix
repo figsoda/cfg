@@ -82,7 +82,7 @@ in {
         ${coreutils}/bin/realpath (${which}/bin/which $name)
       end
 
-      function with
+      function w
         if set -q with_pkgs
           set with_pkgs ", $with_pkgs"
         end
@@ -122,26 +122,37 @@ in {
       c = "cargo";
       cb = "cargo build";
       cbr = "cargo build --release";
+      cl = "cargo clippy";
       cr = "cargo run";
+      crr = "cargo run --release";
       ct = "cargo test";
       g = "git";
-      gb = "git branch";
+      gb = " git branch";
       gc = "git commit";
-      gcb = "git checkout -b";
+      gcb = " git checkout -b";
       gco = "git checkout";
       gcp = "git commit -p";
+      gd = "git diff";
+      gdc = "git diff --cached";
       gf = "git fetch";
       gff = "git pull --ff-only";
       gfu = "git fetch upstream";
       gm = "git merge";
       gp = "git push";
       gpu = "git push -u origin (git branch --show-current)";
+      gr = "git reset";
+      grb = "git rebase -i";
+      gre = "git restore";
+      gs = "git status";
+      gs- = "git switch -";
       n = "nix";
       nb = "nix build";
+      nba = "nix-build -A";
       nd = "nix develop -c fish";
       nf = "nix flake";
       nfu = "nix flake update";
       nh = "nixpkgs-hammer";
+      nhb = " nix hash to-base32";
       npu = " nix-prefetch-url --unpack";
       nr = "nix run";
       nrh = "nixpkgs-review rev HEAD";
