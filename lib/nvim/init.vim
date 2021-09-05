@@ -68,6 +68,8 @@ function s:play(...)
   exec "autocmd BufDelete <buffer> silent !@coreutils@/bin/rm" file
 endf
 
+snor <c-x> <cmd>lua require("luasnip").change_choice(1)<cr>
+
 no ; :
 no <c-_> <cmd>let @/ = ""<cr>
 no <c-q> <cmd>confirm quitall<cr>
@@ -153,6 +155,7 @@ ino <c-j> <esc>o
 ino <c-k> <esc>O
 ino <c-q> <cmd>confirm quitall<cr>
 ino <c-s> <cmd>write<cr>
+ino <c-x> <cmd>lua require("luasnip").change_choice(1)<cr>
 ino <m-,> <cmd>call setline(".", getline(".") . ",")<cr>
 ino <m-;> <cmd>call setline(".", getline(".") . ";")<cr>
 ino <m-down> <cmd>move +1<cr>

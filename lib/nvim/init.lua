@@ -15,6 +15,10 @@ local capabilities = require("cmp_nvim_lsp").update_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
 
+local function t(c)
+  return vim.api.nvim_replace_termcodes(c, true, true, true)
+end
+
 local function on_attach(_, buf)
   local map = {
     K = "lua vim.lsp.buf.hover()",
@@ -99,8 +103,31 @@ cmp.setup({
   },
   mapping = {
     ["<cr>"] = cmp.mapping.confirm(),
-    ["<s-tab>"] = cmp.mapping.select_prev_item(),
-    ["<tab>"] = cmp.mapping.select_next_item(),
+    ["<m-cr>"] = cmp.mapping.confirm({ select = true }),
+    ["<s-tab>"] = cmp.mapping(function(fallback)
+      if vim.fn.pumvisible() == 1 then
+        vim.fn.feedkeys(t("<c-p>"), "n")
+      elseif luasnip.jumpable() then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, {
+      "i",
+      "s",
+    }),
+    ["<tab>"] = cmp.mapping(function(fallback)
+      if vim.fn.pumvisible() == 1 then
+        vim.fn.feedkeys(t("<c-n>"), "n")
+      elseif luasnip.jumpable() then
+        luasnip.jump(1)
+      else
+        fallback()
+      end
+    end, {
+      "i",
+      "s",
+    }),
   },
   snippet = {
     expand = function(args)
@@ -109,6 +136,7 @@ cmp.setup({
   },
   sources = {
     { name = "buffer" },
+    { name = "luasnip" },
     { name = "nvim_lsp" },
     { name = "path" },
   },
@@ -206,6 +234,7 @@ lspconfig.sumneko_lua.setup({
         cmp.setup.buffer({
           sources = {
             { name = "buffer" },
+            { name = "luasnip" },
             { name = "nvim_lsp" },
             { name = "nvim_lua" },
             { name = "path" },

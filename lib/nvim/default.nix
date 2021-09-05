@@ -49,6 +49,7 @@
           }
         }
         luafile ${./autopairs.lua}
+        luafile ${./snippets.lua}
         ${pkgs.callPackage ./colorscheme.nix { }}
       '';
       packages.all.start = with pkgs.vimPlugins; [
@@ -57,6 +58,7 @@
         cmp-nvim-lsp
         cmp-nvim-lua
         cmp-path
+        cmp_luasnip
         editorconfig-nvim
         gitsigns-nvim
         indent-blankline-nvim
