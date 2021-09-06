@@ -54,6 +54,7 @@
       '';
       packages.all.start = with pkgs.vimPlugins; [
         bufferline-nvim
+        crates-nvim
         cmp-buffer
         cmp-nvim-lsp
         cmp-nvim-lua
