@@ -85,5 +85,23 @@ luasnip.snippets = {
         return vim.fn.line(".") == 1
       end,
     }),
+
+    s("flake", {
+      t({
+        "{",
+        "  inputs = {",
+        '    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";',
+        "  };",
+        "",
+        "  outputs = { self, nixpkgs }: {",
+        "    ",
+      }),
+      i(0),
+      t({ "", "  };", "}" }),
+    }, {
+      condition = function()
+        return vim.fn.expand("%:t") == "flake.nix" and vim.fn.line(".") == 1
+      end,
+    }),
   },
 }
