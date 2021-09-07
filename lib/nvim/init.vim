@@ -167,6 +167,13 @@ ino <m-up> <cmd>move -2<cr>
 
 tno <esc> <c-\><c-n>
 
+
+autocmd BufRead,BufNewFile *.rasi setfiletype css
+
+autocmd BufRead,BufNewFile flake.lock setfiletype json
+
+autocmd BufRead,BufNewFile Cargo.lock setfiletype toml
+
 autocmd FileType lua setlocal shiftwidth=2
 
 autocmd FileType markdown setlocal shiftwidth=2
