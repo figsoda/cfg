@@ -158,6 +158,7 @@ in {
       nrh = "nixpkgs-review rev HEAD";
       nrp = " GITHUB_TOKEN=(ghtok) nixpkgs-review pr";
       ns = "nix shell";
+      vpu = " GITHUB_API_TOKEN=(ghtok | psub) pkgs/misc/vim-plugins/update.py";
     };
 
     shellAliases = {
