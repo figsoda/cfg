@@ -34,6 +34,10 @@ let indent_blankline_filetype_exclude = ["help", "NvimTree"]
 let indent_blankline_use_treesitter = v:true
 let mapleader = " "
 let nvim_tree_auto_open = 1
+let nvim_tree_bindings = [
+\ #{ key: "o", cb: "<cmd>lua require('nvim-tree').on_keypress('system_open')<cr>" },
+\ #{ key: "s", cb: "<cmd>lua require('lightspeed').s:to(false)<cr>" },
+\ ]
 let nvim_tree_git_hl = 1
 let nvim_tree_gitignore = 1
 let nvim_tree_icons = #{ default: "" }
