@@ -380,6 +380,20 @@ let
 
     # vim-nix
     nixStringDelimiter.fg = green;
+
+    # custom
+    StatusLineGitAdded = {
+      fg = green;
+      bg = darkgray;
+    };
+    StatusLineGitChanged = {
+      fg = yellow;
+      bg = darkgray;
+    };
+    StatusLineGitRemoved = {
+      fg = red;
+      bg = darkgray;
+    };
   };
 
 in concatStringsSep "\n" (mapAttrsFlatten (group: highlight:
