@@ -153,6 +153,8 @@ in {
       nfu = "nix flake update";
       nh = "nixpkgs-hammer";
       nhb = " nix hash to-base32";
+      nu = "nix-update";
+      nuc = "nix-update --commit";
       npu = " nix-prefetch-url --unpack";
       nr = "nix run";
       nrh = "nixpkgs-review rev HEAD";

@@ -57,6 +57,7 @@ with pkgs;
       scripts = with mpvScripts; [ autoload sponsorblock thumbnail ];
     })
     newsflash
+    nix-update
     nixfmt
     nixpkgs-hammering
     nixpkgs-review
