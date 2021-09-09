@@ -3,7 +3,7 @@
     etc = {
       gitconfig.text = ''
         [core]
-        pager = ${pkgs.gitAndTools.delta}/bin/delta
+        pager = ${pkgs.delta}/bin/delta
 
         [delta]
         hunk-header-decoration-style = blue
@@ -14,7 +14,7 @@
         defaultBranch = main
 
         [interactive]
-        diffFilter = ${pkgs.gitAndTools.delta}/bin/delta --color-only
+        diffFilter = ${pkgs.delta}/bin/delta --color-only
 
         [user]
         name = figsoda

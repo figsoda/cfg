@@ -41,12 +41,12 @@ with pkgs;
     cargo-edit
     cargo-play
     clipmenu
+    delta
     fd
     firefox
     gcc
     gimp
     git
-    gitAndTools.delta
     hacksaw
     libreoffice-fresh
     libressl
