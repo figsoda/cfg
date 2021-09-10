@@ -1,14 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 set -e
 
-sudo echo "$ nixfmt flake.nix lib/*.nix"
-nixfmt flake.nix lib/*.nix
-
-echo
-echo "$ sudo cp -r lib flake.lock flake.nix /etc/nixos"
-sudo cp -r lib flake.lock flake.nix /etc/nixos
-
-echo
-echo "$ sudo nixos-rebuild switch $*"
+sudo cp -r lib flake.{lock,nix} /etc/nixos
 sudo nixos-rebuild switch "$@"
