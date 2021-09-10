@@ -1,6 +1,7 @@
 local luasnip = require("luasnip")
 local c = luasnip.choice_node
 local i = luasnip.insert_node
+local r = require("luasnip.extras").rep
 local s = luasnip.snippet
 local t = luasnip.text_node
 
@@ -33,9 +34,12 @@ luasnip.snippets = {
         "",
         "  meta = with lib; {",
         '    description = "";',
-        '    homepage = "";',
-        "    license = ",
+        '    homepage = "https://github.com/',
       }),
+      r(3),
+      t("/"),
+      r(1),
+      t({ '";', "    license = " }),
       i(5),
       t({ ";", "    maintainers = with maintainers; [ figsoda ];", "  };", "}" }),
     }, {
@@ -87,9 +91,12 @@ luasnip.snippets = {
         "",
         "  meta = with lib; {",
         '    description = "";',
-        '    homepage = "";',
-        "    license = ",
+        '    homepage = "https://github.com/',
       }),
+      r(3),
+      t("/"),
+      r(1),
+      t({ '";', "    license = " }),
       i(5),
       t({
         ";",
