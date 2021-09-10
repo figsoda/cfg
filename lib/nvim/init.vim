@@ -73,6 +73,8 @@ function s:play(...)
 endf
 
 snor <c-x> <cmd>lua require("luasnip").change_choice(1)<cr>
+snor <s-tab> <cmd>lua require("luasnip").jump(-1)<cr>
+snor <tab> <cmd>lua require("luasnip").jump(1)<cr>
 
 no ; :
 no <c-_> <cmd>let @/ = ""<cr>
@@ -160,6 +162,8 @@ ino <c-k> <esc>O
 ino <c-q> <cmd>confirm quitall<cr>
 ino <c-s> <cmd>write<cr>
 ino <c-x> <cmd>lua require("luasnip").change_choice(1)<cr>
+ino <expr> <s-tab> pumvisible() ? "<c-p>" : luasnip#jumpable(-1) ? "<cmd>lua require('luasnip').jump(-1)<cr>" : "<s-tab>"
+ino <expr> <tab> pumvisible() ? "<c-n>" : luasnip#jumpable(1) ? "<cmd>lua require('luasnip').jump(1)<cr>" : "<tab>"
 ino <m-,> <cmd>call setline(".", getline(".") . ",")<cr>
 ino <m-;> <cmd>call setline(".", getline(".") . ";")<cr>
 ino <m-down> <cmd>move +1<cr>
