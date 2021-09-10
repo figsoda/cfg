@@ -156,7 +156,6 @@ vn > >gv
 
 ino <c-a> <esc>I
 ino <c-e> <end>
-ino <c-h> <c-w>
 ino <c-j> <esc>o
 ino <c-k> <esc>O
 ino <c-q> <cmd>confirm quitall<cr>
@@ -168,8 +167,8 @@ ino <m-,> <cmd>call setline(".", getline(".") . ",")<cr>
 ino <m-;> <cmd>call setline(".", getline(".") . ";")<cr>
 ino <m-down> <cmd>move +1<cr>
 ino <m-h> <s-left>
-ino <m-j> <down>
-ino <m-k> <up>
+ino <m-j> <esc><down>a
+ino <m-k> <esc><up>a
 ino <m-l> <esc>ea
 ino <m-up> <cmd>move -2<cr>
 
