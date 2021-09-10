@@ -49,7 +49,12 @@
           }
         }
         luafile ${./autopairs.lua}
-        luafile ${./snippets.lua}
+        luafile ${
+          pkgs.substituteAll {
+            src = ./snippets.lua;
+            nix = config.nix.package;
+          }
+        }
         ${pkgs.callPackage ./colorscheme.nix { }}
       '';
       packages.all.start = with pkgs.vimPlugins; [
