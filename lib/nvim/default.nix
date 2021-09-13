@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -52,6 +52,7 @@
         luafile ${
           pkgs.substituteAll {
             src = ./snippets.lua;
+            inherit (lib) fakeSha256;
             nix = config.nix.package;
           }
         }
