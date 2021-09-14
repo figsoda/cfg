@@ -132,9 +132,9 @@ in {
       gc = "git commit";
       gca = "git commit --amend";
       gcb = " git checkout -b";
-      gcl = "git clone";
+      gcl = " git clone";
       gco = "git checkout";
-      gcp = "git cherry-pick";
+      gcp = " git cherry-pick";
       gd = "git diff";
       gdc = "git diff --cached";
       gf = "git fetch";
@@ -153,10 +153,13 @@ in {
       gs = "git status";
       gs- = "git switch -";
       gsc = " git switch -c";
+      gsp = "git stash pop";
       gst = "git stash";
       gsw = "git switch";
       gt = " git tag";
       n = "nix";
+      n-b = "nix-build";
+      n-s = "nix-shell";
       nb = "nix build";
       nba = "nix-build -A";
       nd = "nix develop -c fish";
@@ -164,14 +167,16 @@ in {
       nfu = "nix flake update";
       nh = "nixpkgs-hammer";
       nhb = " nix hash to-base32";
-      nu = "nix-update";
-      nuc = "nix-update --commit";
       npu = " nix-prefetch-url --unpack";
       nr = "nix run";
       nrh = "nixpkgs-review rev HEAD";
       nrp = " GITHUB_TOKEN=(ghtok) nixpkgs-review pr";
       ns = "nix shell";
+      nu = "nix-update";
+      nuc = "nix-update --commit";
+      r = " r";
       vpu = " GITHUB_API_TOKEN=(ghtok | psub) pkgs/misc/vim-plugins/update.py";
+      w = " w";
     };
 
     shellAliases = {
