@@ -52,7 +52,6 @@
         luafile ${
           pkgs.substituteAll {
             src = ./snippets.lua;
-            inherit (lib) fakeSha256;
             nix = config.nix.package;
           }
         }
