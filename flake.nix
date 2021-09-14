@@ -8,7 +8,6 @@
       url = "github:figsoda/nix-packages";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flake-utils.url = "github:numtide/flake-utils";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixpkgs-hammering = {
       url = "github:jtojnar/nixpkgs-hammering";
