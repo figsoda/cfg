@@ -14,8 +14,8 @@ with pkgs;
       ${rofi}/bin/rofi -show todo -modi todo:${
         writeShellScript "todo-modi" ''
           todos=~/.local/share/todos
-          mkdir -p ~/.local/share
-          touch "$todos"
+          ${coreutils}/bin/mkdir -p ~/.local/share
+          ${coreutils}/bin/touch "$todos"
 
           [ -z "$1" ] && ${coreutils}/bin/cat "$todos" && exit 0
 
