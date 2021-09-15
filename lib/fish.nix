@@ -174,6 +174,7 @@ in {
       ns = "nix shell";
       nu = "nix-update";
       nuc = "nix-update --commit";
+      nucb = "nix-update --commit --build";
       r = " r";
       vpu = " GITHUB_API_TOKEN=(ghtok | psub) pkgs/misc/vim-plugins/update.py";
       w = " w";
