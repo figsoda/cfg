@@ -26,14 +26,15 @@
         "nixpkgs": [
           "nixpkgs"
         ],
+        "rust-templates": "rust-templates",
         "ymdl": "ymdl"
       },
       "locked": {
-        "lastModified": 1631761923,
-        "narHash": "sha256-r2osKfgXvTN3VQtRw6Dlb//7opnTqU20LS29sMSGLzI=",
+        "lastModified": 1631825789,
+        "narHash": "sha256-xQn7bdXd82UMebL5rrVJWIxqmOEAgLotkGnag6D/jIU=",
         "owner": "figsoda",
         "repo": "nix-packages",
-        "rev": "64d803fa09ffb5ccaf74198438143670c5fd7d83",
+        "rev": "02f70d17f9a69b7fd138db69eeeb3e5f66044ed3",
         "type": "github"
       },
       "original": {
@@ -156,6 +157,22 @@
         "owner": "rust-analyzer",
         "ref": "nightly",
         "repo": "rust-analyzer",
+        "type": "github"
+      }
+    },
+    "rust-templates": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1631825622,
+        "narHash": "sha256-jXcZOv/gEahDmJoYp64S/y9/BqAFFvts9DUfOtcSKd8=",
+        "owner": "figsoda",
+        "repo": "rust-templates",
+        "rev": "f4d014351fc2c0c6df533710613c2fd623ea1a1c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "figsoda",
+        "repo": "rust-templates",
         "type": "github"
       }
     },

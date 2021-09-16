@@ -70,12 +70,10 @@ in {
         end
       end
 
-      function gen -a template name
-        string length -q -- $template $name
-        ~/rust-templates/gen.sh ~/rust-templates/$template \
-          $name $name '["figsoda <figsoda@pm.me>"]' figsoda/$name
-        cd $name
-        commandline "git push -u origin main"
+      function gen -a tmpl name
+        ${rust-templates}/bin/generate $tmpl $name $name '["figsoda <figsoda@pm.me>"]' figsoda/$name
+        and cd $name
+        and commandline "git push -u origin main"
       end
 
       function path -a name
