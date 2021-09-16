@@ -46,7 +46,6 @@ with pkgs;
     firefox
     gcc
     gimp
-    git
     hacksaw
     libreoffice-fresh
     libressl

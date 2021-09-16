@@ -1,34 +1,6 @@
 { config, lib, pkgs, ... }: {
   environment = {
     etc = {
-      gitconfig.text = lib.generators.toGitINI {
-        core.pager = "${pkgs.delta}/bin/delta";
-        credential."https://github.com" = {
-          username = "figsoda";
-          helper = "${pkgs.writeShellScript "credential-helper-github" ''
-            if [ "$1" = get ]; then
-              echo "password=$(${pkgs.libressl}/bin/openssl aes-256-cbc -d \
-                -in ~/.config/secrets/github \
-                -pass file:<(${config.programs.ssh.askPassword}))"
-            fi
-          ''}";
-        };
-        delta = {
-          hunk-header-decoration-style = "blue";
-          line-number = true;
-          syntax-theme = "OneHalfDark";
-        };
-        init.defaultBranch = "main";
-        interactive.diffFilter = "${pkgs.delta}/bin/delta --color-only";
-        url = {
-          "https://gitlab.com/".insteadOf = [ "gl:" "gitlab:" ];
-          "https://github.com/".insteadOf = [ "gh:" "github:" ];
-        };
-        user = {
-          name = "figsoda";
-          email = "figsoda@pm.me";
-        };
-      };
       "xdg/mimeapps.list".text = ''
         [Default Applications]
         application/pdf=firefox.desktop
