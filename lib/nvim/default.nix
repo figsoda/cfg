@@ -14,7 +14,6 @@
             nix = config.nix.package;
             nixpkgs = config.nix.registry.nixpkgs.flake;
             util_linux = pkgs.util-linux;
-            colorscheme = pkgs.callPackage ./colorscheme.nix { };
           }
         }
         luafile ${
