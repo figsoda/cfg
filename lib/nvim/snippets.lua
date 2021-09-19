@@ -40,7 +40,7 @@ luasnip.snippets = {
   nix = {
     s("buildRustPackage", {
       t({
-        "{ fetchFromGitHub, lib, rustPlatform }:",
+        "{ lib, rustPlatform, fetchFromGitHub }:",
         "",
         "rustPlatform.buildRustPackage rec {",
         '  pname = "',
@@ -100,7 +100,7 @@ luasnip.snippets = {
 
     s("mkDerivation", {
       t({
-        "{ fetchFromGitHub, lib, stdenv }:",
+        "{ lib, stdenv, fetchFromGitHub }:",
         "",
         "stdenv.mkDerivation rec {",
         '  pname = "',
