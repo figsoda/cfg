@@ -8,11 +8,11 @@
           pkgs.substituteAll {
             src = ./init.vim;
             inherit (config.passthru) rust;
+            inherit (config.passthru.inputs) nixpkgs;
             inherit (pkgs) coreutils fd fish nixfmt stylua;
             cargo_edit = pkgs.cargo-edit;
             cargo_play = pkgs.cargo-play;
             nix = config.nix.package;
-            nixpkgs = config.nix.registry.nixpkgs.flake;
             util_linux = pkgs.util-linux;
           }
         }

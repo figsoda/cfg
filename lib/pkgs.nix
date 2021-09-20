@@ -2,8 +2,8 @@
 
 with pkgs;
 
-{
-  environment.systemPackages = builtins.attrValues config.passthru ++ [
+rec {
+  environment.systemPackages = builtins.attrValues passthru ++ [
     (writeShellScriptBin "ghtok" ''
       ${libressl}/bin/openssl aes-256-cbc -d -in ~/.config/secrets/github
     '')

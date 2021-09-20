@@ -20,45 +20,15 @@
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ({ pkgs, ... }: {
-          nix = {
-            autoOptimiseStore = true;
-            binaryCachePublicKeys = [
-              "figsoda.cachix.org-1:mJfTEL4qLCqymqynJlaTxxi5APlaM0DfWg+h+CRGa20="
-              "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-            ];
-            binaryCaches = [
-              "https://figsoda.cachix.org"
-              "https://nix-community.cachix.org"
-            ];
-            extraOptions = "experimental-features = flakes nix-command";
-            gc = {
-              automatic = true;
-              dates = "Sat, 00:30";
-              options = "--delete-older-than 3d";
-            };
-            nixPath = [ "nixos=${nixpkgs}" "nixpkgs=${nixpkgs}" ];
-            package = pkgs.nixUnstable;
-            registry.nixpkgs.flake = nixpkgs;
-          };
-
-          nixpkgs = {
-            config.allowUnfree = true;
-            overlays = with inputs; [
-              fenix.overlay
-              figsoda-pkgs.overlay
-              nixpkgs-hammering.overlay
-            ];
-          };
-        })
-
+        ({ passthru = { inherit inputs; }; })
         nixos-hardware.nixosModules.asus-zephyrus-ga401
-
-        ./lib/cfg.nix
-        ./lib/env.nix
         ./lib/fish.nix
+        ./lib/misc.nix
+        ./lib/nix.nix
         ./lib/nvim
         ./lib/pkgs.nix
+        ./lib/programs.nix
+        ./lib/services.nix
         ./hardware-configuration.nix
       ];
     };
