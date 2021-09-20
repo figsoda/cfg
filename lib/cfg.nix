@@ -191,4 +191,21 @@
     isNormalUser = true;
     shell = "${pkgs.fish}/bin/fish";
   };
+
+  xdg.mime.defaultApplications = {
+    "application/pdf" = "firefox.desktop";
+    "image/bmp" = "sxiv.desktop";
+    "image/gif" = "sxiv.desktop";
+    "image/jpeg" = "sxiv.desktop";
+    "image/jpg" = "sxiv.desktop";
+    "image/png" = "sxiv.desktop";
+    "image/tiff" = "sxiv.desktop";
+    "image/x-bmp" = "sxiv.desktop";
+    "image/x-portable-anymap" = "sxiv.desktop";
+    "image/x-portable-bitmap" = "sxiv.desktop";
+    "image/x-portable-graymap" = "sxiv.desktop";
+    "image/x-tga" = "sxiv.desktop";
+    "image/x-xpixmap" = "sxiv.desktop";
+    "inode/directory" = "spacefm.desktop";
+  };
 }
