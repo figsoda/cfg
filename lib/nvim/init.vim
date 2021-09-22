@@ -174,7 +174,7 @@ ino <m-up> <cmd>move -2<cr>
 
 tno <esc> <c-\><c-n>
 
-autocmd BufRead all-packages.nix lua require("cmp").setup.buffer({ sources = { { name = "path" } } })
+autocmd BufRead all-packages.nix lua require("cmp").setup.buffer({ enabled = false })
 
 autocmd BufRead,BufNewFile *.rasi setfiletype css
 
