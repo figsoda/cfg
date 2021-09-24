@@ -108,7 +108,7 @@ nn <space>cr <cmd>T @rust@/bin/cargo run<cr>i
 nn <space>ct <cmd>T @rust@/bin/cargo test<cr>i
 nn <space>cu <cmd>!@rust@/bin/cargo update<cr>
 nn <space>g<space> :Git<space>
-nn <space>gB <cmd>Git blame<cr>
+nn <space>gB <cmd>Telescope git_bcommits<cr>
 nn <space>gR <cmd>lua require("gitsigns").reset_buffer()<cr>
 nn <space>gS <cmd>Telescope git_stash<cr>
 nn <space>ga <cmd>Git add -p<cr>
