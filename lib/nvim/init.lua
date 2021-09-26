@@ -232,11 +232,13 @@ lspconfig.taplo.setup({
 })
 
 lspconfig.vimls.setup({
+  capabilities = capabilities,
   cmd = { "@vim_language_server@/bin/vim-language-server", "--stdio" },
   on_attach = on_attach,
 })
 
 lspconfig.yamlls.setup({
+  capabilities = capabilities,
   cmd = { "@yaml_language_server@/bin/yaml-language-server", "--stdio" },
   on_attach = on_attach,
 })
