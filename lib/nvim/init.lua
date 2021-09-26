@@ -225,6 +225,12 @@ lspconfig.sumneko_lua.setup({
   },
 })
 
+lspconfig.taplo.setup({
+  capabilities = capabilities;
+  cmd = { "@taplo_lsp@/bin/taplo-lsp", "run" },
+  on_attach = on_attach,
+})
+
 lspconfig.vimls.setup({
   cmd = { "@vim_language_server@/bin/vim-language-server", "--stdio" },
   on_attach = on_attach,
