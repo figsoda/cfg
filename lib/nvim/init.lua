@@ -176,6 +176,7 @@ lspconfig.pylsp.setup({
 lspconfig.rnix.setup({
   capabilities = capabilities,
   cmd = { "@rnix_lsp@/bin/rnix-lsp" },
+  on_attach = on_attach,
 })
 
 lspconfig.sumneko_lua.setup({
