@@ -9,17 +9,18 @@
             src = ./init.vim;
             inherit (config.passthru) rust;
             inherit (config.passthru.inputs) nixpkgs;
-            inherit (pkgs) coreutils fd fish nixfmt stylua;
+            inherit (pkgs) coreutils fd fish stylua;
             cargo_edit = pkgs.cargo-edit;
             cargo_play = pkgs.cargo-play;
             nix = config.nix.package;
+            nixpkgs_fmt = pkgs.nixpkgs-fmt;
             util_linux = pkgs.util-linux;
           }
         }
         luafile ${
           pkgs.substituteAll {
             src = ./init.lua;
-            inherit (pkgs) nixfmt shellcheck stylua;
+            inherit (pkgs) shellcheck stylua;
             inherit (pkgs.nodePackages) prettier;
             python_lsp_server = (pkgs.python3.override {
               packageOverrides = _: super: {

@@ -176,10 +176,6 @@ lspconfig.pylsp.setup({
 lspconfig.rnix.setup({
   capabilities = capabilities,
   cmd = { "@rnix_lsp@/bin/rnix-lsp" },
-  on_attach = function(c, buf)
-    on_attach(c, buf)
-    c.resolved_capabilities.document_formatting = false
-  end,
 })
 
 lspconfig.sumneko_lua.setup({
@@ -247,7 +243,6 @@ null_ls.setup({
   on_attach = on_attach,
   sources = {
     nb.diagnostics.shellcheck.with({ command = "@shellcheck@/bin/shellcheck" }),
-    nb.formatting.nixfmt.with({ command = "@nixfmt@/bin/nixfmt" }),
     nb.formatting.prettier.with({ command = "@prettier@/bin/prettier" }),
     nb.formatting.stylua.with({ command = "@stylua@/bin/stylua" }),
   },

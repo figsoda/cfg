@@ -57,7 +57,7 @@ rec {
     })
     newsflash
     nix-update
-    nixfmt
+    nixpkgs-fmt
     nixpkgs-hammering
     nixpkgs-review
     pamixer

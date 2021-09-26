@@ -5,7 +5,9 @@ with pkgs;
 let
   inherit (builtins) concatStringsSep;
   inherit (lib) mapAttrsFlatten;
-in {
+in
+
+{
   programs.fish = {
     enable = true;
 

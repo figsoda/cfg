@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
-let inherit (config.passthru) inputs;
+let inherit (config.passthru) inputs; in
 
-in {
+{
   nix = {
     autoOptimiseStore = true;
     binaryCachePublicKeys = [

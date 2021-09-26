@@ -395,25 +395,27 @@ let
       bg = darkgray;
     };
   };
+in
 
-in concatStringsSep "\n" (mapAttrsFlatten (group: highlight:
-  let get = k: highlight.${k} or "NONE";
-  in "hi ${group} guifg=${get "fg"} guibg=${get "bg"} gui=${get "attrs"}")
+concatStringsSep "\n" (mapAttrsFlatten
+  (group: highlight:
+    let get = k: highlight.${k} or "NONE";
+    in "hi ${group} guifg=${get "fg"} guibg=${get "bg"} gui=${get "attrs"}")
   highlights
-  ++ imap0 (i: color: "let terminal_color_${toString i} = '${color}'") [
-    black
-    red
-    green
-    yellow
-    blue
-    purple
-    cyan
-    white
-    lightgray
-    darkred
-    green
-    orange
-    blue
-    purple
-    cyan
-  ])
+++ imap0 (i: color: "let terminal_color_${toString i} = '${color}'") [
+  black
+  red
+  green
+  yellow
+  blue
+  purple
+  cyan
+  white
+  lightgray
+  darkred
+  green
+  orange
+  blue
+  purple
+  cyan
+])

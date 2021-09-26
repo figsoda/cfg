@@ -128,7 +128,7 @@ nn <space>lf <cmd>!@fd@/bin/fd -H '.lua$' -x @stylua@/bin/stylua<cr>
 nn <space>m <cmd>Telescope man_pages<cr>
 nn <space>n<space> :!nix<space>
 nn <space>nb <cmd>T @nix@/bin/nix build<cr>i
-nn <space>nf <cmd>!@fd@/bin/fd -H '.nix$' -x @nixfmt@/bin/nixfmt<cr>
+nn <space>nf <cmd>!@fd@/bin/fd -H '.nix$' -x @nixpkgs_fmt@/bin/nixpkgs-fmt<cr>
 nn <space>ni <cmd>T @nix@/bin/nix repl @nixpkgs@<cr>i
 nn <space>nr <cmd>T @nix@/bin/nix run<cr>i
 nn <space>nt <cmd>T @nix@/bin/nix flake check<cr>i
