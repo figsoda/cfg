@@ -117,6 +117,7 @@ nn <space>gc <cmd>Git commit<cr>
 nn <space>gh <cmd>lua require("gitsigns").preview_hunk()<cr>
 nn <space>gi <cmd>exec "Git rebase -i HEAD~" . (v:count ? v:count : 2)<cr>
 nn <space>gl <cmd>Telescope git_commits<cr>
+nn <space>gn <cmd>Git commit --amend --no-edit<cr>
 nn <space>go <cmd>Telescope git_branches<cr>
 nn <space>gp <cmd>Git push<cr>
 nn <space>gr <cmd>lua require("gitsigns").reset_hunk()<cr>
