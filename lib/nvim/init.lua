@@ -24,7 +24,7 @@ local function on_attach(_, buf)
     ["<space>r"] = "Trouble lsp_references",
     ["[d"] = "lua vim.lsp.diagnostic.goto_prev()",
     ["]d"] = "lua vim.lsp.diagnostic.goto_next()",
-    ga = "lua vim.lsp.buf.code_action()",
+    ga = "CodeActionMenu",
     gd = "lua vim.lsp.buf.definition()",
     ge = "lua vim.lsp.diagnostic.show_line_diagnostics()",
     gr = "lua vim.lsp.buf.rename()",
@@ -45,7 +45,7 @@ local function on_attach(_, buf)
     buf,
     "v",
     "ga",
-    "<cmd>lua vim.lsp.buf.range_code_action()<cr>",
+    "<cmd>CodeActionMenu<cr>",
     { noremap = true }
   )
 end

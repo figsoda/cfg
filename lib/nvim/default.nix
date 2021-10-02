@@ -77,6 +77,7 @@
         null-ls-nvim
         numb-nvim
         nvim-cmp
+        nvim-code-action-menu
         nvim-colorizer-lua
         nvim-gps
         nvim-lspconfig

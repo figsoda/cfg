@@ -78,22 +78,10 @@ let
     CursorColumn.bg = darkgray;
     CursorLine.bg = darkgray;
     Directory.fg = blue;
-    DiffAdd = {
-      fg = black;
-      bg = green;
-    };
-    DiffChange = {
-      fg = yellow;
-      attrs = "underline";
-    };
-    DiffDelete = {
-      fg = black;
-      bg = red;
-    };
-    DiffText = {
-      fg = black;
-      bg = yellow;
-    };
+    DiffAdd.fg = green;
+    DiffChange.fg = yellow;
+    DiffDelete.fg = red;
+    DiffText.fg = white;
     EndOfBuffer.fg = black;
     TermCursor.bg = white;
     TermCursorNC.fg = white;
@@ -121,10 +109,7 @@ let
     MsgSeparator.fg = darkgray;
     MoreMsg.fg = white;
     NonText.fg = lightgray;
-    Normal = {
-      fg = white;
-      bg = black;
-    };
+    Normal.fg = white;
     NormalFloat = {
       fg = white;
       bg = darkgray;
@@ -288,6 +273,9 @@ let
       fg = red;
       attrs = "bold";
     };
+
+    # nvim-code-action-menu
+    CodeActionMenuMenuSelection.bg = gray;
 
     # nvim-notify
     NotifyERRORBorder.fg = red;
