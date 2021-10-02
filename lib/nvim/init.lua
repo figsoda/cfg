@@ -226,7 +226,7 @@ lspconfig.sumneko_lua.setup({
 })
 
 lspconfig.taplo.setup({
-  capabilities = capabilities;
+  capabilities = capabilities,
   cmd = { "@taplo_lsp@/bin/taplo-lsp", "run" },
   on_attach = on_attach,
 })
@@ -258,6 +258,27 @@ null_ls.setup({
 })
 
 require("numb").setup()
+
+require("nvim-tree").setup({
+  hijack_cursor = true,
+  lsp_diagnostics = true,
+  open_on_setup = true,
+  update_cwd = true,
+  view = {
+    mappings = {
+      list = {
+        {
+          key = "o",
+          cb = "<cmd>lua require('nvim-tree').on_keypress('system_open')<cr>",
+        },
+        {
+          key = "s",
+          cb = "<cmd>lua require('lightspeed').sx:to(false)<cr>",
+        },
+      },
+    },
+  },
+})
 
 require("nvim-treesitter.configs").setup({
   highlight = {

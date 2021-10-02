@@ -4,6 +4,7 @@
     defaultEditor = true;
     configure = {
       customRC = ''
+        ${pkgs.callPackage ./colorscheme.nix { }}
         source ${
           pkgs.substituteAll {
             src = ./init.vim;
@@ -56,7 +57,6 @@
             nix = config.nix.package;
           }
         }
-        ${pkgs.callPackage ./colorscheme.nix { }}
       '';
       packages.all.start = with pkgs.vimPlugins; [
         bufferline-nvim

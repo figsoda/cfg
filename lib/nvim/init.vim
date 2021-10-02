@@ -33,19 +33,9 @@ let indent_blankline_char = "│"
 let indent_blankline_filetype_exclude = ["help", "NvimTree"]
 let indent_blankline_use_treesitter = v:true
 let mapleader = " "
-let nvim_tree_auto_open = 1
-let nvim_tree_bindings = [
-\ #{ key: "o", cb: "<cmd>lua require('nvim-tree').on_keypress('system_open')<cr>" },
-\ #{ key: "s", cb: "<cmd>lua require('lightspeed').sx:to(false)<cr>" },
-\ ]
-let nvim_tree_git_hl = 1
-let nvim_tree_gitignore = 1
-let nvim_tree_icons = #{ default: "" }
 let nvim_tree_ignore = [".git"]
-let nvim_tree_lsp_diagnostics = 1
 let nvim_tree_quit_on_open = 1
-let nvim_tree_width_allow_resize = 1
-let nvim_tree_window_picker_exclude = #{ buftype: ["terminal"] }
+let nvim_tree_window_picker_exclude = #{ buftype: ["notify", "terminal"] }
 let vim_markdown_conceal = 0
 let vim_markdown_conceal_code_blocks = 0
 
@@ -54,15 +44,6 @@ function s:cargo_add()
   if flags != ""
     exec "!@cargo_edit@/bin/cargo-add add" flags "&& @rust@/bin/cargo update"
     NvimTreeRefresh
-  end
-endf
-
-function s:init()
-  silent exec "!@util_linux@/bin/kill -s SIGWINCH" getpid()
-  let name = bufname(1)
-  if isdirectory(name)
-    exec "cd" name
-    bdelete 1
   end
 endf
 
@@ -198,7 +179,7 @@ autocmd TextYankPost * silent lua vim.highlight.on_yank()
 
 autocmd User TelescopePreviewerLoaded setlocal number
 
-autocmd VimEnter * call s:init()
+autocmd VimEnter * silent exec "!@util_linux@/bin/kill -s SIGWINCH" getpid()
 
 command -nargs=? P call s:play(<f-args>)
 command -nargs=+ T botright 12split term://<args>

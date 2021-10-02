@@ -73,7 +73,12 @@ luasnip.snippets = {
       r(1),
       t({ '";', "    license = " }),
       i(5),
-      t({ ";", "    maintainers = with maintainers; [ figsoda ];", "  };", "}" }),
+      t({
+        ";",
+        "    maintainers = with maintainers; [ figsoda ];",
+        "  };",
+        "}",
+      }),
     }, {
       condition = function()
         return vim.fn.line(".") == 1

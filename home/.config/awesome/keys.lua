@@ -298,7 +298,11 @@ local kbs = {
       awful.screen.focused().mpd.reload()
     end,
   },
-  { m, "o", exec_sh("xdg-open (fd | rofi -dmenu -p open -i -matching fuzzy)") },
+  {
+    m,
+    "o",
+    exec_sh("xdg-open (fd | rofi -dmenu -p open -i -matching fuzzy)"),
+  },
   {
     m,
     "q",
