@@ -167,7 +167,6 @@ in
       nf = "nix flake";
       nfu = "nix flake update";
       nh = "nixpkgs-hammer";
-      nhb = " nix hash to-base32";
       npu = " nix-prefetch-url --unpack";
       nr = "nix run";
       nrh = "nixpkgs-review rev HEAD";
