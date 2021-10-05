@@ -53,6 +53,12 @@ function s:play(...)
   exec "autocmd BufDelete <buffer> silent !@coreutils@/bin/rm" file
 endf
 
+function s:term_close()
+  if getline(".") == "[Process exited 0]"
+    bdelete!
+  end
+endf
+
 snor <c-x> <cmd>lua require("luasnip").change_choice(1)<cr>
 snor <s-tab> <cmd>lua require("luasnip").jump(-1)<cr>
 snor <tab> <cmd>lua require("luasnip").jump(1)<cr>
@@ -174,6 +180,8 @@ autocmd FileType rust nn <buffer> gm <cmd>RustExpandMacro<cr>
 autocmd FileType vim setlocal shiftwidth=2
 
 autocmd FileType yaml setlocal shiftwidth=2
+
+autocmd TermClose * call timer_start(50, { -> s:term_close() })
 
 autocmd TextYankPost * silent lua vim.highlight.on_yank()
 
