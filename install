@@ -1,13 +1,10 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i sh -p curl imagemagick ripgrep sd xorg.xrandr
+#!nix-shell -i sh -p curl fd imagemagick ripgrep sd xorg.xrandr
 
 echo Creating symlinks
 src=$(dirname "$(realpath "$0")")/home
-find "$src" -type f -printf "/%P\n" | while read -r file; do
-    dir=$HOME${file%/*}
-    mkdir -p "$dir"
-    ln -sft "$dir" "$src$file"
-done
+fd --base-directory "$src" -Ht f -x \
+    sh -c "mkdir -p '$HOME/{//}' && ln -sf '$src/{}' '$HOME/{}'"
 
 echo Downloading wallpaper
 res=$(xrandr | rg -F "*" | sd "\s*(\d+x\d+).*" '$1')
