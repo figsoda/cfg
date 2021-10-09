@@ -273,7 +273,7 @@ require("nvim-tree").setup({
         },
         {
           key = "s",
-          cb = "<cmd>lua require('lightspeed').sx:to(false)<cr>",
+          cb = "<cmd>lua require('lightspeed').sx:go()<cr>",
         },
       },
     },
