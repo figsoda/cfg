@@ -59,7 +59,11 @@ rec {
     nix-update
     nixpkgs-fmt
     nixpkgs-hammering
-    nixpkgs-review
+    (writeShellScriptBin "nixpkgs-review" ''
+      ${nixpkgs-review}/bin/nixpkgs-review "$@" \
+        --run ${fish}/bin/fish \
+        --build-args "--option substituters https://cache.nixos.org/"
+    '')
     pamixer
     pavucontrol
     psmisc

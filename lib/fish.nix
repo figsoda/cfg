@@ -169,8 +169,12 @@ in
       nh = "nixpkgs-hammer";
       npu = " nix-prefetch-url --unpack";
       nr = "nix run";
+      nra = "nixpkgs-review approve";
       nrh = "nixpkgs-review rev HEAD";
+      nrm = "nixpkgs-review merge";
       nrp = " GITHUB_TOKEN=(ghtok) nixpkgs-review pr";
+      nrpam = "nixpkgs-review post-result && nixpkgs-review approve && nixpkgs-review merge";
+      nrpr = "nixpkgs-review post-result";
       ns = "nix shell";
       nu = "nix-update";
       nuc = "nix-update --commit";
