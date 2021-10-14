@@ -274,6 +274,14 @@ let
       attrs = "bold";
     };
 
+    # nvim-cmp
+    CmpItemAbbr.fg = white;
+    CmpItemAbbrDeprecated.fg = dimwhite;
+    CmpItemAbbrMatch.fg = blue;
+    CmpItemAbbrMatchFuzzy.fg = blue;
+    CmpItemKind.fg = orange;
+    CmpItemMenu.fg = white;
+
     # nvim-code-action-menu
     CodeActionMenuMenuSelection.bg = gray;
 

@@ -100,6 +100,16 @@ cmp.setup({
   mapping = {
     ["<cr>"] = cmp.mapping.confirm(),
     ["<m-cr>"] = cmp.mapping.confirm({ select = true }),
+    ["<s-tab>"] = function(fallback)
+      if not cmp.select_prev_item() and not luasnip.jump(-1) then
+        fallback()
+      end
+    end,
+    ["<tab>"] = function(fallback)
+      if not cmp.select_next_item() and not luasnip.jump(1) then
+        fallback()
+      end
+    end,
   },
   snippet = {
     expand = function(args)
