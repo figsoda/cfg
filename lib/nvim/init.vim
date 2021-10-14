@@ -33,6 +33,7 @@ let indent_blankline_char = "│"
 let indent_blankline_filetype_exclude = ["help", "NvimTree"]
 let indent_blankline_use_treesitter = v:true
 let mapleader = " "
+let nvim_tree_icons = #{ default: "" }
 let nvim_tree_ignore = [".git"]
 let nvim_tree_quit_on_open = 1
 let nvim_tree_window_picker_exclude = #{ buftype: ["notify", "terminal"] }

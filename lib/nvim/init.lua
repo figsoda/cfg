@@ -260,8 +260,8 @@ null_ls.setup({
 require("numb").setup()
 
 require("nvim-tree").setup({
+  diagnostics = { enable = true },
   hijack_cursor = true,
-  lsp_diagnostics = true,
   open_on_setup = true,
   update_cwd = true,
   view = {
