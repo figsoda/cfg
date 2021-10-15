@@ -30,11 +30,11 @@
         "ymdl": "ymdl"
       },
       "locked": {
-        "lastModified": 1634181167,
-        "narHash": "sha256-0Jv6dBOfJ/irkwbap7rBxe8uU/qziaahS2adu08JA7c=",
+        "lastModified": 1634267562,
+        "narHash": "sha256-YxqUcAA23o1qAVc14AiJDaOf6VFUnJP/VKTpBLSd+QM=",
         "owner": "figsoda",
         "repo": "nix-packages",
-        "rev": "c5350b0746e0efb779c5afa129ff94ec589b0e9c",
+        "rev": "8a65d9f692ac2aee6c4099f9e48f210811151d48",
         "type": "github"
       },
       "original": {
@@ -97,11 +97,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1633971123,
-        "narHash": "sha256-WmI4NbH1IPGFWVkuBkKoYgOnxgwSfWDgdZplJlQ93vA=",
+        "lastModified": 1634172192,
+        "narHash": "sha256-FBF4U/T+bMg4sEyT/zkgasvVquGzgdAf4y8uCosKMmo=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e4ef597edfd8a0ba5f12362932fc9b1dd01a0aef",
+        "rev": "2cf9db0e3d45b9d00f16f2836cb1297bcadc475e",
         "type": "github"
       },
       "original": {
