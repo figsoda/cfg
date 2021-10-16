@@ -16,7 +16,7 @@ let inherit (config.passthru) inputs; in
     extraOptions = "experimental-features = flakes nix-command";
     gc = {
       automatic = true;
-      dates = "Sat, 00:30";
+      dates = "Sat, 04:30";
       options = "--delete-older-than 3d";
     };
     nixPath = [

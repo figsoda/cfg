@@ -91,7 +91,7 @@
   system = {
     autoUpgrade = {
       enable = true;
-      dates = "01:00";
+      dates = "04:00";
     };
     stateVersion = "21.05";
   };
