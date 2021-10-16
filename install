@@ -1,13 +1,16 @@
 #!/usr/bin/env nix-shell
 #!nix-shell -i sh -p curl fd imagemagick ripgrep sd xorg.xrandr
 
+# shellcheck shell=sh
+# vim: ft=sh
+
 echo Creating symlinks
 src=$(dirname "$(realpath "$0")")/home
 fd --base-directory "$src" -Ht f -x \
     sh -c "mkdir -p '$HOME/{//}' && ln -sf '$src/{}' '$HOME/{}'"
 
 echo Downloading wallpaper
-res=$(xrandr | rg -F "*" | sd "\s*(\d+x\d+).*" '$1')
+res=$(xrandr | rg -F \* | sd "\s*(\d+x\d+).*" \$1)
 curl -LSs https://raw.githubusercontent.com/NixOS/nixos-artwork/master/wallpapers/nix-wallpaper-nineish-dark-gray.svg \
     | convert svg:- \
         -gamma 1.14,1.16,1.25 \

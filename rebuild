@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 set -e
 
-sudo cp -r lib flake.{lock,nix} /etc/nixos
+sudo cp -r lib flake.lock flake.nix /etc/nixos
 sudo nixos-rebuild switch "$@"
