@@ -1,7 +1,6 @@
 local cmp = require("cmp")
 local gps = require("nvim-gps")
 local lspconfig = require("lspconfig")
-local lspkind = require("lspkind")
 local luasnip = require("luasnip")
 local notify = require("notify")
 local null_ls = require("null-ls")
@@ -92,10 +91,7 @@ require("bufferline").setup({
 cmp.setup({
   confirmation = { default_behavior = cmp.ConfirmBehavior.Replace },
   formatting = {
-    format = function(_, item)
-      item.kind = lspkind.presets.default[item.kind]
-      return item
-    end,
+    format = require("lspkind").cmp_format({ with_text = false }),
   },
   mapping = {
     ["<cr>"] = cmp.mapping.confirm(),
@@ -252,8 +248,6 @@ lspconfig.yamlls.setup({
   cmd = { "@yaml_language_server@/bin/yaml-language-server", "--stdio" },
   on_attach = on_attach,
 })
-
-lspkind.init({ with_text = false })
 
 notify.setup({ stages = "static" })
 vim.notify = notify
