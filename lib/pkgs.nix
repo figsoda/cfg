@@ -42,6 +42,7 @@ rec {
     cargo-play
     clipmenu
     delta
+    element-desktop
     fd
     firefox
     gcc
@@ -85,9 +86,6 @@ rec {
   ];
 
   passthru = {
-    element-desktop = (element-desktop.override {
-      element-web = element-web.override { conf.showLabSettings = true; };
-    });
     lockscreen = writeShellScriptBin "lockscreen" ''
       ${i3lock-color}/bin/i3lock-color \
         -i ~/.config/wallpaper.png -k \
