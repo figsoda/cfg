@@ -66,6 +66,7 @@
         cmp-nvim-lua
         cmp-path
         cmp_luasnip
+        comment-nvim
         editorconfig-nvim
         gitsigns-nvim
         indent-blankline-nvim
@@ -93,7 +94,6 @@
         telescope-nvim
         telescope-fzf-native-nvim
         trouble-nvim
-        vim-commentary
         vim-fugitive
         vim-lastplace
         vim-markdown

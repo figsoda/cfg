@@ -123,6 +123,8 @@ cmp.setup({
 
 require("colorizer").setup(nil, { css = true })
 
+require("Comment").setup({ ignore = "^$" })
+
 require("gitsigns").setup({
   keymaps = {},
   preview_config = { border = border },
