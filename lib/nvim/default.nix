@@ -1,4 +1,13 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, ... }:
+
+let
+  substitutePackages = src: substitutions:
+    pkgs.substituteAll ({ inherit src; } // lib.mapAttrs'
+      (k: lib.nameValuePair (builtins.replaceStrings [ "-" ] [ "_" ] k))
+      substitutions);
+in
+
+{
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -6,24 +15,22 @@
       customRC = ''
         ${pkgs.callPackage ./colorscheme.nix { }}
         source ${
-          pkgs.substituteAll {
-            src = ./init.vim;
+          substitutePackages ./init.vim {
             inherit (config.passthru) rust;
             inherit (config.passthru.inputs) nixpkgs;
-            inherit (pkgs) coreutils fd fish stylua;
-            cargo_edit = pkgs.cargo-edit;
-            cargo_play = pkgs.cargo-play;
+            inherit (pkgs)
+              cargo-edit cargo-play coreutils fd fish nixpkgs-fmt stylua
+              util-linux;
             nix = config.nix.package;
-            nixpkgs_fmt = pkgs.nixpkgs-fmt;
-            util_linux = pkgs.util-linux;
           }
         }
         luafile ${
-          pkgs.substituteAll {
-            src = ./init.lua;
-            inherit (pkgs) shellcheck stylua;
-            inherit (pkgs.nodePackages) prettier;
-            python_lsp_server = (pkgs.python3.override {
+          substitutePackages ./init.lua {
+            inherit (pkgs)
+              rnix-lsp shellcheck stylua sumneko-lua-language-server taplo-lsp
+              yaml-language-server;
+            inherit (pkgs.nodePackages) prettier vim-language-server;
+            python-lsp-server = (pkgs.python3.override {
               packageOverrides = _: super: {
                 python-lsp-server = super.python-lsp-server.override {
                   withAutopep8 = false;
@@ -36,24 +43,18 @@
               };
             }).withPackages
               (ps: with ps; [ pyls-isort python-lsp-black python-lsp-server ]);
-            rnix_lsp = pkgs.rnix-lsp;
-            rust_analyzer = pkgs.writeShellScriptBin "rust-analyzer" ''
+            rust-analyzer = pkgs.writeShellScriptBin "rust-analyzer" ''
               wrapper=()
               if ${config.nix.package}/bin/nix eval --raw .#devShell.x86_64-linux; then
                 wrapper=(${config.nix.package}/bin/nix develop -c)
               fi
               "''${wrapper[@]}" ${pkgs.rust-analyzer-nightly}/bin/rust-analyzer
             '';
-            sumneko_lua_language_server = pkgs.sumneko-lua-language-server;
-            taplo_lsp = pkgs.taplo-lsp;
-            vim_language_server = pkgs.nodePackages.vim-language-server;
-            yaml_language_server = pkgs.yaml-language-server;
           }
         }
         luafile ${./autopairs.lua}
         luafile ${
-          pkgs.substituteAll {
-            src = ./snippets.lua;
+          substitutePackages ./snippets.lua {
             nix = config.nix.package;
           }
         }
