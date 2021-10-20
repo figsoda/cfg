@@ -62,7 +62,7 @@ luasnip.snippets = {
         '";',
         "  };",
         "",
-        '  cargoSha256 = "0000000000000000000000000000000000000000000000000000";',
+        '  cargoSha256 = "";',
         "",
         "  meta = with lib; {",
         '    description = "";',
