@@ -113,11 +113,11 @@ cmp.setup({
     end,
   },
   sources = {
-    { name = "buffer" },
-    { name = "crates" },
-    { name = "luasnip" },
     { name = "nvim_lsp" },
+    { name = "crates" },
     { name = "path" },
+    { name = "luasnip" },
+    { name = "buffer", keyword_length = 3 },
   },
 })
 
@@ -211,12 +211,12 @@ lspconfig.sumneko_lua.setup({
       if i == "vim" then
         cmp.setup.buffer({
           sources = {
-            { name = "buffer" },
-            { name = "crates" },
-            { name = "luasnip" },
-            { name = "nvim_lsp" },
             { name = "nvim_lua" },
+            { name = "nvim_lsp" },
+            { name = "crates" },
             { name = "path" },
+            { name = "luasnip" },
+            { name = "buffer", keyword_length = 3 },
           },
         })
         break
