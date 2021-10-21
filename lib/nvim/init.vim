@@ -28,18 +28,6 @@ set timeoutlen=400
 set title
 set updatetime=300
 
-let indent_blankline_buftype_exclude = ["terminal"]
-let indent_blankline_char = "│"
-let indent_blankline_filetype_exclude = ["help", "NvimTree"]
-let indent_blankline_use_treesitter = v:true
-let mapleader = " "
-let nvim_tree_icons = #{ default: "" }
-let nvim_tree_ignore = [".git"]
-let nvim_tree_quit_on_open = 1
-let nvim_tree_window_picker_exclude = #{ buftype: ["notify", "terminal"] }
-let vim_markdown_conceal = 0
-let vim_markdown_conceal_code_blocks = 0
-
 function s:cargo_add()
   let flags = input("Add dependencies: ")
   if flags != ""

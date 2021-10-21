@@ -14,6 +14,17 @@ local capabilities = require("cmp_nvim_lsp").update_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
 
+vim.g.mapleader = " "
+vim.g.nvim_tree_icons = { default = "" }
+vim.g.nvim_tree_ignore = { ".git" }
+vim.g.nvim_tree_quit_on_open = 1
+vim.g.nvim_tree_window_picker_exclude = {
+  buftype = { "terminal" },
+  filetype = { "notify", "Trouble" },
+}
+vim.g.vim_markdown_conceal = 0
+vim.g.vim_markdown_conceal_code_blocks = 0
+
 local function on_attach(_, buf)
   local map = {
     K = "lua vim.lsp.buf.hover()",
@@ -143,6 +154,13 @@ require("gitsigns").setup({
 })
 
 gps.setup()
+
+require("indent_blankline").setup({
+  buftype_exclude = { "terminal" },
+  char = "│",
+  filetype_exclude = { "help", "NvimTree", "Trouble" },
+  use_treesitter = true,
+})
 
 require("lualine").setup({
   options = {
