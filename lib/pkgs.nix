@@ -63,7 +63,7 @@ rec {
     (writeShellScriptBin "nixpkgs-review" ''
       ${nixpkgs-review}/bin/nixpkgs-review "$@" \
         --run ${fish}/bin/fish \
-        --build-args "--option substituters https://cache.nixos.org/"
+        --build-args "--substituters https://cache.nixos.org/"
     '')
     pamixer
     pavucontrol
