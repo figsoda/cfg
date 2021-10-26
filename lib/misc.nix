@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ pkgs, ... }: {
   boot = {
     cleanTmpDir = true;
     kernelPackages = pkgs.linuxPackages_latest;
