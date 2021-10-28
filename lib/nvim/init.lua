@@ -105,6 +105,10 @@ cmp.setup({
     format = require("lspkind").cmp_format({ with_text = false }),
   },
   mapping = {
+    ["<c-e>"] = function(fallback)
+      cmp.close()
+      fallback()
+    end,
     ["<cr>"] = cmp.mapping.confirm(),
     ["<m-cr>"] = cmp.mapping.confirm({ select = true }),
     ["<s-tab>"] = function(fallback)
