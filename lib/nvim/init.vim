@@ -119,7 +119,7 @@ nn X "_X
 nn [h <cmd>lua require("gitsigns.actions").prev_hunk()<cr>
 nn ]h <cmd>lua require("gitsigns.actions").next_hunk()<cr>
 nn n nzz
-nn t <cmd>NvimTreeToggle<cr>
+nn t <cmd>NvimTreeFindFileToggle<cr>
 nn x "_x
 
 vn < <gv
