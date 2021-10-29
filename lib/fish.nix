@@ -79,7 +79,7 @@ in
       end
 
       function path -a name
-        ${coreutils}/bin/realpath (${which}/bin/which $name)
+        ${coreutils}/bin/realpath (command -v $name)
       end
 
       function w
