@@ -3,7 +3,7 @@
 My dotfiles (nixos + awesome)
 
 
-## Installation ([broken](https://github.com/NixOS/nix/issues/4081))
+## Installation
 
 ```ShellSession
 $ mount /dev/disk/by-label/nixos /mnt
