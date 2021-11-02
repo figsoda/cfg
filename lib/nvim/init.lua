@@ -105,7 +105,7 @@ cmp.setup({
     format = require("lspkind").cmp_format({ with_text = false }),
   },
   mapping = {
-    ["<c-e>"] = function(fallback)
+    ["<C-e>"] = function(fallback)
       cmp.close()
       fallback()
     end,
