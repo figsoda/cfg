@@ -8,7 +8,7 @@
         core.pager = "${pkgs.delta}/bin/delta";
         credential."https://github.com" = {
           username = "figsoda";
-          helper = pkgs.writeShellScript "credential-helper-github" ''
+          helper = pkgs.writers.writeBash "credential-helper-github" ''
             if [ "$1" = get ]; then
               echo "password=$(${pkgs.libressl}/bin/openssl aes-256-cbc -d \
                 -in ~/.config/secrets/github \
@@ -33,7 +33,7 @@
         };
       };
     };
-    ssh.askPassword = "${pkgs.writeShellScript "password-prompt" ''
+    ssh.askPassword = "${pkgs.writers.writeDash "password-prompt" ''
       ${pkgs.yad}/bin/yad --title "Password prompt" \
         --fixed --on-top --center \
         --entry --hide-text

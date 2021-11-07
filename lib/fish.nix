@@ -96,12 +96,12 @@ in
       if not set -q DISPLAY && [ (${coreutils}/bin/tty) = /dev/tty1 ]
         exec ${
           sx.override {
-            xorgserver = writeShellScriptBin "Xorg" ''
+            xorgserver = writers.writeDashBin "Xorg" ''
               exec ${xorg.xorgserver}/bin/Xorg -ardelay 320 -arinterval 32 "$@"
             '';
           }
         }/bin/sx ${
-          writeShellScript "sxrc" ''
+          writers.writeDash "sxrc" ''
             CM_MAX_CLIPS=20 CM_SELECTIONS=clipboard ${clipmenu}/bin/clipmenud &
             ${element-desktop}/bin/element-desktop --hidden &
             ${config.i18n.inputMethod.package}/bin/fcitx5 &

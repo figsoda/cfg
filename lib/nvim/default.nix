@@ -43,8 +43,7 @@ in
               };
             }).withPackages
               (ps: with ps; [ pyls-isort python-lsp-black python-lsp-server ]);
-            rust-analyzer = pkgs.writeShellScriptBin "rust-analyzer" ''
-              wrapper=()
+            rust-analyzer = pkgs.writers.writeBashBin "rust-analyzer" ''
               if ${config.nix.package}/bin/nix eval --raw .#devShell.x86_64-linux; then
                 wrapper=(${config.nix.package}/bin/nix develop -c)
               fi

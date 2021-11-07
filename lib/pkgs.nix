@@ -4,10 +4,10 @@ with pkgs;
 
 rec {
   environment.systemPackages = builtins.attrValues passthru ++ [
-    (writeShellScriptBin "ghtok" ''
+    (writers.writeDashBin "ghtok" ''
       ${libressl}/bin/openssl aes-256-cbc -d -in ~/.config/secrets/github
     '')
-    (writeShellScriptBin "r" ''
+    (writers.writeBashBin "r" ''
       if [ "$1" = cargo ] && nix eval --raw "nixpkgs#$1-$2" 2> /dev/null; then
         pkg=$1-$2
       else
@@ -15,9 +15,9 @@ rec {
       fi
       ${config.nix.package}/bin/nix run "nixpkgs#$pkg" -- "''${@:2}"
     '')
-    (writeShellScriptBin "rofi-todo" ''
+    (writers.writeBashBin "rofi-todo" ''
       ${rofi}/bin/rofi -show todo -modi todo:${
-        writeShellScript "todo-modi" ''
+        writers.writeBash "todo-modi" ''
           todos=~/.local/share/todos
           ${coreutils}/bin/mkdir -p ~/.local/share
           ${coreutils}/bin/touch "$todos"
@@ -65,10 +65,13 @@ rec {
     nix-update
     nixpkgs-fmt
     nixpkgs-hammering
-    (writeShellScriptBin "nixpkgs-review" ''
-      ${nixpkgs-review}/bin/nixpkgs-review "$@" \
-        --run ${fish}/bin/fish \
-        --build-args "--substituters https://cache.nixos.org/"
+    (writers.writeBashBin "nixpkgs-review" ''
+      if [ "$1" = pr ]; then
+        args=(--run ${fish}/bin/fish)
+      elif [[ "$1" =~ rev|wip ]]; then
+        args=(--no-shell)
+      fi
+      ${nixpkgs-review}/bin/nixpkgs-review "$@" "''${args[@]}"
     '')
     pamixer
     pavucontrol
@@ -91,7 +94,7 @@ rec {
   ];
 
   passthru = {
-    lockscreen = writeShellScriptBin "lockscreen" ''
+    lockscreen = writers.writeDashBin "lockscreen" ''
       ${i3lock-color}/bin/i3lock-color \
         -i ~/.config/wallpaper.png -k \
         --{inside{ver,wrong,},ring,line,separator}-color=00000000 \
