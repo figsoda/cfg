@@ -94,7 +94,7 @@ rec {
   ];
 
   passthru = {
-    lockscreen = writers.writeDashBin "lockscreen" ''
+    lockscreen = writers.writeBashBin "lockscreen" ''
       ${i3lock-color}/bin/i3lock-color \
         -i ~/.config/wallpaper.png -k \
         --{inside{ver,wrong,},ring,line,separator}-color=00000000 \
