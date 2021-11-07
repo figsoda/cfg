@@ -54,6 +54,14 @@ local function on_attach(_, buf)
   vim.api.nvim_buf_set_keymap(
     buf,
     "v",
+    "<space>f",
+    "<cmd>lua vim.lsp.buf.range_formatting()<cr>",
+    { noremap = true }
+  )
+
+  vim.api.nvim_buf_set_keymap(
+    buf,
+    "v",
     "ga",
     "<cmd>CodeActionMenu<cr>",
     { noremap = true }
