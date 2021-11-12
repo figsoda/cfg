@@ -16,7 +16,6 @@ local capabilities = require("cmp_nvim_lsp").update_capabilities(
 
 vim.g.mapleader = " "
 vim.g.nvim_tree_icons = { default = "" }
-vim.g.nvim_tree_ignore = { ".git" }
 vim.g.nvim_tree_quit_on_open = 1
 vim.g.nvim_tree_window_picker_exclude = {
   buftype = { "terminal" },
@@ -299,6 +298,9 @@ require("numb").setup()
 
 require("nvim-tree").setup({
   diagnostics = { enable = true },
+  filters = {
+    custom = { ".git" },
+  },
   hijack_cursor = true,
   open_on_setup = true,
   update_cwd = true,
