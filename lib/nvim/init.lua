@@ -285,14 +285,14 @@ lspconfig.yamlls.setup({
 notify.setup({ stages = "static" })
 vim.notify = notify
 
-null_ls.setup({
-  on_attach = on_attach,
+null_ls.config({
   sources = {
     nb.diagnostics.shellcheck.with({ command = "@shellcheck@/bin/shellcheck" }),
     nb.formatting.prettier.with({ command = "@prettier@/bin/prettier" }),
     nb.formatting.stylua.with({ command = "@stylua@/bin/stylua" }),
   },
 })
+lspconfig["null-ls"].setup({ on_attach = on_attach })
 
 require("numb").setup()
 
