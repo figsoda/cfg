@@ -129,6 +129,7 @@ in
       g = "git";
       ga = "git add";
       gb = " git branch";
+      gbs = "git bisect";
       gc = "git commit";
       gca = "git commit --amend";
       gcan = "git commit --amend --no-edit";
@@ -138,6 +139,7 @@ in
       gcp = " git cherry-pick";
       gd = "git diff";
       gdc = "git diff --cached";
+      gdh = "git diff HEAD";
       gf = "git fetch";
       gff = "git pull --ff-only";
       gfu = "git fetch upstream";
@@ -149,8 +151,9 @@ in
       gpr = "git pull --rebase";
       gpu = "git push -u origin (git branch --show-current)";
       gr = "git reset";
-      grb = "git rebase -i";
+      grb = "git rebase";
       gre = "git restore";
+      gro = "git reabse --onto";
       gs = "git status";
       gs- = "git switch -";
       gsc = " git switch -c";
