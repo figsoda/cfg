@@ -118,16 +118,22 @@ cmp.setup({
     end,
     ["<cr>"] = cmp.mapping.confirm(),
     ["<m-cr>"] = cmp.mapping.confirm({ select = true }),
-    ["<S-Tab>"] = function(fallback)
-      if not cmp.select_prev_item() and not luasnip.jump(-1) then
-        fallback()
-      end
-    end,
-    ["<Tab>"] = function(fallback)
-      if not cmp.select_next_item() and not luasnip.jump(1) then
-        fallback()
-      end
-    end,
+    ["<S-Tab>"] = cmp.mapping({
+      i = function(fallback)
+        if not cmp.select_prev_item() and not luasnip.jump(-1) then
+          fallback()
+        end
+      end,
+      c = cmp.mapping.select_prev_item(),
+    }),
+    ["<Tab>"] = cmp.mapping({
+      i = function(fallback)
+        if not cmp.select_next_item() and not luasnip.jump(1) then
+          fallback()
+        end
+      end,
+      c = cmp.mapping.select_next_item(),
+    }),
   },
   snippet = {
     expand = function(args)
@@ -140,6 +146,20 @@ cmp.setup({
     { name = "path" },
     { name = "luasnip" },
     { name = "buffer", keyword_length = 3 },
+  },
+})
+
+cmp.setup.cmdline("/", {
+  sources = {
+    { name = "nvim_lsp_document_symbol" },
+    { name = "buffer" },
+  },
+})
+
+cmp.setup.cmdline(":", {
+  sources = {
+    { name = "cmdline" },
+    { name = "path" },
   },
 })
 
