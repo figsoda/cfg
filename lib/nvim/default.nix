@@ -92,6 +92,7 @@ in
         nvim_context_vt
         plenary-nvim
         popup-nvim
+        ron-vim
         rust-tools-nvim
         telescope-nvim
         telescope-fzf-native-nvim
