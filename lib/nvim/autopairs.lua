@@ -133,8 +133,7 @@ for l, r in pairs(autopairs) do
       if
         is_string(y, x)
         and (
-          x == 1
-            and is_string(y - 1, math.max(#vim.fn.getline(y - 1), 1))
+          x == 1 and is_string(y - 1, math.max(#vim.fn.getline(y - 1), 1))
           or is_string(y, x - 1)
         )
       then
