@@ -286,7 +286,7 @@ local kbs = {
     m,
     "e",
     exec_sh(
-      "fd -d 1 -t d | rofi -dmenu -p edit -i | xargs -r alacritty -e nvim"
+      "fd -d 1 -t d --strip-cwd-prefix | rofi -dmenu -p edit -i | xargs -r alacritty -e nvim"
     ),
   },
   { m, "f", exec("spacefm") },
@@ -301,7 +301,7 @@ local kbs = {
   {
     m,
     "o",
-    exec_sh("xdg-open (fd | rofi -dmenu -p open -i -matching fuzzy)"),
+    exec_sh("xdg-open (fd --strip-cwd-prefix | rofi -dmenu -p open -i -matching fuzzy)"),
   },
   {
     m,
