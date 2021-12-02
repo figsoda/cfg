@@ -3,9 +3,7 @@ set colorcolumn=10000
 set completeopt=menuone,noinsert,noselect
 set cursorline
 set expandtab
-set hidden
 set ignorecase
-set inccommand=nosplit
 set list
 set listchars=tab:-->,trail:+,extends:>,precedes:<,nbsp:·
 set mouse=a
