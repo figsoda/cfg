@@ -301,23 +301,11 @@ local kbs = {
   {
     m,
     "o",
-    exec_sh("xdg-open (fd --strip-cwd-prefix | rofi -dmenu -p open -i -matching fuzzy)"),
+    exec_sh(
+      "xdg-open (fd --strip-cwd-prefix | rofi -dmenu -p open -i -matching fuzzy)"
+    ),
   },
-  {
-    m,
-    "q",
-    exec({
-      "rofi",
-      "-show",
-      "calc",
-      "-modi",
-      "calc",
-      "-location",
-      "4",
-      "-theme-str",
-      "* { width: 40%; height: 100%; }",
-    }),
-  },
+  { m, "q", exec("qalculate-gtk") },
   { m, "r", exec({ "rofi", "-show", "run", "-modi", "run,drun" }) },
   { m, "s", exec({ "alacritty", "-e", "btm" }) },
   { m, "t", exec("rofi-todo") },

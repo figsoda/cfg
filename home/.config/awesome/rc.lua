@@ -182,6 +182,14 @@ awful.rules.rules = {
       placement = p.no_overlap + p.no_offscreen,
     },
   },
+  {
+    rule = { class = "Qalculate-gtk" },
+    properties = {
+      floating = true,
+      ontop = true,
+      placement = p.centered,
+    },
+  },
 }
 
 client.connect_signal("manage", function(c)

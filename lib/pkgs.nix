@@ -81,7 +81,7 @@ rec {
     qogir-icon-theme
     qogir-theme
     ripgrep
-    (rofi.override { plugins = [ rofi-calc ]; })
+    rofi
     sd
     shotgun
     spaceFM
