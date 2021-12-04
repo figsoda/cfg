@@ -157,28 +157,30 @@ let
       bg = blue;
     };
 
-    # nvim lsp
+    # nvim_open_win
     FloatBorder = {
       fg = white;
       bg = darkgray;
     };
-    LspDiagnosticsDefaultError.fg = red;
-    LspDiagnosticsDefaultWarning.fg = yellow;
-    LspDiagnosticsDefaultInformation.fg = blue;
-    LspDiagnosticsDefaultHint.fg = blue;
-    LspDiagnosticsUnderlineError = {
+
+    # diagnostic
+    DiagnosticError.fg = red;
+    DiagnosticWarn.fg = yellow;
+    DiagnosticInfo.fg = blue;
+    DiagnosticHint.fg = blue;
+    DiagnosticUnderlineError = {
       fg = red;
       attrs = "underline";
     };
-    LspDiagnosticsUnderlineWarning = {
+    DiagnosticUnderlineWarn = {
       fg = yellow;
       attrs = "underline";
     };
-    LspDiagnosticsUnderlineInformation = {
+    DiagnosticUnderlineInfo = {
       fg = blue;
       attrs = "underline";
     };
-    LspDiagnosticsUnderlineHint = {
+    DiagnosticUnderlineHint = {
       fg = blue;
       attrs = "underline";
     };
