@@ -220,7 +220,7 @@ require("lualine").setup({
     lualine_b = { "b:gitsigns_status" },
     lualine_c = {
       "filename",
-      { "diagnostics", sources = { "nvim_lsp" } },
+      { "diagnostics", sources = { "nvim_diagnostic" } },
       { gps.get_location, condition = gps.is_available },
     },
   },
