@@ -1,8 +1,9 @@
+@theme "flat-dark"
+
 configuration {
     disable-history: true;
     font: "monospace 16";
     show-icons: true;
     sort: true;
-    theme: "flat-dark";
     terminal: "alacritty";
 }
