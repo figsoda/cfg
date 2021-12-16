@@ -41,6 +41,7 @@ rec {
     alacritty
     bat
     binutils
+    blueberry
     bottom
     brightnessctl
     cargo-edit

@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }: {
   services = {
     auto-cpufreq.enable = true;
-    blueman.enable = true;
     gnome.at-spi2-core.enable = true;
     journald.extraConfig = ''
       SystemMaxUse=256M
@@ -12,6 +11,9 @@
       pulse.enable = true;
     };
     ratbagd.enable = true;
+    udev.extraRules = ''
+      KERNEL=="rfkill", SUBSYSTEM=="misc", TAG+="uaccess"
+    '';
     xserver = {
       enable = true;
       displayManager.sx.enable = true;
