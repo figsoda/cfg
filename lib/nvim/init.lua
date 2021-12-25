@@ -27,8 +27,8 @@ vim.g.vim_markdown_conceal_code_blocks = 0
 local function on_attach(_, buf)
   local map = {
     K = "lua vim.lsp.buf.hover()",
-    ["<space>d"] = "Trouble lsp_document_diagnostics",
-    ["<space>e"] = "Trouble lsp_workspace_diagnostics",
+    ["<space>d"] = "Trouble document_diagnostics",
+    ["<space>e"] = "Trouble workspace_diagnostics",
     ["<space>f"] = "lua vim.lsp.buf.formatting()",
     ["<space>r"] = "Trouble lsp_references",
     ["[d"] = "lua vim.lsp.diagnostic.goto_prev()",
