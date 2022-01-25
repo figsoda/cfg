@@ -30,17 +30,17 @@
         "ymdl": "ymdl"
       },
       "locked": {
-        "lastModified": 1643011816,
-        "narHash": "sha256-vxnOpuaBDQ9YV0Iaotvx4ZQb1FfF0GBvJ1VbuPck+Z4=",
-        "owner": "figsoda",
-        "repo": "nix-packages",
-        "rev": "2d6f7fb3fad81ed7a26b41210d88b04a66ad5d17",
-        "type": "github"
+        "lastModified": 1643047009,
+        "narHash": "sha256-FqCRZTlPwBQHHF3ByFxTVhwjTZ27eqrKp5wUC0hh8no=",
+        "ref": "main",
+        "rev": "cc25cc31d325fde155a63c32ce6b2b159e0b8aa2",
+        "revCount": 321,
+        "type": "git",
+        "url": "file:///home/figsoda/nix-packages"
       },
       "original": {
-        "owner": "figsoda",
-        "repo": "nix-packages",
-        "type": "github"
+        "type": "git",
+        "url": "file:///home/figsoda/nix-packages"
       }
     },
     "flake-compat": {
