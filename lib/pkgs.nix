@@ -57,6 +57,7 @@ rec {
     libreoffice-fresh
     libressl
     llvmPackages_latest.lld
+    lutris
     mmtc
     mpc_cli
     (mpv.override {
