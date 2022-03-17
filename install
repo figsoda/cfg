@@ -4,6 +4,11 @@
 # shellcheck shell=sh
 # vim: ft=sh
 
+echo Installing rime packages
+curl -LSs https://git.io/rime-install \
+    | rime_dir=~/.local/share/fcitx5/rime bash -s -- prelude essay luna-pinyin
+rm -rf plum
+
 echo Creating symlinks
 src=$(dirname "$(realpath "$0")")/home
 fd --base-directory "$src" -Ht f -x \
