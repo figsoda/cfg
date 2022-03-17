@@ -16,11 +16,6 @@ local capabilities = require("cmp_nvim_lsp").update_capabilities(
 
 vim.g.mapleader = " "
 vim.g.nvim_tree_icons = { default = "" }
-vim.g.nvim_tree_quit_on_open = 1
-vim.g.nvim_tree_window_picker_exclude = {
-  buftype = { "terminal" },
-  filetype = { "notify", "Trouble" },
-}
 vim.g.vim_markdown_conceal = 0
 vim.g.vim_markdown_conceal_code_blocks = 0
 
@@ -341,6 +336,17 @@ require("nvim-tree").setup({
 })
 
 require("nvim-treesitter.configs").setup({
+  actions = {
+    open_file = {
+      quit_on_open = true,
+      window_picker = {
+        exclude = {
+          buftype = { "terminal" },
+          filetype = { "notify", "Trouble" },
+        },
+      },
+    },
+  },
   highlight = {
     enable = true,
     disable = { "nix" },
