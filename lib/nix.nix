@@ -34,7 +34,7 @@ let inherit (config.passthru) inputs; in
     overlays = with inputs; [
       fenix.overlay
       figsoda-pkgs.overlay
-      nixpkgs-hammering.overlay
+      nixpkgs-hammering.overlays.default
     ];
   };
 }
