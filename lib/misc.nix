@@ -62,10 +62,7 @@
 
   gtk.iconCache.enable = true;
 
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = false;
-  };
+  hardware.bluetooth.enable = true;
 
   i18n = {
     inputMethod = {
