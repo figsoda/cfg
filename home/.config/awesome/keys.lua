@@ -286,7 +286,7 @@ local kbs = {
     m,
     "e",
     exec_sh(
-      "fd -d 1 -t d --strip-cwd-prefix | rofi -dmenu -p edit -i | xargs -r alacritty -e nvim"
+      "fd -d 1 -t d --strip-cwd-prefix --path-separator '' | rofi -dmenu -p edit -i | xargs -r alacritty -e nvim"
     ),
   },
   { m, "f", exec("spacefm") },
