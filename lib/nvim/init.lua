@@ -15,7 +15,6 @@ local capabilities = require("cmp_nvim_lsp").update_capabilities(
 )
 
 vim.g.mapleader = " "
-vim.g.nvim_tree_icons = { default = "" }
 vim.g.vim_markdown_conceal = 0
 vim.g.vim_markdown_conceal_code_blocks = 0
 
@@ -319,6 +318,11 @@ require("nvim-tree").setup({
   hijack_cursor = true,
   open_on_setup = true,
   update_cwd = true,
+  renderer = {
+    icons = {
+      glyphs = { default = "" },
+    },
+  },
   view = {
     mappings = {
       list = {
