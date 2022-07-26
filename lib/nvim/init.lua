@@ -313,7 +313,7 @@ require("numb").setup()
 require("nvim-tree").setup({
   diagnostics = { enable = true },
   filters = {
-    custom = { ".git" },
+    custom = { "^.git$" },
   },
   hijack_cursor = true,
   open_on_setup = true,
