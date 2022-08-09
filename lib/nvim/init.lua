@@ -281,7 +281,7 @@ lspconfig.sumneko_lua.setup({
 
 lspconfig.taplo.setup({
   capabilities = capabilities,
-  cmd = { "@taplo_lsp@/bin/taplo-lsp", "run" },
+  cmd = { "@taplo@/bin/taplo", "lsp", "stdio" },
   on_attach = on_attach,
 })
 

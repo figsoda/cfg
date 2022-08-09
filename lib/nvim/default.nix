@@ -27,7 +27,7 @@ in
         luafile ${
           substitutePackages ./init.lua {
             inherit (pkgs)
-              rnix-lsp shellcheck stylua sumneko-lua-language-server taplo-lsp
+              rnix-lsp shellcheck stylua sumneko-lua-language-server taplo
               yaml-language-server;
             inherit (pkgs.nodePackages) prettier vim-language-server;
             python-lsp-server = (pkgs.python3.override {
