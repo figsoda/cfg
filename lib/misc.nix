@@ -78,10 +78,7 @@
       enable = true;
       dns = "none";
       ethernet.macAddress = "random";
-      wifi = {
-        backend = "iwd";
-        macAddress = "random";
-      };
+      wifi.macAddress = "random";
     };
     useDHCP = false;
   };
