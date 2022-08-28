@@ -48,6 +48,7 @@ rec {
     cargo-play
     clipmenu
     delta
+    eclipses.eclipse-java
     element-desktop
     fd
     firefox
