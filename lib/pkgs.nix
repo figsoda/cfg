@@ -48,7 +48,11 @@ rec {
     cargo-play
     clipmenu
     delta
-    eclipses.eclipse-java
+    (with eclipses; buildEclipseUnversioned.override { jdk = jdk17; } {
+      inherit (eclipse-java) name src;
+      inherit (eclipse-java.meta) description;
+      productVersion = lib.getVersion eclipse-java;
+    })
     element-desktop
     fd
     firefox
