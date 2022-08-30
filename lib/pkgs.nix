@@ -68,7 +68,6 @@ rec {
     (mpv.override {
       scripts = with mpvScripts; [ autoload sponsorblock thumbnail ];
     })
-    newsflash
     nix-update
     nixpkgs-fmt
     nixpkgs-hammering
