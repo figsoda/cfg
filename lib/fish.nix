@@ -183,7 +183,7 @@ in
       nuc = "nix-update --commit";
       nucb = "nix-update --commit --build";
       r = " r";
-      vpu = " GITHUB_API_TOKEN=(ghtok | psub) pkgs/misc/vim-plugins/update.py";
+      vpu = " pkgs/applications/editors/vim/plugins/update.py -t (ghtok | psub)";
       w = " w";
     };
 
