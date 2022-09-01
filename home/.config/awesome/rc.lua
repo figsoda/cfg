@@ -68,10 +68,9 @@ awful.screen.connect_for_each_screen(function(s)
     1
   )
   textclock.font = b.textclock_font
-  awful.widget.calendar_popup.month({ font = "monospace 16" }):attach(
-    textclock,
-    "tr"
-  )
+  awful.widget.calendar_popup
+    .month({ font = "monospace 16" })
+    :attach(textclock, "tr")
 
   s.panel = awful.wibar({ screen = s })
   s.panel:setup({

@@ -97,9 +97,8 @@ function widget.mpd()
 
   local function update(stdout, exitcode)
     if exitcode == 0 then
-      local name, st, t = stdout:match(
-        "^([^\n]+)\n%[(%a+)%].-(%d:%d%d/%d:%d%d)"
-      )
+      local name, st, t =
+        stdout:match("^([^\n]+)\n%[(%a+)%].-(%d:%d%d/%d:%d%d)")
       if name and st and t then
         if st == "playing" then
           status.markup = [[<span fgcolor="#d19a66"></span>]]
