@@ -27,8 +27,8 @@ in
         luafile ${
           substitutePackages ./init.lua {
             inherit (pkgs)
-              rnix-lsp shellcheck stylua sumneko-lua-language-server taplo
-              yaml-language-server;
+              jdt-language-server openjdk17 rnix-lsp shellcheck stylua
+              sumneko-lua-language-server taplo yaml-language-server;
             inherit (pkgs.nodePackages) prettier vim-language-server;
             python-lsp-server = (pkgs.python3.override {
               packageOverrides = _: super: {
@@ -83,6 +83,7 @@ in
         nvim-code-action-menu
         nvim-colorizer-lua
         nvim-gps
+        nvim-jdtls
         nvim-lspconfig
         nvim-notify
         nvim-tree-lua

@@ -1,5 +1,6 @@
 local cmp = require("cmp")
 local gps = require("nvim-gps")
+local jdtls = require("jdtls")
 local lspconfig = require("lspconfig")
 local luasnip = require("luasnip")
 local notify = require("notify")
@@ -187,6 +188,31 @@ require("indent_blankline").setup({
   char = "│",
   filetype_exclude = { "help", "NvimTree", "Trouble" },
   use_treesitter = true,
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "java" },
+  callback = function()
+    local root_dir = jdtls.setup.find_root({ "java-workspace" })
+    jdtls.start_or_attach({
+      capabilities = capabilities,
+      cmd = {
+        "@jdt_language_server@/bin/jdt-language-server",
+        "-data",
+        root_dir,
+      },
+      on_attach = on_attach,
+      root_dir = root_dir,
+      settings = {
+        configuration = {
+          runtimes = {
+            name = "JavaSE-17",
+            path = "@openjdk17@",
+          },
+        },
+      },
+    })
+  end,
 })
 
 require("lualine").setup({
