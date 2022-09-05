@@ -14,6 +14,7 @@ in
     configure = {
       customRC = ''
         ${pkgs.callPackage ./colorscheme.nix { }}
+
         source ${
           substitutePackages ./init.vim {
             inherit (config.passthru) rust;
@@ -23,9 +24,17 @@ in
             nix = config.nix.package;
           }
         }
+
+        luafile ${./autopairs.lua}
+
         luafile ${
           substitutePackages ./init.lua {
             inherit (config.passthru) rust;
+          }
+        }
+
+        luafile ${
+          substitutePackages ./plugins.lua {
             inherit (pkgs)
               jdt-language-server openjdk17 rnix-lsp shellcheck stylua
               sumneko-lua-language-server taplo yaml-language-server;
@@ -51,7 +60,7 @@ in
             '';
           }
         }
-        luafile ${./autopairs.lua}
+
         luafile ${
           substitutePackages ./snippets.lua {
             nix = config.nix.package;
