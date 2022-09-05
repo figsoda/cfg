@@ -7,6 +7,7 @@ local notify = require("notify")
 local null_ls = require("null-ls")
 local nb = null_ls.builtins
 local telescope = require("telescope")
+local trouble = require("trouble")
 local ts_utils = require("nvim-treesitter.ts_utils")
 
 local border = { "", "", "", " ", "", "", "", " " }
@@ -20,46 +21,31 @@ vim.g.vim_markdown_conceal = 0
 vim.g.vim_markdown_conceal_code_blocks = 0
 
 local function on_attach(_, buf)
-  local map = {
-    K = "lua vim.lsp.buf.hover()",
-    ["<space>d"] = "Trouble document_diagnostics",
-    ["<space>e"] = "Trouble workspace_diagnostics",
-    ["<space>f"] = "lua vim.lsp.buf.formatting()",
-    ["<space>r"] = "Trouble lsp_references",
-    ["[d"] = "lua vim.diagnostic.goto_prev()",
-    ["]d"] = "lua vim.diagnostic.goto_next()",
-    ga = "CodeActionMenu",
-    gd = "lua vim.lsp.buf.definition()",
-    ge = "lua vim.diagnostic.open_float(0, { scope = 'cursor' })",
-    gr = "lua vim.lsp.buf.rename()",
-    gt = "lua vim.lsp.buf.type_definition()",
-  }
-
-  for k, v in pairs(map) do
-    vim.api.nvim_buf_set_keymap(
-      buf,
-      "n",
-      k,
-      "<cmd>" .. v .. "<cr>",
-      { noremap = true }
-    )
+  local function map(mode, lhs, rhs)
+    vim.keymap.set(mode, lhs, rhs, { buffer = buf })
   end
 
-  vim.api.nvim_buf_set_keymap(
-    buf,
-    "v",
-    "<space>f",
-    "<cmd>lua vim.lsp.buf.range_formatting()<cr>",
-    { noremap = true }
-  )
-
-  vim.api.nvim_buf_set_keymap(
-    buf,
-    "v",
-    "ga",
-    "<cmd>CodeActionMenu<cr>",
-    { noremap = true }
-  )
+  map("n", " d", function()
+    trouble.open("document_diagnostics")
+  end)
+  map("n", " e", function()
+    trouble.open("workspace_diagnostics")
+  end)
+  map("n", " f", vim.lsp.buf.formatting)
+  map("n", " r", function()
+    trouble.open("lsp_references")
+  end)
+  map("n", "K", vim.lsp.buf.hover)
+  map("n", "[d", vim.diagnostic.goto_prev)
+  map("n", "]d", vim.diagnostic.goto_next)
+  map("n", "gd", vim.lsp.buf.definition)
+  map("n", "ge", function()
+    vim.diagnostic.open_float(0, { scope = "cursor" })
+  end)
+  map("n", "gr", vim.lsp.buf.rename)
+  map("n", "gt", vim.lsp.buf.type_definition)
+  map("v", " f", vim.lsp.buf.range_formatting)
+  map({ "n", "v" }, "ga", require("code_action_menu").open_code_action_menu)
 end
 
 require("bufferline").setup({
