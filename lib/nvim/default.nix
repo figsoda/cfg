@@ -19,13 +19,13 @@ in
             inherit (config.passthru) rust;
             inherit (config.passthru.inputs) nixpkgs;
             inherit (pkgs)
-              cargo-edit cargo-play coreutils fd fish nixpkgs-fmt stylua
-              util-linux;
+              cargo-edit cargo-play fd fish nixpkgs-fmt stylua util-linux;
             nix = config.nix.package;
           }
         }
         luafile ${
           substitutePackages ./init.lua {
+            inherit (config.passthru) rust;
             inherit (pkgs)
               jdt-language-server openjdk17 rnix-lsp shellcheck stylua
               sumneko-lua-language-server taplo yaml-language-server;

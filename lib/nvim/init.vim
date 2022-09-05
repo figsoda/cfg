@@ -26,26 +26,6 @@ set timeoutlen=400
 set title
 set updatetime=300
 
-function s:cargo_add()
-  let flags = input("Add dependencies: ")
-  if flags != ""
-    exec "!@cargo_edit@/bin/cargo-add add" flags "&& @rust@/bin/cargo update"
-    NvimTreeRefresh
-  end
-endf
-
-function s:play(...)
-  let file = system("@coreutils@/bin/mktemp" .. (a:0 ? " --suffix ." . a:1 : ""))
-  exec "edit" file
-  exec "autocmd BufDelete <buffer> silent !@coreutils@/bin/rm" file
-endf
-
-function s:term_close()
-  if getline(".") == "[Process exited 0]"
-    bdelete!
-  end
-endf
-
 snor <c-x> <cmd>lua require("luasnip").change_choice(1)<cr>
 snor <s-tab> <cmd>lua require("luasnip").jump(-1)<cr>
 snor <tab> <cmd>lua require("luasnip").jump(1)<cr>
@@ -73,7 +53,6 @@ nn <s-tab> <cmd>BufferLineCyclePrev<cr>
 nn <space>/ <cmd>Telescope live_grep<cr>
 nn <space>c<space> :!cargo<space>
 nn <space>cU <cmd>!@cargo_edit@/bin/cargo-upgrade upgrade<cr>
-nn <space>ca <cmd>call <sid>cargo_add()<cr>
 nn <space>cb <cmd>T @rust@/bin/cargo build<cr>i
 nn <space>cd <cmd>T @rust@/bin/cargo doc --open<cr>i
 nn <space>cf <cmd>!@rust@/bin/cargo fmt<cr>
@@ -166,13 +145,10 @@ autocmd FileType vim setlocal shiftwidth=2
 
 autocmd FileType yaml setlocal shiftwidth=2
 
-autocmd TermClose * call timer_start(50, { -> s:term_close() })
-
 autocmd TextYankPost * silent lua vim.highlight.on_yank()
 
 autocmd User TelescopePreviewerLoaded setlocal number
 
 autocmd VimEnter * silent exec "!@util_linux@/bin/kill -s SIGWINCH" getpid()
 
-command -nargs=? P call s:play(<f-args>)
 command -nargs=+ T botright 12split term://<args>
