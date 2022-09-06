@@ -302,7 +302,7 @@ local kbs = {
     m,
     "o",
     exec_sh(
-      "xdg-open (fd --strip-cwd-prefix | rofi -dmenu -p open -i -matching fuzzy)"
+      "xdg-open (fd -E /nixpkgs/ --strip-cwd-prefix | rofi -dmenu -p open -i -matching fuzzy)"
     ),
   },
   { m, "q", exec("qalculate-gtk") },
