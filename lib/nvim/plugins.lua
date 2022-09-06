@@ -323,6 +323,11 @@ null_ls.setup({
 require("numb").setup()
 
 require("nvim-tree").setup({
+  actions = {
+    open_file = {
+      quit_on_open = false,
+    },
+  },
   diagnostics = { enable = true },
   filters = {
     custom = { "^.git$" },
@@ -340,11 +345,13 @@ require("nvim-tree").setup({
       list = {
         {
           key = "o",
-          cb = "<cmd>lua require('nvim-tree').on_keypress('system_open')<cr>",
+          action = "system_open",
         },
         {
           key = "s",
-          cb = "<cmd>lua require('lightspeed').sx:go({})<cr>",
+          cb = function()
+            require("lightspeed").sx:go({})
+          end,
         },
       },
     },
