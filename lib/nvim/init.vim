@@ -1,40 +1,7 @@
-set clipboard+=unnamedplus
-set colorcolumn=10000
-set completeopt=menuone,noinsert,noselect
-set cursorline
-set expandtab
-set ignorecase
-set list
-set listchars=tab:-->,trail:+,extends:>,precedes:<,nbsp:·
-set mouse=a
-set nofoldenable
-set noshowmode
-set noswapfile
-set number
-set relativenumber
-set scrolloff=2
-set shiftwidth=4
-set shortmess=aoOtTIcF
-set showtabline=2
-set signcolumn=yes
-set smartcase
-set smartindent
-set splitbelow
-set splitright
-set termguicolors
-set timeoutlen=400
-set title
-set updatetime=300
-
-snor <c-x> <cmd>lua require("luasnip").change_choice(1)<cr>
-snor <s-tab> <cmd>lua require("luasnip").jump(-1)<cr>
-snor <tab> <cmd>lua require("luasnip").jump(1)<cr>
-
 no ; :
 no <c-_> <cmd>let @/ = ""<cr>
 no <c-q> <cmd>confirm quitall<cr>
 no <c-s> <cmd>write<cr>
-no <silent> <expr> <c-w> (&buftype == "terminal" ? ":bdelete!" : ":confirm bdelete") . "<cr>"
 
 nn <c-a> <home>
 nn <c-e> <end>
@@ -62,20 +29,14 @@ nn <space>ct <cmd>T @rust@/bin/cargo test<cr>i
 nn <space>cu <cmd>!@rust@/bin/cargo update<cr>
 nn <space>g<space> :Git<space>
 nn <space>gB <cmd>Telescope git_bcommits<cr>
-nn <space>gR <cmd>lua require("gitsigns").reset_buffer()<cr>
 nn <space>gS <cmd>Telescope git_stash<cr>
 nn <space>ga <cmd>Git add -p<cr>
-nn <space>gb <cmd>lua require("gitsigns").blame_line()<cr>
 nn <space>gc <cmd>Git commit<cr>
-nn <space>gh <cmd>lua require("gitsigns").preview_hunk()<cr>
 nn <space>gi <cmd>exec "Git rebase -i HEAD~" . (v:count ? v:count : 2)<cr>
 nn <space>gl <cmd>Telescope git_commits<cr>
 nn <space>gn <cmd>Git commit --amend --no-edit<cr>
 nn <space>go <cmd>Telescope git_branches<cr>
 nn <space>gp <cmd>Git push<cr>
-nn <space>gr <cmd>lua require("gitsigns").reset_hunk()<cr>
-nn <space>gs <cmd>lua require("gitsigns").stage_hunk()<cr>
-nn <space>gu <cmd>lua require("gitsigns").undo_stage_hunk()<cr>
 nn <space>j <cmd>move +1<cr>
 nn <space>k <cmd>move -2<cr>
 nn <space>lf <cmd>!@fd@/bin/fd -H '.lua$' -x @stylua@/bin/stylua<cr>
@@ -93,8 +54,6 @@ nn <tab> <cmd>BufferLineCycleNext<cr>
 nn N Nzz
 nn R "_di"hp
 nn X "_X
-nn [h <cmd>lua require("gitsigns.actions").prev_hunk()<cr>
-nn ]h <cmd>lua require("gitsigns.actions").next_hunk()<cr>
 nn n nzz
 nn t <cmd>NvimTreeFindFileToggle<cr>
 nn x "_x
@@ -114,7 +73,6 @@ ino <c-j> <esc>o
 ino <c-k> <esc>O
 ino <c-q> <cmd>confirm quitall<cr>
 ino <c-s> <cmd>write<cr>
-ino <c-x> <cmd>lua require("luasnip").change_choice(1)<cr>
 ino <m-,> <cmd>call setline(".", getline(".") . ",")<cr>
 ino <m-;> <cmd>call setline(".", getline(".") . ";")<cr>
 ino <m-down> <cmd>move +1<cr>
@@ -125,8 +83,6 @@ ino <m-l> <esc>ea
 ino <m-up> <cmd>move -2<cr>
 
 tno <esc> <c-\><c-n>
-
-autocmd BufRead all-packages.nix lua require("cmp").setup.buffer({ enabled = false })
 
 autocmd BufRead,BufNewFile *.rasi setfiletype css
 

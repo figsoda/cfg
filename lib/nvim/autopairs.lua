@@ -1,17 +1,21 @@
 local highlighter = require("vim.treesitter.highlighter")
 local ts_utils = require("nvim-treesitter.ts_utils")
 
+local api = vim.api
+local fn = vim.fn
+local map = vim.keymap.set
+
 local function get(s, i)
   return s:sub(i, i)
 end
 
 local function indent_pair(r)
-  local indent = string.rep(" ", vim.fn.indent("."))
+  local indent = string.rep(" ", fn.indent("."))
   return string.format("<cr> <c-u><cr> <c-u>%s%s<up>%s<tab>", indent, r, indent)
 end
 
 local function is_string(y, x)
-  local buf = vim.api.nvim_get_current_buf()
+  local buf = api.nvim_get_current_buf()
   local hl = highlighter.active[buf]
 
   if hl then
@@ -54,12 +58,12 @@ local function is_string(y, x)
     return match
   end
 
-  local ids = vim.fn.synstack(y, x)
+  local ids = fn.synstack(y, x)
   local len = #ids
   if len == 0 then
     return false
   else
-    local syn = vim.fn.synIDattr(ids[len], "name")
+    local syn = fn.synIDattr(ids[len], "name")
     return syn:match("String") or syn:match("InterpolationDelimiter")
   end
 end
@@ -72,26 +76,26 @@ local autopairs = {
 }
 
 local function in_pair()
-  local line = vim.api.nvim_get_current_line()
-  local x = vim.fn.col(".")
+  local line = api.nvim_get_current_line()
+  local x = fn.col(".")
   local r = get(line, x)
   return r ~= "" and r == autopairs[get(line, x - 1)]
 end
 
-vim.keymap.set("i", "<bs>", function()
+map("i", "<bs>", function()
   return in_pair() and "<bs><del>" or "<bs>"
 end, { expr = true })
 
-vim.keymap.set("i", "<cr>", function()
+map("i", "<cr>", function()
   return in_pair() and indent_pair("") or "<cr>"
 end, { expr = true })
 
-vim.api.nvim_create_autocmd("FileType", {
+api.nvim_create_autocmd("FileType", {
   pattern = { "nix" },
   callback = function()
-    vim.keymap.set("i", "<cr>", function()
-      local line = vim.api.nvim_get_current_line()
-      local x = vim.fn.col(".")
+    map("i", "<cr>", function()
+      local line = api.nvim_get_current_line()
+      local x = fn.col(".")
       local r = get(line, x)
       if r ~= "" and r == autopairs[get(line, x - 1)] then
         return indent_pair("")
@@ -106,31 +110,30 @@ vim.api.nvim_create_autocmd("FileType", {
 
 for l, r in pairs(autopairs) do
   if l == r then
-    vim.keymap.set("i", l, function()
-      local x = vim.fn.col(".")
-      local y = vim.fn.line(".")
+    map("i", l, function()
+      local x = fn.col(".")
+      local y = fn.line(".")
       if
         is_string(y, x)
         and (
-          x == 1 and is_string(y - 1, math.max(#vim.fn.getline(y - 1), 1))
+          x == 1 and is_string(y - 1, math.max(#fn.getline(y - 1), 1))
           or is_string(y, x - 1)
         )
       then
-        return get(vim.api.nvim_get_current_line(), x) == l and "<right>" or l
+        return get(api.nvim_get_current_line(), x) == l and "<right>" or l
       else
         return l .. l .. "<left>"
       end
     end, { expr = true })
   else
-    vim.keymap.set("i", l, function()
-      local line = vim.api.nvim_get_current_line()
-      local pos = vim.fn.col(".")
+    map("i", l, function()
+      local line = api.nvim_get_current_line()
+      local pos = fn.col(".")
       return pos ~= #line and (get(line, pos) or ""):match("%w") and l
         or l .. r .. "<left>"
     end, { expr = true })
-    vim.keymap.set("i", r, function()
-      return get(vim.api.nvim_get_current_line(), vim.fn.col(".")) == r
-          and "<right>"
+    map("i", r, function()
+      return get(api.nvim_get_current_line(), fn.col(".")) == r and "<right>"
         or r
     end, { expr = true })
   end

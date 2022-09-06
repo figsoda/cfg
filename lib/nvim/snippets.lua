@@ -6,6 +6,8 @@ local r = require("luasnip.extras").rep
 local s = luasnip.snippet
 local t = luasnip.text_node
 
+local fn = vim.fn
+
 local function fetch_sha256(args)
   local repo = args[1][1]
   local version = args[2][1]
@@ -24,7 +26,7 @@ local function fetch_sha256(args)
     return ""
   end
 
-  local res = vim.fn.systemlist(
+  local res = fn.systemlist(
     string.format(
       "@nix@/bin/nix-prefetch-url --unpack https://github.com/%s/%s/archive/%s.tar.gz 2>/dev/null",
       owner,
@@ -80,7 +82,7 @@ luasnip.add_snippets("nix", {
     }),
   }, {
     show_condition = function()
-      return vim.fn.line(".") == 1
+      return fn.line(".") == 1
     end,
   }),
 
@@ -98,7 +100,7 @@ luasnip.add_snippets("nix", {
     t({ "", "  };", "}" }),
   }, {
     show_condition = function()
-      return vim.fn.expand("%:t") == "flake.nix" and vim.fn.line(".") == 1
+      return fn.expand("%:t") == "flake.nix" and fn.line(".") == 1
     end,
   }),
 
@@ -140,7 +142,7 @@ luasnip.add_snippets("nix", {
     }),
   }, {
     show_condition = function()
-      return vim.fn.line(".") == 1
+      return fn.line(".") == 1
     end,
   }),
 })

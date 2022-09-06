@@ -10,38 +10,41 @@ local telescope = require("telescope")
 local trouble = require("trouble")
 local ts_utils = require("nvim-treesitter.ts_utils")
 
+local diagnostic = vim.diagnostic
+local lsp = vim.lsp
+
 local border = { "", "", "", " ", "", "", "", " " }
 
 local capabilities = require("cmp_nvim_lsp").update_capabilities(
-  vim.lsp.protocol.make_client_capabilities()
+  lsp.protocol.make_client_capabilities()
 )
 
 local function on_attach(_, buf)
-  local function map(mode, lhs, rhs)
+  local function mapb(mode, lhs, rhs)
     vim.keymap.set(mode, lhs, rhs, { buffer = buf })
   end
 
-  map("n", " d", function()
+  mapb("n", " d", function()
     trouble.open("document_diagnostics")
   end)
-  map("n", " e", function()
+  mapb("n", " e", function()
     trouble.open("workspace_diagnostics")
   end)
-  map("n", " f", vim.lsp.buf.formatting)
-  map("n", " r", function()
+  mapb("n", " f", lsp.buf.formatting)
+  mapb("n", " r", function()
     trouble.open("lsp_references")
   end)
-  map("n", "K", vim.lsp.buf.hover)
-  map("n", "[d", vim.diagnostic.goto_prev)
-  map("n", "]d", vim.diagnostic.goto_next)
-  map("n", "gd", vim.lsp.buf.definition)
-  map("n", "ge", function()
-    vim.diagnostic.open_float(0, { scope = "cursor" })
+  mapb("n", "K", lsp.buf.hover)
+  mapb("n", "[d", diagnostic.goto_prev)
+  mapb("n", "]d", diagnostic.goto_next)
+  mapb("n", "gd", lsp.buf.definition)
+  mapb("n", "ge", function()
+    diagnostic.open_float(0, { scope = "cursor" })
   end)
-  map("n", "gr", vim.lsp.buf.rename)
-  map("n", "gt", vim.lsp.buf.type_definition)
-  map("v", " f", vim.lsp.buf.range_formatting)
-  map({ "n", "v" }, "ga", require("code_action_menu").open_code_action_menu)
+  mapb("n", "gr", lsp.buf.rename)
+  mapb("n", "gt", lsp.buf.type_definition)
+  mapb("v", " f", lsp.buf.range_formatting)
+  mapb({ "n", "v" }, "ga", require("code_action_menu").open_code_action_menu)
 end
 
 require("bufferline").setup({
