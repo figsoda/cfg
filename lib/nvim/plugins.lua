@@ -325,7 +325,7 @@ require("numb").setup()
 require("nvim-tree").setup({
   actions = {
     open_file = {
-      quit_on_open = false,
+      quit_on_open = true,
     },
   },
   diagnostics = { enable = true },
@@ -359,17 +359,6 @@ require("nvim-tree").setup({
 })
 
 require("nvim-treesitter.configs").setup({
-  actions = {
-    open_file = {
-      quit_on_open = true,
-      window_picker = {
-        exclude = {
-          buftype = { "terminal" },
-          filetype = { "notify", "Trouble" },
-        },
-      },
-    },
-  },
   highlight = {
     enable = true,
     disable = { "nix" },
