@@ -142,6 +142,7 @@ in
       gdh = "git diff HEAD";
       gf = "git fetch";
       gff = "git pull --ff-only";
+      gffu = "git pull --ff-only upstream (git branch --show-current)";
       gfu = "git fetch upstream";
       gl = "git log";
       gm = "git merge";
