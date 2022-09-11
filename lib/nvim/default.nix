@@ -28,7 +28,7 @@ in
           substitutePackages ./init.lua {
             inherit (config.passthru) rust;
             inherit (config.passthru.inputs) nixpkgs;
-            inherit (pkgs) cargo-edit cargo-play;
+            inherit (pkgs) cargo-edit cargo-play openjdk17;
             nix = config.nix.package;
           }
         }

@@ -1,7 +1,9 @@
 local gitsigns = require("gitsigns")
+local jdtls_util = require("jdtls.util")
 local luasnip = require("luasnip")
 
 local api = vim.api
+local b = vim.b
 local g = vim.g
 local map = vim.keymap.set
 local o = vim.o
@@ -9,7 +11,7 @@ local o = vim.o
 local function mapt(buf, lhs, cmd, no_auto_quit)
   map("n", lhs, function()
     api.nvim_command("T " .. cmd)
-    vim.b.no_auto_quit = no_auto_quit
+    b.no_auto_quit = no_auto_quit
     api.nvim_command("startinsert")
   end, { buffer = buf })
 end
@@ -92,6 +94,32 @@ api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 api.nvim_create_autocmd("FileType", {
+  pattern = "java",
+  callback = function(ctx)
+    map("n", " B", function()
+      jdtls_util.with_classpaths(function(resp)
+        api.nvim_command(
+          "T @openjdk17@/bin/java -cp "
+            .. table.concat(resp.classpaths, ":")
+            .. " "
+            .. jdtls_util.resolve_classname()
+        )
+        b.no_auto_quit = true
+        api.nvim_command("startinsert")
+      end)
+    end, { buffer = ctx.buf })
+    map("n", " i", function()
+      jdtls_util.with_classpaths(function(resp)
+        api.nvim_command(
+          "T @openjdk17@/bin/jshell -c " .. table.concat(resp.classpaths, ":")
+        )
+        api.nvim_command("startinsert")
+      end)
+    end, { buffer = ctx.buf })
+  end,
+})
+
+api.nvim_create_autocmd("FileType", {
   pattern = "nix",
   callback = map_nix,
 })
@@ -111,7 +139,7 @@ api.nvim_create_autocmd("FileType", {
 
 api.nvim_create_autocmd("TermClose", {
   callback = function()
-    if not vim.b.no_auto_quit then
+    if not b.no_auto_quit then
       vim.defer_fn(function()
         if api.nvim_get_current_line() == "[Process exited 0]" then
           api.nvim_buf_delete(0, { force = true })
