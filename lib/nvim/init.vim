@@ -18,15 +18,9 @@ nn <m-tab> <cmd>BufferLinePick<cr>
 nn <m-up> <cmd>move -2<cr>
 nn <s-tab> <cmd>BufferLineCyclePrev<cr>
 nn <space>/ <cmd>Telescope live_grep<cr>
-nn <space>c<space> :!cargo<space>
-nn <space>cU <cmd>!@cargo_edit@/bin/cargo-upgrade upgrade<cr>
-nn <space>cb <cmd>T @rust@/bin/cargo build<cr>i
-nn <space>cd <cmd>T @rust@/bin/cargo doc --open<cr>i
-nn <space>cf <cmd>!@rust@/bin/cargo fmt<cr>
-nn <space>cp <cmd>!@cargo_play@/bin/cargo-play %<cr>
-nn <space>cr <cmd>T @rust@/bin/cargo run<cr>i
-nn <space>ct <cmd>T @rust@/bin/cargo test<cr>i
-nn <space>cu <cmd>!@rust@/bin/cargo update<cr>
+nn <space>fc <cmd>!@rust@/bin/cargo fmt<cr>
+nn <space>fl <cmd>!@fd@/bin/fd -H '.lua$' -x @stylua@/bin/stylua<cr>
+nn <space>fn <cmd>!@fd@/bin/fd -H '.nix$' -x @nixpkgs_fmt@/bin/nixpkgs-fmt<cr>
 nn <space>g<space> :Git<space>
 nn <space>gB <cmd>Telescope git_bcommits<cr>
 nn <space>gS <cmd>Telescope git_stash<cr>
@@ -39,15 +33,7 @@ nn <space>go <cmd>Telescope git_branches<cr>
 nn <space>gp <cmd>Git push<cr>
 nn <space>j <cmd>move +1<cr>
 nn <space>k <cmd>move -2<cr>
-nn <space>lf <cmd>!@fd@/bin/fd -H '.lua$' -x @stylua@/bin/stylua<cr>
 nn <space>m <cmd>Telescope man_pages<cr>
-nn <space>n<space> :!nix<space>
-nn <space>nb <cmd>T @nix@/bin/nix build<cr>i
-nn <space>nf <cmd>!@fd@/bin/fd -H '.nix$' -x @nixpkgs_fmt@/bin/nixpkgs-fmt<cr>
-nn <space>ni <cmd>T @nix@/bin/nix repl -f @nixpkgs@<cr>i
-nn <space>nr <cmd>T @nix@/bin/nix run<cr>i
-nn <space>nt <cmd>T @nix@/bin/nix flake check<cr>i
-nn <space>nu <cmd>!@nix@/bin/nix flake update<cr>
 nn <space>o <cmd>Telescope find_files<cr>
 nn <space>t <cmd>T @fish@/bin/fish<cr>i
 nn <tab> <cmd>BufferLineCycleNext<cr>

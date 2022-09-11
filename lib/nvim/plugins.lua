@@ -24,13 +24,10 @@ local function on_attach(_, buf)
     vim.keymap.set(mode, lhs, rhs, { buffer = buf })
   end
 
-  mapb("n", " d", function()
-    trouble.open("document_diagnostics")
-  end)
   mapb("n", " e", function()
     trouble.open("workspace_diagnostics")
   end)
-  mapb("n", " f", lsp.buf.formatting)
+  mapb("n", "ff", lsp.buf.formatting)
   mapb("n", " r", function()
     trouble.open("lsp_references")
   end)
@@ -43,7 +40,7 @@ local function on_attach(_, buf)
   end)
   mapb("n", "gr", lsp.buf.rename)
   mapb("n", "gt", lsp.buf.type_definition)
-  mapb("v", " f", lsp.buf.range_formatting)
+  mapb("v", "ff", lsp.buf.range_formatting)
   mapb({ "n", "v" }, "ga", require("code_action_menu").open_code_action_menu)
 end
 

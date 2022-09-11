@@ -18,10 +18,7 @@ in
         source ${
           substitutePackages ./init.vim {
             inherit (config.passthru) rust;
-            inherit (config.passthru.inputs) nixpkgs;
-            inherit (pkgs)
-              cargo-edit cargo-play fd fish nixpkgs-fmt stylua util-linux;
-            nix = config.nix.package;
+            inherit (pkgs) fd fish nixpkgs-fmt stylua util-linux;
           }
         }
 
@@ -30,6 +27,9 @@ in
         luafile ${
           substitutePackages ./init.lua {
             inherit (config.passthru) rust;
+            inherit (config.passthru.inputs) nixpkgs;
+            inherit (pkgs) cargo-edit cargo-play;
+            nix = config.nix.package;
           }
         }
 
