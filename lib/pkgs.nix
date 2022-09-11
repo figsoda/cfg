@@ -48,7 +48,7 @@ rec {
     cargo-play
     clipmenu
     delta
-    (with eclipses; buildEclipseUnversioned.override { jdk = jdk17; } {
+    (with eclipses; buildEclipseUnversioned.override { jdk = openjdk17; } {
       inherit (eclipse-java) name src;
       inherit (eclipse-java.meta) description;
       productVersion = lib.getVersion eclipse-java;

@@ -122,6 +122,7 @@ api.nvim_create_autocmd("TermClose", {
 })
 
 api.nvim_create_autocmd("TextYankPost", { callback = vim.highlight.on_yank })
+
 api.nvim_create_user_command("P", function(input)
   local ext = input.fargs[1]
   local file = vim.fn.tempname()

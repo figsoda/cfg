@@ -173,7 +173,7 @@ require("indent_blankline").setup({
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "java" },
+  pattern = "java",
   callback = function()
     local root_dir = jdtls.setup.find_root({ "java-workspace" })
     jdtls.start_or_attach({

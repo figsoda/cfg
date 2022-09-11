@@ -91,7 +91,7 @@ map("i", "<cr>", function()
 end, { expr = true })
 
 api.nvim_create_autocmd("FileType", {
-  pattern = { "nix" },
+  pattern = "nix",
   callback = function()
     map("i", "<cr>", function()
       local line = api.nvim_get_current_line()
