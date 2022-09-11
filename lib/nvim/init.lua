@@ -1,4 +1,5 @@
 local gitsigns = require("gitsigns")
+local jdtls = require("jdtls")
 local jdtls_util = require("jdtls.util")
 local luasnip = require("luasnip")
 
@@ -108,6 +109,7 @@ api.nvim_create_autocmd("FileType", {
         api.nvim_command("startinsert")
       end)
     end, { buffer = ctx.buf })
+    map("n", " c", jdtls.test_class, { buffer = ctx.buf })
     map("n", " i", function()
       jdtls_util.with_classpaths(function(resp)
         api.nvim_command(

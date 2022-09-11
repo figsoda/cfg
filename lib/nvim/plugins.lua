@@ -172,6 +172,7 @@ require("indent_blankline").setup({
   use_treesitter = true,
 })
 
+jdtls.setup_dap()
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = "java",
   callback = function()
@@ -182,6 +183,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
         "@jdt_language_server@/bin/jdt-language-server",
         "-data",
         root_dir,
+      },
+      init_options = {
+        bundles = vim.fn.readfile("@jdtls_bundles@")
       },
       on_attach = on_attach,
       root_dir = root_dir,

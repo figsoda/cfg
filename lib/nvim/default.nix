@@ -39,6 +39,15 @@ in
               jdt-language-server openjdk17 rnix-lsp shellcheck stylua
               sumneko-lua-language-server taplo yaml-language-server;
             inherit (pkgs.nodePackages) prettier vim-language-server;
+
+            jdtls-bundles = let jars = ext:
+              "${pkgs.vscode-extensions.vscjava.${ext}}/share/vscode/extensions/vscjava.${ext}/server/*.jar";
+            in pkgs.runCommand "jdtls-bundles" { } ''
+              for jar in ${jars "vscode-java-debug"} ${jars "vscode-java-test"}; do
+                echo "$jar" >> $out
+              done
+            '';
+
             python-lsp-server = (pkgs.python3.override {
               packageOverrides = _: super: {
                 python-lsp-server = super.python-lsp-server.override {
@@ -52,6 +61,7 @@ in
               };
             }).withPackages
               (ps: with ps; [ pyls-isort python-lsp-black python-lsp-server ]);
+
             rust-analyzer = pkgs.writers.writeBashBin "rust-analyzer" ''
               if ${config.nix.package}/bin/nix eval --raw .#devShell.x86_64-linux; then
                 wrapper=(${config.nix.package}/bin/nix develop -c)
@@ -91,6 +101,7 @@ in
         nvim-cmp
         nvim-code-action-menu
         nvim-colorizer-lua
+        nvim-dap
         nvim-gps
         nvim-jdtls
         nvim-lspconfig
