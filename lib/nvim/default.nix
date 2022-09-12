@@ -36,7 +36,7 @@ in
         luafile ${
           substitutePackages ./plugins.lua {
             inherit (pkgs)
-              jdt-language-server openjdk17 rnix-lsp shellcheck stylua
+              jdt-language-server nil nixpkgs-fmt openjdk17 shellcheck stylua
               sumneko-lua-language-server taplo yaml-language-server;
             inherit (pkgs.nodePackages) prettier vim-language-server;
 

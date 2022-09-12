@@ -185,7 +185,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
         root_dir,
       },
       init_options = {
-        bundles = vim.fn.readfile("@jdtls_bundles@")
+        bundles = vim.fn.readfile("@jdtls_bundles@"),
       },
       on_attach = on_attach,
       root_dir = root_dir,
@@ -232,15 +232,15 @@ require("lualine").setup({
   },
 })
 
-lspconfig.pylsp.setup({
+lspconfig.nil_ls.setup({
   capabilities = capabilities,
-  cmd = { "@python_lsp_server@/bin/pylsp" },
+  cmd = { "@nil@/bin/nil" },
   on_attach = on_attach,
 })
 
-lspconfig.rnix.setup({
+lspconfig.pylsp.setup({
   capabilities = capabilities,
-  cmd = { "@rnix_lsp@/bin/rnix-lsp" },
+  cmd = { "@python_lsp_server@/bin/pylsp" },
   on_attach = on_attach,
 })
 
@@ -316,6 +316,9 @@ null_ls.setup({
   on_attach = on_attach,
   sources = {
     nb.diagnostics.shellcheck.with({ command = "@shellcheck@/bin/shellcheck" }),
+    nb.formatting.nixpkgs_fmt.with({
+      command = "@nixpkgs_fmt@/bin/nixpkgs-fmt",
+    }),
     nb.formatting.prettier.with({ command = "@prettier@/bin/prettier" }),
     nb.formatting.stylua.with({ command = "@stylua@/bin/stylua" }),
   },
