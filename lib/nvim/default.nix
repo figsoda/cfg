@@ -102,6 +102,7 @@ in
         nvim-code-action-menu
         nvim-colorizer-lua
         nvim-dap
+        nvim-dap-ui
         nvim-gps
         nvim-jdtls
         nvim-lspconfig

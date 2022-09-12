@@ -146,6 +146,8 @@ require("Comment").setup({ ignore = "^$" })
 
 require("crates").setup()
 
+require("dapui").setup()
+
 require("gitsigns").setup({
   keymaps = {},
   preview_config = { border = border },
