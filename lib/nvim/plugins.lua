@@ -6,6 +6,7 @@ local luasnip = require("luasnip")
 local notify = require("notify")
 local null_ls = require("null-ls")
 local nb = null_ls.builtins
+local rust_tools = require("rust-tools")
 local telescope = require("telescope")
 local trouble = require("trouble")
 local ts_utils = require("nvim-treesitter.ts_utils")
@@ -234,6 +235,10 @@ require("lualine").setup({
   },
 })
 
+require("lsp_signature").setup({
+  handler_opts = { border = border },
+})
+
 lspconfig.nil_ls.setup({
   capabilities = capabilities,
   cmd = { "@nil@/bin/nil" },
@@ -437,15 +442,24 @@ require("nvim_context_vt").setup({
   end,
 })
 
-require("rust-tools").setup({
+rust_tools.setup({
+  dap = {
+    adapter = require("rust-tools.dap").get_codelldb_adapter(
+      "@vscode_lldb@/adapter/codelldb",
+      "@vscode_lldb@/lldb/lib/liblldb.so"
+    ),
+  },
   server = {
     capabilities = capabilities,
     cmd = { "@rust_analyzer@/bin/rust-analyzer" },
     on_attach = function(c, buf)
       on_attach(c, buf)
-      require("lsp_signature").on_attach({
-        handler_opts = { border = border },
-      })
+      vim.keymap.set(
+        "n",
+        "K",
+        rust_tools.hover_actions.hover_actions,
+        { buffer = buf }
+      )
     end,
     settings = {
       ["rust-analyzer"] = {

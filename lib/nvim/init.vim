@@ -80,9 +80,6 @@ autocmd FileType lua setlocal shiftwidth=2
 
 autocmd FileType markdown setlocal shiftwidth=2
 
-autocmd FileType rust nn <buffer> J <cmd>RustJoinLines<cr>
-autocmd FileType rust nn <buffer> gm <cmd>RustExpandMacro<cr>
-
 autocmd FileType vim setlocal shiftwidth=2
 
 autocmd FileType yaml setlocal shiftwidth=2

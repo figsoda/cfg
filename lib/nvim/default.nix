@@ -5,6 +5,9 @@ let
     pkgs.substituteAll ({ inherit src; } // lib.mapAttrs'
       (k: lib.nameValuePair (builtins.replaceStrings [ "-" ] [ "_" ] k))
       substitutions);
+
+  codeExt = pub: ext:
+    "${pkgs.vscode-extensions.${pub}.${ext}}/share/vscode/extensions/${pub}.${ext}";
 in
 
 {
@@ -41,7 +44,7 @@ in
             inherit (pkgs.nodePackages) prettier vim-language-server;
 
             jdtls-bundles = let jars = ext:
-              "${pkgs.vscode-extensions.vscjava.${ext}}/share/vscode/extensions/vscjava.${ext}/server/*.jar";
+              "${codeExt "vscjava" ext}/server/*.jar";
             in pkgs.runCommand "jdtls-bundles" { } ''
               for jar in ${jars "vscode-java-debug"} ${jars "vscode-java-test"}; do
                 echo "$jar" >> $out
@@ -68,6 +71,8 @@ in
               fi
               "''${wrapper[@]}" ${pkgs.rust-analyzer-nightly}/bin/rust-analyzer
             '';
+
+            vscode-lldb = codeExt "vadimcn" "vscode-lldb";
           }
         }
 
