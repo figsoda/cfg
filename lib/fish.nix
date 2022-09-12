@@ -174,6 +174,7 @@ in
       npu = " nix-prefetch-url --unpack";
       nr = "nix run";
       nra = "nixpkgs-review approve";
+      nram = "nixpkgs-review approve && nixpkgs-review merge";
       nrh = "nixpkgs-review rev HEAD";
       nrm = "nixpkgs-review merge";
       nrp = " GITHUB_TOKEN=(ghtok) nixpkgs-review pr";
