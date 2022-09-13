@@ -94,6 +94,7 @@ rec {
     stylua
     sxiv
     tela-icon-theme
+    umd-cs-submit
     xclip
     xtrt
     ymdl
