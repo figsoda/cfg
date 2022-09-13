@@ -8,11 +8,11 @@
         "rust-analyzer-src": "rust-analyzer-src"
       },
       "locked": {
-        "lastModified": 1662965863,
-        "narHash": "sha256-HLJNVthKQLtilC1xpuonhECJO4UZ0+JtIDwozqhwko4=",
+        "lastModified": 1663052347,
+        "narHash": "sha256-crNVjpEc2yJg1rhYmi6Q7pQOWqBXUII+Cq7xQDIwN3Q=",
         "owner": "nix-community",
         "repo": "fenix",
-        "rev": "ad632ed546a3c33b64505ca0dba262f46082d73e",
+        "rev": "6743ada281fa6c1d5448ef8785931d6bfea635de",
         "type": "github"
       },
       "original": {
@@ -23,6 +23,7 @@
     },
     "figsoda-pkgs": {
       "inputs": {
+        "marmoset": "marmoset",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -30,11 +31,11 @@
         "ymdl": "ymdl"
       },
       "locked": {
-        "lastModified": 1662883943,
-        "narHash": "sha256-uqzq5fIPYRnL2ed/s0DTtBoEOazm07rwCCTw3Ne88iE=",
+        "lastModified": 1663039823,
+        "narHash": "sha256-byjbb69e+mKcBMrlsLrMoyTYvcNOZLZhKQnwZF1Gtw4=",
         "owner": "figsoda",
         "repo": "nix-packages",
-        "rev": "7100548df3f7d4e6041709f71c96c0b75f3ae8f0",
+        "rev": "295d977b38f478e66ddb7565b7af6e38ca543f4c",
         "type": "github"
       },
       "original": {
@@ -56,6 +57,22 @@
       "original": {
         "owner": "edolstra",
         "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "marmoset": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1571768568,
+        "narHash": "sha256-0zzLpzj8ckreB3MIMwqHqLQmbGocEA5apmCHgesZW+Q=",
+        "owner": "billpugh",
+        "repo": "marmoset",
+        "rev": "1346dacd5ad198db18df067803e1309e51906913",
+        "type": "github"
+      },
+      "original": {
+        "owner": "billpugh",
+        "repo": "marmoset",
         "type": "github"
       }
     },
