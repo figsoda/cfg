@@ -226,7 +226,11 @@ require("lualine").setup({
     },
   },
   sections = {
-    lualine_b = { "b:gitsigns_status" },
+    lualine_b = {
+      function()
+        return vim.b.gitsigns_status
+      end,
+    },
     lualine_c = {
       "filename",
       { "diagnostics", sources = { "nvim_diagnostic" } },
