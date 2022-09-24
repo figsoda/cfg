@@ -199,6 +199,13 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
             path = "@openjdk17@",
           },
         },
+        java = {
+          format = {
+            settings = {
+              url = "@jdtls_format@",
+            },
+          },
+        },
       },
     })
   end,

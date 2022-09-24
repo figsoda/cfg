@@ -51,6 +51,18 @@ in
               done
             '';
 
+            jdtls-format = pkgs.writeText "jdtls-format.xml" ''
+              <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+              <profile kind="CodeFormatterProfile">
+                <setting id="org.eclipse.jdt.core.formatter.continuation_indentation" value="1"/>
+                <setting id="org.eclipse.jdt.core.formatter.continuation_indentation_for_array_initializer" value="1"/>
+                <setting id="org.eclipse.jdt.core.formatter.join_wrapped_lines" value="false"/>
+                <setting id="org.eclipse.jdt.core.formatter.lineSplit" value="80"/>
+                <setting id="org.eclipse.jdt.core.formatter.parentheses_positions_in_method_delcaration" value="separate_lines_if_wrapped"/>
+                <setting id="org.eclipse.jdt.core.formatter.tabulation.char" value="space"/>
+              </profile>
+            '';
+
             python-lsp-server = (pkgs.python3.override {
               packageOverrides = _: super: {
                 python-lsp-server = super.python-lsp-server.override {
