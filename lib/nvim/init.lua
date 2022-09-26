@@ -82,7 +82,12 @@ o.updatetime = 300
 api.nvim_create_autocmd("BufRead", {
   pattern = "all-packages.nix",
   callback = function()
-    require("cmp").setup.buffer({ enabled = false })
+    require("cmp").setup.buffer({
+      sources = {
+        { name = "nvim_lsp" },
+        { name = "path" },
+      },
+    })
   end,
 })
 
