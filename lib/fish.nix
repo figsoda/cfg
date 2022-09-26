@@ -12,11 +12,6 @@ in
     enable = true;
 
     interactiveShellInit = ''
-      source ${
-        runCommand "starship-init-fish" { STARSHIP_CACHE = ".cache"; }
-        "${starship}/bin/starship init fish --print-full-init > $out"
-      }
-
       ${concatStringsSep "\n" (mapAttrsFlatten (k: v: "set -g fish_${k} ${v}") {
         color_autosuggestion = "606886";
         color_cancel = "e06c75";
