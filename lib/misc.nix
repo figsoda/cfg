@@ -87,7 +87,7 @@
       enable = true;
       dates = "04:00";
     };
-    stateVersion = "21.05";
+    stateVersion = "22.05";
   };
 
   time.timeZone = "America/New_York";
