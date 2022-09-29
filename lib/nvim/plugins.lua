@@ -254,6 +254,13 @@ lspconfig.nil_ls.setup({
   capabilities = capabilities,
   cmd = { "@nil@/bin/nil" },
   on_attach = on_attach,
+  settings = {
+    ["nil"] = {
+      formatting = {
+        command = { "@nixpkgs_fmt@/bin/nixpkgs-fmt" },
+      },
+    },
+  },
 })
 
 lspconfig.pylsp.setup({
@@ -334,9 +341,6 @@ null_ls.setup({
   on_attach = on_attach,
   sources = {
     nb.diagnostics.shellcheck.with({ command = "@shellcheck@/bin/shellcheck" }),
-    nb.formatting.nixpkgs_fmt.with({
-      command = "@nixpkgs_fmt@/bin/nixpkgs-fmt",
-    }),
     nb.formatting.prettier.with({ command = "@prettier@/bin/prettier" }),
     nb.formatting.stylua.with({ command = "@stylua@/bin/stylua" }),
   },
