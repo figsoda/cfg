@@ -398,7 +398,7 @@ in
 concatStringsSep "\n" (mapAttrsFlatten
   (group: highlight:
     let get = k: highlight.${k} or "NONE";
-    in "hi ${group} guifg=${get "fg"} guibg=${get "bg"} gui=${get "attrs"}")
+    in "hi ${group} guifg=${get "fg"} guibg=${get "bg"} guisp=${get "fg"} gui=${get "attrs"}")
   highlights
 ++ imap0 (i: color: "let terminal_color_${toString i} = '${color}'") [
   black
