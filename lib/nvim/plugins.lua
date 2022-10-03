@@ -236,7 +236,7 @@ require("lualine").setup({
   sections = {
     lualine_b = {
       function()
-        return vim.b.gitsigns_status
+        return vim.b.gitsigns_status or ""
       end,
     },
     lualine_c = {
