@@ -86,7 +86,7 @@ let
     TermCursor.bg = white;
     TermCursorNC.fg = white;
     ErrorMsg.fg = red;
-    VertSplit.fg = black;
+    WinSeparator.fg = black;
     Folded.fg = dimwhite;
     FoldColumn.fg = white;
     SignColumn.fg = white;
