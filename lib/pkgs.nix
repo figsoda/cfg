@@ -38,7 +38,11 @@ rec {
       [icon theme]
       Inherits=Qogir
     '')
-    alacritty
+    (writers.writeDashBin "alacritty" ''
+      ${alacritty}/bin/alacritty msg create-window "$@" || {
+        [ $? = 1 ] && ${alacritty}/bin/alacritty "$@"
+      }
+    '')
     bat
     binutils
     blueberry
