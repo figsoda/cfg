@@ -289,7 +289,8 @@ lspconfig.sumneko_lua.setup({
   end,
   on_attach = function(c, buf)
     on_attach(c, buf)
-    c.resolved_capabilities.document_formatting = false
+    c.server_capabilities.documentFormattingProvider = false
+    c.server_capabilities.documentRangeFormattingProvider = false
     for _, i in pairs(c.config.settings.Lua.diagnostics.globals) do
       if i == "vim" then
         cmp.setup.buffer({
