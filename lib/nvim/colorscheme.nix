@@ -295,6 +295,7 @@ let
     NvimTreeExecFile.fg = green;
     NvimTreeSpecialFile.fg = yellow;
     NvimTreeImageFile.fg = magenta;
+    NvimTreeWinSeparator.fg = black;
 
     # nvim-treesitter
     TSAnnocation.fg = white;
