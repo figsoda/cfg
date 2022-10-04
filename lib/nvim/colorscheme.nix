@@ -1,23 +1,10 @@
 { lib }:
 
+with import ../colors.nix;
+
 let
   inherit (builtins) concatStringsSep;
   inherit (lib) imap0 mapAttrsFlatten;
-
-  black = "#1f2227";
-  blue = "#61afef";
-  cyan = "#56b6c2";
-  darkgray = "#282c34";
-  darkred = "#be5046";
-  dimwhite = "#5c6370";
-  gray = "#2c323c";
-  green = "#98c379";
-  lightgray = "#4b5263";
-  orange = "#d19a66";
-  purple = "#c678dd";
-  red = "#e06c75";
-  white = "#abb2bf";
-  yellow = "#e5c07b";
 
   highlights = {
     # group-name
@@ -33,17 +20,17 @@ let
     Float.fg = orange;
     Identifier.fg = red;
     Function.fg = blue;
-    Statement.fg = purple;
-    Conditional.fg = purple;
-    Repeat.fg = purple;
+    Statement.fg = magenta;
+    Conditional.fg = magenta;
+    Repeat.fg = magenta;
     Label.fg = red;
-    Operator.fg = purple;
-    Keyword.fg = purple;
-    Exception.fg = purple;
+    Operator.fg = magenta;
+    Keyword.fg = magenta;
+    Exception.fg = magenta;
     PreProc.fg = yellow;
     Include.fg = blue;
-    Define.fg = purple;
-    Macro.fg = purple;
+    Define.fg = magenta;
+    Macro.fg = magenta;
     PreCondit.fg = yellow;
     Type.fg = yellow;
     StorageClass.fg = yellow;
@@ -61,7 +48,7 @@ let
     Underlined.attrs = "underline";
     Ignore = { };
     Error.fg = red;
-    Todo.fg = purple;
+    Todo.fg = magenta;
 
     # highlight-groups
     ColorColumn.bg = darkgray;
@@ -125,7 +112,7 @@ let
     };
     PmenuSbar.bg = darkgray;
     PmenuThumb.bg = dimwhite;
-    Question.fg = purple;
+    Question.fg = magenta;
     QuickFixLine = {
       fg = black;
       bg = yellow;
@@ -190,16 +177,16 @@ let
     diffAdded.fg = green;
     diffChanged.fg = yellow;
     diffSubname.fg = orange;
-    diffLine.fg = purple;
+    diffLine.fg = magenta;
     diffFile.fg = yellow;
     diffOldFile.fg = red;
     diffNewFile.fg = green;
-    diffIndexLine.fg = purple;
+    diffIndexLine.fg = magenta;
 
     # gitcommit.vim
     gitCommitUnmerged.fg = green;
     gitCommitOnBranch.fg = white;
-    gitCommitBranch.fg = purple;
+    gitCommitBranch.fg = magenta;
     gitCommitDiscardedType.fg = red;
     gitCommitSelectedType.fg = green;
     gitCommitHeader.fg = white;
@@ -254,7 +241,7 @@ let
     };
     LightspeedGrayWash.fg = dimwhite;
     LightspeedUnlabeledMatch = {
-      fg = purple;
+      fg = magenta;
       attrs = "bold";
     };
     LightspeedOneCharMatch = {
@@ -263,7 +250,7 @@ let
       attrs = "bold";
     };
     LightspeedUniqueChar = {
-      fg = purple;
+      fg = magenta;
       attrs = "bold";
     };
     LightspeedPendingOpArea = {
@@ -307,7 +294,7 @@ let
     # nvim-tree.lua
     NvimTreeExecFile.fg = green;
     NvimTreeSpecialFile.fg = yellow;
-    NvimTreeImageFile.fg = purple;
+    NvimTreeImageFile.fg = magenta;
 
     # nvim-treesitter
     TSAnnocation.fg = white;
@@ -318,36 +305,36 @@ let
       fg = dimwhite;
       attrs = "italic";
     };
-    TSConditional.fg = purple;
+    TSConditional.fg = magenta;
     TSConstant.fg = blue;
     TSConstBuiltin.fg = orange;
     TSConstMacro.fg = orange;
     TSConstructor.fg = yellow;
     TSError.fg = red;
-    TSException.fg = purple;
+    TSException.fg = magenta;
     TSField.fg = blue;
     TSFloat.fg = orange;
     TSFunction.fg = blue;
     TSFuncBuiltin.fg = cyan;
     TSFuncMacro.fg = blue;
-    TSInclude.fg = purple;
-    TSKeyword.fg = purple;
-    TSKeywordFunction.fg = purple;
-    TSKeywordOperator.fg = purple;
-    TSKeywordReturn.fg = purple;
+    TSInclude.fg = magenta;
+    TSKeyword.fg = magenta;
+    TSKeywordFunction.fg = magenta;
+    TSKeywordOperator.fg = magenta;
+    TSKeywordReturn.fg = magenta;
     TSLabel.fg = red;
     TSMethod.fg = blue;
     TSNamespace.fg = white;
     TSNone.fg = white;
     TSNumber.fg = orange;
-    TSOperator.fg = purple;
+    TSOperator.fg = magenta;
     TSParameter.fg = red;
     TSParameterReference.fg = white;
     TSProperty.fg = blue;
     TSPunctDelimiter.fg = white;
     TSPunctBracket.fg = white;
     TSPunctSpecial.fg = white;
-    TSRepeat.fg = purple;
+    TSRepeat.fg = magenta;
     TSString.fg = green;
     TSStringRegex.fg = orange;
     TSStringEscape.fg = orange;
@@ -374,7 +361,7 @@ let
     TSType.fg = yellow;
     TSTypeBuiltin.fg = orange;
     TSVariable.fg = white;
-    TSVariableBuiltin.fg = purple;
+    TSVariableBuiltin.fg = magenta;
 
     # vim-nix
     nixStringDelimiter.fg = green;
@@ -406,7 +393,7 @@ concatStringsSep "\n" (mapAttrsFlatten
   green
   yellow
   blue
-  purple
+  magenta
   cyan
   white
   lightgray
@@ -414,6 +401,6 @@ concatStringsSep "\n" (mapAttrsFlatten
   green
   orange
   blue
-  purple
+  magenta
   cyan
 ])

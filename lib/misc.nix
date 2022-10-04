@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ lib, pkgs, ... }: {
   boot = {
     cleanTmpDir = true;
     kernelPackages = pkgs.linuxPackages_latest;
@@ -20,16 +20,52 @@
   };
 
   environment = {
-    etc."xdg/user-dirs.defaults".text = ''
-      DESKTOP=/dev/null
-      DOCUMENTS=files
-      DOWNLOAD=files
-      MUSIC=music
-      PICTURES=files
-      PUBLICSHARE=/dev/null
-      TEMPLATES=/dev/null
-      VIDEOS=files
-    '';
+    etc = {
+      "xdg/alacritty/alacritty.yml".text = lib.generators.toYAML { } {
+        colors = with import ./colors.nix; {
+          primary = {
+            foreground = white;
+            background = black;
+          };
+
+          cursor = {
+            text = dimwhite;
+            cursor = white;
+          };
+
+          normal = {
+            inherit black blue cyan green magenta red white yellow;
+          };
+
+          bright = {
+            inherit black blue cyan green magenta white;
+            red = darkred;
+            yellow = orange;
+          };
+        };
+
+        cursor.style = "Beam";
+
+        font.size = 8;
+
+        shell.program = "${pkgs.fish}/bin/fish";
+
+        window.padding = {
+          x = 4;
+          y = 4;
+        };
+      };
+      "xdg/user-dirs.defaults".text = ''
+        DESKTOP=/dev/null
+        DOCUMENTS=files
+        DOWNLOAD=files
+        MUSIC=music
+        PICTURES=files
+        PUBLICSHARE=/dev/null
+        TEMPLATES=/dev/null
+        VIDEOS=files
+      '';
+    };
     variables = {
       LESSHISTFILE = "-";
       PATH = "$HOME/.cargo/bin";
