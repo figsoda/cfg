@@ -67,6 +67,8 @@
       '';
     };
     variables = {
+      BAT_STYLE = "numbers";
+      BAT_THEME = "TwoDark";
       LESSHISTFILE = "-";
       PATH = "$HOME/.cargo/bin";
       RIPGREP_CONFIG_PATH = "${pkgs.writeText "rg-config" ''
