@@ -5,7 +5,7 @@ with pkgs;
 rec {
   environment.systemPackages = builtins.attrValues passthru ++ [
     (writers.writeDashBin "ghtok" ''
-      ${libressl}/bin/openssl aes-256-cbc -d -in ~/.config/secrets/github
+      ${pkgs.libsecret}/bin/secret-tool lookup github git
     '')
     (writers.writeBashBin "r" ''
       if [ "$1" = cargo ] && nix eval --raw "nixpkgs#$1-$2" 2> /dev/null; then
@@ -64,7 +64,7 @@ rec {
     gimp
     hacksaw
     libreoffice-fresh
-    libressl
+    libsecret
     llvmPackages_latest.lld
     lutris
     mmtc

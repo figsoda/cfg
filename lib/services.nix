@@ -1,7 +1,10 @@
 { config, lib, pkgs, ... }: {
   services = {
     auto-cpufreq.enable = true;
-    gnome.at-spi2-core.enable = true;
+    gnome = {
+      at-spi2-core.enable = true;
+      gnome-keyring.enable = true;
+    };
     journald.extraConfig = ''
       SystemMaxUse=256M
     '';

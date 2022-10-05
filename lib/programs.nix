@@ -10,9 +10,8 @@
           username = "figsoda";
           helper = pkgs.writers.writeBash "credential-helper-github" ''
             if [ "$1" = get ]; then
-              echo "password=$(${pkgs.libressl}/bin/openssl aes-256-cbc -d \
-                -in ~/.config/secrets/github \
-                -pass file:<(${config.programs.ssh.askPassword}))"
+              echo -n password=
+              ${pkgs.libsecret}/bin/secret-tool lookup github git
             fi
           '';
         };

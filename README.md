@@ -21,6 +21,5 @@ $ reboot
 
 $ git clone https://github.com/figsoda/dotfiles
 $ dotfiles/install
-$ mkdir -p ~/.config/secrets
-$ openssl aes-256-cbc -in (read -sP "Enter secret: " | psub) -out ~/.config/secrets/github
+$ secret-tool github git --label github-token
 ```
