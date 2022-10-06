@@ -120,6 +120,8 @@
     useDHCP = false;
   };
 
+  security.sudo.wheelNeedsPassword = false;
+
   system = {
     autoUpgrade = {
       enable = true;
