@@ -113,6 +113,7 @@ in
         lspkind-nvim
         lualine-nvim
         luasnip
+        noice-nvim
         null-ls-nvim
         numb-nvim
         nvim-cmp

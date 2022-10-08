@@ -3,7 +3,6 @@ local gps = require("nvim-gps")
 local jdtls = require("jdtls")
 local lspconfig = require("lspconfig")
 local luasnip = require("luasnip")
-local notify = require("notify")
 local null_ls = require("null-ls")
 local nb = null_ls.builtins
 local rust_tools = require("rust-tools")
@@ -336,8 +335,40 @@ lspconfig.yamlls.setup({
   on_attach = on_attach,
 })
 
-notify.setup({ stages = "static" })
-vim.notify = notify
+require("noice").setup({
+  cmdline = {
+    icons = {
+      ["/"] = { firstc = false },
+      ["?"] = { firstc = false },
+    },
+  },
+
+  popupmenu = {
+    backend = "cmp",
+  },
+
+  routes = {
+    {
+      filter = {
+        event = "msg_show",
+        kind = "search_count",
+      },
+      opts = { skip = true },
+    },
+  },
+
+  views = {
+    cmdline_popup = {
+      border = {
+        style = "single",
+        text = { top = "" },
+      },
+      filter_options = {},
+    },
+  },
+})
+
+require("notify").setup({ stages = "static" })
 
 null_ls.setup({
   on_attach = on_attach,
