@@ -66,7 +66,6 @@ rec {
     libreoffice-fresh
     libsecret
     llvmPackages_latest.lld
-    lutris
     mmtc
     mpc_cli
     (mpv.override {
