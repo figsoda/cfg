@@ -100,7 +100,19 @@ in
             CM_MAX_CLIPS=20 CM_SELECTIONS=clipboard ${clipmenu}/bin/clipmenud &
             ${element-desktop}/bin/element-desktop --hidden &
             ${config.i18n.inputMethod.package}/bin/fcitx5 &
-            ${mpd}/bin/mpd &
+            ${mpd}/bin/mpd ${writeText "mpd.conf" ''
+              music_directory "~/music"
+              playlist_directory "~/.local/share/mpd/playlists"
+              db_file "~/.local/share/mpd/mpd.db"
+              pid_file "~/.local/share/mpd/mpd.pid"
+              state_file "~/.local/share/mpd/mpdstate"
+              bind_to_address "127.0.0.1"
+              restore_paused "yes"
+              audio_output {
+                  type "pipewire"
+                  name "Music Player Daemon"
+              }
+            ''} &
             ${networkmanagerapplet}/bin/nm-applet &
             ${spaceFM}/bin/spacefm -d &
             ${unclutter-xfixes}/bin/unclutter --timeout 3 &
