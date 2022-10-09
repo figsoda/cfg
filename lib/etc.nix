@@ -54,6 +54,9 @@ in
     "xdg/gtk-3.0/settings.ini".text = gtkSettings;
     "xdg/gtk-4.0/settings.ini".text = gtkSettings;
 
+    "xdg/rofi.rasi".source = ./rofi/rofi.rasi;
+    "xdg/flat-dark.rasi".source = ./rofi/flat-dark.rasi;
+
     "xdg/user-dirs.defaults".text = ''
       DESKTOP=/dev/null
       DOCUMENTS=files
