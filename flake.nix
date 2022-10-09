@@ -22,6 +22,7 @@
       modules = [
         ({ passthru = { inherit inputs; }; })
         nixos-hardware.nixosModules.asus-zephyrus-ga401
+        ./lib/etc.nix
         ./lib/fish.nix
         ./lib/misc.nix
         ./lib/nix.nix

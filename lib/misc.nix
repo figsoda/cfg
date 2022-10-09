@@ -19,64 +19,16 @@
     nixos.enable = false;
   };
 
-  environment = {
-    etc = {
-      "xdg/alacritty/alacritty.yml".text = lib.generators.toYAML { } {
-        colors = with import ./colors.nix; {
-          primary = {
-            foreground = white;
-            background = black;
-          };
-
-          cursor = {
-            text = dimwhite;
-            cursor = white;
-          };
-
-          normal = {
-            inherit black blue cyan green magenta red white yellow;
-          };
-
-          bright = {
-            inherit black blue cyan green magenta white;
-            red = darkred;
-            yellow = orange;
-          };
-        };
-
-        cursor.style = "Beam";
-
-        font.size = 8;
-
-        shell.program = "${pkgs.fish}/bin/fish";
-
-        window.padding = {
-          x = 4;
-          y = 4;
-        };
-      };
-      "xdg/user-dirs.defaults".text = ''
-        DESKTOP=/dev/null
-        DOCUMENTS=files
-        DOWNLOAD=files
-        MUSIC=music
-        PICTURES=files
-        PUBLICSHARE=/dev/null
-        TEMPLATES=/dev/null
-        VIDEOS=files
-      '';
-    };
-    variables = {
-      BAT_STYLE = "numbers";
-      BAT_THEME = "TwoDark";
-      LESSHISTFILE = "-";
-      PATH = "$HOME/.cargo/bin";
-      RIPGREP_CONFIG_PATH = "${pkgs.writeText "rg-config" ''
-        -S
-        -g=!.git
-        --hidden
-      ''}";
-    };
+  environment.variables = {
+    BAT_STYLE = "numbers";
+    BAT_THEME = "TwoDark";
+    LESSHISTFILE = "-";
+    PATH = "$HOME/.cargo/bin";
+    RIPGREP_CONFIG_PATH = "${pkgs.writeText "rg-config" ''
+      -S
+      -g=!.git
+      --hidden
+    ''}";
   };
 
   fonts = {

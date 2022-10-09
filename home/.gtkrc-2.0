@@ -1,9 +1,0 @@
-gtk-cursor-theme-name = "Qogir"
-gtk-font-name = "sans 14"
-gtk-icon-theme-name = "Tela-dark"
-gtk-enable-animations = false
-gtk-theme-name = "Qogir-Dark"
-gtk-xft-antialias = 1
-gtk-xft-hinting = 1
-gtk-xft-hintstyle = "hintfull"
-gtk-xft-rgba = "rgb"
