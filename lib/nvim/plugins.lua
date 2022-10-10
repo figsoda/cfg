@@ -141,6 +141,13 @@ cmp.setup.cmdline(":", {
   },
 })
 
+cmp.setup.filetype({ "dap-repl", "dapui_watches" }, {
+  enabled = true,
+  sources = {
+    { name = "dap" },
+  },
+})
+
 require("colorizer").setup(nil, { css = true })
 
 require("Comment").setup({ ignore = "^$" })

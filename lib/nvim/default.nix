@@ -96,15 +96,16 @@ in
       '';
       packages.all.start = with pkgs.vimPlugins; [
         bufferline-nvim
-        crates-nvim
         cmp-buffer
         cmp-cmdline
+        cmp-dap
         cmp-nvim-lsp
         cmp-nvim-lsp-document-symbol
         cmp-nvim-lua
         cmp-path
         cmp_luasnip
         comment-nvim
+        crates-nvim
         editorconfig-nvim
         gitsigns-nvim
         indent-blankline-nvim
