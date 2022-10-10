@@ -176,9 +176,7 @@ require("gitsigns").setup({
 gps.setup()
 
 require("indent_blankline").setup({
-  buftype_exclude = { "terminal" },
-  char = "│",
-  filetype_exclude = { "help", "NvimTree", "Trouble" },
+  char = "▏",
   use_treesitter = true,
 })
 
