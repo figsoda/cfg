@@ -8,10 +8,12 @@ local nb = null_ls.builtins
 local rust_tools = require("rust-tools")
 local telescope = require("telescope")
 local trouble = require("trouble")
-local ts_utils = require("nvim-treesitter.ts_utils")
 
+local api = vim.api
 local diagnostic = vim.diagnostic
+local fn = vim.fn
 local lsp = vim.lsp
+local treesitter = vim.treesitter
 
 local border = { "", "", "", " ", "", "", "", " " }
 
@@ -47,37 +49,37 @@ end
 
 require("bufferline").setup({
   highlights = {
-    background = { bg = "#1f2227" },
-    buffer_visible = { bg = "#1f2227" },
-    close_button = { bg = "#1f2227" },
-    duplicate = { bg = "#1f2227" },
-    duplicate_visible = { bg = "#1f2227" },
-    error = { bg = "#1f2227" },
-    error_visible = { bg = "#1f2227" },
-    fill = { bg = "#1f2227" },
-    indicator_selected = { fg = "#61afef" },
-    modified = { bg = "#1f2227" },
-    modified_visible = { bg = "#1f2227" },
-    pick = { bg = "#1f2227" },
-    pick_visible = { bg = "#1f2227" },
+    background = { bg = "@black@" },
+    buffer_visible = { bg = "@black@" },
+    close_button = { bg = "@black@" },
+    duplicate = { bg = "@black@" },
+    duplicate_visible = { bg = "@black@" },
+    error = { bg = "@black@" },
+    error_visible = { bg = "@black@" },
+    fill = { bg = "@black@" },
+    indicator_selected = { fg = "@blue@" },
+    modified = { bg = "@black@" },
+    modified_visible = { bg = "@black@" },
+    pick = { bg = "@black@" },
+    pick_visible = { bg = "@black@" },
     separator = {
-      fg = "#1f2227",
-      bg = "#1f2227",
+      fg = "@black@",
+      bg = "@black@",
     },
     separator_visible = {
-      fg = "#1f2227",
-      bg = "#1f2227",
+      fg = "@black@",
+      bg = "@black@",
     },
-    tab = { bg = "#1f2227" },
-    tab_close = { bg = "#1f2227" },
-    warning = { bg = "#1f2227" },
-    warning_selected = { fg = "#e5c07b" },
-    warning_visible = { bg = "#1f2227" },
+    tab = { bg = "@black@" },
+    tab_close = { bg = "@black@" },
+    warning = { bg = "@black@" },
+    warning_selected = { fg = "@yellow@" },
+    warning_visible = { bg = "@black@" },
   },
   options = {
     custom_filter = function(n)
-      return vim.fn.bufname(n) ~= ""
-        and vim.api.nvim_buf_get_option(n, "buftype") ~= "terminal"
+      return fn.bufname(n) ~= ""
+        and api.nvim_buf_get_option(n, "buftype") ~= "terminal"
     end,
     diagnostics = "nvim_lsp",
     show_close_icon = false,
@@ -96,7 +98,7 @@ cmp.setup({
     end,
     ["<cr>"] = cmp.mapping.confirm(),
     ["<m-cr>"] = cmp.mapping.confirm({ select = true }),
-    ["<S-Tab>"] = cmp.mapping({
+    ["<s-tab>"] = cmp.mapping({
       i = function(fallback)
         if not cmp.select_prev_item() and not luasnip.jump(-1) then
           fallback()
@@ -104,7 +106,7 @@ cmp.setup({
       end,
       c = cmp.mapping.select_prev_item(),
     }),
-    ["<Tab>"] = cmp.mapping({
+    ["<tab>"] = cmp.mapping({
       i = function(fallback)
         if not cmp.select_next_item() and not luasnip.jump(1) then
           fallback()
@@ -181,7 +183,7 @@ require("indent_blankline").setup({
 })
 
 jdtls.setup_dap()
-vim.api.nvim_create_autocmd({ "FileType" }, {
+api.nvim_create_autocmd({ "FileType" }, {
   pattern = "java",
   callback = function()
     local root_dir = jdtls.setup.find_root({ "java-workspace" })
@@ -193,7 +195,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
         root_dir,
       },
       init_options = {
-        bundles = vim.fn.readfile("@jdtls_bundles@"),
+        bundles = fn.readfile("@jdtls_bundles@"),
       },
       on_attach = on_attach,
       root_dir = root_dir,
@@ -223,17 +225,17 @@ require("lualine").setup({
     disabled_filetypes = { "NvimTree" },
     theme = {
       normal = {
-        a = { fg = "#1f2227", bg = "#98c379", bold = true },
-        b = { fg = "#abb2bf", bg = "#282c34" },
-        c = { fg = "#abb2bf", bg = "#1f2227" },
+        a = { fg = "@black@", bg = "@green@", bold = true },
+        b = { fg = "@white@", bg = "@darkgray@" },
+        c = { fg = "@white@", bg = "@black@" },
       },
-      insert = { a = { fg = "#1f2227", bg = "#61afef", bold = true } },
-      visual = { a = { fg = "#1f2227", bg = "#c678dd", bold = true } },
-      replace = { a = { fg = "#1f2227", bg = "#e06c75", bold = true } },
+      insert = { a = { fg = "@black@", bg = "@blue@", bold = true } },
+      visual = { a = { fg = "@black@", bg = "@magenta@", bold = true } },
+      replace = { a = { fg = "@black@", bg = "@red@", bold = true } },
       inactive = {
-        a = { fg = "#5c6370", bg = "#1f2227", bold = true },
-        b = { fg = "#5c6370", bg = "#1f2227" },
-        c = { fg = "#5c6370", bg = "#1f2227" },
+        a = { fg = "@dimwhite@", bg = "@black@", bold = true },
+        b = { fg = "@dimwhite@", bg = "@black@" },
+        c = { fg = "@dimwhite@", bg = "@black@" },
       },
     },
   },
@@ -528,10 +530,12 @@ require("nvim-treesitter.configs").setup({
 })
 
 require("nvim_context_vt").setup({
-  custom_text_handler = function(node)
-    local text = ts_utils.get_node_text(node)[1]
-    local start_row, _, end_row, _ = ts_utils.get_node_range(node)
-    return #text > 3 and end_row - start_row > 12 and "<- " .. text or nil
+  custom_parser = function(node)
+    local text = treesitter.query.get_node_text(node, 0, { concat = false })[1]
+    if text and #text > 3 then
+      local start_row, _, end_row, _ = treesitter.get_node_range(node)
+      return end_row - start_row > 6 and "<- " .. text or nil
+    end
   end,
 })
 

@@ -37,7 +37,7 @@ in
         }
 
         luafile ${
-          substitutePackages ./plugins.lua {
+          substitutePackages ./plugins.lua (import ../colors.nix // {
             inherit (pkgs)
               jdt-language-server nil nixpkgs-fmt openjdk17 shellcheck stylua
               sumneko-lua-language-server taplo yaml-language-server;
@@ -85,7 +85,7 @@ in
             '';
 
             vscode-lldb = codeExt "vadimcn" "vscode-lldb";
-          }
+          })
         }
 
         luafile ${
