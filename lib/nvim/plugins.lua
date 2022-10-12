@@ -79,7 +79,7 @@ require("bufferline").setup({
   },
   options = {
     custom_filter = function(n)
-      return fn.bufname(n) ~= ""
+      return api.nvim_buf_get_name(n) ~= ""
         and api.nvim_buf_get_option(n, "buftype") ~= "terminal"
     end,
     diagnostics = "nvim_lsp",
@@ -296,18 +296,15 @@ lspconfig.sumneko_lua.setup({
       or lspconfig.util.find_git_ancestor(file)
       or lspconfig.util.path.dirname(file)
   end,
-  on_new_config = function(new_config, new_root_dir)
-    new_config.settings.Lua.diagnostics.globals = {}
 
-    local file = io.open(new_root_dir .. "/lua-globals", "r")
-    if file then
-      for line in file:lines() do
-        table.insert(new_config.settings.Lua.diagnostics.globals, line)
-      end
-      file:close()
+  on_new_config = function(new_config, new_root_dir)
+    local ok, globals = pcall(fn.readfile, new_root_dir .. "/lua-globals")
+    if ok then
+      new_config.settings.Lua.diagnostics.globals = globals
       return
     end
 
+    new_config.settings.Lua.diagnostics.globals = {}
     local lcrc = loadfile(new_root_dir .. "/.luacheckrc", "t", {})
     if lcrc then
       local function read_config(cfg)
@@ -346,6 +343,7 @@ lspconfig.sumneko_lua.setup({
       end
     end
   end,
+
   on_attach = function(c, buf)
     on_attach(c, buf)
     c.server_capabilities.documentFormattingProvider = false
@@ -366,6 +364,7 @@ lspconfig.sumneko_lua.setup({
       end
     end
   end,
+
   settings = {
     Lua = {
       diagnostics = {
