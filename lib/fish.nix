@@ -83,7 +83,7 @@ in
         end
         set -lx with_pkgs "$argv$with_pkgs"
         IN_NIX_SHELL=impure name="with: $with_pkgs" \
-          ${config.nix.package}/bin/nix shell nixpkgs#$argv
+          ${config.nix.package}/bin/nix shell nixpkgs#$argv -c ${fish}/bin/fish
       end
     '';
 
