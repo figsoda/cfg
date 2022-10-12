@@ -103,7 +103,7 @@ local kbs = {
     "Return",
     function()
       awful.spawn.easy_async_with_shell(
-        "echo '1 ⏻  shutdown | poweroff,2   reboot,3 ⏼  suspend,4 望  hibernate,5   lock screen,6   quit | log out,7   reload awesome' | rofi -dmenu -sep , -p session -format i -no-custom -select 7",
+        "echo '1 ⏻  shutdown | poweroff,2   reboot,3 ⏼  suspend,4 望  hibernate,5   lock screen,6   quit | log out,7   reload awesome,8   restart firefox' | rofi -dmenu -sep , -p session -format i -no-custom -select 8",
         function(stdout)
           ({
             exec("poweroff"),
@@ -113,6 +113,7 @@ local kbs = {
             exec("lockscreen"),
             awesome.quit,
             awesome.restart,
+            exec_sh("killall .firefox-wrapped && firefox"),
           })[stdout:byte() - 47]()
         end
       )
