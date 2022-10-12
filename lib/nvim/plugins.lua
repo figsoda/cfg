@@ -1,6 +1,7 @@
 local cmp = require("cmp")
 local gps = require("nvim-gps")
 local jdtls = require("jdtls")
+local leap = require("leap")
 local lspconfig = require("lspconfig")
 local luasnip = require("luasnip")
 local null_ls = require("null-ls")
@@ -217,6 +218,17 @@ api.nvim_create_autocmd({ "FileType" }, {
     })
   end,
 })
+
+leap.setup({
+  special_keys = {
+    next_aot_match = "]",
+    next_match = "]",
+    prev_match = "[",
+    next_group = "]",
+    prev_group = "[",
+  },
+})
+leap.set_default_keymaps()
 
 require("lualine").setup({
   options = {
@@ -456,7 +468,7 @@ require("nvim-tree").setup({
         {
           key = "s",
           cb = function()
-            require("lightspeed").sx:go({})
+            leap.leap({})
           end,
         },
       },

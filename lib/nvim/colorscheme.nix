@@ -204,63 +204,29 @@ let
     # indent-blankline.nvim
     IndentBlanklineChar.fg = gray;
 
-    # lightspeed.nvim
-    LightspeedLabel = {
+    # leap.nvim
+    LeapMatch = {
+      fg = green;
+      attrs = "bold";
+    };
+    LeapLabelPrimary = {
       fg = black;
       bg = blue;
       attrs = "bold";
     };
-    LightspeedLabelOverlapped = {
-      fg = black;
-      bg = cyan;
-      attrs = "bold";
-    };
-    LightspeedDistant = {
+    LeapLabelSecondary = {
       fg = white;
       bg = yellow;
       attrs = "bold";
     };
-    LightspeedDistantOverlapped = {
-      fg = white;
-      bg = orange;
-      attrs = "bold";
-    };
-    LightspeedShortcut = {
-      fg = black;
-      bg = blue;
-      attrs = "bold";
-    };
-    LightspeedShortcutOverlapped = {
-      fg = black;
-      bg = cyan;
-      attrs = "bold";
-    };
-    LightspeedMaskedChar = {
-      fg = green;
-      attrs = "bold";
-    };
-    LightspeedGrayWash.fg = dimwhite;
-    LightspeedUnlabeledMatch = {
+    LeapLabelSelected = {
       fg = magenta;
       attrs = "bold";
     };
-    LightspeedOneCharMatch = {
-      fg = black;
-      bg = blue;
-      attrs = "bold";
-    };
-    LightspeedUniqueChar = {
-      fg = magenta;
-      attrs = "bold";
-    };
-    LightspeedPendingOpArea = {
-      fg = white;
-      bg = red;
-      attrs = "bold";
-    };
-    LightspeedPendingChangeOpArea = {
-      fg = red;
-      attrs = "bold";
+    LeapBackdrop = {
+      fg = dimwhite;
+      bg = black;
+      attrs = "NONE";
     };
 
     # nvim-cmp

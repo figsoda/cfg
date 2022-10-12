@@ -109,7 +109,7 @@ in
         editorconfig-nvim
         gitsigns-nvim
         indent-blankline-nvim
-        lightspeed-nvim
+        leap-nvim
         lsp_signature-nvim
         lspkind-nvim
         lualine-nvim
