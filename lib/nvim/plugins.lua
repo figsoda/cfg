@@ -431,6 +431,7 @@ require("notify").setup({ stages = "static" })
 null_ls.setup({
   on_attach = on_attach,
   sources = {
+    nb.code_actions.refactoring,
     nb.diagnostics.shellcheck.with({ command = "@shellcheck@/bin/shellcheck" }),
     nb.formatting.prettier.with({ command = "@prettier@/bin/prettier" }),
     nb.formatting.stylua.with({ command = "@stylua@/bin/stylua" }),

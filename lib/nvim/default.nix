@@ -94,7 +94,9 @@ in
           }
         }
       '';
-      packages.all.start = with pkgs.vimPlugins; [
+      packages.all.start = with (pkgs.vimPlugins.extend (_: _: {
+        nvim-treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars);
+      })); [
         bufferline-nvim
         cmp-buffer
         cmp-cmdline
@@ -127,16 +129,15 @@ in
         nvim-lspconfig
         nvim-notify
         nvim-tree-lua
-        (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
+        nvim-treesitter
         nvim-treesitter-textobjects
         nvim-web-devicons
         nvim_context_vt
-        plenary-nvim
-        popup-nvim
+        refactoring-nvim
         ron-vim
         rust-tools-nvim
-        telescope-nvim
         telescope-fzf-native-nvim
+        telescope-nvim
         trouble-nvim
         vim-fugitive
         vim-lastplace
