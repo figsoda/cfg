@@ -104,18 +104,18 @@ rec {
   ];
 
   passthru = {
-    lockscreen = writers.writeBashBin "lockscreen" ''
+    lockscreen = with import ./colors.nix; writers.writeBashBin "lockscreen" ''
       ${i3lock-color}/bin/i3lock-color \
         -i ~/.config/wallpaper.png -k \
         --{inside{ver,wrong,},ring,line,separator}-color=00000000 \
-        --ringver-color=98c379 --ringwrong-color=f83c40 \
-        --keyhl-color=61afef --bshl-color=d19a66 \
-        --verif-color=98c379 --wrong-color=f83c40 \
+        --ringver-color=${green} --ringwrong-color=${lightred} \
+        --keyhl-color=${blue} --bshl-color=${orange} \
+        --verif-color=${green} --wrong-color=${lightred} \
         --ind-pos=x+w/7:y+h-w/8 \
         --{time,date}-font=monospace \
         --{layout,verif,wrong,greeter}-size=32 \
-        --time-color=61afef --time-size=36 \
-        --date-pos=ix:iy+36 --date-color=98c379 --date-str=%F --date-size=28 \
+        --time-color=${blue} --time-size=36 \
+        --date-pos=ix:iy+36 --date-color=${green} --date-str=%F --date-size=28 \
         --verif-text=Verifying... \
         --wrong-text="Try again!" \
         --noinput-text="No input" \

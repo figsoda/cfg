@@ -27,7 +27,7 @@ in
         };
 
         cursor = {
-          text = dimwhite;
+          text = lightgray;
           cursor = white;
         };
 
@@ -37,7 +37,7 @@ in
 
         bright = {
           inherit black blue cyan green magenta white;
-          red = darkred;
+          red = lightred;
           yellow = orange;
         };
       };
@@ -55,7 +55,9 @@ in
     "xdg/gtk-4.0/settings.ini".text = gtkSettings;
 
     "xdg/rofi.rasi".source = ./rofi/rofi.rasi;
-    "xdg/flat-dark.rasi".source = ./rofi/flat-dark.rasi;
+    "xdg/flat-dark.rasi".source = pkgs.substituteAll (import ./colors.nix // {
+      src = ./rofi/flat-dark.rasi;
+    });
 
     "xdg/user-dirs.defaults".text = ''
       DESKTOP=/dev/null

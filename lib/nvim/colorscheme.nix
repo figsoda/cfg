@@ -9,7 +9,7 @@ let
   highlights = {
     # group-name
     Comment = {
-      fg = dimwhite;
+      fg = lightgray;
       attrs = "italic";
     };
     Constant.fg = blue;
@@ -41,7 +41,7 @@ let
     Tag = { };
     Delimiter = { };
     SpecialComment = {
-      fg = dimwhite;
+      fg = lightgray;
       attrs = "italic";
     };
     Debug = { };
@@ -51,7 +51,7 @@ let
     Todo.fg = magenta;
 
     # highlight-groups
-    ColorColumn.bg = darkgray;
+    ColorColumn.bg = dimgray;
     Conceal = { };
     Cursor = {
       fg = black;
@@ -62,8 +62,8 @@ let
       bg = cyan;
     };
     CursorIM.fg = white;
-    CursorColumn.bg = darkgray;
-    CursorLine.bg = darkgray;
+    CursorColumn.bg = dimgray;
+    CursorLine.bg = dimgray;
     Directory.fg = blue;
     DiffAdd.fg = green;
     DiffChange.fg = yellow;
@@ -74,18 +74,18 @@ let
     TermCursorNC.fg = white;
     ErrorMsg.fg = red;
     WinSeparator.fg = black;
-    Folded.fg = dimwhite;
+    Folded.fg = lightgray;
     FoldColumn.fg = white;
     SignColumn.fg = white;
     IncSearch = {
       fg = yellow;
-      bg = dimwhite;
+      bg = lightgray;
     };
     Substitute = {
       fg = black;
       bg = yellow;
     };
-    LineNr.fg = lightgray;
+    LineNr.fg = silver;
     CursorLineNr.fg = white;
     MatchParen = {
       fg = blue;
@@ -93,25 +93,25 @@ let
     };
     ModeMsg.fg = white;
     MsgArea.fg = white;
-    MsgSeparator.fg = darkgray;
+    MsgSeparator.fg = dimgray;
     MoreMsg.fg = white;
-    NonText.fg = lightgray;
+    NonText.fg = silver;
     Normal.fg = white;
     NormalFloat = {
       fg = white;
-      bg = darkgray;
+      bg = dimgray;
     };
     NormalNC.fg = white;
     Pmenu = {
       fg = white;
-      bg = darkgray;
+      bg = dimgray;
     };
     PmenuSel = {
       fg = black;
       bg = blue;
     };
-    PmenuSbar.bg = darkgray;
-    PmenuThumb.bg = dimwhite;
+    PmenuSbar.bg = dimgray;
+    PmenuThumb.bg = lightgray;
     Question.fg = magenta;
     QuickFixLine = {
       fg = black;
@@ -121,7 +121,7 @@ let
       fg = black;
       bg = yellow;
     };
-    SpecialKey.fg = lightgray;
+    SpecialKey.fg = silver;
     SpellBad = {
       fg = red;
       attrs = "underline";
@@ -131,14 +131,14 @@ let
     SpellRare.fg = orange;
     StatusLine = { };
     StatusLineNC = { };
-    TabLine.fg = dimwhite;
+    TabLine.fg = lightgray;
     TabLineFill = { };
     TabLineSel.fg = white;
     Title.fg = green;
     Visual.bg = gray;
     VisualNOS.bg = gray;
     WarningMsg.fg = yellow;
-    Whitespace.fg = lightgray;
+    Whitespace.fg = silver;
     WildMenu = {
       fg = black;
       bg = blue;
@@ -147,7 +147,7 @@ let
     # nvim_open_win
     FloatBorder = {
       fg = white;
-      bg = darkgray;
+      bg = dimgray;
     };
 
     # diagnostic
@@ -224,14 +224,14 @@ let
       attrs = "bold";
     };
     LeapBackdrop = {
-      fg = dimwhite;
+      fg = lightgray;
       bg = black;
       attrs = "NONE";
     };
 
     # nvim-cmp
     CmpItemAbbr.fg = white;
-    CmpItemAbbrDeprecated.fg = dimwhite;
+    CmpItemAbbrDeprecated.fg = lightgray;
     CmpItemAbbrMatch.fg = blue;
     CmpItemAbbrMatchFuzzy.fg = blue;
     CmpItemKind.fg = orange;
@@ -261,6 +261,8 @@ let
     NvimTreeExecFile.fg = green;
     NvimTreeSpecialFile.fg = yellow;
     NvimTreeImageFile.fg = magenta;
+    NvimTreeGitDirty.fg = red;
+    NvimTreeGitDeleted.fg = red;
     NvimTreeWinSeparator.fg = black;
 
     # nvim-treesitter
@@ -269,7 +271,7 @@ let
     TSBoolean.fg = orange;
     TSCharacter.fg = white;
     TSComment = {
-      fg = dimwhite;
+      fg = lightgray;
       attrs = "italic";
     };
     TSConditional.fg = magenta;
@@ -336,15 +338,15 @@ let
     # custom
     StatusLineGitAdded = {
       fg = green;
-      bg = darkgray;
+      bg = dimgray;
     };
     StatusLineGitChanged = {
       fg = yellow;
-      bg = darkgray;
+      bg = dimgray;
     };
     StatusLineGitRemoved = {
       fg = red;
-      bg = darkgray;
+      bg = dimgray;
     };
   };
 in
@@ -363,8 +365,8 @@ concatStringsSep "\n" (mapAttrsFlatten
   magenta
   cyan
   white
-  lightgray
-  darkred
+  silver
+  lightred
   green
   orange
   blue

@@ -238,16 +238,16 @@ require("lualine").setup({
     theme = {
       normal = {
         a = { fg = "@black@", bg = "@green@", bold = true },
-        b = { fg = "@white@", bg = "@darkgray@" },
+        b = { fg = "@white@", bg = "@dimgray@" },
         c = { fg = "@white@", bg = "@black@" },
       },
       insert = { a = { fg = "@black@", bg = "@blue@", bold = true } },
       visual = { a = { fg = "@black@", bg = "@magenta@", bold = true } },
       replace = { a = { fg = "@black@", bg = "@red@", bold = true } },
       inactive = {
-        a = { fg = "@dimwhite@", bg = "@black@", bold = true },
-        b = { fg = "@dimwhite@", bg = "@black@" },
-        c = { fg = "@dimwhite@", bg = "@black@" },
+        a = { fg = "@lightgray@", bg = "@black@", bold = true },
+        b = { fg = "@lightgray@", bg = "@black@" },
+        c = { fg = "@lightgray@", bg = "@black@" },
       },
     },
   },
