@@ -14,6 +14,7 @@ in
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+
     configure = {
       customRC = ''
         ${pkgs.callPackage ./colorscheme.nix { }}
@@ -63,6 +64,12 @@ in
               </profile>
             '';
 
+            lua-paths = let
+              cfg = config.programs.neovim;
+            in lib.concatMapStringsSep ''", "'' (path: "${path}/lua")
+              ([ "${cfg.package}/share/nvim/runtime" ]
+                ++ cfg.configure.packages.all.start);
+
             python-lsp-server = (pkgs.python3.override {
               packageOverrides = _: super: {
                 python-lsp-server = super.python-lsp-server.override {
@@ -94,8 +101,10 @@ in
           }
         }
       '';
+
       packages.all.start = with (pkgs.vimPlugins.extend (_: _: {
-        nvim-treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars);
+        nvim-treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins
+          (_: pkgs.tree-sitter.allGrammars);
       })); [
         bufferline-nvim
         cmp-buffer
@@ -103,7 +112,6 @@ in
         cmp-dap
         cmp-nvim-lsp
         cmp-nvim-lsp-document-symbol
-        cmp-nvim-lua
         cmp-path
         cmp_luasnip
         comment-nvim
@@ -146,6 +154,7 @@ in
         vim-visual-multi
       ];
     };
+
     viAlias = true;
     vimAlias = true;
     withRuby = false;

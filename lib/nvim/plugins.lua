@@ -348,20 +348,10 @@ lspconfig.sumneko_lua.setup({
     on_attach(c, buf)
     c.server_capabilities.documentFormattingProvider = false
     c.server_capabilities.documentRangeFormattingProvider = false
-    for _, i in pairs(c.config.settings.Lua.diagnostics.globals) do
-      if i == "vim" then
-        cmp.setup.buffer({
-          sources = {
-            { name = "nvim_lua" },
-            { name = "nvim_lsp" },
-            { name = "crates" },
-            { name = "path" },
-            { name = "luasnip" },
-            { name = "buffer", keyword_length = 3 },
-          },
-        })
-        break
-      end
+    if vim.tbl_contains(c.config.settings.Lua.diagnostics.globals, "vim") then
+      c.config.settings.Lua.workspace = {
+        library = { "@lua_paths@" },
+      }
     end
   end,
 
