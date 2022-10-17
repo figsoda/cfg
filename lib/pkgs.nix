@@ -82,6 +82,7 @@ rec {
       fi
       ${nixpkgs-review}/bin/nixpkgs-review "$@" "''${args[@]}"
     '')
+    nsxiv
     pamixer
     pavucontrol
     psmisc
@@ -95,7 +96,6 @@ rec {
     shotgun
     spaceFM
     stylua
-    sxiv
     tela-icon-theme
     umd-cs-submit
     xclip
