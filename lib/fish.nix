@@ -91,9 +91,11 @@ in
       if not set -q DISPLAY && [ (${coreutils}/bin/tty) = /dev/tty1 ]
         exec ${
           sx.override {
-            xorgserver = writers.writeDashBin "Xorg" ''
-              exec ${xorg.xorgserver}/bin/Xorg -ardelay 320 -arinterval 32 "$@"
-            '';
+            xorg = xorg // {
+              xorgserver = writers.writeDashBin "Xorg" ''
+                exec ${xorg.xorgserver}/bin/Xorg -ardelay 320 -arinterval 32 "$@"
+              '';
+            };
           }
         }/bin/sx ${
           writers.writeDash "sxrc" ''
