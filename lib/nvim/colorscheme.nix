@@ -96,12 +96,18 @@ let
     MsgSeparator.fg = dimgray;
     MoreMsg.fg = white;
     NonText.fg = silver;
-    Normal.fg = white;
+    Normal = {
+      fg = white;
+      bg = black;
+    };
     NormalFloat = {
       fg = white;
       bg = dimgray;
     };
-    NormalNC.fg = white;
+    NormalNC = {
+      fg = white;
+      bg = black;
+    };
     Pmenu = {
       fg = white;
       bg = dimgray;
