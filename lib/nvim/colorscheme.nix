@@ -237,9 +237,6 @@ let
     CmpItemKind.fg = orange;
     CmpItemMenu.fg = white;
 
-    # nvim-code-action-menu
-    CodeActionMenuMenuSelection.bg = gray;
-
     # nvim-notify
     NotifyERRORBorder.fg = red;
     NotifyERRORIcon.fg = red;

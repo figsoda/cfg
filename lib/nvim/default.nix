@@ -118,6 +118,7 @@ in
         cmp_luasnip
         comment-nvim
         crates-nvim
+        dressing-nvim
         editorconfig-nvim
         gitsigns-nvim
         indent-blankline-nvim
@@ -130,7 +131,6 @@ in
         null-ls-nvim
         numb-nvim
         nvim-cmp
-        nvim-code-action-menu
         nvim-colorizer-lua
         nvim-dap
         nvim-dap-ui

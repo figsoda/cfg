@@ -42,7 +42,7 @@ local function on_attach(_, buf)
   mapb({ "n", "v" }, "ff", function()
     lsp.buf.format({ async = true, bufnr = buf })
   end)
-  mapb({ "n", "v" }, "ga", require("code_action_menu").open_code_action_menu)
+  mapb({ "n", "v" }, "ga", lsp.buf.code_action)
 end
 
 require("bufferline").setup({
@@ -159,6 +159,26 @@ require("Comment").setup({ ignore = "^$" })
 require("crates").setup()
 
 require("dapui").setup()
+
+require("dressing").setup({
+  input = {
+    anchor = "NW",
+    border = "single",
+    winblend = 0,
+    winhighlight = "FloatBorder:DiagnosticInfo,NormalFloat:Normal",
+  },
+  select = {
+    backend = { "builtin" },
+    builtin = {
+      border = "single",
+      min_height = { 0, 0 },
+      min_width = { 0, 0 },
+      relative = "cursor",
+      winblend = 0,
+      winhighlight = "FloatBorder:DiagnosticInfo,NormalFloat:Normal",
+    },
+  },
+})
 
 require("gitsigns").setup({
   keymaps = {},
