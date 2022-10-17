@@ -225,14 +225,14 @@ api.nvim_create_autocmd({ "FileType" }, {
 
 leap.setup({
   special_keys = {
-    next_aot_match = "]",
-    next_match = "]",
-    prev_match = "[",
+    next_phase_one_target = "]",
+    next_target = "]",
+    prev_target = "[",
     next_group = "]",
     prev_group = "[",
   },
 })
-leap.set_default_keymaps()
+leap.add_default_mappings()
 
 require("lualine").setup({
   options = {
