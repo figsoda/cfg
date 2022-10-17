@@ -4,47 +4,47 @@ with pkgs;
 
 let
   inherit (builtins) concatStringsSep;
-  inherit (lib) mapAttrsFlatten;
+  inherit (lib) mapAttrsFlatten removePrefix;
 in
 
 {
   programs.fish = {
     enable = true;
 
-    interactiveShellInit = ''
-      ${concatStringsSep "\n" (mapAttrsFlatten (k: v: "set -g fish_${k} ${v}") {
-        color_autosuggestion = "606886";
-        color_cancel = "e06c75";
-        color_command = "61afef -o";
-        color_comment = "5c6370 -i";
-        color_cwd = "98c379";
-        color_cwd_root = "61afef";
-        color_end = "9ab5e4";
-        color_error = "f83c40";
-        color_escape = "56b6c2";
-        color_history_current = "e5c07b -o";
-        color_host = "61afef";
-        color_host_remote = "61afef";
-        color_match = "56b6c2";
-        color_normal = "abb2bf";
-        color_operator = "56b6c2";
-        color_param = "9ab5e4";
-        color_quote = "98c379";
-        color_redirection = "c678dd";
-        color_search_match = "e5c07b";
-        color_selection = "2c323c";
-        color_status = "e06c75";
-        color_user = "e5c07b";
-        color_valid_path = "e5c07b";
+    interactiveShellInit = with import ./colors.nix; ''
+      ${concatStringsSep "\n" (mapAttrsFlatten (k: v: "set -g fish_${k} ${removePrefix "#" v}") {
+        color_autosuggestion = lightgray;
+        color_cancel = red;
+        color_command = "${blue} -o";
+        color_comment = "${lightgray} -i";
+        color_cwd = green;
+        color_cwd_root = blue;
+        color_end = white;
+        color_error = lightred;
+        color_escape = cyan;
+        color_history_current = "${yellow} -o";
+        color_host = blue;
+        color_host_remote = blue;
+        color_match = cyan;
+        color_normal = white;
+        color_operator = cyan;
+        color_param = white;
+        color_quote = green;
+        color_redirection = magenta;
+        color_search_match = yellow;
+        color_selection = gray;
+        color_status = red;
+        color_user = yellow;
+        color_valid_path = yellow;
         greeting = "";
         pager_color_background = "";
-        pager_color_completion = "abb2bf";
-        pager_color_description = "98c379";
-        pager_color_prefix = "abb2bf -o";
-        pager_color_progress = "e5c07b";
-        pager_color_selected_completion = "61afef -o";
-        pager_color_selected_description = "e5c07b";
-        pager_color_selected_prefix = "61afef -o -u";
+        pager_color_completion = white;
+        pager_color_description = green;
+        pager_color_prefix = "${white} -o";
+        pager_color_progress = yellow;
+        pager_color_selected_completion = "${blue} -o";
+        pager_color_selected_description = yellow;
+        pager_color_selected_prefix = "${blue} -o -u";
       })}
 
       ${concatStringsSep "\n"
