@@ -151,7 +151,11 @@ cmp.setup.filetype({ "dap-repl", "dapui_watches" }, {
   },
 })
 
-require("colorizer").setup(nil, { css = true })
+require("colorizer").setup({
+  user_default_options = {
+    css = true,
+  },
+})
 
 require("Comment").setup({ ignore = "^$" })
 
