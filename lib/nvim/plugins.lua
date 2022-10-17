@@ -17,10 +17,7 @@ local lsp = vim.lsp
 local treesitter = vim.treesitter
 
 local border = { "", "", "", " ", "", "", "", " " }
-
-local capabilities = require("cmp_nvim_lsp").update_capabilities(
-  lsp.protocol.make_client_capabilities()
-)
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local function on_attach(_, buf)
   local function mapb(mode, lhs, rhs)
