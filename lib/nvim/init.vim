@@ -86,6 +86,4 @@ autocmd FileType yaml setlocal shiftwidth=2
 
 autocmd User TelescopePreviewerLoaded setlocal number
 
-autocmd VimEnter * silent exec "!@util_linux@/bin/kill -s SIGWINCH" getpid()
-
 command -nargs=+ T botright 12split term://<args>

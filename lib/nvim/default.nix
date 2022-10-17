@@ -19,6 +19,8 @@ in
       customRC = ''
         ${pkgs.callPackage ./colorscheme.nix { }}
 
+        luafile ${./before.lua}
+
         source ${
           substitutePackages ./init.vim {
             inherit (config.passthru) rust;
