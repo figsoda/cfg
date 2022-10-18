@@ -49,6 +49,7 @@ rec {
     bottom
     brightnessctl
     cargo-edit
+    cargo-nextest
     cargo-play
     clipmenu
     delta

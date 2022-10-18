@@ -132,6 +132,7 @@ in
       cb = "cargo build";
       cbr = "cargo build --release";
       cl = "cargo clippy";
+      cn = "cargo nextest run";
       cr = "cargo run";
       crr = "cargo run --release";
       ct = "cargo test";
