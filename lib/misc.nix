@@ -22,6 +22,7 @@
   environment.variables = {
     BAT_STYLE = "numbers";
     BAT_THEME = "TwoDark";
+    CC = "gcc";
     LESSHISTFILE = "-";
     PATH = "$HOME/.cargo/bin";
     RIPGREP_CONFIG_PATH = "${pkgs.writeText "rg-config" ''

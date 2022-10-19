@@ -51,6 +51,7 @@ rec {
     cargo-edit
     cargo-nextest
     cargo-play
+    clang
     clipmenu
     delta
     (with eclipses; buildEclipseUnversioned.override { jdk = openjdk17; } {
@@ -66,8 +67,8 @@ rec {
     hacksaw
     libreoffice-fresh
     libsecret
-    llvmPackages_latest.lld
     mmtc
+    mold
     mpc_cli
     (mpv.override {
       scripts = with mpvScripts; [ autoload sponsorblock thumbnail ];
@@ -93,6 +94,7 @@ rec {
     qogir-theme
     ripgrep
     rofi
+    sccache
     sd
     shotgun
     spaceFM
