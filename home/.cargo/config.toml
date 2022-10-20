@@ -1,6 +1,6 @@
-[build]
-incremental = false
-rustc-wrapper = "sccache"
+# [build]
+# incremental = false
+# rustc-wrapper = "sccache"
 
 [profile.dev]
 split-debuginfo = "unpacked"

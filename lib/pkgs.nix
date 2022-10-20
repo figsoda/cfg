@@ -94,7 +94,7 @@ rec {
     qogir-theme
     ripgrep
     rofi
-    sccache
+    # sccache
     sd
     shotgun
     spaceFM
