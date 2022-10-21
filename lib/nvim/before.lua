@@ -1,4 +1,12 @@
-require("notify").setup({ stages = "static" })
+require("notify").setup({
+  max_width = 80,
+  minimum_width = 20,
+  on_open = function(win)
+    vim.api.nvim_win_set_config(win, { border = "single" })
+  end,
+  stages = "static",
+  render = "minimal",
+})
 
 require("noice").setup({
   cmdline = {
