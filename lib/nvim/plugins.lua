@@ -180,12 +180,6 @@ require("dressing").setup({
   },
 })
 
-require("fidget").setup({
-  text = {
-    spinner = "dots",
-  },
-})
-
 require("gitsigns").setup({
   keymaps = {},
   preview_config = { border = border },

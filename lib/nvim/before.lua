@@ -1,3 +1,11 @@
+local no_top_text = {
+  opts = {
+    border = {
+      text = { top = "" },
+    },
+  },
+}
+
 require("notify").setup({
   max_width = 80,
   minimum_width = 20,
@@ -10,9 +18,12 @@ require("notify").setup({
 
 require("noice").setup({
   cmdline = {
-    icons = {
-      ["/"] = { firstc = false },
-      ["?"] = { firstc = false },
+    format = {
+      cmdline = no_top_text,
+      filter = no_top_text,
+      lua = no_top_text,
+      search_down = no_top_text,
+      search_up = no_top_text,
     },
   },
 
@@ -34,9 +45,13 @@ require("noice").setup({
     cmdline_popup = {
       border = {
         style = "single",
+      },
+    },
+    confirm = {
+      border = {
+        style = "single",
         text = { top = "" },
       },
-      filter_options = {},
     },
   },
 })

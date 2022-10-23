@@ -140,7 +140,10 @@ let
     TabLine.fg = lightgray;
     TabLineFill = { };
     TabLineSel.fg = white;
-    Title.fg = green;
+    Title = {
+      fg = green;
+      attrs = "bold";
+    };
     Visual.bg = gray;
     VisualNOS.bg = gray;
     WarningMsg.fg = yellow;
@@ -234,6 +237,17 @@ let
       bg = black;
       attrs = "NONE";
     };
+
+    # noice.nvim
+    NoiceFormatProgressDone = {
+      fg = white;
+      bg = silver;
+    };
+    NoiceFormatProgressTodo = {
+      fg = white;
+      bg = black;
+    };
+    NoiceLspProgressTitle.fg = white;
 
     # nvim-cmp
     CmpItemAbbr.fg = white;

@@ -120,7 +120,6 @@ in
         crates-nvim
         dressing-nvim
         editorconfig-nvim
-        fidget-nvim
         gitsigns-nvim
         indent-blankline-nvim
         leap-nvim
