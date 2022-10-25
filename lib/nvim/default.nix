@@ -151,7 +151,6 @@ in
         trouble-nvim
         vim-fugitive
         vim-lastplace
-        vim-markdown
         vim-nix
         vim-visual-multi
       ];

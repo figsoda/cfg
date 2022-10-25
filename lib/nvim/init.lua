@@ -49,8 +49,6 @@ local function map_nix(ctx)
 end
 
 g.mapleader = " "
-g.vim_markdown_conceal = 0
-g.vim_markdown_conceal_code_blocks = 0
 
 o.clipboard = "unnamedplus"
 o.completeopt = "menuone,noinsert,noselect"

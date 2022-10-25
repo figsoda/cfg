@@ -141,7 +141,7 @@ let
     TabLineFill = { };
     TabLineSel.fg = white;
     Title = {
-      fg = green;
+      fg = blue;
       attrs = "bold";
     };
     Visual.bg = gray;
@@ -290,10 +290,12 @@ let
     "@error".fg = red;
     "@field".fg = blue;
     "@function.builtin".fg = cyan;
+    "@none".fg = white;
     "@function.macro".fg = blue;
     "@namespace".fg = white;
     "@property".fg = blue;
-    "@punctuation.special".fg = white;
+    "@punctuation.delimiter".fg = white;
+    "@punctuation.special".fg = blue;
     "@string.escape".fg = orange;
     "@string.regex".fg = orange;
     "@string.special".fg = orange;
@@ -302,9 +304,16 @@ let
     "@tag.attribute".fg = red;
     "@tag.delimiter".fg = blue;
     "@text.danger".fg = red;
+    "@text.emphasis".attrs = "italic";
     "@text.literal".fg = green;
     "@text.note".fg = blue;
-    "@text.uri".fg = blue;
+    "@text.reference".fg = red;
+    "@text.strong".attrs = "bold";
+    "@text.title" = {
+      fg = blue;
+      attrs = "bold";
+    };
+    "@text.uri".fg = orange;
     "@text.warning".fg = yellow;
     "@variable.builtin".fg = orange;
 
