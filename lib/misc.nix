@@ -30,6 +30,12 @@
       -g=!.git
       --hidden
     ''}";
+    SAGOIN_CONFIG = "${(pkgs.formats.toml { }).generate "sagoin.toml" {
+      username = "${pkgs.libsecret}/bin/secret-tool lookup umd username";
+      username_type = "command";
+      password = "${pkgs.libsecret}/bin/secret-tool lookup umd password";
+      password_type = "command";
+    }}";
   };
 
   fonts = {

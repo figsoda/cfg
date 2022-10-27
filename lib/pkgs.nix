@@ -94,13 +94,13 @@ rec {
     qogir-theme
     ripgrep
     rofi
+    sagoin
     # sccache
     sd
     shotgun
     spaceFM
     stylua
     tela-icon-theme
-    umd-cs-submit
     xclip
     xtrt
     ymdl
