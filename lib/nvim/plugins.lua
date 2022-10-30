@@ -286,10 +286,6 @@ require("lualine").setup({
   },
 })
 
-require("lsp_signature").setup({
-  handler_opts = { border = border },
-})
-
 lspconfig.nil_ls.setup({
   capabilities = capabilities,
   cmd = { "@nil@/bin/nil" },

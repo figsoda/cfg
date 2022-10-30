@@ -123,7 +123,6 @@ in
         gitsigns-nvim
         indent-blankline-nvim
         leap-nvim
-        lsp_signature-nvim
         lspkind-nvim
         lualine-nvim
         luasnip
