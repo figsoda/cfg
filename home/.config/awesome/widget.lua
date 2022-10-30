@@ -143,8 +143,8 @@ function widget.mpd()
     __index = function(_, k)
       if k == "reload" then
         return function()
-          awful.spawn.easy_async_with_shell(
-            "mpc clear && mpc update && mpc add /",
+          awful.spawn.easy_async(
+            { "mmtc", "-C", "clear", "update", "add /" },
             function()
               template.visible = false
             end
@@ -158,7 +158,7 @@ function widget.mpd()
         return cmd_then_update("next")
       elseif k == "stop" then
         return function()
-          awful.spawn.easy_async({ "mpc", "stop" }, function()
+          awful.spawn.easy_async({ "mmtc", "-C", "stop" }, function()
             template.visible = false
           end)
         end
