@@ -5,9 +5,6 @@
       at-spi2-core.enable = true;
       gnome-keyring.enable = true;
     };
-    journald.extraConfig = ''
-      SystemMaxUse=256M
-    '';
     pipewire = {
       enable = true;
       alsa.enable = true;
