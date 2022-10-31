@@ -299,10 +299,20 @@ lspconfig.nil_ls.setup({
   },
 })
 
-lspconfig.pylsp.setup({
+lspconfig.pyright.setup({
   capabilities = capabilities,
-  cmd = { "@python_lsp_server@/bin/pylsp" },
+  cmd = { "@pyright@/bin/pyright-langserver", "--stdio" },
   on_attach = on_attach,
+  settings = {
+    python = {
+      analysis = {
+        diagnosticSeverityOverrides = {
+          reportMissingModuleSource = "none",
+        },
+        useLibraryCodeForTypes = true,
+      },
+    },
+  },
 })
 
 lspconfig.sumneko_lua.setup({
@@ -405,6 +415,8 @@ null_ls.setup({
   sources = {
     nb.code_actions.refactoring,
     nb.diagnostics.shellcheck.with({ command = "@shellcheck@/bin/shellcheck" }),
+    nb.formatting.black.with({ command = "@black_py@/bin/black"}),
+    nb.formatting.isort.with({ command = "@isort@/bin/isort"}),
     nb.formatting.prettier.with({ command = "@prettier@/bin/prettier" }),
     nb.formatting.stylua.with({ command = "@stylua@/bin/stylua" }),
   },

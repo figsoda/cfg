@@ -42,9 +42,11 @@ in
         luafile ${
           substitutePackages ./plugins.lua (import ../colors.nix // {
             inherit (pkgs)
-              jdt-language-server nil nixpkgs-fmt openjdk17 shellcheck stylua
-              sumneko-lua-language-server taplo yaml-language-server;
-            inherit (pkgs.nodePackages) prettier vim-language-server;
+              isort jdt-language-server nil nixpkgs-fmt openjdk17 shellcheck
+              stylua sumneko-lua-language-server taplo yaml-language-server;
+            inherit (pkgs.nodePackages) prettier pyright vim-language-server;
+
+            black-py = pkgs.black;
 
             jdtls-bundles = let jars = ext:
               "${codeExt "vscjava" ext}/server/*.jar";
@@ -71,20 +73,6 @@ in
             in lib.concatMapStringsSep ''", "'' (path: "${path}/lua")
               ([ "${cfg.package}/share/nvim/runtime" ]
                 ++ cfg.configure.packages.all.start);
-
-            python-lsp-server = (pkgs.python3.override {
-              packageOverrides = _: super: {
-                python-lsp-server = super.python-lsp-server.override {
-                  withAutopep8 = false;
-                  withFlake8 = false;
-                  withMccabe = false;
-                  withPyflakes = false;
-                  withPylint = false;
-                  withYapf = false;
-                };
-              };
-            }).withPackages
-              (ps: with ps; [ pyls-isort python-lsp-black python-lsp-server ]);
 
             rust-analyzer = pkgs.writers.writeBashBin "rust-analyzer" ''
               if ${config.nix.package}/bin/nix eval --raw .#devShell.x86_64-linux; then
