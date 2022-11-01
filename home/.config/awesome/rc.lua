@@ -189,6 +189,13 @@ awful.rules.rules = {
       placement = p.centered,
     },
   },
+  {
+    rule = { class = "Steam" },
+    properties = {
+      floating = true,
+      placement = p.centered,
+    },
+  },
 }
 
 client.connect_signal("manage", function(c)
