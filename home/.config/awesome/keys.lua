@@ -351,30 +351,31 @@ local kbs = {
 }
 
 for i = 1, 6 do
+  local key = i == 1 and "`" or i - 1
   table.insert(kbs, {
     m,
-    i,
+    key,
     function()
       awful.screen.focused().tags[i]:view_only()
     end,
   })
   table.insert(kbs, {
     ma,
-    i,
+    key,
     function()
       awful.tag.viewtoggle(awful.screen.focused().tags[i])
     end,
   })
   table.insert(ckbs, {
     ms,
-    i,
+    key,
     function(c)
       c:move_to_tag(awful.screen.focused().tags[i])
     end,
   })
   table.insert(ckbs, {
     mc,
-    i,
+    key,
     function(c)
       c:toggle_tag(awful.screen.focused().tags[i])
     end,
