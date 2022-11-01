@@ -93,8 +93,7 @@ in
       '';
 
       packages.all.start = with (pkgs.vimPlugins.extend (_: _: {
-        nvim-treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins
-          (_: pkgs.tree-sitter.allGrammars);
+        nvim-treesitter = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
       })); [
         bufferline-nvim
         cmp-buffer
