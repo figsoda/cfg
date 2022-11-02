@@ -387,7 +387,10 @@ lspconfig.sumneko_lua.setup({
       diagnostics = {
         disable = { "lowercase-global", "redefined-local" },
       },
-      runtime = { version = "LuaJIT" },
+      runtime = {
+        pathStrict = true,
+        version = "LuaJIT",
+      },
     },
   },
 })
@@ -415,8 +418,8 @@ null_ls.setup({
   sources = {
     nb.code_actions.refactoring,
     nb.diagnostics.shellcheck.with({ command = "@shellcheck@/bin/shellcheck" }),
-    nb.formatting.black.with({ command = "@black_py@/bin/black"}),
-    nb.formatting.isort.with({ command = "@isort@/bin/isort"}),
+    nb.formatting.black.with({ command = "@black_py@/bin/black" }),
+    nb.formatting.isort.with({ command = "@isort@/bin/isort" }),
     nb.formatting.prettier.with({ command = "@prettier@/bin/prettier" }),
     nb.formatting.stylua.with({ command = "@stylua@/bin/stylua" }),
   },
