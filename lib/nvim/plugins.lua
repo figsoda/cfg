@@ -1,9 +1,9 @@
 local cmp = require("cmp")
-local gps = require("nvim-gps")
 local jdtls = require("jdtls")
 local leap = require("leap")
 local lspconfig = require("lspconfig")
 local luasnip = require("luasnip")
+local navic = require("nvim-navic")
 local null_ls = require("null-ls")
 local nb = null_ls.builtins
 local rust_tools = require("rust-tools")
@@ -19,7 +19,7 @@ local treesitter = vim.treesitter
 local border = { "", "", "", " ", "", "", "", " " }
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-local function on_attach(_, buf)
+local function on_attach(c, buf)
   local function mapb(mode, lhs, rhs)
     vim.keymap.set(mode, lhs, rhs, { buffer = buf })
   end
@@ -43,6 +43,10 @@ local function on_attach(_, buf)
     lsp.buf.format({ async = true, bufnr = buf })
   end)
   mapb({ "n", "v" }, "ga", lsp.buf.code_action)
+
+  if c.server_capabilities.documentSymbolProvider then
+    navic.attach(c, buf)
+  end
 end
 
 require("bufferline").setup({
@@ -197,8 +201,6 @@ require("gitsigns").setup({
   end,
 })
 
-gps.setup()
-
 require("indent_blankline").setup({
   char = "▏",
   use_treesitter = true,
@@ -281,7 +283,7 @@ require("lualine").setup({
     lualine_c = {
       "filename",
       { "diagnostics", sources = { "nvim_diagnostic" } },
-      { gps.get_location, condition = gps.is_available },
+      { navic.get_location, cond = navic.is_available },
     },
   },
 })

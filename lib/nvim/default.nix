@@ -120,9 +120,9 @@ in
         nvim-colorizer-lua
         nvim-dap
         nvim-dap-ui
-        nvim-gps
         nvim-jdtls
         nvim-lspconfig
+        nvim-navic
         nvim-notify
         nvim-tree-lua
         nvim-treesitter
