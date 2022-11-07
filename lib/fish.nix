@@ -104,7 +104,6 @@ in
             ${config.i18n.inputMethod.package}/bin/fcitx5 &
             ${mpd}/bin/mpd ${writeText "mpd.conf" ''
               music_directory "~/music"
-              playlist_directory "~/.local/share/mpd/playlists"
               db_file "~/.local/share/mpd/mpd.db"
               pid_file "~/.local/share/mpd/mpd.pid"
               state_file "~/.local/share/mpd/mpdstate"
