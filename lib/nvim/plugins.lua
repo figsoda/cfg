@@ -379,6 +379,7 @@ lspconfig.sumneko_lua.setup({
     c.server_capabilities.documentRangeFormattingProvider = false
     if vim.tbl_contains(c.config.settings.Lua.diagnostics.globals, "vim") then
       c.config.settings.Lua.workspace = {
+        checkThirdParty = false,
         library = { "@lua_paths@" },
       }
     end
