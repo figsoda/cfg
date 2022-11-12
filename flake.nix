@@ -5,7 +5,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     figsoda-pkgs = {
-      url = "github:figsoda/nix-packages";
+      url = "github:figsoda/pkgs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:nixos/nixos-hardware";
