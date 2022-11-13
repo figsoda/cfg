@@ -33,12 +33,16 @@ local function on_attach(c, buf)
   mapb("n", "K", lsp.buf.hover)
   mapb("n", "[d", diagnostic.goto_prev)
   mapb("n", "]d", diagnostic.goto_next)
-  mapb("n", "gd", lsp.buf.definition)
+  mapb("n", "gd", function()
+    trouble.open("lsp_definitions")
+  end)
   mapb("n", "ge", function()
     diagnostic.open_float(0, { scope = "cursor" })
   end)
   mapb("n", "gr", lsp.buf.rename)
-  mapb("n", "gt", lsp.buf.type_definition)
+  mapb("n", "gt", function()
+    trouble.open("lsp_type_definitions")
+  end)
   mapb({ "n", "v" }, "ff", function()
     lsp.buf.format({ async = true, bufnr = buf })
   end)
@@ -599,4 +603,9 @@ telescope.setup({
 })
 telescope.load_extension("fzf")
 
-trouble.setup()
+trouble.setup({
+  auto_jump = {
+    "lsp_definitions",
+    "lsp_type_definitions",
+  },
+})
