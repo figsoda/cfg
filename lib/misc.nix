@@ -1,4 +1,6 @@
 { lib, pkgs, ... }: {
+  imports = [ ../hardware-configuration.nix ];
+
   boot = {
     cleanTmpDir = true;
     kernelPackages = pkgs.linuxPackages_latest;
