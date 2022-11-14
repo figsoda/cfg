@@ -13,7 +13,6 @@ let inherit (config.passthru) inputs; in
       "nixos=${inputs.nixpkgs}"
       "nixpkgs=${inputs.nixpkgs}"
     ];
-    package = pkgs.nixUnstable;
     registry.nixpkgs.flake = inputs.nixpkgs;
     settings = {
       auto-optimise-store = true;
