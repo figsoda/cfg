@@ -6,8 +6,8 @@ let inherit (config.passthru) inputs; in
   nix = {
     gc = {
       automatic = true;
-      dates = "Sat, 04:30";
-      options = "--delete-older-than 3d";
+      dates = "04:30";
+      options = "--delete-older-than 7d";
     };
     nixPath = [
       "nixos=${inputs.nixpkgs}"
