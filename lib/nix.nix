@@ -32,7 +32,7 @@ let inherit (config.passthru) inputs; in
   nixpkgs = {
     config.allowUnfree = true;
     overlays = with inputs; [
-      fenix.overlay
+      fenix.overlays.default
       figsoda-pkgs.overlays.default
       nixpkgs-hammering.overlays.default
     ];
