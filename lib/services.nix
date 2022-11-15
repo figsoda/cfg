@@ -54,7 +54,7 @@
         };
       };
       nixos-upgrade = {
-        serviceConfig.WorkingDirectory = "/home/figsoda/dotfiles";
+        serviceConfig.WorkingDirectory = "/home/figsoda/cfg";
         script = lib.mkForce ''
           ${pkgs.coreutils}/bin/sleep 5
           /run/wrappers/bin/sudo -u figsoda \
