@@ -13,7 +13,7 @@ $ swapon /dev/disk/by-label/swap
 $ nixos-generate-config --root /mnt
 $ rm /mnt/etc/nixos/configuration.nix
 $ git clone https://github.com/figsoda/cfg
-$ cp -r cfg/{lib,flake.*} /mnt/etc/nixos
+$ cp -r cfg/{src,flake.*} /mnt/etc/nixos
 $ nix-shell -p nixUnstable --run "nixos-install --flake /mnt/etc/nixos#nixos --no-channel-copy"
 $ reboot
 

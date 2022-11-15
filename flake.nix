@@ -26,15 +26,15 @@
         modules = [
           ({ passthru = { inherit inputs; }; })
           nixos-hardware.nixosModules.asus-zephyrus-ga401
-          ./lib/etc.nix
-          ./lib/fish.nix
-          ./lib/misc.nix
-          ./lib/nix.nix
-          ./lib/nvim
-          ./lib/passthru.nix
-          ./lib/pkgs.nix
-          ./lib/programs.nix
-          ./lib/services.nix
+          ./src/etc.nix
+          ./src/fish.nix
+          ./src/misc.nix
+          ./src/nix.nix
+          ./src/nvim
+          ./src/passthru.nix
+          ./src/pkgs.nix
+          ./src/programs.nix
+          ./src/services.nix
         ];
       };
 
@@ -43,9 +43,9 @@
           inherit system;
           modules = [
             ({ passthru = { inherit inputs; }; })
-            ./lib/nix.nix
-            ./lib/nvim
-            ./lib/passthru.nix
+            ./src/nix.nix
+            ./src/nvim
+            ./src/passthru.nix
           ];
         }).config.programs.neovim.finalPackage;
       });
