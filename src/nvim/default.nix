@@ -43,7 +43,8 @@ in
           substitutePackages ./plugins.lua (import ../colors.nix // {
             inherit (pkgs)
               isort jdt-language-server nil nixpkgs-fmt openjdk17 shellcheck
-              stylua sumneko-lua-language-server taplo yaml-language-server;
+              statix stylua sumneko-lua-language-server taplo
+              yaml-language-server;
             inherit (pkgs.nodePackages) prettier pyright vim-language-server;
 
             black-py = pkgs.black;

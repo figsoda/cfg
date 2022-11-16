@@ -99,6 +99,7 @@ with pkgs;
     sd
     shotgun
     spaceFM
+    statix
     stylua
     tela-icon-theme
     xclip
