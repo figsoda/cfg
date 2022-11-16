@@ -24,7 +24,7 @@
       nixosConfigurations.nixos = nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ({ passthru = { inherit inputs; }; })
+          { passthru = { inherit inputs; }; }
           nixos-hardware.nixosModules.asus-zephyrus-ga401
           ./src/etc.nix
           ./src/fish.nix
@@ -42,7 +42,7 @@
         neovim = (nixosSystem {
           inherit system;
           modules = [
-            ({ passthru = { inherit inputs; }; })
+            { passthru = { inherit inputs; }; }
             ./src/nix.nix
             ./src/nvim
             ./src/passthru.nix
