@@ -228,13 +228,15 @@ api.nvim_create_autocmd({ "FileType" }, {
       on_attach = on_attach,
       root_dir = root_dir,
       settings = {
-        configuration = {
-          runtimes = {
-            name = "JavaSE-17",
-            path = "@openjdk17@",
-          },
-        },
         java = {
+          configuration = {
+            runtimes = {
+              {
+                name = "JavaSE-17",
+                path = "@openjdk17@/lib/openjdk",
+              },
+            },
+          },
           format = {
             settings = {
               url = "@jdtls_format@",
