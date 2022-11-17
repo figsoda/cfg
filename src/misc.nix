@@ -94,9 +94,16 @@
   time.timeZone = "America/New_York";
 
   users.users.figsoda = {
-    extraGroups = [ "audio" "networkmanager" "video" "wheel" ];
+    extraGroups = [ "audio" "networkmanager" "podman" "video" "wheel" ];
     isNormalUser = true;
     shell = pkgs.fish;
+  };
+
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+    dockerSocket.enable = true;
+    enableNvidia = true;
   };
 
   xdg.mime.defaultApplications = {
