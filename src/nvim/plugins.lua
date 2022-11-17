@@ -426,6 +426,7 @@ null_ls.setup({
   on_attach = on_attach,
   sources = {
     nb.code_actions.refactoring,
+    nb.code_actions.statix.with({ command = "@statix@/bin/statix" }),
     nb.diagnostics.shellcheck.with({ command = "@shellcheck@/bin/shellcheck" }),
     nb.diagnostics.statix.with({ command = "@statix@/bin/statix" }),
     nb.formatting.black.with({ command = "@black_py@/bin/black" }),
