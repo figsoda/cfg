@@ -99,7 +99,7 @@ in
           }
         }/bin/sx ${
           writers.writeDash "sxrc" ''
-            CM_MAX_CLIPS=20 CM_SELECTIONS=clipboard ${clipmenu}/bin/clipmenud &
+            CM_MAX_CLIPS=100 CM_SELECTIONS=clipboard ${clipmenu}/bin/clipmenud &
             ${element-desktop}/bin/element-desktop --hidden &
             ${config.i18n.inputMethod.package}/bin/fcitx5 &
             ${mpd}/bin/mpd ${writeText "mpd.conf" ''
