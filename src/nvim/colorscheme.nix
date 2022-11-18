@@ -163,23 +163,20 @@ let
     DiagnosticError.fg = red;
     DiagnosticWarn.fg = yellow;
     DiagnosticInfo.fg = blue;
-    DiagnosticHint.fg = blue;
+    DiagnosticHint.fg = white;
     DiagnosticUnderlineError = {
-      fg = red;
+      sp = red;
       attrs = "underline";
     };
     DiagnosticUnderlineWarn = {
-      fg = yellow;
+      sp = yellow;
       attrs = "underline";
     };
     DiagnosticUnderlineInfo = {
-      fg = blue;
+      sp = blue;
       attrs = "underline";
     };
-    DiagnosticUnderlineHint = {
-      fg = blue;
-      attrs = "underline";
-    };
+    DiagnosticUnderlineHint.attrs = "underline";
 
     # diff
     diffRemoved.fg = red;
@@ -339,7 +336,7 @@ in
 concatStringsSep "\n" (mapAttrsFlatten
   (group: highlight:
     let get = k: highlight.${k} or "NONE";
-    in "hi ${group} guifg=${get "fg"} guibg=${get "bg"} guisp=${get "fg"} gui=${get "attrs"}")
+    in "hi ${group} guifg=${get "fg"} guibg=${get "bg"} guisp=${highlight.sp or (get "fg")} gui=${get "attrs"}")
   highlights
 ++ imap0 (i: color: "let terminal_color_${toString i} = '${color}'") [
   black

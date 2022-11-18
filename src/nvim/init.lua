@@ -214,3 +214,7 @@ map({ "n", "v", "s" }, "<c-w>", function()
     api.nvim_command("confirm bdelete")
   end
 end)
+
+vim.diagnostic.config({
+  severity_sort = true,
+})
