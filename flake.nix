@@ -21,6 +21,9 @@
       inherit (nixpkgs.lib) genAttrs nixosSystem systems;
     in
     {
+      formatter = genAttrs systems.flakeExposed
+        (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
+
       nixosConfigurations.nixos = nixosSystem {
         system = "x86_64-linux";
         modules = [
