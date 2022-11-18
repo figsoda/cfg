@@ -381,8 +381,6 @@ lspconfig.sumneko_lua.setup({
 
   on_attach = function(c, buf)
     on_attach(c, buf)
-    c.server_capabilities.documentFormattingProvider = false
-    c.server_capabilities.documentRangeFormattingProvider = false
     if vim.tbl_contains(c.config.settings.Lua.diagnostics.globals, "vim") then
       c.config.settings.Lua.workspace = {
         checkThirdParty = false,
@@ -395,6 +393,9 @@ lspconfig.sumneko_lua.setup({
     Lua = {
       diagnostics = {
         disable = { "lowercase-global", "redefined-local" },
+      },
+      format = {
+        enable = false,
       },
       runtime = {
         pathStrict = true,
