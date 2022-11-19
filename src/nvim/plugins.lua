@@ -326,27 +326,46 @@ lspconfig.pyright.setup({
 lspconfig.sumneko_lua.setup({
   capabilities = capabilities,
   cmd = { "@sumneko_lua_language_server@/bin/lua-language-server" },
-  root_dir = function(file)
-    return lspconfig.util.root_pattern("lua-globals", ".luacheckrc")(file)
-      or lspconfig.util.find_git_ancestor(file)
-      or lspconfig.util.path.dirname(file)
-  end,
-
   on_new_config = function(new_config, new_root_dir)
-    local ok, globals = pcall(fn.readfile, new_root_dir .. "/lua-globals")
-    if ok then
-      new_config.settings.Lua.diagnostics.globals = globals
+    local function load_lua_paths()
+      new_config.settings.Lua.workspace.library = { "@lua_paths@" }
+    end
+
+    local function load_luarc(path)
+      local file = io.open(new_root_dir .. "/" .. path)
+      if not file then
+        return false
+      end
+
+      local luarc = vim.json.decode(file:read("*a"))
+      local lua = luarc.Lua
+      local diagnostics = lua and lua.diagnostics or luarc["Lua.diagnostics"]
+      local globals = diagnostics and diagnostics.globals
+        or lua and lua["diagnostics.globals"]
+        or luarc["Lua.diagnostics.globals"]
+
+      if globals and vim.tbl_contains(globals, "vim") then
+        load_lua_paths()
+      end
+      return true
+    end
+
+    if load_luarc(".luarc.json") or load_luarc(".luarc.jsonc") then
       return
     end
 
-    new_config.settings.Lua.diagnostics.globals = {}
     local lcrc = loadfile(new_root_dir .. "/.luacheckrc", "t", {})
     if lcrc then
+      local found_vim = false
+
       local function read_config(cfg)
         local function add_globals(globals)
           if globals then
             for _, global in pairs(globals) do
               table.insert(new_config.settings.Lua.diagnostics.globals, global)
+              if global == "vim" then
+                found_vim = true
+              end
             end
           end
         end
@@ -376,23 +395,20 @@ lspconfig.sumneko_lua.setup({
           end
         end
       end
+
+      if found_vim then
+        load_lua_paths()
+      end
     end
   end,
 
-  on_attach = function(c, buf)
-    on_attach(c, buf)
-    if vim.tbl_contains(c.config.settings.Lua.diagnostics.globals, "vim") then
-      c.config.settings.Lua.workspace = {
-        checkThirdParty = false,
-        library = { "@lua_paths@" },
-      }
-    end
-  end,
+  on_attach = on_attach,
 
   settings = {
     Lua = {
       diagnostics = {
         disable = { "lowercase-global", "redefined-local" },
+        globals = {},
       },
       format = {
         enable = false,
@@ -400,6 +416,9 @@ lspconfig.sumneko_lua.setup({
       runtime = {
         pathStrict = true,
         version = "LuaJIT",
+      },
+      workspace = {
+        checkThirdParty = false,
       },
     },
   },
