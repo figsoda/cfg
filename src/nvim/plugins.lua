@@ -326,19 +326,19 @@ lspconfig.pyright.setup({
 lspconfig.sumneko_lua.setup({
   capabilities = capabilities,
   cmd = { "@sumneko_lua_language_server@/bin/lua-language-server" },
-  on_new_config = function(new_config, new_root_dir)
+  on_new_config = function(config, root_dir)
     local function load_lua_paths()
-      new_config.settings.Lua.workspace.library = { "@lua_paths@" }
+      config.settings.Lua.workspace.library = { "@lua_paths@" }
     end
 
     local function load_luarc(path)
-      local file = io.open(new_root_dir .. "/" .. path)
+      local file = io.open(root_dir .. "/" .. path)
       if not file then
         return false
       end
 
       local luarc = vim.json.decode(file:read("*a"))
-      local lua = luarc.Lua
+      local lua = luarc.Lua or luarc
       local diagnostics = lua and lua.diagnostics or luarc["Lua.diagnostics"]
       local globals = diagnostics and diagnostics.globals
         or lua and lua["diagnostics.globals"]
@@ -350,11 +350,14 @@ lspconfig.sumneko_lua.setup({
       return true
     end
 
+    config.settings.Lua.workspace.library = {}
+    config.settings.Lua.diagnostics.globals = {}
+
     if load_luarc(".luarc.json") or load_luarc(".luarc.jsonc") then
       return
     end
 
-    local lcrc = loadfile(new_root_dir .. "/.luacheckrc", "t", {})
+    local lcrc = loadfile(root_dir .. "/.luacheckrc", "t", {})
     if lcrc then
       local found_vim = false
 
@@ -362,7 +365,7 @@ lspconfig.sumneko_lua.setup({
         local function add_globals(globals)
           if globals then
             for _, global in pairs(globals) do
-              table.insert(new_config.settings.Lua.diagnostics.globals, global)
+              table.insert(config.settings.Lua.diagnostics.globals, global)
               if global == "vim" then
                 found_vim = true
               end
@@ -408,7 +411,6 @@ lspconfig.sumneko_lua.setup({
     Lua = {
       diagnostics = {
         disable = { "lowercase-global", "redefined-local" },
-        globals = {},
       },
       format = {
         enable = false,

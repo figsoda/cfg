@@ -1,3 +1,3 @@
 {
-  "Lua.diagnostics.globals": ["awesome", "client", "root", "screen"]
+  "diagnostics.globals": ["awesome", "client", "root", "screen"]
 }
