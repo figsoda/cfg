@@ -93,9 +93,7 @@ in
         }
       '';
 
-      packages.all.start = with (pkgs.vimPlugins.extend (_: _: {
-        nvim-treesitter = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
-      })); [
+      packages.all.start = with pkgs.vimPlugins; [
         bufferline-nvim
         cmp-buffer
         cmp-cmdline
@@ -126,7 +124,7 @@ in
         nvim-navic
         nvim-notify
         nvim-tree-lua
-        nvim-treesitter
+        nvim-treesitter.withAllGrammars
         nvim-treesitter-textobjects
         nvim-web-devicons
         nvim_context_vt
