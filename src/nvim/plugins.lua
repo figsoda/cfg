@@ -409,8 +409,16 @@ lspconfig.sumneko_lua.setup({
 
   settings = {
     Lua = {
+      completion = {
+        callSnippet = "Replace",
+        postfix = ".",
+      },
       diagnostics = {
         disable = { "lowercase-global", "redefined-local" },
+        groupSeverity = {
+          unused = "Warning",
+        },
+        libraryFiles = "Disable",
       },
       format = {
         enable = false,
