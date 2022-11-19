@@ -217,4 +217,14 @@ end)
 
 vim.diagnostic.config({
   severity_sort = true,
+  virtual_text = {
+    format = function(diagnostic)
+      return table.concat(
+        vim.tbl_filter(function(line)
+          return line ~= ""
+        end, vim.tbl_map(vim.trim, vim.split(diagnostic.message, "\n"))),
+        ", "
+      )
+    end,
+  },
 })

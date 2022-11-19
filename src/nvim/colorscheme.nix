@@ -176,7 +176,10 @@ let
       sp = blue;
       attrs = "underline";
     };
-    DiagnosticUnderlineHint.attrs = "underline";
+    DiagnosticUnderlineHint = {
+      sp = white;
+      attrs = "underline";
+    };
 
     # diff
     diffRemoved.fg = red;
