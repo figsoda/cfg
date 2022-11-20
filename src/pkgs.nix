@@ -5,7 +5,7 @@ with pkgs;
 {
   environment.systemPackages = [
     (writers.writeDashBin "ghtok" ''
-      ${pkgs.libsecret}/bin/secret-tool lookup github git
+      ${libsecret}/bin/secret-tool lookup github git
     '')
     (writers.writeBashBin "r" ''
       if [ "$1" = cargo ] && nix eval --raw "nixpkgs#$1-$2" 2> /dev/null; then
@@ -24,7 +24,9 @@ with pkgs;
 
           [ -z "$1" ] && ${coreutils}/bin/cat "$todos" && exit 0
 
-          if item=$(${ripgrep}/bin/rg '^\+\s*([^\s](.*[^\s])?)\s*$' -r '$1' <<< "$1"); then
+          if [ "$1" = @ ]; then
+            ${config.passthru.alacritty}/bin/alacritty -e ${config.programs.neovim.finalPackage}/bin/nvim "$todos"
+          elif item=$(${ripgrep}/bin/rg '^\+\s*([^\s](.*[^\s])?)\s*$' -r '$1' <<< "$1"); then
             ${coreutils}/bin/sort "$todos" - -uo "$todos" <<< "$item"
           else
             while read -r line; do
@@ -37,11 +39,6 @@ with pkgs;
     (writeTextDir "/share/icons/default/index.theme" ''
       [icon theme]
       Inherits=Qogir
-    '')
-    (writers.writeDashBin "alacritty" ''
-      ${alacritty}/bin/alacritty msg create-window "$@" || {
-        [ $? = 1 ] && ${alacritty}/bin/alacritty "$@"
-      }
     '')
     bat
     binutils

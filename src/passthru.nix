@@ -5,6 +5,11 @@ with pkgs;
 rec {
   environment.systemPackages = builtins.attrValues passthru;
   passthru = {
+    alacritty = writers.writeDashBin "alacritty" ''
+      ${alacritty}/bin/alacritty msg create-window "$@" || {
+        [ $? = 1 ] && ${alacritty}/bin/alacritty "$@"
+      }
+    '';
     lockscreen = with import ./colors.nix; writers.writeBashBin "lockscreen" ''
       ${i3lock-color}/bin/i3lock-color \
         -i ~/.config/wallpaper.png -k \
