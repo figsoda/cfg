@@ -452,6 +452,10 @@ lspconfig.yamlls.setup({
   on_attach = on_attach,
 })
 
+luasnip.config.setup({
+  region_check_events = "InsertEnter",
+})
+
 null_ls.setup({
   on_attach = on_attach,
   sources = {
