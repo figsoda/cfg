@@ -307,7 +307,21 @@ local kbs = {
     ),
   },
   { m, "q", exec("qalculate-gtk") },
-  { m, "r", exec({ "rofi", "-show", "run", "-modi", "run,drun" }) },
+  {
+    m,
+    "r",
+    exec({
+      "rofi",
+      "-modes",
+      "combi",
+      "-show",
+      "combi",
+      "-combi-modes",
+      "run,drun",
+      "-combi-display-format",
+      "{text}",
+    }),
+  },
   { m, "s", exec({ "alacritty", "-e", "btm" }) },
   { m, "t", exec("rofi-todo") },
   {
@@ -326,7 +340,7 @@ local kbs = {
       root.fake_input("key_release", "Shift_L")
     end,
   },
-  { m, "w", exec({ "rofi", "-show", "window", "-modi", "window" }) },
+  { m, "w", exec({ "rofi", "-show", "window", "-modes", "window" }) },
   {
     m,
     ",",

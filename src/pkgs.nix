@@ -16,8 +16,8 @@ with pkgs;
       ${config.nix.package}/bin/nix run "nixpkgs#$pkg" -- "''${@:2}"
     '')
     (writers.writeBashBin "rofi-todo" ''
-      ${rofi}/bin/rofi -show todo -modi todo:${
-        writers.writeBash "todo-modi" ''
+      ${rofi}/bin/rofi -show todo -modes todo:${
+        writers.writeBash "todo-mode" ''
           todos=~/.local/share/todos
           ${coreutils}/bin/mkdir -p ~/.local/share
           ${coreutils}/bin/touch "$todos"
