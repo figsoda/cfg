@@ -18,7 +18,7 @@ let
     Number.fg = orange;
     Boolean.fg = orange;
     Float.fg = orange;
-    Identifier.fg = red;
+    Identifier.fg = white;
     Function.fg = blue;
     Statement.fg = magenta;
     Conditional.fg = magenta;
@@ -290,9 +290,10 @@ let
     "@error".fg = red;
     "@field".fg = blue;
     "@function.builtin".fg = cyan;
-    "@none".fg = white;
     "@function.macro".fg = blue;
     "@namespace".fg = white;
+    "@none".fg = white;
+    "@parameter".fg = red;
     "@property".fg = blue;
     "@punctuation.delimiter".fg = white;
     "@punctuation.special".fg = blue;
