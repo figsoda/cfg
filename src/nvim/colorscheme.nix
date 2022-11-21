@@ -318,9 +318,6 @@ let
     "@text.warning".fg = yellow;
     "@variable.builtin".fg = orange;
 
-    # vim-nix
-    nixStringDelimiter.fg = green;
-
     # custom
     StatusLineGitAdded = {
       fg = green;

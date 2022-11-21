@@ -511,7 +511,6 @@ require("nvim-tree").setup({
 require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true,
-    disable = { "nix" },
   },
   indent = { enable = true },
   textobjects = {

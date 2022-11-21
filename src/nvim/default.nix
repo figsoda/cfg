@@ -136,7 +136,6 @@ in
         trouble-nvim
         vim-fugitive
         vim-lastplace
-        vim-nix
         vim-visual-multi
       ];
     };
