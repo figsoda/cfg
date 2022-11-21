@@ -282,6 +282,9 @@ let
     NvimTreeGitDeleted.fg = red;
     NvimTreeWinSeparator.fg = black;
 
+    # telescope.nvim
+    TelescopeResultsIdentifier.fg = blue;
+
     # treesitter
     "@attribute".fg = cyan;
     "@constant.builtin".fg = orange;
