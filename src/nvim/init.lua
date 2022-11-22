@@ -103,6 +103,7 @@ api.nvim_create_autocmd("FileType", {
   pattern = "java",
   callback = function(ctx)
     map("n", " B", function()
+      jdtls.compile()
       jdtls_util.with_classpaths(function(resp)
         api.nvim_command(
           "T @openjdk17@/bin/java -cp "
@@ -115,7 +116,7 @@ api.nvim_create_autocmd("FileType", {
       end)
     end, { buffer = ctx.buf })
     map("n", " b", function()
-      jdtls.compile("full")
+      jdtls.compile()
     end, { buffer = ctx.buf })
     map("n", " c", jdtls.test_class, { buffer = ctx.buf })
     map("n", " i", function()
