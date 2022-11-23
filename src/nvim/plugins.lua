@@ -248,15 +248,13 @@ api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
-leap.setup({
-  special_keys = {
-    next_phase_one_target = "]",
-    next_target = "]",
-    prev_target = "[",
-    next_group = "]",
-    prev_group = "[",
-  },
-})
+leap.opts.special_keys = {
+  next_phase_one_target = "]",
+  next_target = "]",
+  prev_target = "[",
+  next_group = "]",
+  prev_group = "[",
+}
 leap.add_default_mappings()
 
 require("lualine").setup({
