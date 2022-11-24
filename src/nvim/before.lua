@@ -33,6 +33,9 @@ require("noice").setup({
       ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
       ["vim.lsp.util.stylize_markdown"] = true,
     },
+    progress = {
+      throttle = 100,
+    },
   },
 
   popupmenu = {
