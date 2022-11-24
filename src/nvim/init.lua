@@ -195,6 +195,7 @@ map("n", " gs", gitsigns.stage_hunk)
 map("n", " gu", gitsigns.undo_stage_hunk)
 map("n", "[h", gitsigns.prev_hunk)
 map("n", "]h", gitsigns.next_hunk)
+map("n", " q", require("trouble").toggle)
 
 map("s", "<s-tab>", function()
   luasnip.jump(-1)
