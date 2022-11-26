@@ -128,6 +128,7 @@ in
         nvim-treesitter-textobjects
         nvim-web-devicons
         nvim_context_vt
+        playground
         refactoring-nvim
         ron-vim
         rust-tools-nvim
