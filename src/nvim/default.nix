@@ -76,7 +76,9 @@ in
                 ++ cfg.configure.packages.all.start);
 
             rust-analyzer = pkgs.writers.writeBashBin "rust-analyzer" ''
-              if ${config.nix.package}/bin/nix eval --raw .#devShell.x86_64-linux; then
+              if ${config.nix.package}/bin/nix eval --raw .#devShells.x86_64-linux.default \
+                || ${config.nix.package}/bin/nix eval --raw .#devShell.x86_64-linux
+              then
                 wrapper=(${config.nix.package}/bin/nix develop -c)
               fi
               "''${wrapper[@]}" ${pkgs.rust-analyzer-nightly}/bin/rust-analyzer
