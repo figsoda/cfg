@@ -137,6 +137,7 @@ in
       ct = "cargo test";
       g = "git";
       ga = "git add";
+      gab = "git absorb -r";
       gb = " git branch";
       gbs = "git bisect";
       gc = "git commit";

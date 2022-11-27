@@ -23,6 +23,7 @@ nn <space>fl <cmd>!@fd@/bin/fd -H '.lua$' -x @stylua@/bin/stylua<cr>
 nn <space>fn <cmd>!@fd@/bin/fd -H '.nix$' -x @nixpkgs_fmt@/bin/nixpkgs-fmt<cr>
 nn <space>g<space> :Git<space>
 nn <space>gB <cmd>Telescope git_bcommits<cr>
+nn <space>gN <cmd>Git absorb -r<cr>
 nn <space>gS <cmd>Telescope git_stash<cr>
 nn <space>ga <cmd>Git add -p<cr>
 nn <space>gc <cmd>Git commit<cr>

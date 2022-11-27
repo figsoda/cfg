@@ -61,6 +61,7 @@ with pkgs;
     firefox
     gcc
     gimp
+    git-absorb
     hacksaw
     libreoffice-fresh
     libsecret
