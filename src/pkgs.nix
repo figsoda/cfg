@@ -83,6 +83,7 @@ with pkgs;
       ${nixpkgs-review}/bin/nixpkgs-review "$@" "''${args[@]}"
     '')
     nsxiv
+    ouch
     pamixer
     pavucontrol
     psmisc
@@ -101,7 +102,6 @@ with pkgs;
     stylua
     tela-icon-theme
     xclip
-    xtrt
     ymdl
   ];
 }
