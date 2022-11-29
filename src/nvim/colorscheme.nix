@@ -192,19 +192,6 @@ let
     diffNewFile.fg = green;
     diffIndexLine.fg = magenta;
 
-    # gitcommit.vim
-    gitCommitUnmerged.fg = green;
-    gitCommitOnBranch.fg = white;
-    gitCommitBranch.fg = magenta;
-    gitCommitDiscardedType.fg = red;
-    gitCommitSelectedType.fg = green;
-    gitCommitHeader.fg = white;
-    gitCommitUntrackedFile.fg = cyan;
-    gitCommitDiscardedFile.fg = red;
-    gitCommitSelectedFile.fg = green;
-    gitCommitUnmergedFile.fg = yellow;
-    gitCommitSummary.fg = white;
-
     # gitsigns.nvim
     GitSignsAdd.fg = green;
     GitSignsChange.fg = yellow;
