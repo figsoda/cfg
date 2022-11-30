@@ -30,7 +30,6 @@ local function map_cargo(ctx)
           "T @rust@/bin/cargo add " .. flags .. " && @rust@/bin/cargo update"
         )
         api.nvim_command("startinsert")
-        api.nvim_command("NvimTreeRefresh")
       end
     end)
   end, { buffer = ctx.buf })

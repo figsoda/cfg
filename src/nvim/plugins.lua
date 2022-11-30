@@ -4,6 +4,7 @@ local leap = require("leap")
 local lspconfig = require("lspconfig")
 local luasnip = require("luasnip")
 local navic = require("nvim-navic")
+local neo_tree = require("neo-tree")
 local null_ls = require("null-ls")
 local nb = null_ls.builtins
 local rust_tools = require("rust-tools")
@@ -261,7 +262,7 @@ require("lualine").setup({
   options = {
     component_separators = "",
     section_separators = "",
-    disabled_filetypes = { "NvimTree" },
+    disabled_filetypes = { "neo-tree" },
     theme = {
       normal = {
         a = { fg = "@black@", bg = "@green@", bold = true },
@@ -454,6 +455,67 @@ luasnip.config.setup({
   region_check_events = "InsertEnter",
 })
 
+neo_tree.setup({
+  default_component_configs = {
+    icon = {
+      default = "",
+    },
+  },
+  event_handlers = {
+    {
+      event = "file_opened",
+      handler = function()
+        neo_tree.close_all()
+      end,
+    },
+  },
+  filesystem = {
+    commands = {
+      system_open = function(state)
+        local path = state.tree:get_node():get_id()
+        vim.loop.spawn(
+          "@xdg_utils@/bin/xdg-open",
+          { args = { path } },
+          function(code)
+            if code ~= 0 then
+              vim.notify(
+                "xdg-open " .. path .. " exited with code " .. code,
+                vim.log.levels.WARN
+              )
+            end
+          end
+        )
+      end,
+    },
+    filtered_items = {
+      hide_by_name = { ".git" },
+      hide_dotfiles = false,
+      show_hidden_count = false,
+      use_libuv_file_watcher = true,
+    },
+    window = {
+      mappings = {
+        ["<c-_>"] = "clear_filter",
+      },
+    },
+  },
+  hide_root_node = true,
+  popup_border_style = "single",
+  use_popups_for_input = false,
+  window = {
+    width = 32,
+    mappings = {
+      S = "noop",
+      ["<c-v>"] = "open_vsplit",
+      ["<c-x>"] = "open_split",
+      ["<cr>"] = "open_drop",
+      o = "system_open",
+      s = "noop",
+      t = "noop",
+    },
+  },
+})
+
 null_ls.setup({
   on_attach = on_attach,
   sources = {
@@ -469,42 +531,6 @@ null_ls.setup({
 })
 
 require("numb").setup()
-
-require("nvim-tree").setup({
-  actions = {
-    open_file = {
-      quit_on_open = true,
-    },
-  },
-  diagnostics = { enable = true },
-  filters = {
-    custom = { "^.git$" },
-  },
-  hijack_cursor = true,
-  open_on_setup = true,
-  update_cwd = true,
-  renderer = {
-    icons = {
-      glyphs = { default = "" },
-    },
-  },
-  view = {
-    mappings = {
-      list = {
-        {
-          key = "o",
-          action = "system_open",
-        },
-        {
-          key = "s",
-          cb = function()
-            leap.leap({})
-          end,
-        },
-      },
-    },
-  },
-})
 
 require("nvim-treesitter.configs").setup({
   highlight = {

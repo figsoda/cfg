@@ -44,7 +44,7 @@ in
             inherit (pkgs)
               isort jdt-language-server nil nixpkgs-fmt openjdk17 shellcheck
               statix stylua sumneko-lua-language-server taplo
-              yaml-language-server;
+              yaml-language-server xdg-utils;
             inherit (pkgs.nodePackages) prettier pyright vim-language-server;
 
             black-py = pkgs.black;
@@ -114,6 +114,7 @@ in
         lspkind-nvim
         lualine-nvim
         luasnip
+        neo-tree-nvim
         noice-nvim
         null-ls-nvim
         numb-nvim
@@ -125,7 +126,6 @@ in
         nvim-lspconfig
         nvim-navic
         nvim-notify
-        nvim-tree-lua
         nvim-treesitter.withAllGrammars
         nvim-treesitter-textobjects
         nvim-web-devicons

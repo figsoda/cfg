@@ -225,6 +225,9 @@ let
       attrs = "NONE";
     };
 
+    # neo-tree.nvim
+    NeoTreeDirectoryIcon.fg = white;
+
     # noice.nvim
     NoiceFormatProgressDone = {
       fg = white;
@@ -260,14 +263,6 @@ let
     NotifyTRACEBorder.fg = white;
     NotifyTRACEIcon.fg = white;
     NotifyTRACETitle.fg = white;
-
-    # nvim-tree.lua
-    NvimTreeExecFile.fg = green;
-    NvimTreeSpecialFile.fg = yellow;
-    NvimTreeImageFile.fg = magenta;
-    NvimTreeGitDirty.fg = red;
-    NvimTreeGitDeleted.fg = red;
-    NvimTreeWinSeparator.fg = black;
 
     # telescope.nvim
     TelescopeResultsIdentifier.fg = blue;
