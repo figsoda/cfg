@@ -226,7 +226,12 @@ let
     };
 
     # neo-tree.nvim
+    NeoTreeDimText.fg = lightgray;
     NeoTreeDirectoryIcon.fg = white;
+    NeoTreeDotfile.fg = lightgray;
+    NeoTreeGitConflict.fg = lightred;
+    NeoTreeGitUnstaged.fg = orange;
+    NeoTreeGitUntracked.fg = orange;
 
     # noice.nvim
     NoiceFormatProgressDone = {

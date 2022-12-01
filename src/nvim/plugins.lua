@@ -493,6 +493,7 @@ neo_tree.setup({
       show_hidden_count = false,
       use_libuv_file_watcher = true,
     },
+    find_by_full_path_words = true,
     window = {
       mappings = {
         ["<c-_>"] = "clear_filter",
