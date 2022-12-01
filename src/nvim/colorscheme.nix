@@ -306,6 +306,8 @@ let
     };
     "@text.uri".fg = orange;
     "@text.warning".fg = yellow;
+    "@type".fg = yellow;
+    "@type.qualifier".fg = magenta;
     "@variable.builtin".fg = orange;
 
     # custom
