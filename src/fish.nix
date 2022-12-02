@@ -179,7 +179,10 @@ in
       nba = "nix-build -A";
       nd = "nix develop -c fish";
       nf = "nix flake";
+      nfc = "nix flake check";
+      nfs = "nix flake show";
       nfu = "nix flake update";
+      nfuc = "nix flake update --commit-lock-file";
       nh = "nixpkgs-hammer";
       npu = " nix-prefetch-url --unpack";
       nr = "nix run";
