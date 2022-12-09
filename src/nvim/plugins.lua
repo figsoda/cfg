@@ -173,8 +173,10 @@ require("dressing").setup({
   input = {
     anchor = "NW",
     border = "single",
-    winblend = 0,
-    winhighlight = "FloatBorder:DiagnosticInfo,NormalFloat:Normal",
+    win_options = {
+      winblend = 0,
+      winhighlight = "FloatBorder:DiagnosticInfo,NormalFloat:Normal",
+    },
   },
   select = {
     backend = { "builtin" },
@@ -183,8 +185,10 @@ require("dressing").setup({
       min_height = { 0, 0 },
       min_width = { 0, 0 },
       relative = "cursor",
-      winblend = 0,
-      winhighlight = "FloatBorder:DiagnosticInfo,NormalFloat:Normal",
+      win_options = {
+        winblend = 0,
+        winhighlight = "FloatBorder:DiagnosticInfo,NormalFloat:Normal",
+      },
     },
   },
 })
