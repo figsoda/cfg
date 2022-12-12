@@ -94,7 +94,7 @@ with pkgs;
     ripgrep
     rofi
     sagoin
-    # sccache
+    sccache
     sd
     shotgun
     spaceFM
