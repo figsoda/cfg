@@ -4,6 +4,16 @@ let inherit (config.passthru) inputs; in
 
 {
   nix = {
+    buildMachines = [
+      {
+        hostName = "darwin-build-box.winter.cafe";
+        maxJobs = 4;
+        sshKey = "/root/.ssh/darwin-build-box";
+        sshUser = "figsoda";
+        systems = [ "aarch64-darwin" "x86_64-darwin" ];
+      }
+    ];
+    distributedBuilds = true;
     gc = {
       automatic = true;
       dates = "04:30";

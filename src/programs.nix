@@ -32,11 +32,15 @@
         };
       };
     };
-    ssh.askPassword = "${pkgs.writers.writeDash "password-prompt" ''
-      ${pkgs.yad}/bin/yad --title "Password prompt" \
-        --fixed --on-top --center \
-        --entry --hide-text
-    ''}";
+    ssh = {
+      askPassword = "${pkgs.writers.writeDash "password-prompt" ''
+        ${pkgs.yad}/bin/yad --title "Password prompt" \
+          --fixed --on-top --center \
+          --entry --hide-text
+      ''}";
+      knownHosts."darwin-build-box.winter.cafe".publicKey =
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB0io9E0eXiDIEHvsibXOxOPveSjUPIr1RnNKbUkw3fD";
+    };
     starship = {
       enable = true;
       settings = {
