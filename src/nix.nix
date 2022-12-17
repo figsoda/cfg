@@ -17,6 +17,7 @@ let inherit (config.passthru) inputs; in
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "flakes" "nix-command" ];
+      log-lines = 50;
       substituters = [
         "https://figsoda.cachix.org"
         "https://nix-community.cachix.org"
