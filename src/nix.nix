@@ -7,10 +7,11 @@ let inherit (config.passthru) inputs; in
     buildMachines = [
       {
         hostName = "darwin-build-box.winter.cafe";
-        maxJobs = 4;
+        maxJobs = 16;
         sshKey = "/root/.ssh/darwin-build-box";
         sshUser = "figsoda";
         systems = [ "aarch64-darwin" "x86_64-darwin" ];
+        supportedFeatures = [ "big-parallel" ];
       }
     ];
     distributedBuilds = true;
