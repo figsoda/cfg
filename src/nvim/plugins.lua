@@ -642,6 +642,7 @@ rust_tools.setup({
       ["rust-analyzer"] = {
         assist = { importPrefix = "by_crate" },
         checkOnSave = { command = "clippy" },
+        inlayHints = { locationLinks = false },
       },
     },
   },
