@@ -138,6 +138,8 @@ in
 
     viAlias = true;
     vimAlias = true;
+    withNodeJs = false;
+    withPython3 = false;
     withRuby = false;
   };
 }
