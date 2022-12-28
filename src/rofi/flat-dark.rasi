@@ -2,8 +2,6 @@
     background-color: @black@;
     border-color: @lightgray@;
     text-color: @white@;
-    width: 1024px;
-    height: 704px;
 }
 
 window {
