@@ -1,8 +1,10 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i sh -p curl fd imagemagick ripgrep sd xorg.xrandr
+#!nix-shell -i bash -p curl fd imagemagick ripgrep sd xorg.xrandr
 
-# shellcheck shell=sh
+# shellcheck shell=bash
 # vim: ft=sh
+
+set -euo pipefail
 
 echo Installing rime packages
 curl -LSs https://git.io/rime-install \
@@ -25,4 +27,5 @@ curl -LSs https://raw.githubusercontent.com/NixOS/nixos-artwork/master/wallpaper
         ~/.config/wallpaper.png
 
 echo Configuring mpd
+mkdir ~/.local/share/mpd
 touch ~/.local/share/mpd/mpd.db
