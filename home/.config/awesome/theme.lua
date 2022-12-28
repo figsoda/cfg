@@ -8,12 +8,12 @@ return {
   layout_tile = themedir .. "zenburn/layouts/tile.png",
 
   notification_icon_size = 40,
-  wibar_height = 28,
+  wibar_height = 30,
 
-  font = "sans 14",
-  battery_font = "monospace 10",
-  taglist_font = "monospace 16",
-  textclock_font = "monospace 12.5",
+  font = "sans 18",
+  battery_font = "monospace 12",
+  taglist_font = "monospace 18",
+  textclock_font = "monospace 16",
 
   bg_normal = "#101014",
   bg_focus = "#202428",

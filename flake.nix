@@ -28,7 +28,7 @@
         system = "x86_64-linux";
         modules = [
           { passthru = { inherit inputs; }; }
-          nixos-hardware.nixosModules.asus-zephyrus-ga401
+          nixos-hardware.nixosModules.asus-zephyrus-ga402
           ./src/etc.nix
           ./src/fish.nix
           ./src/misc.nix

@@ -6,7 +6,7 @@ let
       gtk-application-prefer-dark-theme = true;
       gtk-cursor-theme-name = "Qogir";
       gtk-enable-animations = false;
-      gtk-font-name = "sans 14";
+      gtk-font-name = "sans 18";
       gtk-icon-theme-name = "Tela-dark";
       gtk-theme-name = "Qogir-Dark";
       gtk-xft-antialias = 1;

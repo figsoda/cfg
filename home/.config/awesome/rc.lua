@@ -69,7 +69,7 @@ awful.screen.connect_for_each_screen(function(s)
   )
   textclock.font = b.textclock_font
   awful.widget.calendar_popup
-    .month({ font = "monospace 16" })
+    .month({ font = "monospace 20" })
     :attach(textclock, "tr")
 
   s.panel = awful.wibar({ screen = s })
@@ -147,7 +147,11 @@ awful.screen.connect_for_each_screen(function(s)
       layout = wibox.layout.fixed.horizontal,
       s.mpd,
       widget.padding(8),
-      wibox.widget.systray(),
+      (function()
+        local tray = wibox.widget.systray()
+        tray:set_base_size(28)
+        return tray
+      end)(),
       widget.battery(),
       textclock,
     },
