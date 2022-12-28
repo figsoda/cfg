@@ -229,6 +229,14 @@ let
     NeoTreeDimText.fg = lightgray;
     NeoTreeDirectoryIcon.fg = white;
     NeoTreeDotfile.fg = lightgray;
+    NeoTreeFloatBorder = {
+      fg = white;
+      bg = black;
+    };
+    NeoTreeFloatNormal = {
+      fg = white;
+      bg = black;
+    };
     NeoTreeGitConflict.fg = lightred;
     NeoTreeGitUnstaged.fg = orange;
     NeoTreeGitUntracked.fg = orange;
