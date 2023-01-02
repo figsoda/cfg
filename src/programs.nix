@@ -25,6 +25,8 @@
         url = {
           "https://gitlab.com/".insteadOf = [ "gl:" "gitlab:" ];
           "https://github.com/".insteadOf = [ "gh:" "github:" ];
+          "https://github.com/figsoda/".insteadOf = [ "me:" ];
+          "https://github.com/nix-community/".insteadOf = [ "nc:" ];
         };
         user = {
           name = "figsoda";
