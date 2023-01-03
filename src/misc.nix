@@ -38,6 +38,7 @@
       password = "${pkgs.libsecret}/bin/secret-tool lookup umd password";
       password_type = "command";
     }}";
+    fish_features = "qmark-noglob";
   };
 
   fonts = {
