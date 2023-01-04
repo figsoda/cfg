@@ -4,6 +4,14 @@
   nix = {
     buildMachines = [
       {
+        hostName = "aarch64.nixos.community";
+        maxJobs = 64;
+        sshKey = "/root/.ssh/aarch64-build-box";
+        sshUser = "figsoda";
+        system = "aarch64-linux";
+        supportedFeatures = [ "big-parallel" ];
+      }
+      {
         hostName = "darwin-build-box.winter.cafe";
         maxJobs = 16;
         sshKey = "/root/.ssh/darwin-build-box";
