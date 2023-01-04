@@ -1,6 +1,4 @@
-{ config, pkgs, ... }:
-
-let inherit (config.passthru) inputs; in
+{ config, pkgs, inputs, ... }:
 
 {
   nix = {

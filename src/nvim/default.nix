@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 let
   substitutePackages = src: substitutions:
@@ -33,7 +33,7 @@ in
         luafile ${
           substitutePackages ./init.lua {
             inherit (config.passthru) rust;
-            inherit (config.passthru.inputs) nixpkgs;
+            inherit (inputs) nixpkgs;
             inherit (pkgs) cargo-edit cargo-play openjdk17;
             nix = config.nix.package;
           }

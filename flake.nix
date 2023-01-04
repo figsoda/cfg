@@ -26,8 +26,10 @@
 
       nixosConfigurations.nixos = nixosSystem {
         system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
+        };
         modules = [
-          { passthru = { inherit inputs; }; }
           nixos-hardware.nixosModules.asus-zephyrus-ga402
           ./src/etc.nix
           ./src/fish.nix
@@ -44,8 +46,10 @@
       packages = genAttrs systems.flakeExposed (system: {
         neovim = (nixosSystem {
           inherit system;
+          specialArgs = {
+            inherit inputs;
+          };
           modules = [
-            { passthru = { inherit inputs; }; }
             ./src/nix.nix
             ./src/nvim
             ./src/passthru.nix
