@@ -83,6 +83,7 @@ with pkgs;
       ${nixpkgs-review}/bin/nixpkgs-review "$@" "''${args[@]}"
     '')
     nsxiv
+    nurl
     ouch
     pamixer
     pavucontrol
