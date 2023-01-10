@@ -504,7 +504,6 @@ neo_tree.setup({
       },
     },
   },
-  hide_root_node = true,
   popup_border_style = "single",
   use_popups_for_input = false,
   window = {
