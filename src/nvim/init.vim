@@ -42,7 +42,7 @@ nn N Nzz
 nn R "_di"hp
 nn X "_X
 nn n nzz
-nn t <cmd>NeoTreeFocusToggle<cr>
+nn t <cmd>Neotree toggle focus<cr>
 nn x "_x
 
 vn < <gv
