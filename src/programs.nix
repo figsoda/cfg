@@ -5,7 +5,10 @@
     git = {
       enable = true;
       config = {
-        core.pager = "${pkgs.delta}/bin/delta";
+        core = {
+          fsmonitor = true;
+          pager = "${pkgs.delta}/bin/delta";
+        };
         credential."https://github.com" = {
           username = "figsoda";
           helper = pkgs.writers.writeBash "credential-helper-github" ''
@@ -20,6 +23,7 @@
           line-number = true;
           syntax-theme = "OneHalfDark";
         };
+        features.manyFiles = true;
         init.defaultBranch = "main";
         interactive.diffFilter = "${pkgs.delta}/bin/delta --color-only";
         url = {
