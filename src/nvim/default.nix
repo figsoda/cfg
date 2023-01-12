@@ -108,6 +108,7 @@ in
         lualine-nvim
         luasnip
         neo-tree-nvim
+        nix-develop-nvim
         noice-nvim
         null-ls-nvim
         numb-nvim
