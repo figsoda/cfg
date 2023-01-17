@@ -51,10 +51,9 @@ with pkgs;
     clang
     clipmenu
     delta
-    (with eclipses; buildEclipseUnversioned.override { jdk = openjdk17; } {
+    (with eclipses; buildEclipse.override { jdk = openjdk17; } {
       inherit (eclipse-java) name src;
       inherit (eclipse-java.meta) description;
-      productVersion = lib.getVersion eclipse-java;
     })
     element-desktop
     fd
