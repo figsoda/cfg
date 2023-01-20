@@ -91,6 +91,7 @@ with pkgs;
     qalculate-gtk
     qogir-icon-theme
     qogir-theme
+    riff
     ripgrep
     rofi
     sagoin
