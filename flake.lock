@@ -8,11 +8,11 @@
         "rust-analyzer-src": "rust-analyzer-src"
       },
       "locked": {
-        "lastModified": 1674368648,
-        "narHash": "sha256-qCoCVQsZtlAy6oQKVrwceEUfUeOB5/jcsHiiEIwjTSE=",
+        "lastModified": 1674454979,
+        "narHash": "sha256-7m0JdDvfnzKQs0cKECpZajxg6RKA8gm4xVF6CeAvye0=",
         "owner": "nix-community",
         "repo": "fenix",
-        "rev": "c1b7a949af9883a105b83b61cf2ae13ecd07a1a1",
+        "rev": "b2edf8473d14d6c6ffb2ca5e30459aa4bcd486aa",
         "type": "github"
       },
       "original": {
