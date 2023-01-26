@@ -34,7 +34,7 @@ require("noice").setup({
       ["vim.lsp.util.stylize_markdown"] = true,
     },
     progress = {
-      throttle = 100,
+      enabled = false,
     },
   },
 
