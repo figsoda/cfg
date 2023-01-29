@@ -9,10 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:nixos/nixos-hardware";
-    nixpkgs-hammering = {
-      url = "github:jtojnar/nixpkgs-hammering";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 

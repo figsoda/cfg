@@ -51,7 +51,6 @@
     overlays = with inputs; [
       fenix.overlays.default
       figsoda-pkgs.overlays.default
-      nixpkgs-hammering.overlays.default
     ];
   };
 }
