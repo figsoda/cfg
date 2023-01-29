@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }: {
   services = {
     auto-cpufreq.enable = true;
+    earlyoom.enable = true;
     gnome = {
       at-spi2-core.enable = true;
       gnome-keyring.enable = true;
