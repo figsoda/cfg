@@ -70,6 +70,7 @@ with pkgs;
     (mpv.override {
       scripts = with mpvScripts; [ autoload sponsorblock thumbnail ];
     })
+    nix-init
     nix-update
     nixpkgs-fmt
     nixpkgs-hammering

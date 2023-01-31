@@ -184,6 +184,7 @@ in
       nfu = "nix flake update";
       nfuc = "nix flake update --commit-lock-file";
       nh = "nixpkgs-hammer";
+      ni = " nix-init";
       npu = " nix-prefetch-url --unpack";
       nr = "nix run";
       nra = "nixpkgs-review approve";
