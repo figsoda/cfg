@@ -40,6 +40,7 @@ nn <space>t <cmd>T @fish@/bin/fish<cr>i
 nn <tab> <cmd>BufferLineCycleNext<cr>
 nn N Nzz
 nn R "_di"hp
+nn T <cmd>Neotree reveal<cr>
 nn X "_X
 nn n nzz
 nn t <cmd>Neotree toggle focus<cr>
