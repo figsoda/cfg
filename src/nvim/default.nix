@@ -42,9 +42,8 @@ in
         luafile ${
           substitutePackages ./plugins.lua (import ../colors.nix // {
             inherit (pkgs)
-              isort jdt-language-server nil nixpkgs-fmt openjdk17 shellcheck
-              statix stylua sumneko-lua-language-server taplo
-              yaml-language-server xdg-utils;
+              isort jdt-language-server lua-language-server nil nixpkgs-fmt openjdk17 shellcheck
+              statix stylua taplo yaml-language-server xdg-utils;
             inherit (pkgs.nodePackages) prettier pyright vim-language-server;
 
             black-py = pkgs.black;
