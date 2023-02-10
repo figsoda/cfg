@@ -167,6 +167,7 @@ in
       gro = "git reabse --onto";
       gs = "git status";
       gs- = "git switch -";
+      gsC = " git switch -C";
       gsc = " git switch -c";
       gsp = "git stash pop";
       gst = "git stash";
