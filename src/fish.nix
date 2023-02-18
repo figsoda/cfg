@@ -130,6 +130,8 @@ in
       c = "cargo";
       cb = "cargo build";
       cbr = "cargo build --release";
+      cir = "cargo insta review";
+      cit = "cargo insta test";
       cl = "cargo clippy";
       cn = "cargo nextest run";
       cr = "cargo run";

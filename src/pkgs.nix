@@ -46,6 +46,7 @@ with pkgs;
     bottom
     brightnessctl
     cargo-edit
+    cargo-insta
     cargo-nextest
     cargo-play
     clang
