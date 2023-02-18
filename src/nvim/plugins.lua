@@ -326,7 +326,7 @@ lspconfig.pyright.setup({
   },
 })
 
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
   capabilities = capabilities,
   cmd = { "@lua_language_server@/bin/lua-language-server" },
   on_new_config = function(config, root_dir)
