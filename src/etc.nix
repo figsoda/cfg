@@ -54,6 +54,18 @@ in
     "xdg/gtk-3.0/settings.ini".text = gtkSettings;
     "xdg/gtk-4.0/settings.ini".text = gtkSettings;
 
+    "xdg/nix-init/config.toml".source = (pkgs.formats.toml { }).generate "config.toml" {
+      maintainers = [ "figsoda" ];
+      access-tokens = {
+        "github.com".command = [
+          "${pkgs.libsecret}/bin/secret-tool"
+          "lookup"
+          "github"
+          "git"
+        ];
+      };
+    };
+
     "xdg/rofi.rasi".source = ./rofi/rofi.rasi;
     "xdg/flat-dark.rasi".source = pkgs.substituteAll (import ./colors.nix // {
       src = ./rofi/flat-dark.rasi;
