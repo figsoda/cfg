@@ -26,9 +26,7 @@ local function map_cargo(ctx)
   map("n", " a", function()
     vim.ui.input({ prompt = "Add dependencies: " }, function(flags)
       if flags then
-        api.nvim_command(
-          "T @rust@/bin/cargo add " .. flags .. " && @rust@/bin/cargo update"
-        )
+        api.nvim_command("T @rust@/bin/cargo add " .. flags)
         api.nvim_command("startinsert")
       end
     end)
