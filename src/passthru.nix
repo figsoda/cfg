@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
-with pkgs;
+let
+  inherit (pkgs) alacritty fenix i3lock-color writers;
+in
 
 rec {
   environment.systemPackages = builtins.attrValues passthru;
