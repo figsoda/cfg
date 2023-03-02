@@ -33,7 +33,7 @@
     registry.nixpkgs.flake = inputs.nixpkgs;
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "flakes" "nix-command" ];
+      experimental-features = [ "flakes" "nix-command" "repl-flake" ];
       log-lines = 50;
       substituters = [
         "https://figsoda.cachix.org"
