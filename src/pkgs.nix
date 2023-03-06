@@ -52,10 +52,16 @@ with pkgs;
     clang
     clipmenu
     delta
-    (with eclipses; buildEclipse.override { jdk = openjdk17; } {
-      inherit (eclipse-java) name src;
-      inherit (eclipse-java.meta) description;
-    })
+    (with eclipses; buildEclipse.override
+      {
+        jdk = openjdk17.override {
+          enableJavaFX = true;
+        };
+      }
+      {
+        inherit (eclipse-java) name src;
+        inherit (eclipse-java.meta) description;
+      })
     element-desktop
     fd
     firefox

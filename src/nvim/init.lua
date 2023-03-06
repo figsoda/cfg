@@ -107,7 +107,7 @@ api.nvim_create_autocmd("FileType", {
       jdtls.compile()
       jdtls_util.with_classpaths(function(resp)
         api.nvim_command(
-          "T @openjdk17@/bin/java -cp "
+          "T @jdk@/bin/java -cp "
             .. table.concat(resp.classpaths, ":")
             .. " "
             .. jdtls_util.resolve_classname()
@@ -123,7 +123,7 @@ api.nvim_create_autocmd("FileType", {
     map("n", " i", function()
       jdtls_util.with_classpaths(function(resp)
         api.nvim_command(
-          "T @openjdk17@/bin/jshell -c " .. table.concat(resp.classpaths, ":")
+          "T @jdk@/bin/jshell -c " .. table.concat(resp.classpaths, ":")
         )
         api.nvim_command("startinsert")
       end)

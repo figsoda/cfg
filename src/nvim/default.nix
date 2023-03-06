@@ -1,6 +1,10 @@
 { config, lib, pkgs, inputs, ... }:
 
 let
+  jdk = pkgs.openjdk17.override {
+    enableJavaFX = true;
+  };
+
   substitutePackages = src: substitutions:
     pkgs.substituteAll ({ inherit src; } // lib.mapAttrs'
       (k: lib.nameValuePair (builtins.replaceStrings [ "-" ] [ "_" ] k))
@@ -32,17 +36,19 @@ in
 
         luafile ${
           substitutePackages ./init.lua {
+            inherit jdk;
             inherit (config.passthru) rust;
             inherit (inputs) nixpkgs;
-            inherit (pkgs) cargo-edit cargo-play openjdk17;
+            inherit (pkgs) cargo-edit cargo-play;
             nix = config.nix.package;
           }
         }
 
         luafile ${
           substitutePackages ./plugins.lua (import ../colors.nix // {
+            inherit jdk;
             inherit (pkgs)
-              isort jdt-language-server lua-language-server nil nixpkgs-fmt openjdk17 shellcheck
+              isort jdt-language-server lua-language-server nil nixpkgs-fmt shellcheck
               statix stylua taplo yaml-language-server xdg-utils;
             inherit (pkgs.nodePackages) prettier pyright vim-language-server;
 

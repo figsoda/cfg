@@ -238,7 +238,7 @@ api.nvim_create_autocmd({ "FileType" }, {
             runtimes = {
               {
                 name = "JavaSE-17",
-                path = "@openjdk17@/lib/openjdk",
+                path = "@jdk@/lib/openjdk",
               },
             },
           },
