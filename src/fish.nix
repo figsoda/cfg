@@ -8,6 +8,10 @@ let
 in
 
 {
+  environment.systemPackages = with fishPlugins; [
+    autopair
+  ];
+
   programs.fish = {
     enable = true;
 
