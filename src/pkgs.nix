@@ -68,6 +68,7 @@ with pkgs;
     gcc
     gimp
     git-absorb
+    gnumake
     hacksaw
     libreoffice-fresh
     libsecret
