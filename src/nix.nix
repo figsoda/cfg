@@ -34,6 +34,7 @@
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "flakes" "nix-command" "repl-flake" ];
+      keep-outputs = true;
       log-lines = 50;
       substituters = [
         "https://figsoda.cachix.org"
