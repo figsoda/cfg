@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   programs = {
     command-not-found.enable = false;
     dconf.enable = true;
