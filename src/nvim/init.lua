@@ -1,6 +1,6 @@
-local gitsigns = require("gitsigns")
 local dap = require("dap")
 local dapui = require("dapui")
+local gitsigns = require("gitsigns")
 local jdtls = require("jdtls")
 local jdtls_util = require("jdtls.util")
 local luasnip = require("luasnip")
