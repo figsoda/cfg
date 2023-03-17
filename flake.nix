@@ -8,6 +8,10 @@
       url = "github:figsoda/pkgs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    flake-registry = {
+      url = "github:nixos/flake-registry";
+      flake = false;
+    };
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
