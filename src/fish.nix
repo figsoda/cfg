@@ -9,11 +9,16 @@ in
 
 {
   environment.systemPackages = with fishPlugins; [
+    async-prompt
     autopair
   ];
 
   programs.fish = {
     enable = true;
+
+    shellInit = ''
+      ${starship}/bin/starship init fish | source
+    '';
 
     interactiveShellInit = with import ./colors.nix; ''
       ${concatStringsSep "\n" (mapAttrsFlatten (k: v: "set -g fish_${k} ${removePrefix "#" v}") {
