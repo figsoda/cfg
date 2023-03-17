@@ -53,9 +53,9 @@ with pkgs;
     clipmenu
     delta
     (with eclipses; buildEclipse {
-        inherit (eclipse-java) name src;
-        inherit (eclipse-java.meta) description;
-      })
+      inherit (eclipse-java) name src;
+      inherit (eclipse-java.meta) description;
+    })
     element-desktop
     fd
     firefox
