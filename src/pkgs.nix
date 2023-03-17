@@ -52,13 +52,7 @@ with pkgs;
     clang
     clipmenu
     delta
-    (with eclipses; buildEclipse.override
-      {
-        jdk = openjdk17.override {
-          enableJavaFX = true;
-        };
-      }
-      {
+    (with eclipses; buildEclipse {
         inherit (eclipse-java) name src;
         inherit (eclipse-java.meta) description;
       })

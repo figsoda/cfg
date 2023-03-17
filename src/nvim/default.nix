@@ -1,9 +1,7 @@
 { config, lib, pkgs, inputs, ... }:
 
 let
-  jdk = pkgs.openjdk17.override {
-    enableJavaFX = true;
-  };
+  jdk = pkgs.openjdk17;
 
   substitutePackages = src: substitutions:
     pkgs.substituteAll ({ inherit src; } // lib.mapAttrs'
