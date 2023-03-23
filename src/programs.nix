@@ -53,6 +53,7 @@
     };
     starship = {
       enable = true;
+      interactiveOnly = false;
       settings = {
         cmd_duration.min_time = 1000;
         command_timeout = 1000;
