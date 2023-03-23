@@ -67,7 +67,7 @@ in
 
       function __fish_command_not_found_handler -e fish_command_not_found -a cmd
         history merge
-        history delete -Ce $history[1]
+        history delete -Ce -- $history[1]
         if [ -d $cmd ]
           echo "fish: Entering directory: $cmd" >&2
           cd $cmd
