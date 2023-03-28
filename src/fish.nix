@@ -176,6 +176,7 @@ in
       gs- = "git switch -";
       gsC = " git switch -C";
       gsc = " git switch -c";
+      gsd = "git switch -d";
       gsp = "git stash pop";
       gst = "git stash";
       gsw = "git switch";
