@@ -78,7 +78,7 @@ in
         and commandline "git push -u origin main"
       end
 
-      function path -a name
+      function p -a name
         ${coreutils}/bin/realpath (command -v $name)
       end
 
