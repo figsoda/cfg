@@ -59,6 +59,26 @@
         "type": "github"
       }
     },
+    "haumea": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1680361221,
+        "narHash": "sha256-AGFgi7BTEDKRGhD+5QDRjru2dbVeJqZHpnXqczmoeL4=",
+        "owner": "nix-community",
+        "repo": "haumea",
+        "rev": "31382d9d956e8bb4d57535c4c373a78b67beeaf4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "haumea",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1680070330,
@@ -95,6 +115,7 @@
         "fenix": "fenix",
         "figsoda-pkgs": "figsoda-pkgs",
         "flake-registry": "flake-registry",
+        "haumea": "haumea",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs"
       }

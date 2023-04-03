@@ -1,0 +1,59 @@
+{ pkgs, root }:
+
+with pkgs;
+
+builtins.attrValues root.pkgs ++ [
+  bat
+  binutils
+  blueberry
+  bottom
+  brightnessctl
+  cargo-edit
+  cargo-insta
+  cargo-nextest
+  cargo-play
+  clang
+  clipmenu
+  delta
+  element-desktop
+  fd
+  firefox
+  fishPlugins.async-prompt
+  fishPlugins.autopair
+  gcc
+  gimp
+  git-absorb
+  gnumake
+  hacksaw
+  libreoffice-fresh
+  libsecret
+  mmtc
+  mold
+  mpc_cli
+  nix-init
+  nix-update
+  nixpkgs-fmt
+  nixpkgs-hammering
+  nsxiv
+  nurl
+  ouch
+  pamixer
+  pavucontrol
+  psmisc
+  python3
+  qalculate-gtk
+  qogir-icon-theme
+  qogir-theme
+  ripgrep
+  rofi
+  sagoin
+  sccache
+  sd
+  shotgun
+  spaceFM
+  statix
+  stylua
+  tela-icon-theme
+  xclip
+  ymdl
+]

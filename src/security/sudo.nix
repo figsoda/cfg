@@ -1,0 +1,3 @@
+{
+  wheelNeedsPassword = false;
+}

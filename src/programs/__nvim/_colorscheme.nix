@@ -1,10 +1,10 @@
-{ lib }:
+{ lib, root }:
 
-with import ../colors.nix;
+with root.colors;
 
 let
   inherit (builtins) concatStringsSep;
-  inherit (lib) imap0 mapAttrsFlatten;
+  inherit (lib) flip imap0 mapAttrsFlatten;
 
   highlights = {
     # group-name
@@ -334,25 +334,27 @@ let
   };
 in
 
-concatStringsSep "\n" (mapAttrsFlatten
-  (group: highlight:
-    let get = k: highlight.${k} or "NONE";
-    in "hi ${group} guifg=${get "fg"} guibg=${get "bg"} guisp=${highlight.sp or (get "fg")} gui=${get "attrs"}")
-  highlights
-++ imap0 (i: color: "let terminal_color_${toString i} = '${color}'") [
-  black
-  red
-  green
-  yellow
-  blue
-  magenta
-  cyan
-  white
-  silver
-  lightred
-  green
-  orange
-  blue
-  magenta
-  cyan
-])
+concatStringsSep "\n"
+  (flip mapAttrsFlatten highlights
+    (group: highlight:
+      let
+        get = k: highlight.${k} or "NONE";
+      in
+      "hi ${group} guifg=${get "fg"} guibg=${get "bg"} guisp=${highlight.sp or (get "fg")} gui=${get "attrs"}")
+  ++ imap0 (i: color: "let terminal_color_${toString i} = '${color}'") [
+    black
+    red
+    green
+    yellow
+    blue
+    magenta
+    cyan
+    white
+    silver
+    lightred
+    green
+    orange
+    blue
+    magenta
+    cyan
+  ])

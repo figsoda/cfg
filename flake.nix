@@ -12,13 +12,24 @@
       url = "github:nixos/flake-registry";
       flake = false;
     };
+    haumea = {
+      url = "github:nix-community/haumea";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
-  outputs = inputs@{ nixos-hardware, nixpkgs, ... }:
+  outputs = inputs@{ haumea, nixos-hardware, nixpkgs, ... }:
     let
       inherit (nixpkgs.lib) genAttrs nixosSystem systems;
+
+      module = { pkgs, ... }@args: haumea.lib.load {
+        src = ./src;
+        inputs = args // {
+          inherit inputs;
+        };
+      };
     in
     {
       formatter = genAttrs systems.flakeExposed
@@ -26,34 +37,17 @@
 
       nixosConfigurations.nixos = nixosSystem {
         system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs;
-        };
         modules = [
+          module
           nixos-hardware.nixosModules.asus-zephyrus-ga402
-          ./src/etc.nix
-          ./src/fish.nix
-          ./src/misc.nix
-          ./src/nix.nix
-          ./src/nvim
-          ./src/passthru.nix
-          ./src/pkgs.nix
-          ./src/programs.nix
-          ./src/services.nix
+          ./hardware-configuration.nix
         ];
       };
 
       packages = genAttrs systems.flakeExposed (system: {
         neovim = (nixosSystem {
           inherit system;
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = [
-            ./src/nix.nix
-            ./src/nvim
-            ./src/passthru.nix
-          ];
+          modules = [ module ];
         }).config.programs.neovim.finalPackage;
       });
     };

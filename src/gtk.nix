@@ -1,0 +1,3 @@
+{
+  iconCache.enable = true;
+}
