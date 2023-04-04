@@ -1,7 +1,7 @@
 { pkgs }:
 
 let
-  inherit (pkgs) formats libsecret writeText;
+  inherit (pkgs) writeText;
 in
 
 {
@@ -15,11 +15,5 @@ in
     -g=!.git
     --hidden
   '');
-  SAGOIN_CONFIG = toString ((formats.toml { }).generate "sagoin.toml" {
-    username = "${libsecret}/bin/secret-tool lookup umd username";
-    username_type = "command";
-    password = "${libsecret}/bin/secret-tool lookup umd password";
-    password_type = "command";
-  });
   fish_features = "qmark-noglob";
 }

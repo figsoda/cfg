@@ -73,6 +73,13 @@ in
     src = ./flat-dark.rasi;
   });
 
+  "xdg/sagoin/config.toml".source = (formats.toml { }).generate "config.toml" {
+    username = "${libsecret}/bin/secret-tool lookup umd username";
+    username_type = "command";
+    password = "${libsecret}/bin/secret-tool lookup umd password";
+    password_type = "command";
+  };
+
   "xdg/user-dirs.defaults".text = ''
     DESKTOP=/dev/null
     DOCUMENTS=files
