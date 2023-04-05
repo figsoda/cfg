@@ -13,7 +13,7 @@
       flake = false;
     };
     haumea = {
-      url = "github:nix-community/haumea";
+      url = "github:nix-community/haumea/transformer";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:nixos/nixos-hardware";
@@ -29,6 +29,7 @@
         inputs = args // {
           inherit inputs;
         };
+        transformer = haumea.lib.transformers.liftDefault;
       };
     in
     {

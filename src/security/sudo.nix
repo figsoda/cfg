@@ -1,3 +1,0 @@
-{
-  wheelNeedsPassword = false;
-}

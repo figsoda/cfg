@@ -2,7 +2,6 @@
 
 {
   enable = true;
-  configure = super.nvim;
   defaultEditor = true;
   viAlias = true;
   vimAlias = true;

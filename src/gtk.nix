@@ -1,3 +1,0 @@
-{
-  iconCache.enable = true;
-}
