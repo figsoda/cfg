@@ -67,7 +67,7 @@
   nram = "nixpkgs-review approve && nixpkgs-review merge";
   nrh = "nixpkgs-review rev HEAD";
   nrm = "nixpkgs-review merge";
-  nrp = " GITHUB_TOKEN=(ghtok) nixpkgs-review pr";
+  nrp = " nixpkgs-review pr";
   nrpam = "nixpkgs-review post-result && nixpkgs-review approve && nixpkgs-review merge";
   nrpr = "nixpkgs-review post-result";
   ns = "nix shell";
