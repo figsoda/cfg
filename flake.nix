@@ -13,7 +13,7 @@
       flake = false;
     };
     haumea = {
-      url = "github:nix-community/haumea/v0.1.1";
+      url = "github:nix-community/haumea/v0.2.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:nixos/nixos-hardware";
