@@ -610,7 +610,7 @@ require("nvim-treesitter.configs").setup({
 
 require("nvim_context_vt").setup({
   custom_parser = function(node)
-    local text = treesitter.query.get_node_text(node, 0, { concat = false })[1]
+    local text = treesitter.get_node_text(node, 0, { concat = false })[1]
     if text and #text > 3 then
       local start_row, _, end_row, _ = treesitter.get_node_range(node)
       return end_row - start_row > 6 and "<- " .. text or nil
