@@ -233,6 +233,7 @@ let
       attrs = "italic";
     };
     "@lsp.type.decorator".fg = cyan;
+    "@lsp.type.deriveHelper".fg = cyan;
     "@lsp.type.enum".fg = yellow;
     "@lsp.type.enumMember".fg = orange;
     "@lsp.type.event".fg = orange;
