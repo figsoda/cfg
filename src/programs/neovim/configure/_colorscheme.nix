@@ -225,6 +225,37 @@ let
       attrs = "NONE";
     };
 
+    # lsp-semantic-highlight
+    "@lsp.type.attributeBracket".fg = cyan;
+    "@lsp.type.class".fg = yellow;
+    "@lsp.type.comment" = {
+      fg = lightgray;
+      attrs = "italic";
+    };
+    "@lsp.type.decorator".fg = cyan;
+    "@lsp.type.enum".fg = yellow;
+    "@lsp.type.enumMember".fg = orange;
+    "@lsp.type.event".fg = orange;
+    "@lsp.type.function".fg = blue;
+    "@lsp.type.interface".fg = yellow;
+    "@lsp.type.keyword".fg = magenta;
+    "@lsp.type.macro".fg = blue;
+    "@lsp.type.method".fg = blue;
+    "@lsp.type.modifier".fg = magenta;
+    "@lsp.type.namespace" = { };
+    "@lsp.type.number".fg = orange;
+    "@lsp.type.operator".fg = magenta;
+    "@lsp.type.parameter".fg = red;
+    "@lsp.type.property".fg = blue;
+    "@lsp.type.regexp".fg = orange;
+    "@lsp.type.string".fg = green;
+    "@lsp.type.struct".fg = yellow;
+    "@lsp.type.type".fg = yellow;
+    "@lsp.type.typeParameter".fg = red;
+    "@lsp.type.variable" = { };
+    "@lsp.typemod.function.builtin".fg = cyan;
+    "@lsp.typemod.struct.builtin".fg = orange;
+
     # neo-tree.nvim
     NeoTreeDimText.fg = lightgray;
     NeoTreeDirectoryIcon.fg = white;
