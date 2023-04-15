@@ -227,6 +227,7 @@ let
 
     # lsp-semantic-highlight
     "@lsp.type.attributeBracket".fg = cyan;
+    "@lsp.type.builtinAttribute".fg = cyan;
     "@lsp.type.class".fg = yellow;
     "@lsp.type.comment" = {
       fg = lightgray;
@@ -243,7 +244,7 @@ let
     "@lsp.type.macro".fg = blue;
     "@lsp.type.method".fg = blue;
     "@lsp.type.modifier".fg = magenta;
-    "@lsp.type.namespace" = { };
+    "@lsp.type.namespace".fg = white;
     "@lsp.type.number".fg = orange;
     "@lsp.type.operator".fg = magenta;
     "@lsp.type.parameter".fg = red;
@@ -253,7 +254,7 @@ let
     "@lsp.type.struct".fg = yellow;
     "@lsp.type.type".fg = yellow;
     "@lsp.type.typeParameter".fg = red;
-    "@lsp.type.variable" = { };
+    "@lsp.type.variable".fg = white;
     "@lsp.typemod.function.builtin".fg = cyan;
     "@lsp.typemod.struct.builtin".fg = orange;
 
