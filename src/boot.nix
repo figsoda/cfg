@@ -1,7 +1,6 @@
 { pkgs }:
 
 {
-  cleanTmpDir = true;
   kernelPackages = pkgs.linuxPackages_latest;
   loader = {
     efi.canTouchEfiVariables = true;
@@ -10,4 +9,5 @@
       editor = false;
     };
   };
+  tmp.cleanOnBoot = true;
 }
