@@ -30,11 +30,11 @@
         "ymdl": "ymdl"
       },
       "locked": {
-        "lastModified": 1682669411,
-        "narHash": "sha256-a9XcXPNoqaDj+uuxr78Wa+IaawUmIQ5YVy0Rhaqe9L4=",
+        "lastModified": 1682755742,
+        "narHash": "sha256-CHvi/7Ja+Tw1Pq/AlQvtmtF01GHUNSpzbGDGlp43OR4=",
         "owner": "figsoda",
         "repo": "pkgs",
-        "rev": "a2b7321d53e6ff41e61fc0c4c676f0f824564463",
+        "rev": "798fc75b49cb3ae3e452b6e46e3cfe99248a775d",
         "type": "github"
       },
       "original": {
@@ -82,11 +82,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1680876084,
-        "narHash": "sha256-eP9yxP0wc7XuVaODugh+ajgbFGaile2O1ihxiLxOuvU=",
+        "lastModified": 1682836095,
+        "narHash": "sha256-PdzpJhuXBz71AgWNWMMYLbB8GMMce6QguhQY/6HOOcc=",
         "owner": "nixos",
         "repo": "nixos-hardware",
-        "rev": "3006d2860a6ed5e01b0c3e7ffb730e9b293116e2",
+        "rev": "e4a21ddcb45ee5f5c85a5d9e9698debf77fb98c3",
         "type": "github"
       },
       "original": {
