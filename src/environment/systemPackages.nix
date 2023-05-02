@@ -30,6 +30,7 @@ builtins.attrValues root.pkgs ++ [
   mmtc
   mold
   mpc_cli
+  namaka
   nix-init
   nix-update
   nixpkgs-fmt

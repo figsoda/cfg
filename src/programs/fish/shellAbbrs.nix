@@ -61,6 +61,8 @@
   nfuc = "nix flake update --commit-lock-file";
   nh = "nixpkgs-hammer";
   ni = "nix-init";
+  nmc = "namaka check";
+  nmr = "namaka review";
   npu = " nix-prefetch-url --unpack";
   nr = "nix run";
   nra = "nixpkgs-review approve";
