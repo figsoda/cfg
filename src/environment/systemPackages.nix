@@ -21,7 +21,6 @@ builtins.attrValues root.pkgs ++ [
   fishPlugins.async-prompt
   fishPlugins.autopair
   gcc
-  gimp
   git-absorb
   gnumake
   hacksaw
@@ -32,6 +31,7 @@ builtins.attrValues root.pkgs ++ [
   mpc_cli
   namaka
   nix-init
+  nix-melt
   nix-update
   nixpkgs-fmt
   nixpkgs-hammering
