@@ -8,11 +8,11 @@
         "rust-analyzer-src": "rust-analyzer-src"
       },
       "locked": {
-        "lastModified": 1683872481,
-        "narHash": "sha256-BLXcc6oCbv98MGn/MSUTH8C4oKdczk/C5JqZ3ZlGAXU=",
+        "lastModified": 1683958802,
+        "narHash": "sha256-NpHC52RsZx3ghWZcjqVP0J/9nI22uLoQHXIIwxCQvOE=",
         "owner": "nix-community",
         "repo": "fenix",
-        "rev": "dd518e99e2833bb13e25570f88f2e16cdc5f8b4e",
+        "rev": "2b91c00ce19e3e501df05d2c016354dd237aa84a",
         "type": "github"
       },
       "original": {
@@ -124,11 +124,11 @@
     "rust-analyzer-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1683815219,
-        "narHash": "sha256-dC79Q2Xw8sBGz6a41H15XaT3pHQ6xP4EVY4axdxUb4E=",
+        "lastModified": 1683882895,
+        "narHash": "sha256-QDSL02sOgPWfm6LhoRpw2aqcWrpDgpAO4qXWc98DxQ0=",
         "owner": "rust-lang",
         "repo": "rust-analyzer",
-        "rev": "9b3387454d7c70ec768114871682ee2946ec88a8",
+        "rev": "884dd8c966e29d48bd9f8e5f22440cd238aa7cf1",
         "type": "github"
       },
       "original": {
