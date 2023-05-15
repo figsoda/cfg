@@ -306,6 +306,12 @@ lspconfig.nil_ls.setup({
       formatting = {
         command = { "@nixpkgs_fmt@/bin/nixpkgs-fmt" },
       },
+      nix = {
+        flake = {
+          autoArchive = true,
+          autoEvalImports = true,
+        },
+      },
     },
   },
 })
