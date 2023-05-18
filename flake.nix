@@ -16,11 +16,15 @@
       url = "github:nix-community/haumea/v0.2.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-index-database = {
+      url = "github:mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
-  outputs = inputs@{ haumea, nixos-hardware, nixpkgs, ... }:
+  outputs = inputs@{ haumea, nix-index-database, nixos-hardware, nixpkgs, ... }:
     let
       inherit (nixpkgs.lib) genAttrs nixosSystem systems;
 
@@ -40,6 +44,7 @@
         system = "x86_64-linux";
         modules = [
           module
+          nix-index-database.nixosModules.nix-index
           nixos-hardware.nixosModules.asus-zephyrus-ga402
           ./hardware-configuration.nix
         ];
