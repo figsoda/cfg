@@ -8,6 +8,7 @@ builtins.attrValues root.pkgs ++ [
   blueberry
   bottom
   brightnessctl
+  bubblewrap
   cargo-edit
   cargo-insta
   cargo-nextest
