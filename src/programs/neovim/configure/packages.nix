@@ -13,7 +13,6 @@
     comment-nvim
     crates-nvim
     dressing-nvim
-    editorconfig-nvim
     gitsigns-nvim
     indent-blankline-nvim
     leap-nvim
