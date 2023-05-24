@@ -1,5 +1,4 @@
 local cmp = require("cmp")
-local jdtls = require("jdtls")
 local leap = require("leap")
 local lspconfig = require("lspconfig")
 local luasnip = require("luasnip")
@@ -13,7 +12,6 @@ local trouble = require("trouble")
 
 local api = vim.api
 local diagnostic = vim.diagnostic
-local fn = vim.fn
 local lsp = vim.lsp
 local treesitter = vim.treesitter
 
@@ -213,44 +211,6 @@ require("gitsigns").setup({
 require("indent_blankline").setup({
   char = "▏",
   use_treesitter = true,
-})
-
-jdtls.setup_dap()
-api.nvim_create_autocmd({ "FileType" }, {
-  pattern = "java",
-  callback = function()
-    local root_dir = jdtls.setup.find_root({ "java-workspace" })
-    jdtls.start_or_attach({
-      capabilities = capabilities,
-      cmd = {
-        "@jdt_language_server@/bin/jdt-language-server",
-        "-data",
-        root_dir,
-      },
-      init_options = {
-        bundles = fn.readfile("@jdtls_bundles@"),
-      },
-      on_attach = on_attach,
-      root_dir = root_dir,
-      settings = {
-        java = {
-          configuration = {
-            runtimes = {
-              {
-                name = "JavaSE-17",
-                path = "@jdk@/lib/openjdk",
-              },
-            },
-          },
-          format = {
-            settings = {
-              url = "@jdtls_format@",
-            },
-          },
-        },
-      },
-    })
-  end,
 })
 
 leap.opts.special_keys = {

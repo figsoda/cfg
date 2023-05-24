@@ -1,8 +1,6 @@
 local dap = require("dap")
 local dapui = require("dapui")
 local gitsigns = require("gitsigns")
-local jdtls = require("jdtls")
-local jdtls_util = require("jdtls.util")
 local luasnip = require("luasnip")
 
 local api = vim.api
@@ -98,37 +96,6 @@ api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "flake.lock",
   callback = map_nix,
-})
-
-api.nvim_create_autocmd("FileType", {
-  pattern = "java",
-  callback = function(ctx)
-    map("n", " B", function()
-      jdtls.compile()
-      jdtls_util.with_classpaths(function(resp)
-        api.nvim_command(
-          "T @jdk@/bin/java -cp "
-            .. table.concat(resp.classpaths, ":")
-            .. " "
-            .. jdtls_util.resolve_classname()
-        )
-        b.no_auto_quit = true
-        api.nvim_command("startinsert")
-      end)
-    end, { buffer = ctx.buf })
-    map("n", " b", function()
-      jdtls.compile()
-    end, { buffer = ctx.buf })
-    map("n", " c", jdtls.test_class, { buffer = ctx.buf })
-    map("n", " i", function()
-      jdtls_util.with_classpaths(function(resp)
-        api.nvim_command(
-          "T @jdk@/bin/jshell -c " .. table.concat(resp.classpaths, ":")
-        )
-        api.nvim_command("startinsert")
-      end)
-    end, { buffer = ctx.buf })
-  end,
 })
 
 api.nvim_create_autocmd("FileType", {

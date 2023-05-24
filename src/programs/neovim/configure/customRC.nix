@@ -3,7 +3,6 @@
 let
   inherit (lib) mapAttrs' nameValuePair;
 
-  jdk = pkgs.openjdk17;
   nix = config.nix.package;
 
   substitutePackages = src: substitutions:
@@ -31,7 +30,7 @@ in
 
   luafile ${
     substitutePackages ./init.lua {
-      inherit jdk nix;
+      inherit nix;
       inherit (inputs) nixpkgs;
       inherit (pkgs) cargo-edit cargo-play;
       inherit (root.pkgs) rust;
@@ -40,33 +39,21 @@ in
 
   luafile ${
     substitutePackages ./plugins.lua (root.colors // {
-      inherit jdk;
       inherit (pkgs)
-        isort jdt-language-server lua-language-server nil nixpkgs-fmt shellcheck
-        statix stylua taplo yaml-language-server xdg-utils;
+        isort
+        lua-language-server
+        nil
+        nixpkgs-fmt
+        shellcheck
+        statix
+        stylua
+        taplo
+        xdg-utils
+        yaml-language-server
+        ;
       inherit (pkgs.nodePackages) prettier pyright vim-language-server;
 
       black-py = pkgs.black;
-
-      jdtls-bundles = let jars = ext:
-        "${codeExt "vscjava" ext}/server/*.jar";
-      in pkgs.runCommand "jdtls-bundles" { } ''
-        for jar in ${jars "vscode-java-debug"} ${jars "vscode-java-test"}; do
-          echo "$jar" >> $out
-        done
-      '';
-
-      jdtls-format = pkgs.writeText "jdtls-format.xml" ''
-        <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-        <profile kind="CodeFormatterProfile">
-          <setting id="org.eclipse.jdt.core.formatter.continuation_indentation" value="1"/>
-          <setting id="org.eclipse.jdt.core.formatter.continuation_indentation_for_array_initializer" value="1"/>
-          <setting id="org.eclipse.jdt.core.formatter.join_wrapped_lines" value="false"/>
-          <setting id="org.eclipse.jdt.core.formatter.lineSplit" value="80"/>
-          <setting id="org.eclipse.jdt.core.formatter.parentheses_positions_in_method_delcaration" value="separate_lines_if_wrapped"/>
-          <setting id="org.eclipse.jdt.core.formatter.tabulation.char" value="space"/>
-        </profile>
-      '';
 
       lua-paths =
         let

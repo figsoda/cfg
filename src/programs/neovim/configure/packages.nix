@@ -28,7 +28,6 @@
     nvim-colorizer-lua
     nvim-dap
     nvim-dap-ui
-    nvim-jdtls
     nvim-lspconfig
     nvim-navic
     nvim-notify
