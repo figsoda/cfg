@@ -44,7 +44,6 @@
         system = "x86_64-linux";
         modules = [
           module
-          nix-index-database.nixosModules.nix-index
           nixos-hardware.nixosModules.asus-zephyrus-ga402
           ./hardware-configuration.nix
         ];

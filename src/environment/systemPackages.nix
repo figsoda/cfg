@@ -1,4 +1,8 @@
-{ pkgs, root }:
+{ config, inputs, pkgs, root }:
+
+let
+  nix-index = inputs.nix-index-database.packages.${config.nixpkgs.system}.default;
+in
 
 with pkgs;
 
@@ -31,6 +35,7 @@ builtins.attrValues root.pkgs ++ [
   mold
   mpc_cli
   namaka
+  nix-index
   nix-init
   nix-melt
   nix-update
