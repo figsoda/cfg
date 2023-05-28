@@ -13,7 +13,7 @@
       flake = false;
     };
     haumea = {
-      url = "github:nix-community/haumea/v0.2.0";
+      url = "github:nix-community/haumea/v0.2.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-index-database = {
@@ -24,7 +24,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
-  outputs = inputs@{ haumea, nix-index-database, nixos-hardware, nixpkgs, ... }:
+  outputs = inputs@{ haumea, nixos-hardware, nixpkgs, ... }:
     let
       inherit (nixpkgs.lib) genAttrs nixosSystem systems;
 
