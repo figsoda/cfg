@@ -58,6 +58,7 @@ builtins.attrValues root.pkgs ++ [
   sd
   shotgun
   spaceFM
+  sshfs
   statix
   stylua
   tela-icon-theme
