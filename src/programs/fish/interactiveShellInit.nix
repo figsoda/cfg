@@ -3,7 +3,7 @@
 let
   inherit (builtins) concatStringsSep;
   inherit (lib) mapAttrsFlatten removePrefix;
-  inherit (pkgs) coreutils fish ncurses rust-templates;
+  inherit (pkgs) coreutils fish rust-templates;
 
   nix = config.nix.package;
 in
@@ -52,8 +52,6 @@ in
       ue = ''\e"[0m"'';
       us = ''\e"[38;2;209;154;102m"'';
     })}
-
-  bind \cl "${ncurses}/bin/clear; fish_prompt"
 
   function __fish_command_not_found_handler -e fish_command_not_found -a cmd
     history merge
