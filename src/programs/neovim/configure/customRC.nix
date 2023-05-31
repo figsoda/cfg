@@ -40,6 +40,7 @@ in
   luafile ${
     substitutePackages ./plugins.lua (root.colors // {
       inherit (pkgs)
+        clang-tools
         isort
         lua-language-server
         nil

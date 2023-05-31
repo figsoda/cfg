@@ -257,6 +257,12 @@ require("lualine").setup({
   },
 })
 
+lspconfig.clangd.setup({
+  capabilities = capabilities,
+  cmd = { "@clang_tools@/bin/clangd" },
+  on_attach = on_attach,
+})
+
 lspconfig.nil_ls.setup({
   capabilities = capabilities,
   cmd = { "@nil@/bin/nil" },
