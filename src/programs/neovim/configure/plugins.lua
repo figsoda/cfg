@@ -415,6 +415,12 @@ lspconfig.taplo.setup({
   on_attach = on_attach,
 })
 
+lspconfig.typst_lsp.setup({
+  capabilities = capabilities,
+  cmd = { "@typst_lsp@/bin/typst-lsp" },
+  on_attach = on_attach,
+})
+
 lspconfig.vimls.setup({
   capabilities = capabilities,
   cmd = { "@vim_language_server@/bin/vim-language-server", "--stdio" },

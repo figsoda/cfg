@@ -31,8 +31,8 @@
     nvim-lspconfig
     nvim-navic
     nvim-notify
-    nvim-treesitter.withAllGrammars
     nvim-treesitter-textobjects
+    nvim-treesitter.withAllGrammars
     nvim-web-devicons
     nvim_context_vt
     playground
@@ -42,6 +42,7 @@
     telescope-fzf-native-nvim
     telescope-nvim
     trouble-nvim
+    typst-vim
     vim-fugitive
     vim-lastplace
     vim-visual-multi

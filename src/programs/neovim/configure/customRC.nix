@@ -49,6 +49,7 @@ in
         statix
         stylua
         taplo
+        typst-lsp
         xdg-utils
         yaml-language-server
         ;
