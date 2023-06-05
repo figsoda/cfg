@@ -24,6 +24,7 @@ in
     syntax-theme = "OneHalfDark";
   };
   features.manyFiles = true;
+  http.postBuffer = 32 * 1024 * 1024;
   init.defaultBranch = "main";
   interactive.diffFilter = "${delta}/bin/delta --color-only";
   url = {
