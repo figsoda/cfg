@@ -8,6 +8,12 @@ in
   BAT_STYLE = "numbers";
   BAT_THEME = "TwoDark";
   CC = "gcc";
+  ERDTREE_CONFIG_PATH = writeText "erd-config" ''
+    --dir-order first
+    --human
+    --icons
+    --sort name
+  '';
   LESSHISTFILE = "-";
   PATH = "$HOME/.cargo/bin";
   RIPGREP_CONFIG_PATH = writeText "rg-config" ''

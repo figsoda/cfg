@@ -21,6 +21,7 @@ builtins.attrValues root.pkgs ++ [
   clipmenu
   delta
   element-desktop
+  erdtree
   fd
   firefox
   fishPlugins.async-prompt
