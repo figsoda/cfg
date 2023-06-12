@@ -22,7 +22,7 @@
   distributedBuilds = true;
   gc = {
     automatic = true;
-    dates = "04:30";
+    dates = "Sat, 04:30";
     options = "--delete-older-than 7d";
   };
   nixPath = [
