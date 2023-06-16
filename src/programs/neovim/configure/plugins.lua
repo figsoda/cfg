@@ -192,7 +192,6 @@ require("dressing").setup({
 })
 
 require("gitsigns").setup({
-  keymaps = {},
   preview_config = { border = border },
   status_formatter = function(status)
     return "  "
