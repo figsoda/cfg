@@ -53,7 +53,7 @@ in
       us = ''\e"[38;2;209;154;102m"'';
     })}
 
-  function __fish_command_not_found_handler -e fish_command_not_found -a cmd
+  function fish_command_not_found -a cmd
     history merge
     history delete -Ce -- $history[1]
     if [ -d $cmd ]
