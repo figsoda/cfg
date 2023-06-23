@@ -26,7 +26,14 @@
 
   outputs = inputs@{ haumea, nixos-hardware, nixpkgs, ... }:
     let
-      inherit (nixpkgs.lib) genAttrs nixosSystem systems;
+      inherit (nixpkgs.lib) genAttrs nixosSystem;
+
+      eachSystem = genAttrs [
+        "aarch64-darwin"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "x86_64-linux"
+      ];
 
       module = { pkgs, ... }@args: haumea.lib.load {
         src = ./src;
@@ -37,8 +44,8 @@
       };
     in
     {
-      formatter = genAttrs systems.flakeExposed
-        (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
+      formatter = eachSystem (system:
+        nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
 
       nixosConfigurations.nixos = nixosSystem {
         system = "x86_64-linux";
@@ -49,7 +56,7 @@
         ];
       };
 
-      packages = genAttrs systems.flakeExposed (system: {
+      packages = eachSystem (system: {
         neovim = (nixosSystem {
           inherit system;
           modules = [ module ];
