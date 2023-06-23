@@ -89,13 +89,13 @@
       "locked": {
         "lastModified": 1687097842,
         "narHash": "sha256-NPAaRZx5foWLgIPfEaiEZMr9JIlEQhLEVEXpx09341Q=",
-        "owner": "mic92",
+        "owner": "nix-community",
         "repo": "nix-index-database",
         "rev": "c8210cb3fcde6860255b54ddba74dc177e6232cd",
         "type": "github"
       },
       "original": {
-        "owner": "mic92",
+        "owner": "nix-community",
         "repo": "nix-index-database",
         "type": "github"
       }
