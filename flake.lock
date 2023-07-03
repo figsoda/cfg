@@ -30,11 +30,11 @@
         "ymdl": "ymdl"
       },
       "locked": {
-        "lastModified": 1688199017,
-        "narHash": "sha256-M0ZsVeZ2bF9R09mHea+SHIiW51rFTHZtozvzHxKabk4=",
+        "lastModified": 1688285472,
+        "narHash": "sha256-+tS+b1Nk0MvqJ2v56uwo58cWJqIIdF8PD3m8Ts5wgsc=",
         "owner": "figsoda",
         "repo": "pkgs",
-        "rev": "d563f1c1e9f70faacb803a4199fc252a8a97506f",
+        "rev": "e1d88270a069c279dfb7d65b99ec478e2ebf0e53",
         "type": "github"
       },
       "original": {
@@ -117,11 +117,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1688141540,
-        "narHash": "sha256-xh2aLD8R6gau+O+9h1ad+OAjCAj07lCKsY44+p/bJS8=",
+        "lastModified": 1688231357,
+        "narHash": "sha256-ZOn16X5jZ6X5ror58gOJAxPfFLAQhZJ6nOUeS4tfFwo=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4ffc4dc91838df228c8214162c106c24ec8fe03f",
+        "rev": "645ff62e09d294a30de823cb568e9c6d68e92606",
         "type": "github"
       },
       "original": {
@@ -162,11 +162,11 @@
     "rust-templates": {
       "flake": false,
       "locked": {
-        "lastModified": 1682612481,
-        "narHash": "sha256-8y1NtvNJpk6FpiP78EuPXOoNZ3t1NxNjYl4fhd0Xozc=",
+        "lastModified": 1688244189,
+        "narHash": "sha256-ZCdrBDFRGC9eRkI3G5TFARAdcTcKexEE98jg4dpbizA=",
         "owner": "figsoda",
         "repo": "rust-templates",
-        "rev": "8f21497cf2e9286c55dd0a59ca27b0cd9d179a42",
+        "rev": "a8fd34a5d5b87506d13906fe2f5523db93ec0989",
         "type": "github"
       },
       "original": {
