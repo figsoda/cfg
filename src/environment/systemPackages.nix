@@ -16,7 +16,6 @@ builtins.attrValues root.pkgs ++ [
   cargo-edit
   cargo-insta
   cargo-nextest
-  cargo-play
   clang
   clipmenu
   delta

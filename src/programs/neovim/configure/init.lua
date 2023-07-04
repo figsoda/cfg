@@ -107,9 +107,7 @@ api.nvim_create_autocmd("FileType", {
   pattern = "rust",
   callback = function(ctx)
     if string.sub(ctx.file, 1, 5) == "/tmp/" then
-      mapt(ctx.buf, " B", "@cargo_play@/bin/cargo-play " .. ctx.file, true)
-      mapt(ctx.buf, " b", "@cargo_play@/bin/cargo-play -m build " .. ctx.file)
-      mapt(ctx.buf, " c", "@cargo_play@/bin/cargo-play --test " .. ctx.file)
+      mapt(ctx.buf, " B", "@rust@/bin/cargo -Zscript " .. ctx.file, true)
     else
       map_cargo(ctx)
     end
@@ -141,6 +139,20 @@ api.nvim_create_user_command("P", function(input)
     file = file .. "." .. ext
   end
   api.nvim_command("edit " .. file)
+
+  if ext == "rs" then
+    api.nvim_put({
+      "//!```cargo",
+      "//! [package]",
+      [[//! name = "tmp" # https://github.com/rust-lang/cargo/pull/12329]],
+      [[//! edition = "2021"]],
+      "//!",
+      "//! [dependencies]",
+      "//! ```",
+      "",
+      "fn main() {}",
+    }, "c", false, false)
+  end
 end, { nargs = "?" })
 
 map("n", " dB", dap.clear_breakpoints)
