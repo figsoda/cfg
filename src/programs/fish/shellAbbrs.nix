@@ -47,7 +47,6 @@
   gsw = " git switch";
   gt = " git tag";
   n = "nix";
-  n-s = "nix shell -I nixpkgs=. --run fish -p";
   nb = "nix build";
   nbf = "nix build -f .";
   nd = "nix develop -c fish";
@@ -70,6 +69,8 @@
   nrpam = "nixpkgs-review post-result && nixpkgs-review approve && nixpkgs-review merge";
   nrpr = "nixpkgs-review post-result";
   nrw = "nixpkgs-rev wip";
+  nsip = "nix-shell -I nixpkgs=. --run fish -p";
+  nsp = "nix-shell --run fish -p";
   nu = "nix-update";
   nuc = "nix-update --commit";
   nucb = "nix-update --commit --build";
