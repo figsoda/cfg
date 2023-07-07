@@ -47,10 +47,9 @@
   gsw = " git switch";
   gt = " git tag";
   n = "nix";
-  n-b = "nix-build";
-  n-s = "nix-shell";
+  n-s = "nix shell -I nixpkgs=. --run fish -p";
   nb = "nix build";
-  nba = "nix-build -A";
+  nbf = "nix build -f .";
   nd = "nix develop -c fish";
   nf = "nix flake";
   nfc = "nix flake check";
@@ -62,7 +61,6 @@
   nl = " nix-locate";
   nmc = "namaka check";
   nmr = "namaka review";
-  npu = " nix-prefetch-url --unpack";
   nr = "nix run";
   nra = "nixpkgs-review approve";
   nram = "nixpkgs-review approve && nixpkgs-review merge";
@@ -71,7 +69,7 @@
   nrp = " nixpkgs-review pr --sandbox";
   nrpam = "nixpkgs-review post-result && nixpkgs-review approve && nixpkgs-review merge";
   nrpr = "nixpkgs-review post-result";
-  ns = "nix shell";
+  nrw = "nixpkgs-rev wip";
   nu = "nix-update";
   nuc = "nix-update --commit";
   nucb = "nix-update --commit --build";
