@@ -26,7 +26,7 @@ with pkgs;
           restore_paused "yes"
           audio_output {
               type "pipewire"
-              name "Music Player Daemon"
+              name "mpd"
           }
         ''} &
         ${networkmanagerapplet}/bin/nm-applet &
