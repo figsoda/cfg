@@ -446,7 +446,7 @@ neo_tree.setup({
     {
       event = "file_opened",
       handler = function()
-        neo_tree.close_all()
+        require("neo-tree.command").execute({ action = "close" })
       end,
     },
   },
