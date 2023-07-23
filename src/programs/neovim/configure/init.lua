@@ -144,7 +144,6 @@ api.nvim_create_user_command("P", function(input)
     api.nvim_put({
       "//!```cargo",
       "//! [package]",
-      [[//! name = "tmp" # https://github.com/rust-lang/cargo/pull/12329]],
       [[//! edition = "2021"]],
       "//!",
       "//! [dependencies]",
