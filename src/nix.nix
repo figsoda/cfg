@@ -12,7 +12,7 @@
     }
     {
       hostName = "darwin-build-box.winter.cafe";
-      maxJobs = 16;
+      maxJobs = 64;
       sshKey = "/root/.ssh/darwin-build-box";
       sshUser = "figsoda";
       systems = [ "aarch64-darwin" "x86_64-darwin" ];
