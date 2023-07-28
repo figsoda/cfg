@@ -10,7 +10,7 @@
     };
     includeUserConf = false;
   };
-  fonts = with pkgs; [
+  packages = with pkgs; [
     cascadia-code
     (nerdfonts.override { fonts = [ "Arimo" "JetBrainsMono" ]; })
     noto-fonts-emoji
