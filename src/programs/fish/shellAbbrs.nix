@@ -13,7 +13,11 @@
   ga = "git add";
   gab = "git absorb -r";
   gb = " git branch";
-  gbs = "git bisect";
+  gbb = "git bisect bad";
+  gbg = "git bisect good";
+  gbr = "git bisect reset";
+  gbrun = " git bisect run";
+  gbs = "git bisect start";
   gc = "git commit";
   gca = "git commit --amend";
   gcan = "git commit --amend --no-edit";
