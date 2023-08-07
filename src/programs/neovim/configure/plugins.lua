@@ -169,8 +169,11 @@ require("dapui").setup()
 
 require("dressing").setup({
   input = {
-    anchor = "NW",
     border = "single",
+    override = function(cfg)
+      cfg.anchor = "NW"
+      return cfg
+    end,
     win_options = {
       winblend = 0,
       winhighlight = "FloatBorder:DiagnosticInfo,NormalFloat:Normal",
