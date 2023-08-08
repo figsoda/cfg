@@ -82,4 +82,9 @@
   r = " r";
   vpu = " pkgs/applications/editors/vim/plugins/update.py -t (ghtok | psub)";
   w = " w";
+  z = "zig";
+  zb = "zig build";
+  zf = "zig fmt";
+  zr = "zig build run";
+  zt = "zig build test";
 }
