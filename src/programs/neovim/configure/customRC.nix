@@ -67,6 +67,8 @@ in
       rust-analyzer = pkgs.rust-analyzer-nightly;
 
       vscode-lldb = codeExt "vadimcn" "vscode-lldb";
+
+      zls = inputs.zls.packages.${config.nixpkgs.system}.default;
     })
   }
 

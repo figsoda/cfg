@@ -48,6 +48,8 @@ g.loaded_netrwFileHandlers = true
 g.loaded_netrwPlugin = true
 g.loaded_netrwSettings = true
 g.mapleader = " "
+g.zig_fmt_autosave = false
+g.zig_fmt_parse_errors = false
 
 o.clipboard = "unnamedplus"
 o.completeopt = "menuone,noinsert,noselect"

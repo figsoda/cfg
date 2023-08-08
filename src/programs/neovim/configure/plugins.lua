@@ -435,6 +435,15 @@ lspconfig.yamlls.setup({
   on_attach = on_attach,
 })
 
+lspconfig.zls.setup({
+  capabilities = capabilities,
+  cmd = { "@zls@/bin/zls" },
+  on_attach = on_attach,
+  settings = {
+    enable_autofix = false,
+  },
+})
+
 luasnip.config.setup({
   region_check_events = "InsertEnter",
 })

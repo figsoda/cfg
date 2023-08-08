@@ -22,6 +22,13 @@
     };
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    zls = {
+      url = "github:zigtools/zls/0.11.0";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "zls/zig-overlay/flake-utils";
+      };
+    };
   };
 
   outputs = inputs@{ haumea, nixos-hardware, nixpkgs, ... }:
