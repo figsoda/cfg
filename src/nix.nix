@@ -25,9 +25,6 @@
     dates = "Sat, 04:30";
     options = "--delete-older-than 7d";
   };
-  nixPath = [
-    "nixpkgs=${inputs.nixpkgs}"
-  ];
   registry.nixpkgs.flake = inputs.nixpkgs;
   settings = {
     auto-optimise-store = true;
@@ -35,6 +32,9 @@
     flake-registry = "${inputs.flake-registry}/flake-registry.json";
     keep-outputs = true;
     log-lines = 50;
+    nix-path = [
+      "nixpkgs=${inputs.nixpkgs}"
+    ];
     substituters = [
       "https://figsoda.cachix.org"
       "https://nix-community.cachix.org"
