@@ -52,6 +52,7 @@ in
         typst-lsp
         xdg-utils
         yaml-language-server
+        zls
         ;
       inherit (pkgs.nodePackages) prettier pyright vim-language-server;
 
@@ -67,8 +68,6 @@ in
       rust-analyzer = pkgs.rust-analyzer-nightly;
 
       vscode-lldb = codeExt "vadimcn" "vscode-lldb";
-
-      zls = inputs.zls.packages.${config.nixpkgs.system}.default;
     })
   }
 
