@@ -220,9 +220,21 @@ local kbs = {
     end,
   },
 
-  { {}, "XF86AudioLowerVolume", exec({ "pamixer", "-d", "5" }) },
-  { {}, "XF86AudioMicMute", exec({ "pamixer", "-t", "--default-source" }) },
-  { {}, "XF86AudioMute", exec({ "pamixer", "-t" }) },
+  {
+    {},
+    "XF86AudioLowerVolume",
+    exec({ "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%-" }),
+  },
+  {
+    {},
+    "XF86AudioMicMute",
+    exec({ "wpctl", "set-mute", "@DEFAULT_AUDIO_SOURCE@", "toggle" }),
+  },
+  {
+    {},
+    "XF86AudioMute",
+    exec({ "wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle" }),
+  },
   {
     {},
     "XF86AudioNext",
@@ -244,7 +256,11 @@ local kbs = {
       awful.screen.focused().mpd.prev()
     end,
   },
-  { {}, "XF86AudioRaiseVolume", exec({ "pamixer", "-i", "5" }) },
+  {
+    {},
+    "XF86AudioRaiseVolume",
+    exec({ "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%+" }),
+  },
   {
     {},
     "XF86KbdBrightnessDown",

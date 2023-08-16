@@ -44,7 +44,6 @@ builtins.attrValues root.pkgs ++ [
   nsxiv
   nurl
   ouch
-  pamixer
   psmisc
   pwvucontrol
   python3
