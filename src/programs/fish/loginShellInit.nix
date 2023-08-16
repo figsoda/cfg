@@ -30,6 +30,7 @@ with pkgs;
           }
         ''} &
         ${networkmanagerapplet}/bin/nm-applet &
+        ${picom}/bin/picom &
         ${spaceFM}/bin/spacefm -d &
         ${unclutter-xfixes}/bin/unclutter --timeout 3 &
         ${volctl}/bin/volctl &
