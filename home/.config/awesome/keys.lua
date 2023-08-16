@@ -279,7 +279,7 @@ local kbs = {
     end,
   },
   { m, "Return", exec("alacritty") },
-  { m, "a", exec("pavucontrol") },
+  { m, "a", exec("pwvucontrol") },
   { m, "b", exec("firefox") },
   { m, "c", exec_sh("CM_LAUNCHER=rofi clipmenu -p clipmenu") },
   { ms, "c", exec_sh("xclip -selection clipboard /dev/null; clipdel -d .") },

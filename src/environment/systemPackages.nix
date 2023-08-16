@@ -45,8 +45,8 @@ builtins.attrValues root.pkgs ++ [
   nurl
   ouch
   pamixer
-  pavucontrol
   psmisc
+  pwvucontrol
   python3
   qalculate-gtk
   qogir-icon-theme
