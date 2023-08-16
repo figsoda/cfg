@@ -27,5 +27,5 @@ curl -LSs https://raw.githubusercontent.com/NixOS/nixos-artwork/master/wallpaper
         ~/.config/wallpaper.png
 
 echo Configuring mpd
-mkdir ~/.local/share/mpd
+mkdir -p ~/.local/share/mpd
 touch ~/.local/share/mpd/mpd.db
