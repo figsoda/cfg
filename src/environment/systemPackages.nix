@@ -64,5 +64,5 @@ builtins.attrValues root.pkgs ++ [
   tela-icon-theme
   xclip
   ymdl
-  zig_0_11
+  zig
 ]
