@@ -53,6 +53,10 @@ in
       us = ''\e"[38;2;209;154;102m"'';
     })}
 
+  abbr -ag --position anywhere -- "\ad" "--argstr system aarch64-darwin"
+  abbr -ag --position anywhere -- "\al" "--argstr system aarch64-linux"
+  abbr -ag --position anywhere -- "\xd" "--argstr system x86_64-darwin"
+
   function fish_command_not_found -a cmd
     history merge
     history delete -Ce -- $history[1]
