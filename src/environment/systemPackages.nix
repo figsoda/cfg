@@ -19,6 +19,7 @@ builtins.attrValues root.pkgs ++ [
   clang
   clipmenu
   delta
+  dune_3
   element-desktop
   erdtree
   fd
@@ -43,6 +44,9 @@ builtins.attrValues root.pkgs ++ [
   nixpkgs-hammering
   nsxiv
   nurl
+  ocaml
+  ocamlPackages.utop
+  ocamlformat
   ouch
   psmisc
   pwvucontrol

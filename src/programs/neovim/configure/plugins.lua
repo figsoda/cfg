@@ -395,6 +395,12 @@ lspconfig.nil_ls.setup({
   },
 })
 
+lspconfig.ocamllsp.setup({
+  capabilities = capabilities,
+  cmd = { "@ocaml_lsp@/bin/ocamllsp" },
+  on_attach = on_attach,
+})
+
 lspconfig.pyright.setup({
   capabilities = capabilities,
   cmd = { "@pyright@/bin/pyright-langserver", "--stdio" },

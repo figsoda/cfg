@@ -55,6 +55,7 @@ in
         zls
         ;
       inherit (pkgs.nodePackages) prettier pyright vim-language-server;
+      inherit (pkgs.ocamlPackages) ocaml-lsp;
 
       black-py = pkgs.black;
 
