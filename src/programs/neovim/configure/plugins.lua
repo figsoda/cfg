@@ -265,41 +265,6 @@ lspconfig.clangd.setup({
   on_attach = on_attach,
 })
 
-lspconfig.nil_ls.setup({
-  capabilities = capabilities,
-  cmd = { "@nil@/bin/nil" },
-  on_attach = on_attach,
-  settings = {
-    ["nil"] = {
-      formatting = {
-        command = { "@nixpkgs_fmt@/bin/nixpkgs-fmt" },
-      },
-      nix = {
-        flake = {
-          autoArchive = true,
-          autoEvalImports = true,
-        },
-      },
-    },
-  },
-})
-
-lspconfig.pyright.setup({
-  capabilities = capabilities,
-  cmd = { "@pyright@/bin/pyright-langserver", "--stdio" },
-  on_attach = on_attach,
-  settings = {
-    python = {
-      analysis = {
-        diagnosticSeverityOverrides = {
-          reportMissingModuleSource = "none",
-        },
-        useLibraryCodeForTypes = true,
-      },
-    },
-  },
-})
-
 lspconfig.lua_ls.setup({
   capabilities = capabilities,
   cmd = { "@lua_language_server@/bin/lua-language-server" },
@@ -406,6 +371,41 @@ lspconfig.lua_ls.setup({
       },
       workspace = {
         checkThirdParty = false,
+      },
+    },
+  },
+})
+
+lspconfig.nil_ls.setup({
+  capabilities = capabilities,
+  cmd = { "@nil@/bin/nil" },
+  on_attach = on_attach,
+  settings = {
+    ["nil"] = {
+      formatting = {
+        command = { "@nixpkgs_fmt@/bin/nixpkgs-fmt" },
+      },
+      nix = {
+        flake = {
+          autoArchive = true,
+          autoEvalImports = true,
+        },
+      },
+    },
+  },
+})
+
+lspconfig.pyright.setup({
+  capabilities = capabilities,
+  cmd = { "@pyright@/bin/pyright-langserver", "--stdio" },
+  on_attach = on_attach,
+  settings = {
+    python = {
+      analysis = {
+        diagnosticSeverityOverrides = {
+          reportMissingModuleSource = "none",
+        },
+        useLibraryCodeForTypes = true,
       },
     },
   },
