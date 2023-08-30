@@ -265,6 +265,42 @@ lspconfig.clangd.setup({
   on_attach = on_attach,
 })
 
+lspconfig.cssls.setup({
+  capabilities = capabilities,
+  cmd = {
+    "@vscode_langservers_extracted@/bin/vscode-css-language-server",
+    "--stdio",
+  },
+  on_attach = on_attach,
+})
+
+lspconfig.eslint.setup({
+  capabilities = capabilities,
+  cmd = {
+    "@vscode_langservers_extracted@/bin/vscode-eslint-language-server",
+    "--stdio",
+  },
+  on_attach = on_attach,
+})
+
+lspconfig.json.setup({
+  capabilities = capabilities,
+  cmd = {
+    "@vscode_langservers_extracted@/bin/vscode-json-language-server",
+    "--stdio",
+  },
+  on_attach = on_attach,
+})
+
+lspconfig.html.setup({
+  capabilities = capabilities,
+  cmd = {
+    "@vscode_langservers_extracted@/bin/vscode-html-language-server",
+    "--stdio",
+  },
+  on_attach = on_attach,
+})
+
 lspconfig.lua_ls.setup({
   capabilities = capabilities,
   cmd = { "@lua_language_server@/bin/lua-language-server" },

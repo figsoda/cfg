@@ -50,6 +50,7 @@ in
         stylua
         taplo
         typst-lsp
+        vscode-langservers-extracted
         xdg-utils
         yaml-language-server
         zls
