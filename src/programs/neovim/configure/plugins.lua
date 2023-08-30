@@ -459,6 +459,15 @@ lspconfig.taplo.setup({
   on_attach = on_attach,
 })
 
+lspconfig.tsserver.setup({
+  capabilities = capabilities,
+  cmd = {
+    "@typescript_language_server@/bin/typescript-language-server",
+    "--stdio",
+  },
+  on_attach = on_attach,
+})
+
 lspconfig.typst_lsp.setup({
   capabilities = capabilities,
   cmd = { "@typst_lsp@/bin/typst-lsp" },
