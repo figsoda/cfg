@@ -283,7 +283,7 @@ lspconfig.eslint.setup({
   on_attach = on_attach,
 })
 
-lspconfig.json.setup({
+lspconfig.jsonls.setup({
   capabilities = capabilities,
   cmd = {
     "@vscode_langservers_extracted@/bin/vscode-json-language-server",
