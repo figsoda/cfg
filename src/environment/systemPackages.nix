@@ -29,6 +29,7 @@ builtins.attrValues root.pkgs ++ [
   gcc
   git-absorb
   gnumake
+  gradescope-submit
   hacksaw
   libreoffice-fresh
   libsecret
