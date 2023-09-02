@@ -465,7 +465,11 @@ lspconfig.tsserver.setup({
     "@typescript_language_server@/bin/typescript-language-server",
     "--stdio",
   },
-  on_attach = on_attach,
+  on_attach = function(c, buf)
+    on_attach(c, buf)
+    c.server_capabilities.documentFormattingProvider = false
+    c.server_capabilities.documentRangeFormattingProvider = false
+  end,
 })
 
 lspconfig.typst_lsp.setup({
