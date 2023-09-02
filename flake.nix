@@ -13,7 +13,7 @@
       flake = false;
     };
     haumea = {
-      url = "github:nix-community/haumea/v0.2.2";
+      url = "https://flakehub.com/f/nix-community/haumea/0.2.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-index-database = {
