@@ -265,6 +265,12 @@ lspconfig.clangd.setup({
   on_attach = on_attach,
 })
 
+lspconfig.emmet_ls.setup({
+  capabilities = capabilities,
+  cmd = { "@emmet_ls@/bin/emmet-ls", "--stdio" },
+  on_attach = on_attach,
+})
+
 lspconfig.cssls.setup({
   capabilities = capabilities,
   cmd = {
