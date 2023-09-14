@@ -579,7 +579,10 @@ null_ls.setup({
     nb.diagnostics.statix.with({ command = "@statix@/bin/statix" }),
     nb.formatting.black.with({ command = "@black_py@/bin/black" }),
     nb.formatting.isort.with({ command = "@isort@/bin/isort" }),
-    nb.formatting.prettier.with({ command = "@prettier@/bin/prettier" }),
+    nb.formatting.prettier.with({
+      command = "@prettier@/bin/prettier",
+      disabled_filetypes = { "html" },
+    }),
     nb.formatting.stylua.with({ command = "@stylua@/bin/stylua" }),
   },
 })
