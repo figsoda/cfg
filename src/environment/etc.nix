@@ -105,7 +105,6 @@ in
   "xdg/gtk-4.0/settings.ini".text = gtkSettings;
 
   "xdg/nix-init/config.toml".source = (formats.toml { }).generate "config.toml" {
-    maintainers = [ "figsoda" ];
     access-tokens = {
       "github.com".command = [
         "${libsecret}/bin/secret-tool"
@@ -114,6 +113,8 @@ in
         "git"
       ];
     };
+    commit = true;
+    maintainers = [ "figsoda" ];
   };
 
   "xdg/rofi.rasi".source = ./rofi.rasi;
