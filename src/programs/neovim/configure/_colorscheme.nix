@@ -198,7 +198,7 @@ let
     GitSignsDelete.fg = red;
 
     # indent-blankline.nvim
-    IndentBlanklineChar.fg = gray;
+    IblIndent.fg = gray;
 
     # leap.nvim
     LeapMatch = {

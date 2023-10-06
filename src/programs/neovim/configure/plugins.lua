@@ -210,9 +210,10 @@ require("gitsigns").setup({
   end,
 })
 
-require("indent_blankline").setup({
-  char = "▏",
-  use_treesitter = true,
+require("ibl").setup({
+  indent = {
+    char = "▏",
+  },
 })
 
 leap.opts.special_keys = {
