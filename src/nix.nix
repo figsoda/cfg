@@ -11,7 +11,7 @@
       supportedFeatures = [ "big-parallel" ];
     }
     {
-      hostName = "darwin-build-box.winter.cafe";
+      hostName = "darwin-build-box.nix-community.org";
       maxJobs = 64;
       sshKey = "/root/.ssh/darwin-build-box";
       sshUser = "figsoda";
