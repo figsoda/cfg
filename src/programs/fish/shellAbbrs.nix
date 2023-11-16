@@ -80,7 +80,7 @@
   nucb = "nix-update --commit --build";
   p = " p";
   r = " r";
-  vpu = " pkgs/applications/editors/vim/plugins/update.py -t (ghtok | psub)";
+  vpu = " nix run -f . vimPluginsUpdater -- -t (ghtok | psub)";
   w = " w";
   z = "zig";
   zb = "zig build";
