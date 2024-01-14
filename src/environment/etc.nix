@@ -21,7 +21,7 @@ let
 in
 
 {
-  "xdg/alacritty/alacritty.yml".text = generators.toYAML { } {
+  "xdg/alacritty/alacritty.toml".source = (formats.toml { }).generate "alacritty.toml" {
     colors = with root.colors; {
       primary = {
         foreground = white;
