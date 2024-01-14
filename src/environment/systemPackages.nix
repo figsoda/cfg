@@ -33,6 +33,7 @@ builtins.attrValues root.pkgs ++ [
   hacksaw
   libreoffice-fresh
   libsecret
+  lutris
   mmtc
   mold
   mpc_cli
