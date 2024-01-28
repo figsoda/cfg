@@ -18,6 +18,7 @@ builtins.attrValues root.pkgs ++ [
   cargo-nextest
   clang
   clipmenu
+  dafny
   delta
   dune_3
   element-desktop

@@ -45,6 +45,7 @@
     typst-vim
     vim-fugitive
     vim-lastplace
+    vim-loves-dafny
     vim-visual-multi
   ];
 }

@@ -41,6 +41,7 @@ in
     substitutePackages ./plugins.lua (root.colors // {
       inherit (pkgs)
         clang-tools
+        dafny
         emmet-ls
         isort
         lua-language-server

@@ -266,6 +266,12 @@ lspconfig.clangd.setup({
   on_attach = on_attach,
 })
 
+lspconfig.dafny.setup({
+  capabilities = capabilities,
+  cmd = { "@dafny@/bin/dafny", "server" },
+  on_attach = on_attach,
+})
+
 lspconfig.emmet_ls.setup({
   capabilities = capabilities,
   cmd = { "@emmet_ls@/bin/emmet-ls", "--stdio" },
