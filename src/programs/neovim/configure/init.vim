@@ -1,5 +1,5 @@
 no ; :
-no <c-_> <cmd>let @/ = ""<cr>
+no <c-/> <cmd>let @/ = ""<cr>
 no <c-q> <cmd>confirm quitall<cr>
 no <c-s> <cmd>write<cr>
 
