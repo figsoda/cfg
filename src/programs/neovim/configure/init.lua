@@ -101,6 +101,15 @@ api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 api.nvim_create_autocmd("FileType", {
+  pattern = "dafny",
+  callback = function(ctx)
+    mapt(ctx.buf, " B", "@dafny@/bin/dafny run " .. ctx.file, true)
+    mapt(ctx.buf, " b", "@dafny@/bin/dafny build " .. ctx.file)
+    mapt(ctx.buf, " c", "@dafny@/bin/dafny test " .. ctx.file)
+  end,
+})
+
+api.nvim_create_autocmd("FileType", {
   pattern = "nix",
   callback = map_nix,
 })

@@ -32,7 +32,7 @@ in
     substitutePackages ./init.lua {
       inherit nix;
       inherit (inputs) nixpkgs;
-      inherit (pkgs) cargo-edit;
+      inherit (pkgs) cargo-edit dafny;
       inherit (root.pkgs) rust;
     }
   }
