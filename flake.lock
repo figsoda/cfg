@@ -30,11 +30,11 @@
         "ymdl": "ymdl"
       },
       "locked": {
-        "lastModified": 1707207077,
-        "narHash": "sha256-zTc7vleLBv1oBPLseZDsFxGuuI4lNnNU/ST3zs76REA=",
+        "lastModified": 1707466225,
+        "narHash": "sha256-88fIYjs5tz2aiASj0y+lm/SFeJmdxPANlINx37k2dSI=",
         "owner": "figsoda",
         "repo": "pkgs",
-        "rev": "2b468763f513ddf1c8524672ef461d474b6441de",
+        "rev": "76f998823c18cfb41a1de1ee4e05add061aaf15f",
         "type": "github"
       },
       "original": {
