@@ -26,5 +26,5 @@ in
       lua = luajit;
     };
   };
-  xkbOptions = "ctrl:nocaps";
+  xkb.options = "ctrl:nocaps";
 }
