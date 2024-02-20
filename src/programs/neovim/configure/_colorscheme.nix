@@ -351,6 +351,9 @@ let
     "@type.qualifier".fg = magenta;
     "@variable.builtin".fg = orange;
 
+    # vim-loves-dafny
+    dafnyLogic.fg = blue;
+
     # custom
     StatusLineGitAdded = {
       fg = green;
