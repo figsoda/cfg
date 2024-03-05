@@ -32,6 +32,7 @@ builtins.attrValues root.pkgs ++ [
   gnumake
   gradescope-submit
   hacksaw
+  haskell-language-server
   libreoffice-fresh
   libsecret
   lutris
@@ -65,6 +66,7 @@ builtins.attrValues root.pkgs ++ [
   shotgun
   spaceFM
   sshfs
+  stack
   statix
   stylua
   tela-icon-theme

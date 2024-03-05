@@ -110,6 +110,16 @@ api.nvim_create_autocmd("FileType", {
 })
 
 api.nvim_create_autocmd("FileType", {
+  pattern = "haskell",
+  callback = function(ctx)
+    mapt(ctx.buf, " B", "@stack@/bin/stack run", true)
+    mapt(ctx.buf, " b", "@stack@/bin/stack build")
+    mapt(ctx.buf, " c", "@stack@/bin/stack test")
+    mapt(ctx.buf, " i", "@stack@/bin/stack ghci")
+  end,
+})
+
+api.nvim_create_autocmd("FileType", {
   pattern = "nix",
   callback = map_nix,
 })
