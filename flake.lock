@@ -30,11 +30,11 @@
         "ymdl": "ymdl"
       },
       "locked": {
-        "lastModified": 1712304623,
-        "narHash": "sha256-zj51aV4baeRocd5hfa2AG6M7J4FNppw6tOGbBwwzphs=",
+        "lastModified": 1712477505,
+        "narHash": "sha256-7gCZ/UVMqN5D7Ntdte3dVqdp+IWQMKhG6LnKcykVO9E=",
         "owner": "figsoda",
         "repo": "pkgs",
-        "rev": "eabc59c30723dcb266e63753482f80b41ab73400",
+        "rev": "2013472e87babd44d0d3b99c0afd2c824b0c08bb",
         "type": "github"
       },
       "original": {
@@ -115,11 +115,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1712163089,
-        "narHash": "sha256-Um+8kTIrC19vD4/lUCN9/cU9kcOsD1O1m+axJqQPyMM=",
+        "lastModified": 1712439257,
+        "narHash": "sha256-aSpiNepFOMk9932HOax0XwNxbA38GOUVOiXfUVPOrck=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "fd281bd6b7d3e32ddfa399853946f782553163b5",
+        "rev": "ff0dbd94265ac470dda06a657d5fe49de93b4599",
         "type": "github"
       },
       "original": {
