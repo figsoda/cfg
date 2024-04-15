@@ -43,7 +43,6 @@ in
         clang-tools
         dafny
         emmet-ls
-        haskell-language-server
         isort
         lua-language-server
         nil

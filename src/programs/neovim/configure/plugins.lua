@@ -307,10 +307,6 @@ lspconfig.jsonls.setup({
 
 lspconfig.hls.setup({
   capabilities = capabilities,
-  cmd = {
-    "@haskell_language_server@/bin/haskell-language-server-wrapper",
-    "--lsp",
-  },
   on_attach = on_attach,
 })
 
