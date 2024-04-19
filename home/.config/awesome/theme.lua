@@ -7,6 +7,8 @@ return {
   layout_max = themedir .. "zenburn/layouts/max.png",
   layout_tile = themedir .. "zenburn/layouts/tile.png",
 
+  notification_max_width = 640,
+  notification_max_height = 320,
   notification_icon_size = 40,
   wibar_height = 30,
 
