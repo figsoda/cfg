@@ -1,3 +1,4 @@
 Config(
     clear_query_on_play: true,
+    cycle: true,
 )
