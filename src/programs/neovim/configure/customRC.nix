@@ -47,6 +47,7 @@ in
         lua-language-server
         nil
         nixpkgs-fmt
+        pyright
         shellcheck
         statix
         stylua
@@ -59,7 +60,6 @@ in
         ;
       inherit (pkgs.nodePackages)
         prettier
-        pyright
         typescript-language-server
         vim-language-server
         ;
