@@ -728,7 +728,7 @@ telescope.setup({
     },
     mappings = {
       i = {
-        ["<c-s>"] = require("trouble.providers.telescope").open_with_trouble,
+        ["<c-s>"] = require("trouble.sources.telescope").open,
         ["<esc>"] = require("telescope.actions").close,
       },
     },
