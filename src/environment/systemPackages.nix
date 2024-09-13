@@ -40,6 +40,7 @@ builtins.attrValues root.pkgs ++ [
   mold
   mpc_cli
   namaka
+  nasm
   nix-index
   nix-init
   nix-melt
@@ -58,6 +59,7 @@ builtins.attrValues root.pkgs ++ [
   qalculate-gtk
   qogir-icon-theme
   qogir-theme
+  racket
   ripgrep
   rofi
   sagoin
