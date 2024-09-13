@@ -1,7 +1,6 @@
 { pkgs }:
 
 {
-  kernelPackages = pkgs.linuxPackages_latest;
   loader = {
     efi.canTouchEfiVariables = true;
     systemd-boot = {
