@@ -349,6 +349,7 @@ let
     "@text.warning".fg = yellow;
     "@type".fg = yellow;
     "@type.qualifier".fg = magenta;
+    "@variable".fg = white;
     "@variable.builtin".fg = orange;
 
     # vim-loves-dafny
