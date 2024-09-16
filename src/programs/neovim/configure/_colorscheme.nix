@@ -4,7 +4,7 @@ with root.colors;
 
 let
   inherit (builtins) concatStringsSep;
-  inherit (lib) flip imap0 mapAttrsFlatten;
+  inherit (lib) flip imap0 mapAttrsToList;
 
   highlights = {
     # group-name
@@ -372,7 +372,7 @@ let
 in
 
 concatStringsSep "\n"
-  (flip mapAttrsFlatten highlights
+  (flip mapAttrsToList highlights
     (group: highlight:
       let
         get = k: highlight.${k} or "NONE";

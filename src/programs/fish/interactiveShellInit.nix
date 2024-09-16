@@ -2,14 +2,14 @@
 
 let
   inherit (builtins) concatStringsSep;
-  inherit (lib) mapAttrsFlatten removePrefix;
+  inherit (lib) mapAttrsToList removePrefix;
   inherit (pkgs) coreutils fish rust-templates;
 
   nix = config.nix.package;
 in
 
 ''
-  ${concatStringsSep "\n" (mapAttrsFlatten
+  ${concatStringsSep "\n" (mapAttrsToList
     (k: v: "set -g fish_${k} ${removePrefix "#" v}")
     (with root.colors; {
       color_autosuggestion = lightgray;
@@ -47,7 +47,7 @@ in
     }))}
 
   ${concatStringsSep "\n"
-    (mapAttrsFlatten (k: v: "set -gx LESS_TERMCAP_${k} ${v}") {
+    (mapAttrsToList (k: v: "set -gx LESS_TERMCAP_${k} ${v}") {
       md = ''\e"[1m"\e"[38;2;97;175;239m"'';
       ue = ''\e"[0m"'';
       us = ''\e"[38;2;209;154;102m"'';
