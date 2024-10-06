@@ -2,11 +2,12 @@ local widget = {}
 
 local awful = require("awful")
 local b = require("beautiful")
+local dpi = b.xresources.apply_dpi
 local gears = require("gears")
 local wibox = require("wibox")
 
 function widget.padding(w)
-  return wibox.widget({ forced_width = w })
+  return wibox.widget({ forced_width = dpi(w) })
 end
 
 function widget.battery()
@@ -52,17 +53,17 @@ function widget.battery()
   t:start()
   t:emit_signal("timeout")
 
-  return wibox.container.margin(bat, 2, 2, 2, 2, nil, false)
+  return wibox.container.margin(bat, dpi(2), dpi(2), dpi(1), dpi(1), nil, false)
 end
 
 function widget.mpd()
   local status = wibox.widget.textbox()
   local txt = wibox.widget.textbox()
   local time = wibox.widget.textbox()
-  time.font = "monospace 16"
+  time.font = "monospace 7"
 
   local scr = wibox.container.scroll.horizontal(txt, 60, 120, 24)
-  scr.forced_width = 240
+  scr.forced_width = dpi(140)
   scr:pause()
 
   local template = wibox.widget({
@@ -78,9 +79,9 @@ function widget.mpd()
         awful.screen.focused().mpd.next()
       end)
     ),
-    widget.padding(8),
+    widget.padding(3),
     status,
-    widget.padding(4),
+    widget.padding(2),
     scr,
     widget.padding(4),
     time,
@@ -91,7 +92,7 @@ function widget.mpd()
   end)
   template:connect_signal("mouse::leave", function()
     scr:pause()
-    scr:set_space_for_scrolling(240)
+    scr:set_space_for_scrolling(dpi(140))
     scr:reset_scrolling()
   end)
 

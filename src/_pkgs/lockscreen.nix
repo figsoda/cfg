@@ -14,12 +14,12 @@ writers.writeBashBin "lockscreen" ''
     --verif-color=${green} --wrong-color=${lightred} \
     --ind-pos=x+w/7:y+h-w/8 \
     --{time,date}-font=monospace \
-    --{layout,verif,wrong,greeter}-size=32 \
-    --time-color=${blue} --time-size=36 \
-    --date-pos=ix:iy+36 --date-color=${green} --date-str=%F --date-size=28 \
+    --{layout,verif,wrong,greeter}-size=14 \
+    --time-color=${blue} --time-size=16 \
+    --date-pos=ix:iy+16 --date-color=${green} --date-str=%F --date-size=12 \
     --verif-text=Verifying... \
     --wrong-text="Try again!" \
     --noinput-text="No input" \
     --lock-text=Locking... --lockfailed-text="Lock failed!" \
-    --radius 108 --ring-width 8
+    --radius 48 --ring-width 4
 ''

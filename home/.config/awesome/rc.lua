@@ -1,5 +1,6 @@
 local awful = require("awful")
 local b = require("beautiful")
+local dpi = b.xresources.apply_dpi
 local gears = require("gears")
 local naughty = require("naughty")
 local wibox = require("wibox")
@@ -69,7 +70,7 @@ awful.screen.connect_for_each_screen(function(s)
   )
   textclock.font = b.textclock_font
   awful.widget.calendar_popup
-    .month({ font = "monospace 20" })
+    .month({ font = "monospace 9" })
     :attach(textclock, "tr")
 
   s.panel = awful.wibar({ screen = s })
@@ -78,7 +79,7 @@ awful.screen.connect_for_each_screen(function(s)
     {
       layout = wibox.layout.fixed.horizontal,
       layoutbox,
-      widget.padding(8),
+      widget.padding(3),
       awful.widget.taglist({
         screen = s,
         filter = awful.widget.taglist.filter.all,
@@ -105,7 +106,7 @@ awful.screen.connect_for_each_screen(function(s)
           },
         },
       }),
-      widget.padding(8),
+      widget.padding(3),
     },
     awful.widget.tasklist({
       screen = s,
@@ -146,10 +147,10 @@ awful.screen.connect_for_each_screen(function(s)
     {
       layout = wibox.layout.fixed.horizontal,
       s.mpd,
-      widget.padding(8),
+      widget.padding(3),
       (function()
         local tray = wibox.widget.systray()
-        tray:set_base_size(28)
+        tray:set_base_size(dpi(12))
         return tray
       end)(),
       widget.battery(),

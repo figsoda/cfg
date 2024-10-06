@@ -15,4 +15,12 @@ in
     };
   };
   xkb.options = "ctrl:nocaps";
+  xrandrHeads = [
+    {
+      output = "eDP-2";
+      monitorConfig = ''
+        DisplaySize 302 189
+      '';
+    }
+  ];
 }

@@ -1,3 +1,4 @@
+local dpi = require("beautiful").xresources.apply_dpi
 local themedir = require("gears.filesystem").get_themes_dir()
 
 return {
@@ -7,15 +8,15 @@ return {
   layout_max = themedir .. "zenburn/layouts/max.png",
   layout_tile = themedir .. "zenburn/layouts/tile.png",
 
-  notification_max_width = 640,
-  notification_max_height = 320,
-  notification_icon_size = 40,
-  wibar_height = 30,
+  notification_max_width = dpi(280),
+  notification_max_height = dpi(140),
+  notification_icon_size = dpi(20),
+  wibar_height = dpi(14),
 
-  font = "sans 18",
-  battery_font = "monospace 12",
-  taglist_font = "monospace 18",
-  textclock_font = "monospace 16",
+  font = "sans 8",
+  battery_font = "monospace 5.5",
+  taglist_font = "monospace 8",
+  textclock_font = "monospace 7",
 
   bg_normal = "#101014",
   bg_focus = "#202428",
@@ -32,18 +33,18 @@ return {
   tasklist_fg_normal = "#a0a0a0",
   tasklist_fg_focus = "#c8c8c8",
 
-  border_width = 2,
+  border_width = dpi(0.75),
   border_normal = "#586068",
   border_focus = "#56b6c2",
 
   calendar_start_sunday = true,
   calendar_long_weekdays = true,
   calendar_month_bg_color = "#101014",
-  calendar_month_padding = 8,
+  calendar_month_padding = dpi(4),
   calendar_month_border_width = 0,
   calendar_header_bg_color = "#101014",
   calendar_header_fg_color = "#e5c07b",
-  calendar_header_padding = 4,
+  calendar_header_padding = dpi(2),
   calendar_header_border_width = 0,
   calendar_weekday_bg_color = "#101014",
   calendar_weekday_fg_color = "#e06c75",
