@@ -2,7 +2,8 @@
 
 configuration {
     disable-history: true;
-    font: "monospace 20";
+    dpi: 0;
+    font: "monospace 9";
     show-icons: true;
     sort: true;
     terminal: "alacritty";
