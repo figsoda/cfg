@@ -28,7 +28,7 @@
   registry.nixpkgs.flake = inputs.nixpkgs;
   settings = {
     auto-optimise-store = true;
-    experimental-features = [ "flakes" "nix-command" "repl-flake" ];
+    experimental-features = [ "flakes" "nix-command" ];
     flake-registry = "${inputs.flake-registry}/flake-registry.json";
     keep-outputs = true;
     log-lines = 50;
