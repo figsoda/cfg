@@ -14,6 +14,7 @@ with pkgs;
       }
     }/bin/sx ${
       writers.writeDash "sxrc" ''
+        ${config.services.asusd.package}/bin/asusctl profile -P Performance &
         CM_MAX_CLIPS=100 CM_SELECTIONS=clipboard ${clipmenu}/bin/clipmenud &
         ${element-desktop}/bin/element-desktop --hidden &
         ${config.i18n.inputMethod.package}/bin/fcitx5 &
