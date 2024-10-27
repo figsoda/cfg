@@ -46,7 +46,7 @@ in
 
     cursor.style = "Beam";
     font.size = 8;
-    shell.program = "${fish}/bin/fish";
+    terminal.shell.program = "${fish}/bin/fish";
     window.padding = {
       x = 4;
       y = 4;
