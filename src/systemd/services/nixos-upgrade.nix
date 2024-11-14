@@ -2,7 +2,7 @@
 
 {
   serviceConfig.WorkingDirectory = "/home/figsoda/cfg";
-  script = lib.mkForce ''
+  script = lib.mkForce /* bash */ ''
     ${pkgs.coreutils}/bin/sleep 5
     /run/wrappers/bin/sudo -u figsoda \
       ${config.nix.package}/bin/nix flake update --commit-lock-file

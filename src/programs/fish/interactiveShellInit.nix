@@ -8,7 +8,7 @@ let
   nix = config.nix.package;
 in
 
-''
+  /* fish */ ''
   ${concatStringsSep "\n" (mapAttrsToList
     (k: v: "set -g fish_${k} ${removePrefix "#" v}")
     (with root.colors; {

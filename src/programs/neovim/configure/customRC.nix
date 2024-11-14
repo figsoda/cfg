@@ -14,7 +14,7 @@ let
     "${pkgs.vscode-extensions.${pub}.${ext}}/share/vscode/extensions/${pub}.${ext}";
 in
 
-''
+  /* vim */ ''
   ${super.colorscheme}
 
   luafile ${./before.lua}

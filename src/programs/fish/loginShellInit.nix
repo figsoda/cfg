@@ -1,8 +1,12 @@
-{ config, pkgs, root }:
+{ config, lib, pkgs, root }:
+
+let
+  inherit (lib) getExe;
+in
 
 with pkgs;
 
-''
+/* fish */ ''
   if not set -q DISPLAY && [ (${coreutils}/bin/tty) = /dev/tty1 ]
     exec ${
       sx.override {
@@ -16,9 +20,9 @@ with pkgs;
       writers.writeDash "sxrc" ''
         ${config.services.asusd.package}/bin/asusctl profile -P Performance &
         CM_MAX_CLIPS=100 CM_SELECTIONS=clipboard ${clipmenu}/bin/clipmenud &
-        ${element-desktop}/bin/element-desktop --hidden &
-        ${config.i18n.inputMethod.package}/bin/fcitx5 &
-        ${mpd}/bin/mpd ${writeText "mpd.conf" ''
+        ${getExe element-desktop} --hidden &
+        ${getExe config.i18n.inputMethod.package} &
+        ${getExe mpd} ${writeText "mpd.conf" ''
           music_directory "~/music"
           db_file "~/.local/share/mpd/mpd.db"
           pid_file "~/.local/share/mpd/mpd.pid"
@@ -30,13 +34,13 @@ with pkgs;
               name "mpd"
           }
         ''} &
-        ${networkmanagerapplet}/bin/nm-applet &
-        ${picom}/bin/picom --backend glx &
+        ${getExe networkmanagerapplet} &
+        ${getExe picom} --backend glx &
         ${spaceFM}/bin/spacefm -d &
-        ${unclutter-xfixes}/bin/unclutter --timeout 3 &
-        ${volctl}/bin/volctl &
-        ${xdg-user-dirs}/bin/xdg-user-dirs-update &
-        ${xss-lock}/bin/xss-lock --ignore-sleep ${root.pkgs.lockscreen}/bin/lockscreen &
+        ${getExe unclutter-xfixes} --timeout 3 &
+        ${getExe volctl} &
+        ${getExe xdg-user-dirs} &
+        ${getExe xss-lock} --ignore-sleep ${root.pkgs.lockscreen}/bin/lockscreen &
         exec ${config.services.xserver.windowManager.awesome.package}/bin/awesome
       ''
     }
