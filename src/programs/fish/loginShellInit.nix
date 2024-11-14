@@ -40,6 +40,7 @@ with pkgs;
         ${getExe unclutter-xfixes} --timeout 3 &
         ${getExe volctl} &
         ${getExe xdg-user-dirs} &
+        ${getExe xsettingsd} &
         ${getExe xss-lock} --ignore-sleep ${root.pkgs.lockscreen}/bin/lockscreen &
         exec ${config.services.xserver.windowManager.awesome.package}/bin/awesome
       ''

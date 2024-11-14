@@ -139,4 +139,8 @@ in
     TEMPLATES=/dev/null
     VIDEOS=files
   '';
+
+  "xdg/xsettingsd/xsettingsd.conf".text = ''
+    Xft/DPI 220160
+  '';
 }
