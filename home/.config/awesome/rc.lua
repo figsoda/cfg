@@ -52,16 +52,6 @@ awful.screen.connect_for_each_screen(function(s)
 
   awful.tag({ "~", "1", "2", "3", "4", "5" }, s, l.tile)
 
-  local layoutbox = awful.widget.layoutbox(s)
-  layoutbox:buttons(gears.table.join(
-    awful.button({}, 4, function()
-      awful.layout.inc(-1)
-    end),
-    awful.button({}, 5, function()
-      awful.layout.inc(1)
-    end)
-  ))
-
   s.mpd = widget.mpd()
 
   local textclock = wibox.widget.textclock(
@@ -78,7 +68,7 @@ awful.screen.connect_for_each_screen(function(s)
     layout = wibox.layout.align.horizontal,
     {
       layout = wibox.layout.fixed.horizontal,
-      layoutbox,
+      awful.widget.layoutbox(s),
       widget.padding(3),
       awful.widget.taglist({
         screen = s,
