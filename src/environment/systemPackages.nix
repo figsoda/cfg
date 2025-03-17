@@ -31,7 +31,6 @@ builtins.attrValues root.pkgs ++ [
   git-absorb
   gnumake
   gradescope-submit
-  hacksaw
   haskell-language-server
   libreoffice-fresh
   libsecret
@@ -66,6 +65,7 @@ builtins.attrValues root.pkgs ++ [
   sccache
   sd
   shotgun
+  slop
   spaceFM
   sshfs
   stack

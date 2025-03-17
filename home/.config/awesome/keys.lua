@@ -287,7 +287,7 @@ local kbs = {
     c,
     "Print",
     function()
-      awful.spawn.easy_async("hacksaw", function(stdout, _, _, exitcode)
+      awful.spawn.easy_async("slop", function(stdout, _, _, exitcode)
         if exitcode == 0 then
           shotgun({ "-g", stdout:sub(1, -2) })
         end
