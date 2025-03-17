@@ -42,7 +42,6 @@
     telescope-fzf-native-nvim
     telescope-nvim
     trouble-nvim
-    typst-vim
     vim-fugitive
     vim-lastplace
     vim-loves-dafny

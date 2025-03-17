@@ -495,9 +495,9 @@ lspconfig.ts_ls.setup({
   end,
 })
 
-lspconfig.typst_lsp.setup({
+lspconfig.tinymist.setup({
   capabilities = capabilities,
-  cmd = { "@typst_lsp@/bin/typst-lsp" },
+  cmd = { "@tinymist@/bin/tinymist" },
   on_attach = on_attach,
 })
 

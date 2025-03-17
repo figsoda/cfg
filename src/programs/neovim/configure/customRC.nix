@@ -52,7 +52,7 @@ in
         statix
         stylua
         taplo
-        typst-lsp
+        tinymist
         vscode-langservers-extracted
         xdg-utils
         yaml-language-server
