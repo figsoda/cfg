@@ -2,7 +2,7 @@
 
 let
   inherit (lib) concatStrings generators mapAttrsToList;
-  inherit (pkgs) fish formats libsecret substituteAll;
+  inherit (pkgs) fish formats libsecret replaceVars;
 
   gtkSettings = generators.toINI { } {
     Settings = {
@@ -118,9 +118,9 @@ in
   };
 
   "xdg/rofi.rasi".source = ./rofi.rasi;
-  "xdg/flat-dark.rasi".source = substituteAll (root.colors // {
-    src = ./flat-dark.rasi;
-  });
+  "xdg/flat-dark.rasi".source = replaceVars ./flat-dark.rasi {
+    inherit (root.colors) black blue gray lightgray white;
+  };
 
   "xdg/sagoin/config.toml".source = (formats.toml { }).generate "config.toml" {
     username = "${libsecret}/bin/secret-tool lookup umd username";

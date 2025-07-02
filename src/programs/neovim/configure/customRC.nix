@@ -6,7 +6,7 @@ let
   nix = config.nix.package;
 
   substitutePackages = src: substitutions:
-    pkgs.substituteAll ({ inherit src; } // mapAttrs'
+    pkgs.replaceVars src (mapAttrs'
       (k: nameValuePair (builtins.replaceStrings [ "-" ] [ "_" ] k))
       substitutions);
 
@@ -22,7 +22,7 @@ in
   source ${
     substitutePackages ./init.vim {
       inherit (root.pkgs) rust;
-      inherit (pkgs) fd fish nixpkgs-fmt stylua util-linux;
+      inherit (pkgs) fd fish nixpkgs-fmt stylua;
     }
   }
 
@@ -38,7 +38,19 @@ in
   }
 
   luafile ${
-    substitutePackages ./plugins.lua (root.colors // {
+    substitutePackages ./plugins.lua {
+      inherit (root.colors)
+        black
+        blue
+        dimgray
+        green
+        lightgray
+        magenta
+        red
+        white
+        yellow
+        ;
+
       inherit (pkgs)
         clang-tools
         dafny
@@ -77,12 +89,8 @@ in
       rust-analyzer = pkgs.rust-analyzer-nightly;
 
       vscode-lldb = codeExt "vadimcn" "vscode-lldb";
-    })
-  }
-
-  luafile ${
-    substitutePackages ./snippets.lua {
-      inherit nix;
     }
   }
+
+  luafile ${./snippets.lua}
 ''
