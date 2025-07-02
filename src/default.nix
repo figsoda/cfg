@@ -9,7 +9,10 @@
 
   hardware.bluetooth.enable = true;
 
-  security.sudo.wheelNeedsPassword = false;
+  security = {
+    pam.services.i3lock.enable = true;
+    sudo.wheelNeedsPassword = false;
+  };
 
   system = {
     autoUpgrade = {
