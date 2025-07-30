@@ -24,7 +24,7 @@ builtins.attrValues root.pkgs ++ [
   element-desktop
   erdtree
   fd
-  firefox-bin # https://github.com/NixOS/nixpkgs/issues/332540
+  firefox
   fishPlugins.async-prompt
   fishPlugins.autopair
   gcc

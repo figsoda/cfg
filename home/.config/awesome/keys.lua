@@ -113,7 +113,7 @@ local kbs = {
             exec("lockscreen"),
             awesome.quit,
             awesome.restart,
-            exec_sh("killall firefox-bin && firefox"),
+            exec_sh("killall .firefox-wrapped && firefox"),
           })[stdout:byte() - 47]()
         end
       )
