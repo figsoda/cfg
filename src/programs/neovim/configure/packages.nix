@@ -22,7 +22,7 @@
     neo-tree-nvim
     nix-develop-nvim
     noice-nvim
-    null-ls-nvim
+    none-ls-nvim
     numb-nvim
     nvim-cmp
     nvim-colorizer-lua
