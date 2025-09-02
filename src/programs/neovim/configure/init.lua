@@ -43,6 +43,7 @@ local function map_nix(ctx)
   mapt(ctx.buf, " u", "@nix@/bin/nix flake update")
 end
 
+g.coqtail_noimap = true
 g.loaded_netrw = true
 g.loaded_netrwFileHandlers = true
 g.loaded_netrwPlugin = true

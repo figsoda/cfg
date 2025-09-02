@@ -18,6 +18,7 @@ builtins.attrValues root.pkgs ++ [
   cargo-nextest
   clang
   clipmenu
+  coq
   dafny
   delta
   dune_3

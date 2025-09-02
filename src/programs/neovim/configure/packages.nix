@@ -2,6 +2,7 @@
 
 {
   all.start = with pkgs.vimPlugins; [
+    Coqtail
     bufferline-nvim
     cmp-buffer
     cmp-cmdline
