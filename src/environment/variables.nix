@@ -21,6 +21,5 @@ in
     -g=!.git
     --hidden
   '';
-  STEAM_FORCE_DESKTOPUI_SCALING = "1.5";
   fish_features = "qmark-noglob";
 }

@@ -1,9 +1,15 @@
+{ pkgs }:
 {
   command-not-found.enable = false;
 
   dconf.enable = true;
 
-  gamemode.enable = true;
-
-  steam.enable = true;
+  steam = {
+    enable = true;
+    package = pkgs.steam.override {
+      extraProfile = ''
+        unset TZ
+      '';
+    };
+  };
 }
