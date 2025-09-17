@@ -65,6 +65,7 @@ in
         stylua
         taplo
         tinymist
+        typstyle
         vscode-langservers-extracted
         xdg-utils
         yaml-language-server

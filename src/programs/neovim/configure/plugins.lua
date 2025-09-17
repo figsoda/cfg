@@ -601,6 +601,7 @@ null_ls.setup({
       disabled_filetypes = { "html" },
     }),
     nb.formatting.stylua.with({ command = "@stylua@/bin/stylua" }),
+    nb.formatting.typstyle.with({ command = "@typstyle@/bin/typstyle" }),
   },
 })
 
