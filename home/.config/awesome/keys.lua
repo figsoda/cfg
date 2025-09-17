@@ -264,17 +264,15 @@ local kbs = {
   {
     {},
     "XF86KbdBrightnessDown",
-    exec({ "brightnessctl", "s", "1-", "-d", "asus::kbd_backlight" }),
+    exec({ "brightnessctl", "s", "1%-", "-d", "asus::kbd_backlight" }),
   },
   {
     {},
     "XF86KbdBrightnessUp",
-    exec({ "brightnessctl", "s", "1+", "-d", "asus::kbd_backlight" }),
+    exec({ "brightnessctl", "s", "1%+", "-d", "asus::kbd_backlight" }),
   },
-  { {}, "XF86MonBrightnessDown", exec({ "brightnessctl", "s", "4-" }) },
-  { {}, "XF86MonBrightnessUp", exec({ "brightnessctl", "s", "4+" }) },
-  { c, "XF86MonBrightnessDown", exec({ "brightnessctl", "s", "1-" }) },
-  { c, "XF86MonBrightnessUp", exec({ "brightnessctl", "s", "1+" }) },
+  { {}, "XF86MonBrightnessDown", exec({ "brightnessctl", "s", "1%-" }) },
+  { {}, "XF86MonBrightnessUp", exec({ "brightnessctl", "s", "1%+" }) },
 
   {
     {},
