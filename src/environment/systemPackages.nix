@@ -38,7 +38,7 @@ builtins.attrValues root.pkgs ++ [
   lutris
   mmtc
   mold
-  mpc_cli
+  mpc
   namaka
   nasm
   nix-index
