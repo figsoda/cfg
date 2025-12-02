@@ -1,12 +1,10 @@
 local cmp = require("cmp")
 local leap = require("leap")
-local lspconfig = require("lspconfig")
 local luasnip = require("luasnip")
 local navic = require("nvim-navic")
 local neo_tree = require("neo-tree")
 local null_ls = require("null-ls")
 local nb = null_ls.builtins
-local rust_tools = require("rust-tools")
 local telescope = require("telescope")
 local trouble = require("trouble")
 
@@ -16,7 +14,6 @@ local lsp = vim.lsp
 local treesitter = vim.treesitter
 
 local border = { "", "", "", " ", "", "", "", " " }
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local function on_attach(c, buf)
   local function mapb(mode, lhs, rhs)
@@ -50,6 +47,8 @@ local function on_attach(c, buf)
   if c.server_capabilities.documentSymbolProvider then
     navic.attach(c, buf)
   end
+
+  lsp.inlay_hint.enable(true, { bufnr = buf })
 end
 
 require("bufferline").setup({
@@ -223,7 +222,7 @@ leap.opts.special_keys = {
   next_group = "]",
   prev_group = "[",
 }
-leap.add_default_mappings()
+vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)")
 
 require("lualine").setup({
   options = {
@@ -260,67 +259,52 @@ require("lualine").setup({
   },
 })
 
-lspconfig.clangd.setup({
-  capabilities = capabilities,
+lsp.config["*"] = {
+  capabilities = require("cmp_nvim_lsp").default_capabilities(),
+  on_attach = on_attach,
+}
+
+lsp.config.clangd = {
   cmd = { "@clang_tools@/bin/clangd" },
-  on_attach = on_attach,
-})
+}
 
-lspconfig.dafny.setup({
-  capabilities = capabilities,
+lsp.config.dafny = {
   cmd = { "@dafny@/bin/dafny", "server" },
-  on_attach = on_attach,
-})
+}
 
-lspconfig.emmet_ls.setup({
-  capabilities = capabilities,
+lsp.config.emmet_ls = {
   cmd = { "@emmet_ls@/bin/emmet-ls", "--stdio" },
-  on_attach = on_attach,
-})
+}
 
-lspconfig.cssls.setup({
-  capabilities = capabilities,
+lsp.config.cssls = {
   cmd = {
     "@vscode_langservers_extracted@/bin/vscode-css-language-server",
     "--stdio",
   },
-  on_attach = on_attach,
-})
+}
 
-lspconfig.eslint.setup({
-  capabilities = capabilities,
+lsp.config.eslint = {
   cmd = {
     "@vscode_langservers_extracted@/bin/vscode-eslint-language-server",
     "--stdio",
   },
-  on_attach = on_attach,
-})
+}
 
-lspconfig.jsonls.setup({
-  capabilities = capabilities,
+lsp.config.jsonls = {
   cmd = {
     "@vscode_langservers_extracted@/bin/vscode-json-language-server",
     "--stdio",
   },
-  on_attach = on_attach,
-})
+}
 
-lspconfig.hls.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
-
-lspconfig.html.setup({
-  capabilities = capabilities,
+lsp.config.html = {
   cmd = {
     "@vscode_langservers_extracted@/bin/vscode-html-language-server",
     "--stdio",
   },
-  on_attach = on_attach,
-})
+}
 
-lspconfig.lua_ls.setup({
-  capabilities = capabilities,
+lsp.config.lua_ls = {
   cmd = { "@lua_language_server@/bin/lua-language-server" },
   on_new_config = function(config, root_dir)
     local function load_lua_paths()
@@ -401,8 +385,6 @@ lspconfig.lua_ls.setup({
     end
   end,
 
-  on_attach = on_attach,
-
   settings = {
     Lua = {
       completion = {
@@ -428,12 +410,10 @@ lspconfig.lua_ls.setup({
       },
     },
   },
-})
+}
 
-lspconfig.nil_ls.setup({
-  capabilities = capabilities,
+lsp.config.nil_ls = {
   cmd = { "@nil@/bin/nil" },
-  on_attach = on_attach,
   settings = {
     ["nil"] = {
       formatting = {
@@ -447,18 +427,14 @@ lspconfig.nil_ls.setup({
       },
     },
   },
-})
+}
 
-lspconfig.ocamllsp.setup({
-  capabilities = capabilities,
+lsp.config.ocamllsp = {
   cmd = { "@ocaml_lsp@/bin/ocamllsp" },
-  on_attach = on_attach,
-})
+}
 
-lspconfig.pyright.setup({
-  capabilities = capabilities,
+lsp.config.pyright = {
   cmd = { "@pyright@/bin/pyright-langserver", "--stdio" },
-  on_attach = on_attach,
   settings = {
     python = {
       analysis = {
@@ -469,21 +445,13 @@ lspconfig.pyright.setup({
       },
     },
   },
-})
+}
 
-lspconfig.racket_langserver.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
-
-lspconfig.taplo.setup({
-  capabilities = capabilities,
+lsp.config.taplo = {
   cmd = { "@taplo@/bin/taplo", "lsp", "stdio" },
-  on_attach = on_attach,
-})
+}
 
-lspconfig.ts_ls.setup({
-  capabilities = capabilities,
+lsp.config.ts_ls = {
   cmd = {
     "@typescript_language_server@/bin/typescript-language-server",
     "--stdio",
@@ -493,33 +461,47 @@ lspconfig.ts_ls.setup({
     c.server_capabilities.documentFormattingProvider = false
     c.server_capabilities.documentRangeFormattingProvider = false
   end,
-})
+}
 
-lspconfig.tinymist.setup({
-  capabilities = capabilities,
+lsp.config.tinymist = {
   cmd = { "@tinymist@/bin/tinymist" },
-  on_attach = on_attach,
-})
+}
 
-lspconfig.vimls.setup({
-  capabilities = capabilities,
+lsp.config.vimls = {
   cmd = { "@vim_language_server@/bin/vim-language-server", "--stdio" },
-  on_attach = on_attach,
-})
+}
 
-lspconfig.yamlls.setup({
-  capabilities = capabilities,
+lsp.config.yamlls = {
   cmd = { "@yaml_language_server@/bin/yaml-language-server", "--stdio" },
-  on_attach = on_attach,
-})
+}
 
-lspconfig.zls.setup({
-  capabilities = capabilities,
+lsp.config.zls = {
   cmd = { "@zls@/bin/zls" },
-  on_attach = on_attach,
   settings = {
     enable_autofix = false,
   },
+}
+
+lsp.enable({
+  "clangd",
+  "dafny",
+  "emmet_ls",
+  "cssls",
+  "eslint",
+  "jsonls",
+  "hls",
+  "html",
+  "lua_ls",
+  "nil_ls",
+  "ocamllsp",
+  "pyright",
+  "racket_langserver",
+  "taplo",
+  "ts_ls",
+  "tinymist",
+  "vimls",
+  "yamlls",
+  "zls",
 })
 
 luasnip.config.setup({
@@ -689,24 +671,20 @@ require("nvim_context_vt").setup({
   end,
 })
 
-rust_tools.setup({
+vim.g.rustaceanvim = {
   dap = {
-    adapter = require("rust-tools.dap").get_codelldb_adapter(
+    adapter = require("rustaceanvim.config").get_codelldb_adapter(
       "@vscode_lldb@/adapter/codelldb",
       "@vscode_lldb@/lldb/lib/liblldb.so"
     ),
   },
   server = {
-    capabilities = capabilities,
     cmd = { "@rust_analyzer@/bin/rust-analyzer" },
     on_attach = function(c, buf)
       on_attach(c, buf)
-      vim.keymap.set(
-        "n",
-        "K",
-        rust_tools.hover_actions.hover_actions,
-        { buffer = buf }
-      )
+      vim.keymap.set("n", "K", function()
+        vim.cmd.RustLsp({ "hover", "actions" })
+      end, { buffer = buf })
     end,
     settings = {
       ["rust-analyzer"] = {
@@ -716,13 +694,9 @@ rust_tools.setup({
     },
   },
   tools = {
-    hover_actions = { border = border },
-    inlay_hints = {
-      other_hints_prefix = "",
-      show_parameter_hints = false,
-    },
+    float_win_config = { border = border },
   },
-})
+}
 
 telescope.setup({
   defaults = {

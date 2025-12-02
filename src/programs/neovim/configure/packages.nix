@@ -39,7 +39,7 @@
     playground
     refactoring-nvim
     ron-vim
-    rust-tools-nvim
+    rustaceanvim
     telescope-fzf-native-nvim
     telescope-nvim
     trouble-nvim
