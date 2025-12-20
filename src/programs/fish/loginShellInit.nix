@@ -21,7 +21,6 @@ with pkgs;
         ${config.services.asusd.package}/bin/asusctl profile -P performance &
         ${config.services.asusd.package}/bin/asusctl fan-curve -m performance -e true &
         CM_MAX_CLIPS=100 CM_SELECTIONS=clipboard ${clipmenu}/bin/clipmenud &
-        ${getExe element-desktop} --hidden &
         ${getExe config.i18n.inputMethod.package} &
         ${getExe mpd} ${writeText "mpd.conf" ''
           music_directory "~/music"
