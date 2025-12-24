@@ -1,6 +1,4 @@
 {
-  auto-cpufreq.enable = true;
-
   earlyoom.enable = true;
 
   gnome = {

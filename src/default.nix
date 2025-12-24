@@ -7,7 +7,13 @@
 
   gtk.iconCache.enable = true;
 
-  hardware.bluetooth.enable = true;
+  hardware = {
+    bluetooth.enable = true;
+    nvidia.prime = {
+      amdgpuBusId = "PCI:194:0:0";
+      nvidiaBusId = "PCI:193:0:0";
+    };
+  };
 
   security = {
     pam.services.i3lock.enable = true;

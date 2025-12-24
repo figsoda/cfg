@@ -51,7 +51,7 @@
         system = "x86_64-linux";
         modules = [
           module
-          nixos-hardware.nixosModules.asus-zephyrus-ga402
+          nixos-hardware.nixosModules.framework-16-amd-ai-300-series-nvidia
           ./hardware-configuration.nix
         ];
       };

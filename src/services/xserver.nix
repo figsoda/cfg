@@ -17,9 +17,9 @@ in
   xkb.options = "ctrl:nocaps";
   xrandrHeads = [
     {
-      output = "eDP-2";
+      output = "eDP";
       monitorConfig = ''
-        DisplaySize 302 189
+        DisplaySize 345 215
       '';
     }
   ];

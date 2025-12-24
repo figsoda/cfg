@@ -261,16 +261,6 @@ local kbs = {
     "XF86AudioRaiseVolume",
     exec({ "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%+" }),
   },
-  {
-    {},
-    "XF86KbdBrightnessDown",
-    exec({ "brightnessctl", "s", "1%-", "-d", "asus::kbd_backlight" }),
-  },
-  {
-    {},
-    "XF86KbdBrightnessUp",
-    exec({ "brightnessctl", "s", "1%+", "-d", "asus::kbd_backlight" }),
-  },
   { {}, "XF86MonBrightnessDown", exec({ "brightnessctl", "s", "1%-" }) },
   { {}, "XF86MonBrightnessUp", exec({ "brightnessctl", "s", "1%+" }) },
 

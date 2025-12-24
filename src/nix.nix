@@ -19,6 +19,7 @@
       supportedFeatures = [ "big-parallel" ];
     }
   ];
+  channel.enable = false;
   distributedBuilds = true;
   gc = {
     automatic = true;

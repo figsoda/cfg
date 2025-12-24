@@ -26,8 +26,8 @@ function widget.battery()
   t:connect_signal("timeout", function()
     t:stop()
 
-    local cap = io.open("/sys/class/power_supply/BAT0/capacity")
-    local st = io.open("/sys/class/power_supply/BAT0/status")
+    local cap = io.open("/sys/class/power_supply/BAT1/capacity")
+    local st = io.open("/sys/class/power_supply/BAT1/status")
 
     if cap and st then
       local percent = cap:read("*n")

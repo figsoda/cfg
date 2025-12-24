@@ -141,6 +141,6 @@ in
   '';
 
   "xdg/xsettingsd/xsettingsd.conf".text = ''
-    Xft/DPI 220160
+    Xft/DPI 193536
   '';
 }

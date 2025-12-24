@@ -9,7 +9,7 @@ NixOS configuration featuring [awesome](https://github.com/awesomewm/awesome) an
 ```ShellSession
 # mount /dev/disk/by-label/nixos /mnt
 # mkdir /mnt/boot
-# mount /dev/disk/by-label/BOOT /mnt/boot
+# mount -o umask=077 /dev/disk/by-label/BOOT /mnt/boot
 # swapon /dev/disk/by-label/swap
 # nixos-generate-config --root /mnt
 # rm /mnt/etc/nixos/configuration.nix

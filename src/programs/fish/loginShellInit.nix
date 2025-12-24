@@ -18,8 +18,6 @@ with pkgs;
       }
     }/bin/sx ${
       writers.writeDash "sxrc" ''
-        ${config.services.asusd.package}/bin/asusctl profile -P performance &
-        ${config.services.asusd.package}/bin/asusctl fan-curve -m performance -e true &
         CM_MAX_CLIPS=100 CM_SELECTIONS=clipboard ${clipmenu}/bin/clipmenud &
         ${getExe config.i18n.inputMethod.package} &
         ${getExe mpd} ${writeText "mpd.conf" ''
@@ -35,7 +33,7 @@ with pkgs;
           }
         ''} &
         ${getExe networkmanagerapplet} &
-        ${getExe picom} --backend glx &
+        ${getExe picom} --backend egl &
         ${spaceFM}/bin/spacefm -d &
         ${getExe unclutter-xfixes} --timeout 3 &
         ${getExe volctl} &

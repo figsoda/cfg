@@ -19,7 +19,7 @@ fd --base-directory "$src" -Ht f -x \
 echo Downloading wallpaper
 res=$(xrandr | rg -F \* | sd "\s*(\d+x\d+).*" \$1)
 curl -LSs https://raw.githubusercontent.com/NixOS/nixos-artwork/master/wallpapers/nix-wallpaper-nineish-dark-gray.svg \
-    | convert svg:- \
+    | magick svg:- \
         -gamma 1.14,1.16,1.25 \
         -resize "$res^" \
         -gravity center \
