@@ -6,6 +6,8 @@
     gnome-keyring.enable = true;
   };
 
+  hypridle.enable = true;
+
   pipewire = {
     enable = true;
     alsa.enable = true;
@@ -13,4 +15,6 @@
   };
 
   ratbagd.enable = true;
+
+  upower.enable = true;
 }

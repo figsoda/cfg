@@ -1,0 +1,270 @@
+animations {
+  off
+}
+
+binds {
+  mod+h {
+    focus-column-left
+  }
+  mod+j {
+    focus-window-down
+  }
+  mod+k {
+    focus-window-up
+  }
+  mod+l {
+    focus-column-right
+  }
+
+  mod+shift+h {
+    move-column-left
+  }
+  mod+shift+j {
+    move-window-down
+  }
+  mod+shift+k {
+    move-window-up
+  }
+  mod+shift+l {
+    move-column-right
+  }
+
+  mod+tab {
+    focus-workspace-down
+  }
+  mod+shift+tab {
+    focus-workspace-up
+  }
+  mod+backspace {
+    focus-workspace-previous
+  }
+
+  mod+grave {
+    focus-workspace "~"
+  }
+  mod+1 {
+    focus-workspace "1"
+  }
+  mod+2 {
+    focus-workspace "2"
+  }
+  mod+3 {
+    focus-workspace "3"
+  }
+  mod+4 {
+    focus-workspace "4"
+  }
+  mod+5 {
+    focus-workspace "5"
+  }
+
+  mod+shift+grave {
+    move-column-to-workspace "~"
+  }
+  mod+shift+1 {
+    move-column-to-workspace "1"
+  }
+  mod+shift+2 {
+    move-column-to-workspace "2"
+  }
+  mod+shift+3 {
+    move-column-to-workspace "3"
+  }
+  mod+shift+4 {
+    move-column-to-workspace "4"
+  }
+  mod+shift+5 {
+    move-column-to-workspace "5"
+  }
+
+  mod+f repeat=false {
+    maximize-window-to-edges
+  }
+  mod+shift+f repeat=false {
+    fullscreen-window
+  }
+  mod+shift+q cooldown-ms=300 repeat=false {
+    close-window
+  }
+  mod+shift+mouseleft repeat=false {
+    toggle-window-floating
+  }
+
+  xf86audiomute allow-when-locked=true {
+    spawn "swayosd-client" "--output-volume=mute-toggle"
+  }
+  xf86audiolowervolume allow-when-locked=true {
+    spawn "swayosd-client" "--output-volume=-3"
+  }
+  xf86audioraisevolume allow-when-locked=true {
+    spawn "swayosd-client" "--output-volume=+3"
+  }
+  xf86monbrightnessdown allow-when-locked=true {
+    spawn "swayosd-client" "--brightness=-1"
+  }
+  xf86monbrightnessup allow-when-locked=true {
+    spawn "swayosd-client" "--brightness=+1"
+  }
+
+  print repeat=false {
+    screenshot-screen
+  }
+  ctrl+print repeat=false {
+    screenshot
+  }
+  mod+b repeat=false {
+    spawn "firefox"
+  }
+  mod+c repeat=false {
+    spawn "rofi" "-modi" "clipboard:cliphist-rofi-img" "-show" "clipboard" \
+      "-theme-str" "listview { lines: 8; } element-icon { size: 2.4em; }"
+  }
+  mod+shift+c repeat=false {
+    spawn-sh "wl-copy -c; cliphist wipe"
+  }
+  mod+e repeat=false {
+    spawn-sh "fd -d 1 -t d --strip-cwd-prefix --path-separator '' | rofi -dmenu -p edit -i | xargs -r ghostty -e nvim"
+  }
+  mod+ctrl+l repeat=false {
+    spawn "loginctl" "lock-session"
+  }
+  mod+m repeat=false {
+    spawn "ghostty" "-e" "mmtc"
+  }
+  mod+shift+m repeat=false {
+    spawn "mmtc" "-C" "clear" "update" "add /"
+  }
+  mod+q repeat=false {
+    spawn "qalculate-gtk"
+  }
+  mod+r repeat=false {
+    spawn "rofi" "-modes" "combi" "-show" "combi" "-combi-modes" "run,drun" "-combi-display-format" "{text}"
+  }
+  mod+t repeat=false {
+    spawn "rofi-todo"
+  }
+  mod+w repeat=false {
+    toggle-overview
+  }
+  mod+comma repeat=false {
+    spawn "mpc" "toggle"
+  }
+  mod+period repeat=false {
+    spawn "mmtc" "-C" "next"
+  }
+  mod+return repeat=false {
+    spawn "ghostty"
+  }
+  mod+ctrl+return repeat=false {
+    spawn "session-menu"
+  }
+  mod+semicolon repeat=false {
+    spawn "mmtc" "-C" "stop"
+  }
+}
+
+cursor {
+  hide-after-inactive-ms 3000
+}
+
+gestures {
+  dnd-edge-workspace-switch {
+    delay-ms 0
+    max-speed 3200
+  }
+  hot-corners {
+    off
+  }
+}
+
+hotkey-overlay {
+  skip-at-startup
+}
+
+input {
+  disable-power-key-handling
+  focus-follows-mouse max-scroll-amount="0%"
+  keyboard {
+    repeat-delay 320
+    repeat-rate 32
+    xkb {
+      options "ctrl:nocaps"
+    }
+  }
+  mouse {
+    accel-profile "flat"
+  }
+  touchpad {
+    tap
+  }
+  warp-mouse-to-focus
+}
+
+layout {
+  background-color "#1f2227"
+  border {
+    width 2
+    active-color "#56b6c2"
+    inactive-color "#586068"
+    urgent-color "#e5c07b"
+  }
+  focus-ring {
+    off
+  }
+  gaps 2
+}
+
+output "eDP-1" {
+  scale 1.5
+}
+
+overview {
+  backdrop-color "#101014"
+  workspace-shadow {
+    off
+  }
+}
+
+prefer-no-csd
+
+screenshot-path "~/files/screenshot-%Y%m%d-%H%M%S.png"
+
+window-rule {
+  match is-floating=false
+  open-maximized-to-edges true
+}
+
+window-rule {
+  match app-id="^firefox$" title="^Picture-in-Picture$"
+  match app-id="^gay.vaskel.soteria$"
+  match app-id="^qalculate-gtk$"
+  open-floating true
+  open-maximized-to-edges false
+}
+
+window-rule {
+  match app-id="^steam$"
+  exclude title="^Steam$"
+  open-floating true
+  open-maximized-to-edges false
+}
+
+window-rule {
+  match app-id=r"^steam_app_\d+$"
+  open-fullscreen true
+  open-maximized-to-edges false
+}
+
+spawn-at-startup "ironbar"
+spawn-at-startup "mpd"
+spawn-at-startup "swaync"
+spawn-at-startup "swayosd-server"
+spawn-at-startup "wl-paste" "-w" "cliphist" "store"
+spawn-at-startup "xdg-user-dirs-update"
+
+workspace "~"
+workspace "1"
+workspace "2"
+workspace "3"
+workspace "4"
+workspace "5"

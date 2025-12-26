@@ -1,6 +1,5 @@
 {
-  dhcpcd.wait = "background";
-  interfaces.enp8s0f3u1c2.useDHCP = true;
+  useNetworkd = true;
   nameservers = [
     "2620:fe::fe"
     "2620:fe::9"
@@ -9,7 +8,6 @@
   ];
   networkmanager = {
     enable = true;
-    dns = "none";
     ethernet.macAddress = "random";
     unmanaged = [ "type:ethernet" ];
     wifi.macAddress = "random";

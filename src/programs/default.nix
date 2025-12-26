@@ -1,16 +1,7 @@
 { pkgs }:
 {
   command-not-found.enable = false;
-
-  dconf.enable = true;
-
-  steam = {
-    enable = true;
-    package = pkgs.steam.override {
-      extraProfile = ''
-        unset TZ
-        source nvidia-offload
-      '';
-    };
-  };
+  hyprlock.enable = true;
+  niri.enable = true;
+  nm-applet.enable = true;
 }

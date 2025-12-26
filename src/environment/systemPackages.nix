@@ -17,7 +17,7 @@ builtins.attrValues root.pkgs ++ [
   cargo-insta
   cargo-nextest
   clang
-  clipmenu
+  cliphist
   coq
   dafny
   delta
@@ -29,10 +29,13 @@ builtins.attrValues root.pkgs ++ [
   fishPlugins.async-prompt
   fishPlugins.autopair
   gcc
+  ghostty
   git-absorb
   gnumake
   gradescope-submit
   haskell-language-server
+  hyprlock
+  ironbar
   libreoffice-fresh
   libsecret
   lutris
@@ -58,7 +61,6 @@ builtins.attrValues root.pkgs ++ [
   python3
   qalculate-gtk
   qogir-icon-theme
-  qogir-theme
   racket
   ripgrep
   rofi
@@ -72,8 +74,13 @@ builtins.attrValues root.pkgs ++ [
   stack
   statix
   stylua
+  swayidle
+  swaynotificationcenter
+  swayosd
   tela-icon-theme
-  xclip
+  wl-clipboard
+  xdg-user-dirs
+  xwayland-satellite
   ymdl
   zig
 ]

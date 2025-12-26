@@ -1,0 +1,24 @@
+:root {
+  --border-radius: 1em;
+  --border: none;
+  --cc-bg: @black@d8;
+  --font-size-body: 1em;
+  --font-size-summary: 1.2em;
+  --mpris-album-art-shadow: none;
+  --noti-bg-alpha: 0.85;
+  --noti-bg-darker: @darker@;
+  --noti-bg-focus: #00000000;
+  --noti-bg-hover: @dimgray@;
+  --noti-bg: 31, 34, 39;
+  --noti-close-bg-hover: @gray@;
+  --noti-close-bg: #00000000;
+  --notification-group-icon-size: 2em;
+  --notification-icon-size: 4em;
+  --notification-shadow: none;
+  --text-color-disabled: @lightgray@;
+  --text-color: @white@;
+}
+
+.control-center {
+  border-radius: 0;
+}

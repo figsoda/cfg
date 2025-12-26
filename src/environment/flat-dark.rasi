@@ -1,46 +1,48 @@
 * {
-    background-color: @black@;
-    border-color: @lightgray@;
-    text-color: @white@;
+  background-color: @black@;
+  border-color: @lightgray@;
+  text-color: @white@;
+  vertical-align: 0.5;
 }
 
 window {
-    padding: 0.8mm;
+  padding: 0.2em;
 }
 
 inputbar {
-    padding: 0.8mm;
-    children: [prompt, entry];
+  children: [prompt, entry];
+  padding: 0.2em;
 }
 
 prompt {
-    border: 0 0.1mm 0 0;
-    padding: 0.4mm 2mm 0.8mm 1.2mm;
+  border: 0 0.025em 0 0;
+  padding: 0.1em 0.5em 0.2em 0.3em;
 }
 
 entry {
-    padding: 0.4mm 1.2mm 0.8mm 2mm;
+  padding: 0.1em 0.3em 0.2em 0.5em;
 }
 
 listview {
-    cycle: false;
+  cycle: false;
 }
 
 element {
-    padding: 0.8mm 2.4mm;
+  padding: 0.2em 0.6em;
+  spacing: 0.5em;
 }
 
 element selected {
-    background-color: @gray@;
-    text-color: @blue@;
+  background-color: @gray@;
+  text-color: @blue@;
 }
 
 element-icon {
-    size: 3.2mm;
-    background-color: inherit;
+  background-color: inherit;
+  size: 0.8em;
 }
 
 element-text {
-    background-color: inherit;
-    text-color: inherit;
+  background-color: inherit;
+  text-color: inherit;
 }

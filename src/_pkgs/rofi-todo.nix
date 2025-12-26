@@ -1,8 +1,7 @@
-{ config, pkgs, root }:
+{ config, pkgs }:
 
 let
-  inherit (pkgs) coreutils moreutils ripgrep rofi writers;
-  inherit (root.pkgs) alacritty;
+  inherit (pkgs) coreutils ghostty moreutils ripgrep rofi writers;
 
   neovim = config.programs.neovim.finalPackage;
 in
@@ -17,7 +16,7 @@ writers.writeBashBin "rofi-todo" ''
       [ -z "$1" ] && ${coreutils}/bin/cat "$todos" && exit 0
 
       if [ "$1" = @ ]; then
-        ${alacritty}/bin/alacritty -e ${neovim}/bin/nvim "$todos"
+        ${ghostty}/bin/ghostty -e ${neovim}/bin/nvim "$todos"
       elif item=$(${ripgrep}/bin/rg '^\+\s*([^\s](.*[^\s])?)\s*$' -r '$1' <<< "$1"); then
         ${coreutils}/bin/sort "$todos" - -uo "$todos" <<< "$item"
       else

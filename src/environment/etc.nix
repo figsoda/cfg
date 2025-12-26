@@ -1,8 +1,11 @@
-{ lib, pkgs, root }:
+{ config, lib, pkgs, root }:
 
 let
-  inherit (lib) concatStrings generators mapAttrsToList;
-  inherit (pkgs) fish formats libsecret replaceVars;
+  inherit (builtins) toJSON;
+  inherit (lib) concatStrings generators imap0 mapAttrsToList;
+  inherit (pkgs) concatText formats libsecret replaceVars swaynotificationcenter;
+
+  toml = (formats.toml { }).generate;
 
   gtkSettings = generators.toINI { } {
     Settings = {
@@ -11,7 +14,6 @@ let
       gtk-enable-animations = false;
       gtk-font-name = "sans 8";
       gtk-icon-theme-name = "Tela-dark";
-      gtk-theme-name = "Qogir-Dark";
       gtk-xft-antialias = 1;
       gtk-xft-hinting = 1;
       gtk-xft-hintstyle = "hintfull";
@@ -21,37 +23,37 @@ let
 in
 
 {
-  "xdg/alacritty/alacritty.toml".source = (formats.toml { }).generate "alacritty.toml" {
-    colors = with root.colors; {
-      primary = {
-        foreground = white;
-        background = black;
-      };
+  "niri/config.kdl".source = ./niri.kdl;
 
-      cursor = {
-        text = lightgray;
-        cursor = white;
-      };
-
-      normal = {
-        inherit black blue cyan green magenta red white yellow;
-      };
-
-      bright = {
-        inherit black blue cyan green magenta white;
-        red = lightred;
-        yellow = orange;
-      };
-    };
-
-    cursor.style = "Beam";
-    font.size = 8;
-    terminal.shell.program = "${fish}/bin/fish";
-    window.padding = {
-      x = 4;
-      y = 4;
-    };
-  };
+  "xdg/ghostty/config".text = with root.colors; ''
+    adjust-cursor-thickness = 100%
+    background = ${black}
+    confirm-close-surface = false
+    cursor-style = bar
+    cursor-style-blink = false
+    foreground = ${white}
+    shell-integration-features = no-cursor
+    ${concatStrings (imap0
+      (i: x: "palette = ${toString i}=${x}\n")
+      [
+        black
+        red
+        green
+        yellow
+        blue
+        magenta
+        cyan
+        white
+        black
+        lightred
+        green
+        orange
+        blue
+        magenta
+        cyan
+        white
+      ])}
+  '';
 
   "xdg/gtk-3.0/settings.ini".text = gtkSettings;
 
@@ -104,7 +106,18 @@ in
 
   "xdg/gtk-4.0/settings.ini".text = gtkSettings;
 
-  "xdg/nix-init/config.toml".source = (formats.toml { }).generate "config.toml" {
+  "xdg/hypr/hypridle.conf".source = replaceVars ./hypridle.conf {
+    hyprlock = config.programs.hyprlock.package;
+    niri = config.programs.niri.package;
+    systemd = config.systemd.package;
+  };
+
+  "xdg/hypr/hyprlock.conf".source = replaceVars ./hyprlock.conf {
+    inherit (pkgs) coreutils;
+    inherit (root.colors.nohash) black blue green lightgray lightred white;
+  };
+
+  "xdg/nix-init/config.toml".source = toml "nix-init.toml" {
     access-tokens = {
       "github.com".command = [
         "${libsecret}/bin/secret-tool"
@@ -122,11 +135,27 @@ in
     inherit (root.colors) black blue gray lightgray white;
   };
 
-  "xdg/sagoin/config.toml".source = (formats.toml { }).generate "config.toml" {
+  "xdg/sagoin/config.toml".source = toml "sagion.toml" {
     username = "${libsecret}/bin/secret-tool lookup umd username";
     username_type = "command";
     password = "${libsecret}/bin/secret-tool lookup umd password";
     password_type = "command";
+  };
+
+  "xdg/swaync/config.json".text = toJSON {
+    control-center-layer = "overlay";
+    positionY = "bottom";
+    widgets = [ "notifications" "mpris" "dnd" ];
+  };
+  "xdg/swaync/style.css".source = concatText "swaync.css" [
+    "${swaynotificationcenter}/etc/xdg/swaync/style.css"
+    (replaceVars ./swaync.css {
+      inherit (root.colors) black darker dimgray gray lightgray white;
+    })
+  ];
+
+  "xdg/swayosd/config.toml".source = toml "swayosd.toml" {
+    server.show_percentage = true;
   };
 
   "xdg/user-dirs.defaults".text = ''
@@ -138,9 +167,5 @@ in
     PUBLICSHARE=/dev/null
     TEMPLATES=/dev/null
     VIDEOS=files
-  '';
-
-  "xdg/xsettingsd/xsettingsd.conf".text = ''
-    Xft/DPI 193536
   '';
 }

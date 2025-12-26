@@ -1,8 +1,17 @@
 # modified from https://github.com/joshdick/onedark.vim
+
+{ lib, self }:
+
+let
+  inherit (builtins) mapAttrs;
+  inherit (lib) removePrefix;
+in
+
 {
   black = "#1f2227";
   blue = "#61afef";
   cyan = "#56b6c2";
+  darker = "#101014";
   dimgray = "#282c34";
   gray = "#2c323c";
   green = "#98c379";
@@ -14,4 +23,5 @@
   silver = "#4b5263";
   white = "#abb2bf";
   yellow = "#e5c07b";
+  nohash = mapAttrs (_: removePrefix "#") (removeAttrs self [ "nohash" ]);
 }

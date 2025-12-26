@@ -1,7 +1,7 @@
-{ pkgs }:
+{ pkgs, root }:
 
 let
-  inherit (pkgs) writeText;
+  inherit (pkgs) formats replaceVars writeText;
 in
 
 {
@@ -14,6 +14,45 @@ in
     --icons
     --sort name
   '';
+  IRONBAR_CONFIG = (formats.toml { }).generate "ironbar.toml" {
+    height = 0;
+    popup_autohide = true;
+    popup_gap = 0;
+    position = "top";
+    start = [
+      { type = "workspaces"; hidden = [ "7" ]; sort = "added"; }
+      {
+        type = "focused";
+        icon_size = 16;
+        truncate = {
+          max_length = 80;
+          mode = "end";
+        };
+      }
+    ];
+    end = [
+      {
+        type = "music";
+        format = "{title} - {artist}";
+        player_type = "mpd";
+        truncate = {
+          max_length = 32;
+          mode = "end";
+        };
+      }
+      { type = "tray"; icon_size = 16; }
+      { type = "battery"; icon_size = 12; }
+      { type = "clock"; format = "%F %T"; }
+      { type = "notifications"; }
+    ];
+  };
+  IRONBAR_CSS = pkgs.linkFarm "ironbar-css" [{
+    name = "style.css";
+    path = replaceVars ./ironbar.css {
+      inherit (root.colors) black blue darker white yellow;
+    };
+  }];
+
   LESSHISTFILE = "-";
   PATH = "$HOME/.cargo/bin";
   RIPGREP_CONFIG_PATH = writeText "rg-config" ''

@@ -1,6 +1,6 @@
 # cfg
 
-NixOS configuration featuring [awesome](https://github.com/awesomewm/awesome) and [neovim](https://github.com/neovim/neovim)
+NixOS configuration featuring [niri](https://github.com/yalter/niri) and [neovim](https://github.com/neovim/neovim)
 
 ![](https://user-images.githubusercontent.com/40620903/232329160-f3b4ff47-185a-4b4b-ad5f-ad1720e2dbc9.png)
 

@@ -1,0 +1,4 @@
+root = true
+
+[*.{conf,css,kdl,rasi}]
+indent_size = 2

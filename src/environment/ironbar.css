@@ -1,0 +1,84 @@
+* {
+  background: #00000000;
+  border: none;
+  box-shadow: none;
+  color: inherit;
+}
+
+#bar,
+popover {
+  font-family: sans;
+  color: @white@;
+}
+
+#bar {
+  background: @darker@;
+}
+
+popover {
+  background: @black@d8;
+}
+
+scale highlight {
+  background: @white@;
+}
+
+scale.vertical highlight {
+  min-width: 0.3em;
+}
+
+scale.horizontal highlight {
+  min-height: 0.3em;
+}
+
+.item:hover,
+.music:hover,
+.battery:hover,
+.clock:hover,
+.notifications:hover {
+  background: @black@;
+}
+
+.workspaces {
+  font-family: monospace;
+}
+
+.workspaces .item {
+  min-width: 0;
+}
+
+.workspaces .item.focused {
+  background: @black@;
+  color: @blue@;
+}
+
+.workspaces .item.urgent {
+  background: @yellow@;
+  color: @black@;
+}
+
+.focused.widget {
+  padding: 0 1em;
+}
+
+.popup-music .volume .slider {
+  padding-left: 0.25em;
+}
+
+.clock {
+  font-family: monospace;
+}
+
+.popup-clock {
+  font-size: 1.2em;
+}
+
+.popup-clock .calendar-clock {
+  font-size: 0;
+}
+
+.popup-clock .today {
+  background: @blue@d8;
+  color: @black@;
+  font-weight: bold;
+}

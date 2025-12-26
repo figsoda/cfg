@@ -1,10 +1,10 @@
 @theme "flat-dark"
 
 configuration {
-    disable-history: true;
-    dpi: 0;
-    font: "monospace 9";
-    show-icons: true;
-    sort: true;
-    terminal: "alacritty";
+  disable-history: true;
+  dpi: 0;
+  font: "monospace 14";
+  show-icons: true;
+  sort: true;
+  terminal: "ghostty";
 }

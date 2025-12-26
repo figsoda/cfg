@@ -16,7 +16,7 @@
   };
 
   security = {
-    pam.services.i3lock.enable = true;
+    soteria.enable = true;
     sudo.wheelNeedsPassword = false;
   };
 
