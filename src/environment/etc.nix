@@ -95,7 +95,7 @@ in
         destructive_bg_color = red;
         destructive_color = red;
         destructive_fg_color = black;
-        dialog_bg_color = black;
+        dialog_bg_color = "${black}d8";
         dialog_fg_color = white;
         error_bg_color = red;
         error_color = red;
@@ -106,7 +106,7 @@ in
         headerbar_darker_shade_color = black;
         headerbar_fg_color = white;
         headerbar_shade_color = black;
-        popover_bg_color = black;
+        popover_bg_color = "${black}d8";
         popover_fg_color = white;
         popover_shade_color = white;
         scrollbar_outline_color = black;

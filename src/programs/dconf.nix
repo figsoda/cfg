@@ -9,6 +9,7 @@
           enable-animations = false;
           icon-theme = "Tela-dark";
         };
+        "org/gnome/desktop/wm/preferences".button-layout = "";
       };
     }
   ];
