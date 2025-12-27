@@ -1,4 +1,8 @@
-{ config, lib, pkgs }:
+{
+  config,
+  lib,
+  pkgs,
+}:
 
 {
   serviceConfig.WorkingDirectory = "/home/figsoda/cfg";

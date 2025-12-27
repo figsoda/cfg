@@ -1,4 +1,9 @@
-{ config, inputs, pkgs, root }:
+{
+  config,
+  inputs,
+  pkgs,
+  root,
+}:
 
 let
   nix-index = inputs.nix-index-database.packages.${config.nixpkgs.system}.default;
@@ -6,7 +11,8 @@ in
 
 with pkgs;
 
-builtins.attrValues root.pkgs ++ [
+builtins.attrValues root.pkgs
+++ [
   bat
   binutils
   blueberry
@@ -48,7 +54,7 @@ builtins.attrValues root.pkgs ++ [
   nix-init
   nix-melt
   nix-update
-  nixpkgs-fmt
+  nixfmt
   nixpkgs-hammering
   nsxiv
   nurl

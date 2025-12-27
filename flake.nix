@@ -24,7 +24,13 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
-  outputs = inputs@{ haumea, nixos-hardware, nixpkgs, ... }:
+  outputs =
+    inputs@{
+      haumea,
+      nixos-hardware,
+      nixpkgs,
+      ...
+    }:
     let
       inherit (nixpkgs.lib) genAttrs nixosSystem;
 
@@ -35,17 +41,18 @@
         "x86_64-linux"
       ];
 
-      module = { pkgs, ... }@args: haumea.lib.load {
-        src = ./src;
-        inputs = args // {
-          inherit inputs;
+      module =
+        { pkgs, ... }@args:
+        haumea.lib.load {
+          src = ./src;
+          inputs = args // {
+            inherit inputs;
+          };
+          transformer = haumea.lib.transformers.liftDefault;
         };
-        transformer = haumea.lib.transformers.liftDefault;
-      };
     in
     {
-      formatter = eachSystem (system:
-        nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
+      formatter = eachSystem (system: nixpkgs.legacyPackages.${system}.nixfmt);
 
       nixosConfigurations.nixos = nixosSystem {
         system = "x86_64-linux";
@@ -57,10 +64,11 @@
       };
 
       packages = eachSystem (system: {
-        neovim = (nixosSystem {
-          inherit system;
-          modules = [ module ];
-        }).config.programs.neovim.finalPackage;
+        neovim =
+          (nixosSystem {
+            inherit system;
+            modules = [ module ];
+          }).config.programs.neovim.finalPackage;
       });
     };
 }

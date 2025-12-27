@@ -1,7 +1,12 @@
 { pkgs }:
 
 let
-  inherit (pkgs) fish libsecret nixpkgs-review writers;
+  inherit (pkgs)
+    fish
+    libsecret
+    nixpkgs-review
+    writers
+    ;
 in
 
 writers.writeBashBin "nixpkgs-review" ''

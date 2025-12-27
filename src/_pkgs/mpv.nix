@@ -1,5 +1,9 @@
 { pkgs }:
 
 pkgs.mpv.override {
-  scripts = with pkgs.mpvScripts; [ autoload sponsorblock thumbnail ];
+  scripts = with pkgs.mpvScripts; [
+    autoload
+    sponsorblock
+    thumbnail
+  ];
 }

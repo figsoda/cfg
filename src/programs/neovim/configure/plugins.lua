@@ -416,9 +416,6 @@ lsp.config.nil_ls = {
   cmd = { "@nil@/bin/nil" },
   settings = {
     ["nil"] = {
-      formatting = {
-        command = { "@nixpkgs_fmt@/bin/nixpkgs-fmt" },
-      },
       nix = {
         flake = {
           autoArchive = true,

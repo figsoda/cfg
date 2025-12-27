@@ -20,7 +20,7 @@ nn <s-tab> <cmd>BufferLineCyclePrev<cr>
 nn <space>/ <cmd>Telescope live_grep<cr>
 nn <space>fc <cmd>!@rust@/bin/cargo fmt<cr>
 nn <space>fl <cmd>!@fd@/bin/fd -H '.lua$' -x @stylua@/bin/stylua<cr>
-nn <space>fn <cmd>!@fd@/bin/fd -H '.nix$' -x @nixpkgs_fmt@/bin/nixpkgs-fmt<cr>
+nn <space>fn <cmd>!@fd@/bin/fd -H '.nix$' -x @nixfmt@/bin/nixfmt<cr>
 nn <space>g<space> :Git<space>
 nn <space>gB <cmd>Telescope git_bcommits<cr>
 nn <space>gN <cmd>Git absorb -r<cr>

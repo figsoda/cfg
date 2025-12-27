@@ -371,13 +371,14 @@ let
   };
 in
 
-concatStringsSep "\n"
-  (flip mapAttrsToList highlights
-    (group: highlight:
-      let
-        get = k: highlight.${k} or "NONE";
-      in
-      "hi ${group} guifg=${get "fg"} guibg=${get "bg"} guisp=${highlight.sp or (get "fg")} gui=${get "attrs"}")
+concatStringsSep "\n" (
+  flip mapAttrsToList highlights (
+    group: highlight:
+    let
+      get = k: highlight.${k} or "NONE";
+    in
+    "hi ${group} guifg=${get "fg"} guibg=${get "bg"} guisp=${highlight.sp or (get "fg")} gui=${get "attrs"}"
+  )
   ++ imap0 (i: color: "let terminal_color_${toString i} = '${color}'") [
     black
     red
@@ -394,4 +395,5 @@ concatStringsSep "\n"
     blue
     magenta
     cyan
-  ])
+  ]
+)

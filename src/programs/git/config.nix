@@ -28,8 +28,14 @@ in
   init.defaultBranch = "main";
   interactive.diffFilter = "${delta}/bin/delta --color-only";
   url = {
-    "https://gitlab.com/".insteadOf = [ "gl:" "gitlab:" ];
-    "https://github.com/".insteadOf = [ "gh:" "github:" ];
+    "https://gitlab.com/".insteadOf = [
+      "gl:"
+      "gitlab:"
+    ];
+    "https://github.com/".insteadOf = [
+      "gh:"
+      "github:"
+    ];
     "https://github.com/figsoda/".insteadOf = [ "me:" ];
     "https://github.com/nix-community/".insteadOf = [ "nc:" ];
   };

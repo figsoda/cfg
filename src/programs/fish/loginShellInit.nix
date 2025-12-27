@@ -1,4 +1,9 @@
-{ config, lib, pkgs, root }:
+{
+  config,
+  lib,
+  pkgs,
+  root,
+}:
 
 let
   inherit (lib) getExe;

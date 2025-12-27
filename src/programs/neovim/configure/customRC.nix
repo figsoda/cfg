@@ -1,20 +1,27 @@
-{ inputs, lib, config, pkgs, root, super }:
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  root,
+  super,
+}:
 
 let
   inherit (lib) mapAttrs' nameValuePair;
 
   nix = config.nix.package;
 
-  substitutePackages = src: substitutions:
-    pkgs.replaceVars src (mapAttrs'
-      (k: nameValuePair (builtins.replaceStrings [ "-" ] [ "_" ] k))
-      substitutions);
+  substitutePackages =
+    src: substitutions:
+    pkgs.replaceVars src (
+      mapAttrs' (k: nameValuePair (builtins.replaceStrings [ "-" ] [ "_" ] k)) substitutions
+    );
 
-  codeExt = pub: ext:
-    "${pkgs.vscode-extensions.${pub}.${ext}}/share/vscode/extensions/${pub}.${ext}";
+  codeExt = pub: ext: "${pkgs.vscode-extensions.${pub}.${ext}}/share/vscode/extensions/${pub}.${ext}";
 in
 
-  /* vim */ ''
+/* vim */ ''
   ${super.colorscheme}
 
   luafile ${./before.lua}
@@ -22,7 +29,12 @@ in
   source ${
     substitutePackages ./init.vim {
       inherit (root.pkgs) rust;
-      inherit (pkgs) fd fish nixpkgs-fmt stylua;
+      inherit (pkgs)
+        fd
+        fish
+        nixfmt
+        stylua
+        ;
     }
   }
 
@@ -58,7 +70,6 @@ in
         isort
         lua-language-server
         nil
-        nixpkgs-fmt
         pyright
         shellcheck
         statix
@@ -84,8 +95,9 @@ in
         let
           inherit (config.programs.neovim) configure package;
         in
-        lib.concatMapStringsSep ''", "'' (path: "${path}/lua")
-          ([ "${package}/share/nvim/runtime" ] ++ configure.packages.all.start);
+        lib.concatMapStringsSep ''", "'' (path: "${path}/lua") (
+          [ "${package}/share/nvim/runtime" ] ++ configure.packages.all.start
+        );
 
       rust-analyzer = pkgs.rust-analyzer-nightly;
 

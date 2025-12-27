@@ -20,7 +20,11 @@ in
     popup_gap = 0;
     position = "top";
     start = [
-      { type = "workspaces"; hidden = [ "7" ]; sort = "added"; }
+      {
+        type = "workspaces";
+        hidden = [ "7" ];
+        sort = "added";
+      }
       {
         type = "focused";
         icon_size = 16;
@@ -40,18 +44,35 @@ in
           mode = "end";
         };
       }
-      { type = "tray"; icon_size = 16; }
-      { type = "battery"; icon_size = 12; }
-      { type = "clock"; format = "%F %T"; }
+      {
+        type = "tray";
+        icon_size = 16;
+      }
+      {
+        type = "battery";
+        icon_size = 12;
+      }
+      {
+        type = "clock";
+        format = "%F %T";
+      }
       { type = "notifications"; }
     ];
   };
-  IRONBAR_CSS = pkgs.linkFarm "ironbar-css" [{
-    name = "style.css";
-    path = replaceVars ./ironbar.css {
-      inherit (root.colors) black blue darker white yellow;
-    };
-  }];
+  IRONBAR_CSS = pkgs.linkFarm "ironbar-css" [
+    {
+      name = "style.css";
+      path = replaceVars ./ironbar.css {
+        inherit (root.colors)
+          black
+          blue
+          darker
+          white
+          yellow
+          ;
+      };
+    }
+  ];
 
   LESSHISTFILE = "-";
   PATH = "$HOME/.cargo/bin";

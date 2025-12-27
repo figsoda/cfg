@@ -1,4 +1,9 @@
-{ config, lib, pkgs, root }:
+{
+  config,
+  lib,
+  pkgs,
+  root,
+}:
 
 let
   inherit (builtins) concatStringsSep;
@@ -8,50 +13,54 @@ let
   nix = config.nix.package;
 in
 
-  /* fish */ ''
-  ${concatStringsSep "\n" (mapAttrsToList
-    (k: v: "set -g fish_${k} ${removePrefix "#" v}")
-    (with root.colors; {
-      color_autosuggestion = lightgray;
-      color_cancel = red;
-      color_command = "${blue} -o";
-      color_comment = "${lightgray} -i";
-      color_cwd = green;
-      color_cwd_root = blue;
-      color_end = white;
-      color_error = lightred;
-      color_escape = cyan;
-      color_history_current = "${yellow} -o";
-      color_host = blue;
-      color_host_remote = blue;
-      color_match = cyan;
-      color_normal = white;
-      color_operator = cyan;
-      color_param = white;
-      color_quote = green;
-      color_redirection = magenta;
-      color_search_match = yellow;
-      color_selection = gray;
-      color_status = red;
-      color_user = yellow;
-      color_valid_path = yellow;
-      greeting = "";
-      pager_color_background = "";
-      pager_color_completion = white;
-      pager_color_description = green;
-      pager_color_prefix = "${white} -o";
-      pager_color_progress = yellow;
-      pager_color_selected_completion = "${blue} -o";
-      pager_color_selected_description = yellow;
-      pager_color_selected_prefix = "${blue} -o -u";
-    }))}
+/* fish */ ''
+  ${concatStringsSep "\n" (
+    mapAttrsToList (k: v: "set -g fish_${k} ${removePrefix "#" v}") (
+      with root.colors;
+      {
+        color_autosuggestion = lightgray;
+        color_cancel = red;
+        color_command = "${blue} -o";
+        color_comment = "${lightgray} -i";
+        color_cwd = green;
+        color_cwd_root = blue;
+        color_end = white;
+        color_error = lightred;
+        color_escape = cyan;
+        color_history_current = "${yellow} -o";
+        color_host = blue;
+        color_host_remote = blue;
+        color_match = cyan;
+        color_normal = white;
+        color_operator = cyan;
+        color_param = white;
+        color_quote = green;
+        color_redirection = magenta;
+        color_search_match = yellow;
+        color_selection = gray;
+        color_status = red;
+        color_user = yellow;
+        color_valid_path = yellow;
+        greeting = "";
+        pager_color_background = "";
+        pager_color_completion = white;
+        pager_color_description = green;
+        pager_color_prefix = "${white} -o";
+        pager_color_progress = yellow;
+        pager_color_selected_completion = "${blue} -o";
+        pager_color_selected_description = yellow;
+        pager_color_selected_prefix = "${blue} -o -u";
+      }
+    )
+  )}
 
-  ${concatStringsSep "\n"
-    (mapAttrsToList (k: v: "set -gx LESS_TERMCAP_${k} ${v}") {
+  ${concatStringsSep "\n" (
+    mapAttrsToList (k: v: "set -gx LESS_TERMCAP_${k} ${v}") {
       md = ''\e"[1m"\e"[38;2;97;175;239m"'';
       ue = ''\e"[0m"'';
       us = ''\e"[38;2;209;154;102m"'';
-    })}
+    }
+  )}
 
   abbr -ag --position anywhere -- "\ad" "--argstr system aarch64-darwin"
   abbr -ag --position anywhere -- "\al" "--argstr system aarch64-linux"
