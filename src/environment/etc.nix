@@ -173,8 +173,8 @@ in
     inherit (root.colors)
       black
       blue
+      cyan
       gray
-      lightgray
       white
       ;
   };

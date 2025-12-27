@@ -1,12 +1,13 @@
 * {
   background-color: @black@;
-  border-color: @lightgray@;
   text-color: @white@;
   vertical-align: 0.5;
 }
 
 window {
-  padding: 0.2em;
+  border-color: @cyan@;
+  border: 0.1em;
+  padding: 0.25em;
 }
 
 inputbar {
@@ -15,16 +16,11 @@ inputbar {
 }
 
 prompt {
-  border: 0 0.025em 0 0;
   padding: 0.1em 0.5em 0.2em 0.3em;
 }
 
 entry {
   padding: 0.1em 0.3em 0.2em 0.5em;
-}
-
-listview {
-  cycle: false;
 }
 
 element {
