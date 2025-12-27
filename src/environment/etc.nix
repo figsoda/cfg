@@ -35,6 +35,8 @@ in
     cursor-style-blink = false
     foreground = ${white}
     shell-integration-features = no-cursor
+    window-padding-x = 4
+    window-padding-y = 4
     ${concatStrings (imap0
       (i: x: "palette = ${toString i}=${x}\n")
       [
