@@ -41,6 +41,7 @@ builtins.attrValues root.pkgs
   gradescope-submit
   haskell-language-server
   hyprlock
+  imv
   ironbar
   libreoffice-fresh
   libsecret
@@ -57,7 +58,6 @@ builtins.attrValues root.pkgs
   nix-update
   nixfmt
   nixpkgs-hammering
-  nsxiv
   nurl
   ocaml
   ocamlPackages.utop
