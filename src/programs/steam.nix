@@ -5,7 +5,7 @@
   package = pkgs.steam.override {
     extraProfile = ''
       unset TZ
-      source nvidia-offload
+      (set --; source nvidia-offload)
     '';
   };
 }
