@@ -1,13 +1,4 @@
-{
-  config,
-  inputs,
-  pkgs,
-  root,
-}:
-
-let
-  nix-index = inputs.nix-index-database.packages.${config.nixpkgs.system}.default;
-in
+{ pkgs, root }:
 
 with pkgs;
 
@@ -17,7 +8,6 @@ builtins.attrValues root.pkgs
   binutils
   blueberry
   bottom
-  brightnessctl
   bubblewrap
   cargo-edit
   cargo-insta
@@ -28,7 +18,6 @@ builtins.attrValues root.pkgs
   dafny
   delta
   dune_3
-  element-desktop
   erdtree
   fd
   firefox
@@ -74,8 +63,6 @@ builtins.attrValues root.pkgs
   sagoin
   sccache
   sd
-  shotgun
-  slop
   sshfs
   stack
   statix
