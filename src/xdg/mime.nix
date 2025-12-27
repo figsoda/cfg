@@ -20,6 +20,6 @@
     "image/x-portable-graymap" = "nsxiv.desktop";
     "image/x-tga" = "nsxiv.desktop";
     "image/x-xpixmap" = "nsxiv.desktop";
-    "inode/directory" = "spacefm.desktop";
+    "inode/directory" = "org.gnome.Nautilus.desktop";
   };
 }

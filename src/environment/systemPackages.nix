@@ -50,6 +50,7 @@ builtins.attrValues root.pkgs
   mpc
   namaka
   nasm
+  nautilus
   nix-index
   nix-init
   nix-melt
@@ -75,7 +76,6 @@ builtins.attrValues root.pkgs
   sd
   shotgun
   slop
-  spaceFM
   sshfs
   stack
   statix
