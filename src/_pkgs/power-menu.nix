@@ -3,8 +3,8 @@
 pkgs.writers.writeBashBin "session-menu" ''
   set -e
 
-  option=$(rofi -dmenu -sep , -p session -format i -no-custom -select 5 \
-    <<< "1 ⏼  sleep,2 ⏻  poweroff,3   reboot,4   quit,5 󰌾  lock")
+  option=$(echo -n "1 ⏼  sleep,2 ⏻  poweroff,3   reboot,4   quit,5 󰌾  lock" \
+    | rofi -dmenu -sep , -p session -format i -no-custom -select 5)
 
   case "$option" in
     0) systemctl suspend;;
