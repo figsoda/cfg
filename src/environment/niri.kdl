@@ -235,9 +235,13 @@ window-rule {
 }
 
 window-rule {
+  match app-id="^blueberry.py$"
   match app-id="^firefox$" title="^Picture-in-Picture$"
   match app-id="^gay.vaskel.soteria$"
+  match app-id="^nm-applet$"
+  match app-id="^nm-connection-editor$"
   match app-id="^qalculate-gtk$"
+  match app-id="^xdg-desktop-portal-gnome$" title="^Share Screen$"
   open-floating true
   open-maximized-to-edges false
 }
