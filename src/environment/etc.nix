@@ -23,7 +23,9 @@ let
 in
 
 {
-  "niri/config.kdl".source = ./niri.kdl;
+  "niri/config.kdl".source = replaceVars ./niri.kdl {
+    inherit (root.colors) black cyan darker lightgray yellow;
+  };
 
   "xdg/ghostty/config".text = with root.colors; ''
     adjust-cursor-thickness = 100%

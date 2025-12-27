@@ -201,12 +201,12 @@ input {
 }
 
 layout {
-  background-color "#1f2227"
+  background-color "@black@"
   border {
     width 2
-    active-color "#56b6c2"
-    inactive-color "#586068"
-    urgent-color "#e5c07b"
+    active-color "@cyan@"
+    inactive-color "@lightgray@"
+    urgent-color "@yellow@"
   }
   focus-ring {
     off
@@ -219,7 +219,7 @@ output "eDP-1" {
 }
 
 overview {
-  backdrop-color "#101014"
+  backdrop-color "@darker@"
   workspace-shadow {
     off
   }
