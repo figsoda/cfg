@@ -201,6 +201,7 @@ input {
 }
 
 layout {
+  always-center-single-column
   background-color "@black@"
   border {
     width 2
@@ -208,6 +209,7 @@ layout {
     inactive-color "@lightgray@"
     urgent-color "@yellow@"
   }
+  center-focused-column "on-overflow"
   focus-ring {
     off
   }
