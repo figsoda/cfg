@@ -6,7 +6,7 @@
 
 window {
   border-color: @cyan@;
-  border: 0.1em;
+  border: 0.08em;
   padding: 0.25em;
 }
 

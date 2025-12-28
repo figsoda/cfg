@@ -204,7 +204,7 @@ layout {
   always-center-single-column
   background-color "@black@"
   border {
-    width 2
+    width 1.5
     active-color "@cyan@"
     inactive-color "@lightgray@"
     urgent-color "@yellow@"
@@ -232,12 +232,12 @@ prefer-no-csd
 screenshot-path "~/files/screenshot-%Y%m%d-%H%M%S.png"
 
 window-rule {
-  match is-floating=false
-  open-maximized-to-edges true
+  draw-border-with-background false
 }
 
 window-rule {
   match app-id="^blueberry.py$"
+  match app-id="^com.saivert.pwvucontrol$"
   match app-id="^firefox$" title="^Picture-in-Picture$"
   match app-id="^gay.vaskel.soteria$"
   match app-id="^nm-applet$"
@@ -245,20 +245,22 @@ window-rule {
   match app-id="^qalculate-gtk$"
   match app-id="^xdg-desktop-portal-gnome$" title="^Share Screen$"
   open-floating true
-  open-maximized-to-edges false
+}
+
+window-rule {
+  match app-id="^steam$" title="^Steam$"
+  open-maximized-to-edges true
 }
 
 window-rule {
   match app-id="^steam$"
   exclude title="^Steam$"
   open-floating true
-  open-maximized-to-edges false
 }
 
 window-rule {
   match app-id=r"^steam_app_\d+$"
   open-fullscreen true
-  open-maximized-to-edges false
 }
 
 spawn-at-startup "ironbar"
