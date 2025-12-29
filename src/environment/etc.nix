@@ -89,6 +89,7 @@ in
       blue
       cyan
       darker
+      dimgray
       gray
       green
       lightgray

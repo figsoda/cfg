@@ -93,3 +93,13 @@ switch > slider {
 switch:checked > slider {
   background-color: @gray@;
 }
+
+toast {
+  background-color: @dimgray@d8;
+  color: @white@;
+}
+
+tooltip.background {
+  background-color: @dimgray@d8;
+  color: @white@;
+}
