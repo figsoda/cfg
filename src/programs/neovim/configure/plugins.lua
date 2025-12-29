@@ -268,19 +268,19 @@ lsp.config.clangd = {
   cmd = { "@clang_tools@/bin/clangd" },
 }
 
+lsp.config.cssls = {
+  cmd = {
+    "@vscode_langservers_extracted@/bin/vscode-css-language-server",
+    "--stdio",
+  },
+}
+
 lsp.config.dafny = {
   cmd = { "@dafny@/bin/dafny", "server" },
 }
 
 lsp.config.emmet_ls = {
   cmd = { "@emmet_ls@/bin/emmet-ls", "--stdio" },
-}
-
-lsp.config.cssls = {
-  cmd = {
-    "@vscode_langservers_extracted@/bin/vscode-css-language-server",
-    "--stdio",
-  },
 }
 
 lsp.config.eslint = {
@@ -290,16 +290,16 @@ lsp.config.eslint = {
   },
 }
 
-lsp.config.jsonls = {
+lsp.config.html = {
   cmd = {
-    "@vscode_langservers_extracted@/bin/vscode-json-language-server",
+    "@vscode_langservers_extracted@/bin/vscode-html-language-server",
     "--stdio",
   },
 }
 
-lsp.config.html = {
+lsp.config.jsonls = {
   cmd = {
-    "@vscode_langservers_extracted@/bin/vscode-html-language-server",
+    "@vscode_langservers_extracted@/bin/vscode-json-language-server",
     "--stdio",
   },
 }
@@ -430,22 +430,20 @@ lsp.config.ocamllsp = {
   cmd = { "@ocaml_lsp@/bin/ocamllsp" },
 }
 
-lsp.config.pyright = {
-  cmd = { "@pyright@/bin/pyright-langserver", "--stdio" },
-  settings = {
-    python = {
-      analysis = {
-        diagnosticSeverityOverrides = {
-          reportMissingModuleSource = "none",
-        },
-        useLibraryCodeForTypes = true,
-      },
-    },
-  },
+lsp.config.ruff = {
+  cmd = { "@ruff@/bin/ruff", "server" },
+  on_attach = function(c, buf)
+    on_attach(c, buf)
+    c.server_capabilities.hoverProvider = false
+  end,
 }
 
 lsp.config.taplo = {
   cmd = { "@taplo@/bin/taplo", "lsp", "stdio" },
+}
+
+lsp.config.tinymist = {
+  cmd = { "@tinymist@/bin/tinymist" },
 }
 
 lsp.config.ts_ls = {
@@ -460,8 +458,8 @@ lsp.config.ts_ls = {
   end,
 }
 
-lsp.config.tinymist = {
-  cmd = { "@tinymist@/bin/tinymist" },
+lsp.config.ty = {
+  cmd = { "@ty@/bin/ty", "server" },
 }
 
 lsp.config.vimls = {
@@ -481,21 +479,22 @@ lsp.config.zls = {
 
 lsp.enable({
   "clangd",
+  "cssls",
   "dafny",
   "emmet_ls",
-  "cssls",
   "eslint",
-  "jsonls",
   "hls",
   "html",
+  "jsonls",
   "lua_ls",
   "nil_ls",
   "ocamllsp",
-  "pyright",
   "racket_langserver",
+  "ruff",
   "taplo",
-  "ts_ls",
   "tinymist",
+  "ts_ls",
+  "ty",
   "vimls",
   "yamlls",
   "zls",
@@ -573,8 +572,6 @@ null_ls.setup({
     nb.code_actions.statix.with({ command = "@statix@/bin/statix" }),
     -- nb.diagnostics.shellcheck.with({ command = "@shellcheck@/bin/shellcheck" }),
     nb.diagnostics.statix.with({ command = "@statix@/bin/statix" }),
-    nb.formatting.black.with({ command = "@black_py@/bin/black" }),
-    nb.formatting.isort.with({ command = "@isort@/bin/isort" }),
     nb.formatting.prettier.with({
       command = "@prettier@/bin/prettier",
       disabled_filetypes = { "html" },

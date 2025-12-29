@@ -60,6 +60,7 @@ builtins.attrValues root.pkgs
   racket
   ripgrep
   rofi
+  ruff
   sagoin
   sccache
   sd
@@ -71,6 +72,7 @@ builtins.attrValues root.pkgs
   swaynotificationcenter
   swayosd
   tela-icon-theme
+  ty
   wl-clipboard
   xdg-user-dirs
   xwayland-satellite

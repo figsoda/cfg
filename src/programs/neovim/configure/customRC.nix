@@ -67,15 +67,15 @@ in
         clang-tools
         dafny
         emmet-ls
-        isort
         lua-language-server
         nil
-        pyright
+        ruff
         shellcheck
         statix
         stylua
         taplo
         tinymist
+        ty
         typstyle
         vscode-langservers-extracted
         xdg-utils
@@ -88,8 +88,6 @@ in
         vim-language-server
         ;
       inherit (pkgs.ocamlPackages) ocaml-lsp;
-
-      black-py = pkgs.black;
 
       lua-paths =
         let
