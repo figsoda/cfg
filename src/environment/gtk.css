@@ -56,6 +56,7 @@
 
   --card-bg-color: @black@d8;
   --card-fg-color: @white@;
+  --card-shade-color: @darker@30;
 
   --dialog-bg-color: @black@d8;
   --dialog-fg-color: @white@;
@@ -75,6 +76,8 @@
 
   --overview-bg-color: @black@;
   --overview-fg-color: @white@;
+
+  --border-opacity: 0;
 
   --window-radius: 0;
 }
