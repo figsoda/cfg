@@ -236,10 +236,10 @@ window-rule {
 }
 
 window-rule {
-  match app-id="^blueberry.py$"
   match app-id="^com.saivert.pwvucontrol$"
   match app-id="^firefox$" title="^Picture-in-Picture$"
   match app-id="^gay.vaskel.soteria$"
+  match app-id="^io.github.kaii_lb.Overskride$"
   match app-id="^nm-applet$"
   match app-id="^nm-connection-editor$"
   match app-id="^qalculate-gtk$"

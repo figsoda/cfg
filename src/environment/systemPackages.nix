@@ -6,7 +6,6 @@ builtins.attrValues root.pkgs
 ++ [
   bat
   binutils
-  blueberry
   bottom
   bubblewrap
   cargo-edit
@@ -52,6 +51,7 @@ builtins.attrValues root.pkgs
   ocamlPackages.utop
   ocamlformat
   ouch
+  overskride
   psmisc
   pwvucontrol
   python3
