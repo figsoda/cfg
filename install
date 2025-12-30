@@ -1,17 +1,17 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i bash -p curl fd imagemagick ripgrep sd xorg.xrandr
+#!nix-shell -i bash -p curl fd
 
 # shellcheck shell=bash
-# vim: ft=sh
+# vim: ft=bash
 
 set -euo pipefail
 
 echo Installing rime packages
-curl -LSs https://git.io/rime-install \
-    | rime_dir=~/.local/share/fcitx5/rime bash -s -- prelude essay luna-pinyin
+curl -LSs https://git.io/rime-install |
+  rime_dir=~/.local/share/fcitx5/rime bash -s -- prelude essay luna-pinyin
 rm -rf plum
 
 echo Creating symlinks
 src=$(dirname "$(realpath "$0")")/home
 fd --base-directory "$src" -Ht f -x \
-    sh -c "mkdir -p '$HOME/{//}' && ln -sf '$src/{}' '$HOME/{}'"
+  sh -c "mkdir -p '$HOME/{//}' && ln -sf '$src/{}' '$HOME/{}'"

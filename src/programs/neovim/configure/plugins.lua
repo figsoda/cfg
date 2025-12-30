@@ -264,6 +264,18 @@ lsp.config["*"] = {
   on_attach = on_attach,
 }
 
+lsp.config.bashls = {
+  cmd = { "@bash_language_server@/bin/bash-language-server", "start" },
+  settings = {
+    bashIde = {
+      shellcheckPath = "@shellcheck@/bin/shellcheck",
+      shfmt = {
+        path = "@shfmt@/bin/shfmt",
+      },
+    },
+  },
+}
+
 lsp.config.clangd = {
   cmd = { "@clang_tools@/bin/clangd" },
 }
@@ -478,6 +490,7 @@ lsp.config.zls = {
 }
 
 lsp.enable({
+  "bashls",
   "clangd",
   "cssls",
   "dafny",
@@ -570,7 +583,6 @@ null_ls.setup({
   sources = {
     nb.code_actions.refactoring,
     nb.code_actions.statix.with({ command = "@statix@/bin/statix" }),
-    -- nb.diagnostics.shellcheck.with({ command = "@shellcheck@/bin/shellcheck" }),
     nb.diagnostics.statix.with({ command = "@statix@/bin/statix" }),
     nb.formatting.prettier.with({
       command = "@prettier@/bin/prettier",

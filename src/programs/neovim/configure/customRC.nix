@@ -64,6 +64,7 @@ in
         ;
 
       inherit (pkgs)
+        bash-language-server
         clang-tools
         dafny
         emmet-ls
@@ -71,6 +72,7 @@ in
         nil
         ruff
         shellcheck
+        shfmt
         statix
         stylua
         taplo
