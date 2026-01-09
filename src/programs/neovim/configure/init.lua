@@ -164,12 +164,12 @@ api.nvim_create_user_command("P", function(input)
 
   if ext == "rs" then
     api.nvim_put({
-      "//!```cargo",
-      "//! [package]",
-      [[//! edition = "2021"]],
-      "//!",
-      "//! [dependencies]",
-      "//! ```",
+      "---cargo",
+      "[package]",
+      [[edition = "2024"]],
+      "",
+      "[dependencies]",
+      "---",
       "",
       "fn main() {}",
     }, "c", false, false)
