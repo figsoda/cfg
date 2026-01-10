@@ -20,7 +20,7 @@ local function on_attach(c, buf)
   end
 
   mapb("n", " e", function()
-    trouble.open("workspace_diagnostics")
+    trouble.open("diagnostics")
   end)
   mapb("n", " r", function()
     trouble.open("lsp_references")
