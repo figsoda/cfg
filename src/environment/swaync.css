@@ -7,11 +7,11 @@
   --mpris-album-art-shadow: none;
   --noti-bg-alpha: 0.85;
   --noti-bg-darker: @darker@;
-  --noti-bg-focus: #00000000;
+  --noti-bg-focus: transparent;
   --noti-bg-hover: @dimgray@;
   --noti-bg: 31, 34, 39;
   --noti-close-bg-hover: @gray@;
-  --noti-close-bg: #00000000;
+  --noti-close-bg: transparent;
   --notification-group-icon-size: 2em;
   --notification-icon-size: 4em;
   --notification-shadow: none;
