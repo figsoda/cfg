@@ -4,6 +4,7 @@ with pkgs;
 
 builtins.attrValues root.pkgs
 ++ [
+  adw-gtk3
   bat
   binutils
   bottom

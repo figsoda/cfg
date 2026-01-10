@@ -3,6 +3,7 @@
   lib,
   pkgs,
   root,
+  super,
 }:
 
 let
@@ -11,7 +12,6 @@ let
     concatStrings
     generators
     imap0
-    mapAttrsToList
     ;
   inherit (pkgs)
     concatText
@@ -30,6 +30,7 @@ let
       gtk-enable-animations = false;
       gtk-font-name = "sans 8";
       gtk-icon-theme-name = "Tela-dark";
+      gtk-theme-name = "adw-gtk3-dark";
       gtk-xft-antialias = 1;
       gtk-xft-hinting = 1;
       gtk-xft-hintstyle = "hintfull";
@@ -81,26 +82,9 @@ in
     )}
   '';
 
+  "xdg/gtk-3.0/gtk.css".text = super.gtkCss "gtk3";
   "xdg/gtk-3.0/settings.ini".text = gtkSettings;
-
-  "xdg/gtk-4.0/gtk.css".source = replaceVars ./gtk.css {
-    inherit (root.colors)
-      black
-      blue
-      cyan
-      darker
-      dimgray
-      gray
-      green
-      lightgray
-      magenta
-      orange
-      red
-      white
-      yellow
-      ;
-  };
-
+  "xdg/gtk-4.0/gtk.css".text = super.gtkCss "gtk4";
   "xdg/gtk-4.0/settings.ini".text = gtkSettings;
 
   "xdg/hypr/hypridle.conf".source = replaceVars ./hypridle.conf {
