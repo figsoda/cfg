@@ -168,6 +168,9 @@ cursor {
 }
 
 gestures {
+  dnd-edge-view-scroll {
+    max-speed 3200
+  }
   dnd-edge-workspace-switch {
     delay-ms 0
     max-speed 3200
