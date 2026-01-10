@@ -3,6 +3,27 @@ local dapui = require("dapui")
 local gitsigns = require("gitsigns")
 local luasnip = require("luasnip")
 
+local move = require("nvim-treesitter-textobjects.move")
+local move = function(action, query)
+  return function()
+    move[action](query)
+  end
+end
+
+local select = require("nvim-treesitter-textobjects.select").select_textobject
+local select = function(query)
+  return function()
+    select(query)
+  end
+end
+
+local swap = require("nvim-treesitter-textobjects.swap")
+local swap = function(action, query)
+  return function()
+    swap[action](query)
+  end
+end
+
 local api = vim.api
 local b = vim.b
 local g = vim.g
@@ -220,6 +241,55 @@ map({ "n", "v", "s" }, "<c-w>", function()
     api.nvim_command("confirm bdelete")
   end
 end)
+
+local filetypes = {}
+for _, parser in ipairs(api.nvim_get_runtime_file("parser/*", true)) do
+  for _, ft in
+    ipairs(
+      vim.treesitter.language.get_filetypes(vim.fn.fnamemodify(parser, ":t:r"))
+    )
+  do
+    filetypes[ft] = true
+  end
+end
+
+api.nvim_create_autocmd("FileType", {
+  pattern = vim.tbl_keys(filetypes),
+  callback = function()
+    vim.treesitter.start()
+
+    local mode = { "n", "o", "x" }
+    map(mode, "]]", move("goto_next_start", "@class.outer"))
+    map(mode, "]m", move("goto_next_start", "@function.outer"))
+    map(mode, "][", move("goto_next_end", "@class.outer"))
+    map(mode, "]M", move("goto_next_end", "@function.outer"))
+    map(mode, "[[", move("goto_previous_start", "@class.outer"))
+    map(mode, "[m", move("goto_previous_start", "@function.outer"))
+    map(mode, "[]", move("goto_previous_end", "@class.outer"))
+    map(mode, "[M", move("goto_previous_end", "@function.outer"))
+
+    local mode = { "o", "x" }
+    map(mode, "[M", select("@function.outer"))
+    map(mode, "ab", select("@block.outer"))
+    map(mode, "ib", select("@block.inner"))
+    map(mode, "ac", select("@class.outer"))
+    map(mode, "ic", select("@class.inner"))
+    map(mode, "af", select("@function.outer"))
+    map(mode, "if", select("@function.inner"))
+    map(mode, "ai", select("@conditional.outer"))
+    map(mode, "ii", select("@conditional.inner"))
+    map(mode, "al", select("@loop.outer"))
+    map(mode, "il", select("@loop.inner"))
+
+    local mode = "n"
+    map(mode, "glc", swap("swap_next", "@class.outer"))
+    map(mode, "glf", swap("swap_next", "@function.outer"))
+    map(mode, "glp", swap("swap_next", "@parameter.outer"))
+    map(mode, "ghc", swap("swap_previous", "@class.outer"))
+    map(mode, "ghf", swap("swap_previous", "@function.outer"))
+    map(mode, "ghp", swap("swap_previous", "@parameter.outer"))
+  end,
+})
 
 vim.diagnostic.config({
   severity_sort = true,

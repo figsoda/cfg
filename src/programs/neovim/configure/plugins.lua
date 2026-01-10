@@ -11,7 +11,6 @@ local trouble = require("trouble")
 local api = vim.api
 local diagnostic = vim.diagnostic
 local lsp = vim.lsp
-local treesitter = vim.treesitter
 
 local border = { "", "", "", " ", "", "", "", " " }
 
@@ -595,74 +594,11 @@ null_ls.setup({
 
 require("numb").setup()
 
--- require("nvim-treesitter.configs").setup({
---   highlight = {
---     enable = true,
---   },
---   indent = {
---     enable = true,
---   },
---   query_linter = {
---     enable = true,
---   },
---   textobjects = {
---     lsp_interop = {
---       enable = true,
---       border = border,
---       peek_definition_code = {
---         gp = "@function.outer",
---       },
---     },
---     move = {
---       enable = true,
---       goto_next_start = {
---         ["]]"] = "@class.outer",
---         ["]m"] = "@function.outer",
---       },
---       goto_next_end = {
---         ["]["] = "@class.outer",
---         ["]M"] = "@function.outer",
---       },
---       goto_previous_start = {
---         ["[["] = "@class.outer",
---         ["[m"] = "@function.outer",
---       },
---       goto_previous_end = {
---         ["[]"] = "@class.outer",
---         ["[M"] = "@function.outer",
---       },
---     },
---     select = {
---       enable = true,
---       lookahead = true,
---       keymaps = {
---         ab = "@block.outer",
---         ib = "@block.inner",
---         ac = "@class.outer",
---         ic = "@class.inner",
---         af = "@function.outer",
---         ["if"] = "@function.inner",
---         ai = "@conditional.outer",
---         ii = "@conditional.inner",
---         al = "@loop.outer",
---         il = "@loop.inner",
---       },
---     },
---     swap = {
---       enable = true,
---       swap_next = {
---         glc = "@class.outer",
---         glf = "@function.outer",
---         glp = "@parameter.inner",
---       },
---       swap_previous = {
---         ghc = "@class.outer",
---         ghf = "@function.outer",
---         ghp = "@parameter.inner",
---       },
---     },
---   },
--- })
+require("nvim-treesitter-textobjects").setup({
+  select = {
+    lookahead = true,
+  },
+})
 
 require("nvim_context_vt").setup({
   min_rows = 6,
