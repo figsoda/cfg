@@ -595,82 +595,82 @@ null_ls.setup({
 
 require("numb").setup()
 
-require("nvim-treesitter.configs").setup({
-  highlight = {
-    enable = true,
-  },
-  indent = {
-    enable = true,
-  },
-  query_linter = {
-    enable = true,
-  },
-  textobjects = {
-    lsp_interop = {
-      enable = true,
-      border = border,
-      peek_definition_code = {
-        gp = "@function.outer",
-      },
-    },
-    move = {
-      enable = true,
-      goto_next_start = {
-        ["]]"] = "@class.outer",
-        ["]m"] = "@function.outer",
-      },
-      goto_next_end = {
-        ["]["] = "@class.outer",
-        ["]M"] = "@function.outer",
-      },
-      goto_previous_start = {
-        ["[["] = "@class.outer",
-        ["[m"] = "@function.outer",
-      },
-      goto_previous_end = {
-        ["[]"] = "@class.outer",
-        ["[M"] = "@function.outer",
-      },
-    },
-    select = {
-      enable = true,
-      lookahead = true,
-      keymaps = {
-        ab = "@block.outer",
-        ib = "@block.inner",
-        ac = "@class.outer",
-        ic = "@class.inner",
-        af = "@function.outer",
-        ["if"] = "@function.inner",
-        ai = "@conditional.outer",
-        ii = "@conditional.inner",
-        al = "@loop.outer",
-        il = "@loop.inner",
-      },
-    },
-    swap = {
-      enable = true,
-      swap_next = {
-        glc = "@class.outer",
-        glf = "@function.outer",
-        glp = "@parameter.inner",
-      },
-      swap_previous = {
-        ghc = "@class.outer",
-        ghf = "@function.outer",
-        ghp = "@parameter.inner",
-      },
-    },
-  },
-})
+-- require("nvim-treesitter.configs").setup({
+--   highlight = {
+--     enable = true,
+--   },
+--   indent = {
+--     enable = true,
+--   },
+--   query_linter = {
+--     enable = true,
+--   },
+--   textobjects = {
+--     lsp_interop = {
+--       enable = true,
+--       border = border,
+--       peek_definition_code = {
+--         gp = "@function.outer",
+--       },
+--     },
+--     move = {
+--       enable = true,
+--       goto_next_start = {
+--         ["]]"] = "@class.outer",
+--         ["]m"] = "@function.outer",
+--       },
+--       goto_next_end = {
+--         ["]["] = "@class.outer",
+--         ["]M"] = "@function.outer",
+--       },
+--       goto_previous_start = {
+--         ["[["] = "@class.outer",
+--         ["[m"] = "@function.outer",
+--       },
+--       goto_previous_end = {
+--         ["[]"] = "@class.outer",
+--         ["[M"] = "@function.outer",
+--       },
+--     },
+--     select = {
+--       enable = true,
+--       lookahead = true,
+--       keymaps = {
+--         ab = "@block.outer",
+--         ib = "@block.inner",
+--         ac = "@class.outer",
+--         ic = "@class.inner",
+--         af = "@function.outer",
+--         ["if"] = "@function.inner",
+--         ai = "@conditional.outer",
+--         ii = "@conditional.inner",
+--         al = "@loop.outer",
+--         il = "@loop.inner",
+--       },
+--     },
+--     swap = {
+--       enable = true,
+--       swap_next = {
+--         glc = "@class.outer",
+--         glf = "@function.outer",
+--         glp = "@parameter.inner",
+--       },
+--       swap_previous = {
+--         ghc = "@class.outer",
+--         ghf = "@function.outer",
+--         ghp = "@parameter.inner",
+--       },
+--     },
+--   },
+-- })
 
 require("nvim_context_vt").setup({
-  custom_parser = function(node)
-    local text = treesitter.get_node_text(node, 0, { concat = false })[1]
-    if text and #text > 3 then
-      local start_row, _, end_row, _ = treesitter.get_node_range(node)
-      return end_row - start_row > 6 and "<- " .. text or nil
-    end
+  min_rows = 6,
+  prefix = "",
+  custom_validator = function(node, ft, opts)
+    local utils = require("nvim_context_vt.utils")
+    return utils.default_validator(node, ft, opts)
+      and #utils.get_node_text(node)[1] > 3
   end,
 })
 
@@ -693,6 +693,9 @@ vim.g.rustaceanvim = {
       ["rust-analyzer"] = {
         assist = { importPrefix = "by_crate" },
         checkOnSave = { command = "clippy" },
+        inlayHints = {
+          closingBraceHints = { enable = false },
+        },
       },
     },
   },
