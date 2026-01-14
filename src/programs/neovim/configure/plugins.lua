@@ -1,7 +1,6 @@
 local cmp = require("cmp")
 local leap = require("leap")
 local luasnip = require("luasnip")
-local navic = require("nvim-navic")
 local neo_tree = require("neo-tree")
 local null_ls = require("null-ls")
 local nb = null_ls.builtins
@@ -14,7 +13,7 @@ local lsp = vim.lsp
 
 local border = { "", "", "", " ", "", "", "", " " }
 
-local function on_attach(c, buf)
+local function on_attach(_, buf)
   local function mapb(mode, lhs, rhs)
     vim.keymap.set(mode, lhs, rhs, { buffer = buf })
   end
@@ -42,10 +41,6 @@ local function on_attach(c, buf)
     lsp.buf.format({ async = true, bufnr = buf })
   end)
   mapb({ "n", "v" }, "ga", lsp.buf.code_action)
-
-  if c.server_capabilities.documentSymbolProvider then
-    navic.attach(c, buf)
-  end
 
   lsp.inlay_hint.enable(true, { bufnr = buf })
 end
@@ -253,7 +248,6 @@ require("lualine").setup({
     lualine_c = {
       "filename",
       { "diagnostics", sources = { "nvim_diagnostic" } },
-      { navic.get_location, cond = navic.is_available },
     },
   },
 })

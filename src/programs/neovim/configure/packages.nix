@@ -30,7 +30,6 @@
     nvim-dap
     nvim-dap-ui
     nvim-lspconfig
-    nvim-navic
     nvim-notify
     nvim-treesitter-textobjects
     nvim-treesitter.withAllGrammars
