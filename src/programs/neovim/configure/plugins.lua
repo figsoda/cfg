@@ -92,7 +92,7 @@ require("bufferline").setup({
 cmp.setup({
   confirmation = { default_behavior = cmp.ConfirmBehavior.Replace },
   formatting = {
-    format = require("lspkind").cmp_format({ with_text = false }),
+    fields = { "abbr", "icon", "menu" },
   },
   mapping = {
     ["<C-e>"] = function(fallback)
