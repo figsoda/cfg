@@ -14,6 +14,7 @@ in
     --icons
     --sort name
   '';
+  GROFF_NO_SGR = 1;
   IRONBAR_CONFIG = (formats.toml { }).generate "ironbar.toml" {
     height = 0;
     popup_autohide = true;
