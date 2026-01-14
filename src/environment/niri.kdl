@@ -163,6 +163,10 @@ binds {
   }
 }
 
+clipboard {
+  disable-primary
+}
+
 cursor {
   hide-after-inactive-ms 3000
 }
