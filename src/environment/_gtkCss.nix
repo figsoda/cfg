@@ -6,6 +6,7 @@ let
   inherit (lib)
     concatStrings
     mapAttrsToList
+    replaceString
     ;
 
   alpha =
@@ -124,6 +125,7 @@ let
       gtk3 = "";
       gtk4 = /* css */ ''
         :root {
+        ${concatStrings (mapAttrsToList (k: v: "  --${replaceString "_" "-" k}: ${v};\n") colors)}
           --border-opacity: 0;
           --window-radius: 0;
         }
