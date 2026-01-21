@@ -41,6 +41,7 @@ builtins.attrValues root.pkgs
   namaka
   nasm
   nautilus
+  nix-fast-build
   nix-index
   nix-init
   nix-melt

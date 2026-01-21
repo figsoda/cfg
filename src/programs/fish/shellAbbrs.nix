@@ -55,6 +55,7 @@
   nbf = "nix build -f .";
   nd = "nix develop -c fish";
   nf = "nix flake";
+  nfb = "nix-fast-build";
   nfc = "nix flake check";
   nfs = "nix flake show";
   nfu = "nix flake update";
