@@ -625,6 +625,9 @@ vim.g.rustaceanvim = {
         checkOnSave = { command = "clippy" },
         inlayHints = {
           closingBraceHints = { enable = false },
+          parameterHints = {
+            missingArguments = { enable = true },
+          },
         },
       },
     },
