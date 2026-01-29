@@ -29,12 +29,12 @@ builtins.attrValues root.pkgs
   gnumake
   gradescope-submit
   haskell-language-server
+  heroic
   hyprlock
   imv
   ironbar
   libreoffice-fresh
   libsecret
-  lutris
   mmtc
   mold
   mpc
