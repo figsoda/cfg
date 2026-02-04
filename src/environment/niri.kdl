@@ -134,6 +134,9 @@ binds {
   mod+shift+m repeat=false {
     spawn "mmtc" "-C" "clear" "update" "add /"
   }
+  mod+o repeat=false {
+    spawn-sh "xdg-open \"$(fd -E /nixpkgs/ | rofi -dmenu -p open -matching glob)\""
+  }
   mod+q repeat=false {
     spawn "qalculate-gtk"
   }
