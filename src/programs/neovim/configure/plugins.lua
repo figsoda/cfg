@@ -666,3 +666,7 @@ trouble.setup({
     "lsp_type_definitions",
   },
 })
+
+require("typst-preview").setup({
+  open_cmd = "firefox --new-window %s",
+})

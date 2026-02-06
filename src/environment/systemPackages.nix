@@ -75,6 +75,7 @@ builtins.attrValues root.pkgs
   swayosd
   tela-icon-theme
   ty
+  typst
   wl-clipboard
   xdg-user-dirs
   xwayland-satellite
