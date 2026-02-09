@@ -107,10 +107,10 @@ binds {
   }
 
   print repeat=false {
-    screenshot-screen
+    screenshot-screen show-pointer=false
   }
   ctrl+print repeat=false {
-    screenshot
+    screenshot show-pointer=false
   }
   mod+b repeat=false {
     spawn "firefox"
