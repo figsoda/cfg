@@ -668,5 +668,6 @@ trouble.setup({
 })
 
 require("typst-preview").setup({
+  invert_colors = "always",
   open_cmd = "firefox --new-window %s",
 })
