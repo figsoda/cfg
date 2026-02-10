@@ -67,7 +67,7 @@ in
         bash-language-server
         clang-tools
         dafny
-        emmet-ls
+        emmet-language-server
         lua-language-server
         nil
         ruff

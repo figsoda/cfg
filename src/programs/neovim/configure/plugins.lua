@@ -285,7 +285,7 @@ lsp.config.dafny = {
 }
 
 lsp.config.emmet_ls = {
-  cmd = { "@emmet_ls@/bin/emmet-ls", "--stdio" },
+  cmd = { "@emmet_language_server@/bin/emmet-language-server", "--stdio" },
 }
 
 lsp.config.eslint = {
