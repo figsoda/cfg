@@ -45,6 +45,7 @@ builtins.attrValues root.pkgs
   nix-index
   nix-init
   nix-melt
+  nix-output-monitor
   nix-update
   nixfmt
   nixpkgs-hammering
