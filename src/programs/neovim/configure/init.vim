@@ -78,11 +78,19 @@ autocmd BufRead,BufNewFile flake.lock setfiletype json
 
 autocmd BufRead,BufNewFile Cargo.lock setfiletype toml
 
+autocmd FileType css setlocal shiftwidth=2
+
+autocmd FileType json setlocal shiftwidth=2
+
+autocmd FileType kdl setlocal shiftwidth=2
+
 autocmd FileType lua setlocal shiftwidth=2
 
 autocmd FileType markdown setlocal shiftwidth=2
 
 autocmd FileType nix setlocal shiftwidth=2
+
+autocmd FileType toml setlocal shiftwidth=2
 
 autocmd FileType vim setlocal shiftwidth=2
 
