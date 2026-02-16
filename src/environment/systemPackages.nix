@@ -76,6 +76,7 @@ builtins.attrValues root.pkgs
   swayosd
   tela-icon-theme
   ty
+  typos
   typst
   wl-clipboard
   xdg-user-dirs
