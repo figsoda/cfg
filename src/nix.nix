@@ -35,6 +35,7 @@
     experimental-features = [
       "flakes"
       "nix-command"
+      "recursive-nix"
     ];
     flake-registry = "${inputs.flake-registry}/flake-registry.json";
     keep-outputs = true;
