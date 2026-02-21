@@ -33,6 +33,8 @@
   settings = {
     auto-optimise-store = true;
     experimental-features = [
+      "ca-derivations"
+      "dynamic-derivations"
       "flakes"
       "nix-command"
       "recursive-nix"
