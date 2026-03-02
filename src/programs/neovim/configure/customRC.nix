@@ -70,6 +70,7 @@ in
         emmet-language-server
         lua-language-server
         nil
+        prettier
         ruff
         shellcheck
         shfmt
@@ -78,16 +79,13 @@ in
         taplo
         tinymist
         ty
+        typescript-language-server
         typstyle
+        vim-language-server
         vscode-langservers-extracted
         xdg-utils
         yaml-language-server
         zls
-        ;
-      inherit (pkgs.nodePackages)
-        prettier
-        typescript-language-server
-        vim-language-server
         ;
       inherit (pkgs.ocamlPackages) ocaml-lsp;
 
