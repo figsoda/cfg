@@ -160,7 +160,10 @@ in
   ];
 
   "xdg/swayosd/config.toml".source = toml "swayosd.toml" {
-    server.show_percentage = true;
+    server = {
+      min_brightness = 1;
+      show_percentage = true;
+    };
   };
 
   "xdg/user-dirs.defaults".text = ''
