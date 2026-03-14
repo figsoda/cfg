@@ -30,9 +30,11 @@ builtins.attrValues root.pkgs
   gradescope-submit
   haskell-language-server
   heroic
+  hurl
   hyprlock
   imv
   ironbar
+  jq
   libreoffice-fresh
   libsecret
   mmtc
