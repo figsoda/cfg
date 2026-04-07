@@ -83,6 +83,5 @@ builtins.attrValues root.pkgs
   wl-clipboard
   xdg-user-dirs
   xwayland-satellite
-  ymdl
   zig
 ]
