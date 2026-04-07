@@ -21,28 +21,6 @@
         "type": "github"
       }
     },
-    "figsoda-pkgs": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "rust-templates": "rust-templates",
-        "ymdl": "ymdl"
-      },
-      "locked": {
-        "lastModified": 1774255454,
-        "narHash": "sha256-/4EsJ2sWkcLIKaEwJ+Ezt7R6/e2poc2TgDwhRfAkZyQ=",
-        "owner": "figsoda",
-        "repo": "pkgs",
-        "rev": "573ddb9499b83ef7cb244f7be6748392b4df3328",
-        "type": "github"
-      },
-      "original": {
-        "owner": "figsoda",
-        "repo": "pkgs",
-        "type": "github"
-      }
-    },
     "flake-registry": {
       "flake": false,
       "locked": {
@@ -134,7 +112,6 @@
     "root": {
       "inputs": {
         "fenix": "fenix",
-        "figsoda-pkgs": "figsoda-pkgs",
         "flake-registry": "flake-registry",
         "haumea": "haumea",
         "nix-index-database": "nix-index-database",
@@ -156,38 +133,6 @@
         "owner": "rust-lang",
         "ref": "nightly",
         "repo": "rust-analyzer",
-        "type": "github"
-      }
-    },
-    "rust-templates": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1774110804,
-        "narHash": "sha256-AuAqd/IilgwPHUxlxyV1IdDobPx7jB199AUxE4pM8/w=",
-        "owner": "figsoda",
-        "repo": "rust-templates",
-        "rev": "d798c71e0ce3ee5acafe46e7d2799cafd31153de",
-        "type": "github"
-      },
-      "original": {
-        "owner": "figsoda",
-        "repo": "rust-templates",
-        "type": "github"
-      }
-    },
-    "ymdl": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1631585381,
-        "narHash": "sha256-7XVq+xsPx51LtTeF1yHm8+GO3H8LCzSiwzmbEhyJ81w=",
-        "owner": "figsoda",
-        "repo": "ymdl",
-        "rev": "7c587526ab07e791e4aa9bae51e87af861eeaf10",
-        "type": "github"
-      },
-      "original": {
-        "owner": "figsoda",
-        "repo": "ymdl",
         "type": "github"
       }
     }

@@ -8,7 +8,7 @@
 let
   inherit (builtins) concatStringsSep;
   inherit (lib) mapAttrsToList removePrefix;
-  inherit (pkgs) coreutils fish rust-templates;
+  inherit (pkgs) coreutils fish;
 
   nix = config.nix.package;
 in
@@ -75,12 +75,6 @@ in
     else
       echo "fish: Unknown command: $cmd" >&2
     end
-  end
-
-  function gen -a tmpl name
-    ${rust-templates}/bin/generate $tmpl $name $name '["figsoda <figsoda@pm.me>"]' figsoda/$name
-    and cd $name
-    and commandline "git push -u origin main"
   end
 
   function p -a name

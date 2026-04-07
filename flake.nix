@@ -4,10 +4,6 @@
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    figsoda-pkgs = {
-      url = "github:figsoda/pkgs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     flake-registry = {
       url = "github:nixos/flake-registry";
       flake = false;
