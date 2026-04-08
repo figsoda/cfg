@@ -46,11 +46,11 @@
       "nixpkgs=${inputs.nixpkgs}"
     ];
     substituters = [
-      "https://figsoda.cachix.org"
+      "https://fenix.cachix.org"
       "https://nix-community.cachix.org"
     ];
     trusted-public-keys = [
-      "figsoda.cachix.org-1:mJfTEL4qLCqymqynJlaTxxi5APlaM0DfWg+h+CRGa20="
+      "fenix.cachix.org-1:ecJhr+RdYEdcVgUkjruiYhjbBloIEGov7bos90cZi0Q="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
     trusted-users = [
