@@ -1,7 +1,19 @@
-{ pkgs, root }:
+{
+  lib,
+  pkgs,
+  root,
+}:
 
 let
-  inherit (pkgs) formats replaceVars writeText;
+  inherit (lib)
+    getExe
+    ;
+  inherit (pkgs)
+    delta
+    formats
+    replaceVars
+    writeText
+    ;
 in
 
 {
@@ -74,7 +86,16 @@ in
       };
     }
   ];
-
+  JJ_CONFIG = (formats.toml { }).generate "jj.toml" {
+    ui = {
+      pager = getExe delta;
+      diff-formatter = ":git";
+    };
+    user = {
+      name = "figsoda";
+      email = "figsoda@pm.me";
+    };
+  };
   LESSHISTFILE = "-";
   PATH = "$HOME/.cargo/bin";
   RIPGREP_CONFIG_PATH = writeText "rg-config" ''

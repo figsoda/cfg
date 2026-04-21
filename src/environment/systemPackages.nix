@@ -35,6 +35,7 @@ builtins.attrValues root.pkgs
   imv
   ironbar
   jq
+  jujutsu
   libreoffice-fresh
   libsecret
   mmtc

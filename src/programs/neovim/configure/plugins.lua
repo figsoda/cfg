@@ -187,6 +187,15 @@ require("dressing").setup({
   },
 })
 
+require("flatten").setup({
+  block_for = {
+    jjdescription = true,
+  },
+  window = {
+    open = "alternate",
+  },
+})
+
 require("gitsigns").setup({
   preview_config = { border = border },
   status_formatter = function(status)

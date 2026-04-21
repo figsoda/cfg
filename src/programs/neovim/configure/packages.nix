@@ -14,6 +14,7 @@
     comment-nvim
     crates-nvim
     dressing-nvim
+    flatten-nvim
     gitsigns-nvim
     indent-blankline-nvim
     leap-nvim
