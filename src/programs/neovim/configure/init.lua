@@ -1,3 +1,4 @@
+local bufferline = require("bufferline")
 local dap = require("dap")
 local dapui = require("dapui")
 local gitsigns = require("gitsigns")
@@ -26,6 +27,7 @@ end
 
 local api = vim.api
 local b = vim.b
+local cmd = vim.cmd
 local g = vim.g
 local map = vim.keymap.set
 local o = vim.o
@@ -235,10 +237,26 @@ end)
 
 map({ "n", "v", "s" }, " de", dapui.eval)
 map({ "n", "v", "s" }, "<c-w>", function()
-  if vim.bo.buftype == "terminal" then
-    api.nvim_buf_delete(0, { force = true })
+  local buf = api.nvim_get_current_buf()
+  local found = false
+  local last = true
+  for _, elem in ipairs(bufferline.get_elements().elements) do
+    if elem.id == buf then
+      found = true
+    else
+      last = false
+    end
+  end
+
+  if found then
+    if last then
+      vim.api.nvim_set_current_buf(vim.api.nvim_create_buf(true, false))
+    else
+      bufferline.cycle(-1)
+    end
+    api.nvim_buf_delete(buf, {})
   else
-    api.nvim_command("confirm bdelete")
+    api.nvim_buf_delete(buf, { force = true })
   end
 end)
 
