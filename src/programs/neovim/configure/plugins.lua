@@ -425,6 +425,14 @@ lsp.config.taplo = {
 
 lsp.config.tinymist = {
   cmd = { "@tinymist@/bin/tinymist" },
+  settings = {
+    formatterPrintWidth = 80,
+  },
+  on_attach = function(c, buf)
+    on_attach(c, buf)
+    c.server_capabilities.documentFormattingProvider = true
+    c.server_capabilities.documentRangeFormattingProvider = true
+  end,
 }
 
 lsp.config.ts_ls = {
@@ -558,7 +566,6 @@ null_ls.setup({
       disabled_filetypes = { "html" },
     }),
     nb.formatting.stylua.with({ command = "@stylua@/bin/stylua" }),
-    nb.formatting.typstyle.with({ command = "@typstyle@/bin/typstyle" }),
   },
 })
 

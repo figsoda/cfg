@@ -80,7 +80,6 @@ in
         tinymist
         ty
         typescript-language-server
-        typstyle
         vim-language-server
         vscode-langservers-extracted
         xdg-utils
