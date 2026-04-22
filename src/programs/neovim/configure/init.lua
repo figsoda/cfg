@@ -27,7 +27,6 @@ end
 
 local api = vim.api
 local b = vim.b
-local cmd = vim.cmd
 local g = vim.g
 local map = vim.keymap.set
 local o = vim.o
