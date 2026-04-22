@@ -197,9 +197,6 @@ let
     GitSignsChange.fg = yellow;
     GitSignsDelete.fg = red;
 
-    # indent-blankline.nvim
-    IblIndent.fg = gray;
-
     # leap.nvim
     LeapMatch = {
       fg = green;
@@ -293,22 +290,11 @@ let
     CmpItemKind.fg = orange;
     CmpItemMenu.fg = white;
 
-    # nvim-notify
-    NotifyERRORBorder.fg = red;
-    NotifyERRORIcon.fg = red;
-    NotifyERRORTitle.fg = red;
-    NotifyWARNBorder.fg = yellow;
-    NotifyWARNIcon.fg = yellow;
-    NotifyWARNTitle.fg = yellow;
-    NotifyINFOBorder.fg = blue;
-    NotifyINFOIcon.fg = blue;
-    NotifyINFOTitle.fg = blue;
-    NotifyDEBUGBorder.fg = white;
-    NotifyDEBUGIcon.fg = white;
-    NotifyDEBUGTitle.fg = white;
-    NotifyTRACEBorder.fg = white;
-    NotifyTRACEIcon.fg = white;
-    NotifyTRACETitle.fg = white;
+    # snacks.nvim
+    SnacksIndent.fg = gray;
+    SnacksIndentScope.fg = lightgray;
+    SnacksPicker.fg = white;
+    SnacksPickerBorder.fg = blue;
 
     # telescope.nvim
     TelescopeResultsIdentifier.fg = blue;

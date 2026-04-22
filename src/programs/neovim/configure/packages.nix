@@ -13,10 +13,8 @@
     cmp_luasnip
     comment-nvim
     crates-nvim
-    dressing-nvim
     flatten-nvim
     gitsigns-nvim
-    indent-blankline-nvim
     leap-nvim
     lspkind-nvim
     lualine-nvim
@@ -31,14 +29,13 @@
     nvim-dap
     nvim-dap-ui
     nvim-lspconfig
-    nvim-notify
     nvim-treesitter-textobjects
     nvim-treesitter.withAllGrammars
     nvim-web-devicons
     nvim_context_vt
     refactoring-nvim
-    ron-vim
     rustaceanvim
+    snacks-nvim
     telescope-fzf-native-nvim
     telescope-nvim
     trouble-nvim

@@ -160,33 +160,6 @@ require("crates").setup()
 
 require("dapui").setup()
 
-require("dressing").setup({
-  input = {
-    border = "single",
-    override = function(cfg)
-      cfg.anchor = "NW"
-      return cfg
-    end,
-    win_options = {
-      winblend = 0,
-      winhighlight = "FloatBorder:DiagnosticInfo,NormalFloat:Normal",
-    },
-  },
-  select = {
-    backend = { "builtin" },
-    builtin = {
-      border = "single",
-      min_height = { 0, 0 },
-      min_width = { 0, 0 },
-      relative = "cursor",
-      win_options = {
-        winblend = 0,
-        winhighlight = "FloatBorder:DiagnosticInfo,NormalFloat:Normal",
-      },
-    },
-  },
-})
-
 require("flatten").setup({
   block_for = {
     jjdescription = true,
@@ -210,12 +183,6 @@ require("gitsigns").setup({
         or ""
       )
   end,
-})
-
-require("ibl").setup({
-  indent = {
-    char = "▏",
-  },
 })
 
 leap.opts.special_keys = {
@@ -645,6 +612,55 @@ vim.g.rustaceanvim = {
     float_win_config = { border = border },
   },
 }
+
+require("snacks").setup({
+  indent = {
+    animate = {
+      enabled = false,
+    },
+    indent = {
+      char = "▏",
+    },
+    scope = {
+      char = "▏",
+    },
+  },
+  input = {},
+  notifier = {},
+  picker = {
+    layouts = {
+      select = {
+        layout = {
+          border = "single",
+          col = 1,
+          relative = "cursor",
+          row = 1,
+        },
+      },
+    },
+    win = {
+      input = {
+        keys = {
+          ["<esc>"] = { "close", mode = { "i" } },
+        },
+      },
+    },
+  },
+  styles = {
+    input = {
+      border = "single",
+      col = 1,
+      keys = {
+        i_esc = { "<esc>", "close", mode = { "i" } },
+      },
+      row = 1,
+      relative = "cursor",
+    },
+    notification = {
+      border = "single",
+    },
+  },
+})
 
 telescope.setup({
   defaults = {
