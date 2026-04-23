@@ -21,17 +21,15 @@ nn <space>/ <cmd>Telescope live_grep<cr>
 nn <space>fc <cmd>!@rust@/bin/cargo fmt<cr>
 nn <space>fl <cmd>!@fd@/bin/fd -H '.lua$' -x @stylua@/bin/stylua<cr>
 nn <space>fn <cmd>!@fd@/bin/fd -H '.nix$' -x @nixfmt@/bin/nixfmt<cr>
-nn <space>g<space> :Git<space>
 nn <space>gB <cmd>Telescope git_bcommits<cr>
-nn <space>gN <cmd>Git absorb -r<cr>
+nn <space>gN <cmd>T git absorb -r<cr>
 nn <space>gS <cmd>Telescope git_stash<cr>
-nn <space>ga <cmd>Git add -p<cr>
-nn <space>gc <cmd>Git commit<cr>
-nn <space>gi <cmd>exec "Git rebase -i HEAD~" . (v:count ? v:count : 2)<cr>
+nn <space>ga <cmd>T git add -p<cr>i
+nn <space>gc <cmd>T git commit<cr>
+nn <space>gi <cmd>exec "T git rebase -i HEAD~" . (v:count ? v:count : 2)<cr>i
 nn <space>gl <cmd>Telescope git_commits<cr>
-nn <space>gn <cmd>Git commit --amend --no-edit<cr>
+nn <space>gn <cmd>!git commit --amend --no-edit<cr>
 nn <space>go <cmd>Telescope git_branches<cr>
-nn <space>gp <cmd>Git push<cr>
 nn <space>j <cmd>move +1<cr>
 nn <space>k <cmd>move -2<cr>
 nn <space>m <cmd>Telescope man_pages<cr>
