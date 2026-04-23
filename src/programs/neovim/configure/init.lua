@@ -159,13 +159,9 @@ api.nvim_create_autocmd("FileType", {
 })
 
 api.nvim_create_autocmd("TermClose", {
-  callback = function()
-    if not b.no_auto_quit then
-      vim.defer_fn(function()
-        if api.nvim_get_current_line() == "[Process exited 0]" then
-          api.nvim_buf_delete(0, { force = true })
-        end
-      end, 50)
+  callback = function(ctx)
+    if vim.v.event.status == 0 and not b.no_auto_quit then
+      api.nvim_buf_delete(ctx.buf, { force = true })
     end
   end,
 })
