@@ -14,10 +14,7 @@ builtins.attrValues root.pkgs
   cargo-nextest
   clang
   cliphist
-  coq
-  dafny
   delta
-  dune_3
   erdtree
   fd
   firefox
@@ -27,8 +24,6 @@ builtins.attrValues root.pkgs
   ghostty
   git-absorb
   gnumake
-  gradescope-submit
-  haskell-language-server
   heroic
   hurl
   hyprlock
@@ -42,7 +37,6 @@ builtins.attrValues root.pkgs
   mold
   mpc
   namaka
-  nasm
   nautilus
   nix-fast-build
   nix-index
@@ -51,11 +45,7 @@ builtins.attrValues root.pkgs
   nix-output-monitor
   nix-update
   nixfmt
-  nixpkgs-hammering
   nurl
-  ocaml
-  ocamlPackages.utop
-  ocamlformat
   ouch
   overskride
   psmisc
@@ -63,15 +53,12 @@ builtins.attrValues root.pkgs
   python3
   qalculate-gtk
   qogir-icon-theme
-  racket
   ripgrep
   rofi
   ruff
-  sagoin
   sccache
   sd
   sshfs
-  stack
   statix
   stylua
   swayidle

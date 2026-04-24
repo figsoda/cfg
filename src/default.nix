@@ -20,13 +20,7 @@
     sudo.wheelNeedsPassword = false;
   };
 
-  system = {
-    autoUpgrade = {
-      enable = true;
-      dates = "04:00";
-    };
-    stateVersion = "22.05";
-  };
+  system.stateVersion = "22.05";
 
   time.timeZone = "America/New_York";
 }

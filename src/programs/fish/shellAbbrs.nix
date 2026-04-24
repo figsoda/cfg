@@ -81,7 +81,6 @@
   nfs = "nix flake show";
   nfu = "nix flake update";
   nfuc = "nix flake update --commit-lock-file";
-  nh = "nixpkgs-hammer";
   ni = "nix-init";
   nl = " nix-locate";
   nmc = "namaka check";
@@ -102,7 +101,6 @@
   nucb = "nix-update --commit --build";
   p = " p";
   r = " r";
-  vpu = " nix run -f . vimPluginsUpdater -- -t (ghtok | psub)";
   w = " w";
   z = "zig";
   zb = "zig build";

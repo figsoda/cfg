@@ -2,13 +2,11 @@
 
 {
   all.start = with pkgs.vimPlugins; [
-    Coqtail
     bufferline-nvim
     cmp-buffer
     cmp-cmdline
     cmp-dap
     cmp-nvim-lsp
-    cmp-nvim-lsp-document-symbol
     cmp-path
     cmp_luasnip
     comment-nvim
@@ -23,7 +21,6 @@
     nix-develop-nvim
     noice-nvim
     none-ls-nvim
-    numb-nvim
     nvim-cmp
     nvim-colorizer-lua
     nvim-dap
@@ -33,15 +30,12 @@
     nvim-treesitter.withAllGrammars
     nvim-web-devicons
     nvim_context_vt
-    refactoring-nvim
     rustaceanvim
     snacks-nvim
     telescope-fzf-native-nvim
     telescope-nvim
     trouble-nvim
     typst-preview-nvim
-    vim-lastplace
-    vim-loves-dafny
     vim-visual-multi
   ];
 }

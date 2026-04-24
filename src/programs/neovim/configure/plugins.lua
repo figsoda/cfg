@@ -256,10 +256,6 @@ lsp.config.cssls = {
   },
 }
 
-lsp.config.dafny = {
-  cmd = { "@dafny@/bin/dafny", "server" },
-}
-
 lsp.config.emmet_ls = {
   cmd = { "@emmet_language_server@/bin/emmet-language-server", "--stdio" },
 }
@@ -407,10 +403,6 @@ lsp.config.nil_ls = {
   },
 }
 
-lsp.config.ocamllsp = {
-  cmd = { "@ocaml_lsp@/bin/ocamllsp" },
-}
-
 lsp.config.ruff = {
   cmd = { "@ruff@/bin/ruff", "server" },
   on_attach = function(c, buf)
@@ -470,16 +462,12 @@ lsp.enable({
   "bashls",
   "clangd",
   "cssls",
-  "dafny",
   "emmet_ls",
   "eslint",
-  "hls",
   "html",
   "jsonls",
   "lua_ls",
   "nil_ls",
-  "ocamllsp",
-  "racket_langserver",
   "ruff",
   "taplo",
   "tinymist",
@@ -558,7 +546,6 @@ neo_tree.setup({
 null_ls.setup({
   on_attach = on_attach,
   sources = {
-    nb.code_actions.refactoring,
     nb.code_actions.statix.with({ command = "@statix@/bin/statix" }),
     nb.diagnostics.statix.with({ command = "@statix@/bin/statix" }),
     nb.formatting.prettier.with({
@@ -568,8 +555,6 @@ null_ls.setup({
     nb.formatting.stylua.with({ command = "@stylua@/bin/stylua" }),
   },
 })
-
-require("numb").setup()
 
 require("nvim-treesitter-textobjects").setup({
   select = {

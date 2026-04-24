@@ -338,9 +338,6 @@ let
     "@variable".fg = white;
     "@variable.builtin".fg = orange;
 
-    # vim-loves-dafny
-    dafnyLogic.fg = blue;
-
     # custom
     StatusLineGitAdded = {
       fg = green;

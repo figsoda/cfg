@@ -44,7 +44,6 @@ in
     substitutePackages ./init.lua {
       inherit nix;
       inherit (inputs) nixpkgs;
-      inherit (pkgs) cargo-edit dafny stack;
       inherit (root.pkgs) rust;
     }
   }
@@ -66,7 +65,6 @@ in
       inherit (pkgs)
         bash-language-server
         clang-tools
-        dafny
         emmet-language-server
         lua-language-server
         nil
@@ -86,7 +84,6 @@ in
         yaml-language-server
         zls
         ;
-      inherit (pkgs.ocamlPackages) ocaml-lsp;
 
       lua-paths =
         let

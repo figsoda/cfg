@@ -42,7 +42,6 @@ end
 local function map_cargo(ctx)
   mapt(ctx.buf, " B", "@rust@/bin/cargo run", true)
   map("n", " D", ":!@rust@/bin/cargo doc --open<cr>", { buffer = ctx.buf })
-  mapt(ctx.buf, " U", "@cargo_edit@/bin/cargo-upgrade upgrade")
   map("n", " a", function()
     vim.ui.input({ prompt = "Add dependencies: " }, function(flags)
       if flags then
@@ -53,19 +52,15 @@ local function map_cargo(ctx)
   end, { buffer = ctx.buf })
   mapt(ctx.buf, " b", "@rust@/bin/cargo build")
   mapt(ctx.buf, " c", "@rust@/bin/cargo test")
-  mapt(ctx.buf, " u", "@rust@/bin/cargo update")
 end
 
 local function map_nix(ctx)
   mapt(ctx.buf, " B", "@nix@/bin/nix run", true)
-  mapt(ctx.buf, " U", "@nix@/bin/nix flake update --commit-lock-file")
   mapt(ctx.buf, " b", "@nix@/bin/nix build")
   mapt(ctx.buf, " c", "@nix@/bin/nix flake check")
   mapt(ctx.buf, " i", "@nix@/bin/nix repl -f @nixpkgs@")
-  mapt(ctx.buf, " u", "@nix@/bin/nix flake update")
 end
 
-g.coqtail_noimap = true
 g.loaded_netrw = true
 g.loaded_netrwFileHandlers = true
 g.loaded_netrwPlugin = true
@@ -121,25 +116,6 @@ api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "flake.lock",
   callback = map_nix,
-})
-
-api.nvim_create_autocmd("FileType", {
-  pattern = "dafny",
-  callback = function(ctx)
-    mapt(ctx.buf, " B", "@dafny@/bin/dafny run " .. ctx.file, true)
-    mapt(ctx.buf, " b", "@dafny@/bin/dafny build " .. ctx.file)
-    mapt(ctx.buf, " c", "@dafny@/bin/dafny test " .. ctx.file)
-  end,
-})
-
-api.nvim_create_autocmd("FileType", {
-  pattern = "haskell",
-  callback = function(ctx)
-    mapt(ctx.buf, " B", "@stack@/bin/stack run", true)
-    mapt(ctx.buf, " b", "@stack@/bin/stack build")
-    mapt(ctx.buf, " c", "@stack@/bin/stack test")
-    mapt(ctx.buf, " i", "@stack@/bin/stack ghci")
-  end,
 })
 
 api.nvim_create_autocmd("FileType", {
