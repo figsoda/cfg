@@ -283,6 +283,11 @@ lsp.config.jsonls = {
     "@vscode_langservers_extracted@/bin/vscode-json-language-server",
     "--stdio",
   },
+  on_attach = function(c, buf)
+    on_attach(c, buf)
+    c.server_capabilities.documentFormattingProvider = false
+    c.server_capabilities.documentRangeFormattingProvider = false
+  end,
 }
 
 lsp.config.lua_ls = {
