@@ -53,6 +53,8 @@
   j = "jj";
   ja = "jj abandon";
   jb = "jj bookmark";
+  jbl = "jj bookmark list";
+  jbs = "jj bookmark set";
   jbt = "jj bookmark track";
   jc = "jj commit";
   jcl = " jj git clone";
@@ -60,6 +62,7 @@
   je = "jj edit";
   jf = "jj git fetch";
   jfu = "jj git fetch --remote upstream";
+  jgr = "jj git remote";
   ji = "jj git init";
   jl = "jj log";
   jn = "jj new";
