@@ -58,6 +58,27 @@
         "type": "github"
       }
     },
+    "microvm": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "spectrum": []
+      },
+      "locked": {
+        "lastModified": 1776340739,
+        "narHash": "sha256-s4FDictJlPtY6Shd6scG5hgrDMiHth09+svtvTA5NLA=",
+        "owner": "microvm-nix",
+        "repo": "microvm.nix",
+        "rev": "2f2f62fdfdca2750e3399f66bd03986ab967e5ca",
+        "type": "github"
+      },
+      "original": {
+        "owner": "microvm-nix",
+        "repo": "microvm.nix",
+        "type": "github"
+      }
+    },
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
@@ -114,6 +135,7 @@
         "fenix": "fenix",
         "flake-registry": "flake-registry",
         "haumea": "haumea",
+        "microvm": "microvm",
         "nix-index-database": "nix-index-database",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs"

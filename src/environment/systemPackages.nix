@@ -14,6 +14,7 @@ builtins.attrValues root.pkgs
   cargo-nextest
   clang
   cliphist
+  codex
   delta
   erdtree
   fd
