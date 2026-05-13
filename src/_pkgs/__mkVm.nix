@@ -28,8 +28,10 @@ let
         clang
         fd
         gcc
+        git
         gnumake
         jq
+        jujutsu
         just
         psmisc
         python3
@@ -49,7 +51,7 @@ let
           mac = "00:00:00:00:00:00";
         }
       ];
-      mem = 2047;
+      mem = 4096;
       shares = [
         {
           mountPoint = "/project";
@@ -59,6 +61,34 @@ let
         }
       ];
       vcpu = 4;
+      volumes = [
+        {
+          image = "root.img";
+          mountPoint = "/";
+          size = 16384;
+        }
+      ];
+      writableStoreOverlay = "/nix/.rw-store";
+    };
+
+    networking.hostName = name;
+
+    nix = {
+      channel.enable = false;
+      settings = {
+        experimental-features = [
+          "flakes"
+          "nix-command"
+        ];
+        substituters = [
+          "https://fenix.cachix.org"
+          "https://nix-community.cachix.org"
+        ];
+        trusted-public-keys = [
+          "fenix.cachix.org-1:ecJhr+RdYEdcVgUkjruiYhjbBloIEGov7bos90cZi0Q="
+          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        ];
+      };
     };
 
     security.sudo.extraRules = [
@@ -79,7 +109,7 @@ let
 
     systemd.services.chown = {
       script = ''
-        find /project '(' -name .git -o -name .jj ')' -prune -o -execdir chown figsoda:users {} ';'
+        find /project ! -path /project/root.img -exec chown figsoda:users {} ';' || true
       '';
       serviceConfig.Type = "oneshot";
       wantedBy = [ "multi-user.target" ];
