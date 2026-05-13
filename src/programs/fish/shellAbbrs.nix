@@ -74,6 +74,7 @@
   jsi = "jj squash -i";
   jst = "jj status";
   ju = "jj undo";
+  jw = "jj workspace";
   n = "nix";
   nb = "nix build";
   nbf = "nix build -f .";
