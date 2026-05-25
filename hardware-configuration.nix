@@ -1,4 +1,7 @@
 # dummy hardware-configuration.nix to fix eval
 {
-  fileSystems."/".label = "_";
+  fileSystems."/" = {
+    fsType = "ext4";
+    label = "nixos";
+  };
 }
