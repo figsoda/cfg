@@ -71,6 +71,7 @@
   jpc = "jj git push -c @-";
   jr = "jj rebase";
   jro = "jj rebase -o";
+  jrt = "jj rebase -o 'trunk()'";
   js = "jj squash";
   jsi = "jj squash -i";
   jst = "jj status";
