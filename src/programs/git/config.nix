@@ -1,13 +1,21 @@
 { pkgs }:
 
 let
-  inherit (pkgs) delta libsecret writers;
+  inherit (pkgs)
+    delta
+    libsecret
+    writeText
+    writers
+    ;
 in
 
 {
   core = {
     fsmonitor = true;
     pager = "${delta}/bin/delta";
+    excludesFile = writeText ".gitignore" ''
+      /root.img
+    '';
   };
   credential."https://github.com" = {
     username = "figsoda";

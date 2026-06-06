@@ -13,6 +13,7 @@ let
     ;
   inherit (pkgs)
     stdenv
+    writeText
     writers
     ;
 
@@ -28,7 +29,6 @@ let
         clang
         fd
         gcc
-        git
         gnumake
         jq
         jujutsu
@@ -40,6 +40,12 @@ let
         unnix
         zig
       ];
+      variables.JJ_CONFIG = writers.writeTOML "jj.toml" {
+        user = {
+          name = "figsoda";
+          email = "figsoda@pm.me";
+        };
+      };
     };
 
     microvm = {
@@ -51,7 +57,7 @@ let
           mac = "00:00:00:00:00:00";
         }
       ];
-      mem = 4096;
+      mem = 8192;
       shares = [
         {
           mountPoint = "/project";
@@ -60,7 +66,7 @@ let
           securityModel = "mapped";
         }
       ];
-      vcpu = 4;
+      vcpu = 8;
       volumes = [
         {
           image = "root.img";
@@ -89,6 +95,13 @@ let
           "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         ];
       };
+    };
+
+    programs.git = {
+      enable = true;
+      config.core.excludesFile = writeText ".gitignore" ''
+        /root.img
+      '';
     };
 
     security.sudo.extraRules = [
