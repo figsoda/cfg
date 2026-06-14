@@ -10,9 +10,9 @@ let
     ;
   inherit (pkgs)
     delta
-    formats
     replaceVars
     writeText
+    writers
     ;
 in
 
@@ -27,7 +27,7 @@ in
     --sort name
   '';
   GROFF_NO_SGR = 1;
-  IRONBAR_CONFIG = (formats.toml { }).generate "ironbar.toml" {
+  IRONBAR_CONFIG = writers.writeTOML "ironbar.toml" {
     height = 0;
     popup_autohide = true;
     popup_gap = 0;
@@ -86,7 +86,7 @@ in
       };
     }
   ];
-  JJ_CONFIG = (formats.toml { }).generate "jj.toml" {
+  JJ_CONFIG = writers.writeTOML "jj.toml" {
     ui = {
       pager = getExe delta;
       diff-formatter = ":git";

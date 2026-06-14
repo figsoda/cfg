@@ -15,13 +15,11 @@ let
     ;
   inherit (pkgs)
     concatText
-    formats
     libsecret
     replaceVars
     swaynotificationcenter
+    writers
     ;
-
-  toml = (formats.toml { }).generate;
 
   gtkSettings = generators.toINI { } {
     Settings = {
@@ -105,7 +103,7 @@ in
       ;
   };
 
-  "xdg/nix-init/config.toml".source = toml "nix-init.toml" {
+  "xdg/nix-init/config.toml".source = writers.writeTOML "nix-init.toml" {
     access-tokens = {
       "github.com".command = [
         "${libsecret}/bin/secret-tool"
@@ -152,7 +150,7 @@ in
     })
   ];
 
-  "xdg/swayosd/config.toml".source = toml "swayosd.toml" {
+  "xdg/swayosd/config.toml".source = writers.writeTOML "swayosd.toml" {
     server = {
       min_brightness = 1;
       show_percentage = true;
