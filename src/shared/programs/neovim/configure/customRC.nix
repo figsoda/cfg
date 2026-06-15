@@ -10,6 +10,10 @@
 let
   inherit (lib) mapAttrs' nameValuePair;
 
+  inherit (pkgs.stdenv.hostPlatform)
+    system
+    ;
+
   nix = config.nix.package;
 
   substitutePackages =
@@ -93,7 +97,7 @@ in
           [ "${package}/share/nvim/runtime" ] ++ configure.packages.all.start
         );
 
-      rust-analyzer = pkgs.rust-analyzer-nightly;
+      rust-analyzer = inputs.fenix.packages.${system}.rust-analyzer;
 
       vscode-lldb = codeExt "vadimcn" "vscode-lldb";
     }

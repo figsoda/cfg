@@ -91,14 +91,6 @@
   nmc = "namaka check";
   nmr = "namaka review";
   nr = "nix run";
-  nra = "nixpkgs-review approve";
-  nram = "nixpkgs-review approve && nixpkgs-review merge";
-  nrh = "nixpkgs-review rev HEAD";
-  nrm = "nixpkgs-review merge";
-  nrp = " nixpkgs-review pr --sandbox";
-  nrpam = "nixpkgs-review post-result && nixpkgs-review approve && nixpkgs-review merge";
-  nrpr = "nixpkgs-review post-result";
-  nrw = "nixpkgs-rev wip";
   nsip = "nix-shell -I nixpkgs=. --run fish -p";
   nsp = "nix-shell --run fish -p";
   nu = "nix-update";

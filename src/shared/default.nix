@@ -7,17 +7,14 @@
 
   gtk.iconCache.enable = true;
 
-  hardware = {
-    bluetooth.enable = true;
-    nvidia.prime = {
-      amdgpuBusId = "PCI:194:0:0";
-      nvidiaBusId = "PCI:193:0:0";
-    };
-  };
+  hardware.bluetooth.enable = true;
+
+  i18n.supportedLocales = [ "en_US.UTF-8/UTF-8" ];
+
+  nixpkgs.config.allowUnfree = true;
 
   security = {
     soteria.enable = true;
-    sudo.wheelNeedsPassword = false;
   };
 
   system.stateVersion = "22.05";

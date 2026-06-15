@@ -1,8 +1,8 @@
 {
+  config,
   inputs,
   lib,
   pkgs,
-  root,
 }:
 
 name: module:
@@ -10,6 +10,9 @@ name: module:
 let
   inherit (lib)
     getExe
+    ;
+  inherit (config.passthru)
+    rust
     ;
   inherit (pkgs)
     stdenv
@@ -36,7 +39,7 @@ let
         psmisc
         python3
         ripgrep
-        root.pkgs.rust
+        rust
         unnix
         zig
       ];

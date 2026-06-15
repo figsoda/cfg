@@ -1,0 +1,3 @@
+{
+  nm-applet.enable = true;
+}

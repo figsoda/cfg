@@ -3,9 +3,6 @@
 let
   inherit (pkgs)
     delta
-    libsecret
-    writeText
-    writers
     ;
 in
 
@@ -13,18 +10,6 @@ in
   core = {
     fsmonitor = true;
     pager = "${delta}/bin/delta";
-    excludesFile = writeText ".gitignore" ''
-      /root.img
-    '';
-  };
-  credential."https://github.com" = {
-    username = "figsoda";
-    helper = writers.writeBash "credential-helper-github" ''
-      if [ "$1" = get ]; then
-        echo -n password=
-        ${libsecret}/bin/secret-tool lookup github git
-      fi
-    '';
   };
   delta = {
     hunk-header-decoration-style = "blue";

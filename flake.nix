@@ -29,6 +29,7 @@
 
   outputs =
     inputs@{
+      self,
       haumea,
       nixos-hardware,
       nixpkgs,
@@ -43,10 +44,11 @@
         "x86_64-linux"
       ];
 
-      module =
+      importModule =
+        src:
         { pkgs, ... }@args:
         haumea.lib.load {
-          src = ./src;
+          inherit src;
           inputs = args // {
             inherit inputs;
           };
@@ -59,17 +61,23 @@
       nixosConfigurations.nixos = nixosSystem {
         system = "x86_64-linux";
         modules = [
-          module
+          self.nixosModules.personal
+          self.nixosModules.shared
           nixos-hardware.nixosModules.framework-16-amd-ai-300-series-nvidia
           ./hardware-configuration.nix
         ];
+      };
+
+      nixosModules = {
+        personal = importModule ./src/personal;
+        shared = importModule ./src/shared;
       };
 
       packages = eachSystem (system: {
         neovim =
           (nixosSystem {
             inherit system;
-            modules = [ module ];
+            modules = [ self.nixosModules.shared ];
           }).config.programs.neovim.finalPackage;
       });
     };
