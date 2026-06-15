@@ -52,11 +52,13 @@
   gt = " git tag";
   j = "jj";
   ja = "jj abandon";
+  jar = "jj arrange";
   jb = "jj bookmark";
   jbl = "jj bookmark list";
   jbs = "jj bookmark set";
   jbt = "jj bookmark track";
   jc = "jj commit";
+  jci = "jj commit -i";
   jcl = " jj git clone";
   jd = "jj describe";
   je = "jj edit";
