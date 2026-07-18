@@ -22,6 +22,12 @@ let
 
   baseModule = {
     environment = {
+      etc."jj/config.toml".source = writers.writeTOML "jj.toml" {
+        user = {
+          name = "figsoda";
+          email = "figsoda@pm.me";
+        };
+      };
       interactiveShellInit = /* bash */ ''
         cd /project
       '';
@@ -43,12 +49,6 @@ let
         unnix
         zig
       ];
-      variables.JJ_CONFIG = writers.writeTOML "jj.toml" {
-        user = {
-          name = "figsoda";
-          email = "figsoda@pm.me";
-        };
-      };
     };
 
     microvm = {

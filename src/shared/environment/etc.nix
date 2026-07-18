@@ -11,10 +11,12 @@ let
   inherit (lib)
     concatStrings
     generators
+    getExe
     imap0
     ;
   inherit (pkgs)
     concatText
+    delta
     libsecret
     replaceVars
     swaynotificationcenter
@@ -38,6 +40,17 @@ let
 in
 
 {
+  "jj/config.toml".source = writers.writeTOML "jj.toml" {
+    ui = {
+      pager = getExe delta;
+      diff-formatter = ":git";
+    };
+    user = {
+      name = "figsoda";
+      email = "figsoda@pm.me";
+    };
+  };
+
   "niri/config.kdl".source = replaceVars ./niri.kdl {
     inherit (root.colors)
       black

@@ -5,11 +5,7 @@
 }:
 
 let
-  inherit (lib)
-    getExe
-    ;
   inherit (pkgs)
-    delta
     replaceVars
     writeText
     writers
@@ -86,16 +82,6 @@ in
       };
     }
   ];
-  JJ_CONFIG = writers.writeTOML "jj.toml" {
-    ui = {
-      pager = getExe delta;
-      diff-formatter = ":git";
-    };
-    user = {
-      name = "figsoda";
-      email = "figsoda@pm.me";
-    };
-  };
   LESSHISTFILE = "-";
   PATH = "$HOME/.cargo/bin";
   RIPGREP_CONFIG_PATH = writeText "rg-config" ''
