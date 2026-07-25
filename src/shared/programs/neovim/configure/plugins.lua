@@ -424,6 +424,10 @@ lsp.config.taplo = {
   cmd = { "@taplo@/bin/taplo", "lsp", "stdio" },
 }
 
+lsp.config.terraformls = {
+  cmd = { "@terraform_ls@/bin/terraform-ls", "serve" },
+}
+
 lsp.config.tinymist = {
   cmd = { "@tinymist@/bin/tinymist" },
   settings = {
@@ -479,6 +483,7 @@ lsp.enable({
   "nil_ls",
   "ruff",
   "taplo",
+  "terraformls",
   "tinymist",
   "ts_ls",
   "ty",

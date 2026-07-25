@@ -79,6 +79,7 @@ in
         statix
         stylua
         taplo
+        terraform-ls
         tinymist
         ty
         typescript-language-server
