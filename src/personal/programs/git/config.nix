@@ -10,7 +10,7 @@ in
 
 {
   core.excludesFile = writeText ".gitignore" ''
-    /root.img
+    /.microvm
   '';
   credential."https://github.com" = {
     username = "figsoda";

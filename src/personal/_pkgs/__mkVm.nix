@@ -64,15 +64,17 @@ let
       shares = [
         {
           mountPoint = "/project";
+          proto = "virtiofs";
+          socket = ".microvm/virtiofs.sock";
           source = ".";
           tag = "project";
-          securityModel = "mapped";
         }
       ];
+      socket = ".microvm/vm.sock";
       vcpu = 8;
       volumes = [
         {
-          image = "root.img";
+          image = ".microvm/root.img";
           mountPoint = "/";
           size = 16384;
         }
@@ -81,6 +83,12 @@ let
     };
 
     networking.hostName = name;
+
+    fileSystems."/project/.microvm" = {
+      device = "none";
+      fsType = "tmpfs";
+      options = [ "mode=0000" ];
+    };
 
     nix = {
       channel.enable = false;
@@ -103,7 +111,7 @@ let
     programs.git = {
       enable = true;
       config.core.excludesFile = writeText ".gitignore" ''
-        /root.img
+        /.microvm
       '';
     };
 
@@ -123,14 +131,6 @@ let
 
     system.stateVersion = "26.05";
 
-    systemd.services.chown = {
-      script = ''
-        find /project ! -path /project/root.img -exec chown figsoda:users {} ';' || true
-      '';
-      serviceConfig.Type = "oneshot";
-      wantedBy = [ "multi-user.target" ];
-    };
-
     users.users.figsoda.isNormalUser = true;
   };
 
@@ -145,5 +145,14 @@ let
 in
 
 writers.writeDashBin name ''
-  exec ${getExe os.config.microvm.declaredRunner}
+  mkdir -p .microvm
+  ${getExe os.config.microvm.virtiofsd.package} \
+    --shared-dir=. \
+    --socket-path=.microvm/virtiofs.sock &
+
+  while [ ! -S .microvm/virtiofs.sock ]; do
+    sleep 0.25
+  done
+
+  ${getExe os.config.microvm.declaredRunner}
 ''
