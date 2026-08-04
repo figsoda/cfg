@@ -54,6 +54,7 @@
   ja = "jj abandon";
   jar = "jj arrange";
   jb = "jj bookmark";
+  jba = "jj bookmark advance";
   jbl = "jj bookmark list";
   jbs = "jj bookmark set";
   jbt = "jj bookmark track";

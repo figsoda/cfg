@@ -41,6 +41,7 @@ in
 
 {
   "jj/config.toml".source = writers.writeTOML "jj.toml" {
+    revsets.bookmark-advance-to = "@-";
     ui = {
       pager = getExe delta;
       diff-formatter = ":git";
