@@ -70,6 +70,8 @@ ino <m-up> <cmd>move -2<cr>
 
 tno <esc> <c-\><c-n>
 
+autocmd BufRead,BufNewFile *.nb2 setfiletype javascript
+
 autocmd BufRead,BufNewFile *.rasi setfiletype css
 
 autocmd BufRead,BufNewFile flake.lock setfiletype json
