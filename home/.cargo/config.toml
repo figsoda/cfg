@@ -5,6 +5,12 @@ rustc-wrapper = "sccache"
 [profile.dev]
 split-debuginfo = "unpacked"
 
+[registry]
+global-min-publish-age = "7 days"
+
 [target.x86_64-unknown-linux-gnu]
 linker = "clang"
 rustflags = ["-Clink-arg=-fuse-ld=mold"]
+
+[unstable]
+min-publish-age = true
