@@ -31,7 +31,7 @@ builtins.attrValues root.pkgs
   ironbar
   jq
   jujutsu
-  libreoffice-fresh
+  libreoffice
   libsecret
   mmtc
   mold
