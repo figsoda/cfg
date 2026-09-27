@@ -76,7 +76,7 @@ let
         {
           image = ".microvm/root.img";
           mountPoint = "/";
-          size = 16384;
+          size = 32768;
         }
       ];
       writableStoreOverlay = "/nix/.rw-store";
