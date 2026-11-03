@@ -13,7 +13,7 @@ luasnip.add_snippets("nix", {
       '      url = "github:hercules-ci/flake-parts";',
       '      inputs.nixpkgs-lib.follows = "nixpkgs";',
       "    };",
-      '    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";',
+      '    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";',
       "  };",
       "",
       "  outputs =",
