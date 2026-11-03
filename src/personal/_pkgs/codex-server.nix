@@ -21,7 +21,6 @@ in
 super.mkVm "codex-server" {
   environment.etc."codex/config.toml".source = writers.writeTOML "codex.toml" {
     approvals_reviewer = "auto_review";
-    sandbox_mode = "danger-full-access";
   };
 
   microvm.forwardPorts = [
