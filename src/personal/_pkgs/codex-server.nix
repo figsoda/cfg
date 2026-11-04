@@ -10,33 +10,36 @@ let
     ;
   inherit (pkgs)
     codex
-    socat
-    writers
     ;
 in
 
 super.mkVm "codex-server" {
-  environment.etc."codex/config.toml".source = writers.writeTOML "codex.toml" {
-    approvals_reviewer = "auto_review";
+  microvm = {
+    forwardPorts = [
+      {
+        from = "host";
+        guest.port = 8000;
+        host = {
+          address = "127.0.0.1";
+          port = 0;
+        };
+      }
+    ];
+    qemu.extraArgs = [
+      "-pidfile"
+      ".microvm/qemu.pid"
+    ];
   };
-
-  microvm.qemu.extraArgs = [
-    "-set"
-    "netdev.qemu.hostfwd=unix:/proc/self/cwd/.microvm/codex.sock-:8000"
-  ];
 
   networking.firewall.allowedTCPPorts = [ 8000 ];
 
   systemd.services.codex-server = {
     script = ''
-      ${getExe codex} app-server --listen unix:///run/codex/server.sock &
-      ${getExe socat} TCP-LISTEN:8000,fork,reuseaddr UNIX-CONNECT:/run/codex/server.sock &
-      wait -n
+      ${getExe codex} exec-server --listen ws://0.0.0.0:8000
     '';
     serviceConfig = {
       Group = "users";
       Restart = "always";
-      RuntimeDirectory = "codex";
       User = "figsoda";
       WorkingDirectory = "/project";
     };
